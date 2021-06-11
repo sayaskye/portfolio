@@ -1,12 +1,13 @@
 /* import 'tailwindcss/tailwind.css' */
 import '../styles/globals.css'
+import { ConfigProvider } from '../context/configContext'
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="dark">
-      <Component {...pageProps} />
-    </div>
+    <ConfigProvider>
+        <Component {...pageProps} />
+    </ConfigProvider>
   )
 }
 

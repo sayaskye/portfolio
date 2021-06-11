@@ -1,9 +1,9 @@
-import Head from 'next/head'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="">
       <h1> Hola mundo </h1>
     </div>
   )
 }
+export default Home;
