@@ -1,14 +1,14 @@
-import { useContext} from 'react'
+import { useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { configContext } from '../context/configContext'
+import Config from '../components/layout'
 
 function Home() {
-  const {setLanguage, setDarkmode, theme} = useContext(configContext)
+  const {setLanguage, setDarkmode} = useContext(configContext)
 
   return (
     
-    <div className={theme}>
-
+    <Config>
       <h1> 
         <FormattedMessage id="app.test" defaultMessage="Hola"/>
       </h1>
@@ -19,14 +19,13 @@ function Home() {
       <div>
         <button onClick={() => setLanguage('es-MX')}>Español</button>
         <button onClick={() => setLanguage('en-US')}>Ingles</button>
-			</div>
+      </div>
 
       <div>
         <button onClick={() => setDarkmode('dark')}>Oscuro</button>
         <button onClick={() => setDarkmode('')}>Luz</button>
-			</div>
-
-    </div>
+      </div>
+    </Config>
   )
 }
 export default Home;

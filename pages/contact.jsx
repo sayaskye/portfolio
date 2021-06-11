@@ -1,11 +1,13 @@
 import { FormattedMessage } from 'react-intl'
 import Config from '../components/layout'
 
-const Home = () => {
+const Contact = () => {
   return (
     <Config>
-
+      <div className="">
+        <h1> Hola mundo </h1>
+      </div>
     </Config>
   )
 }
-export default Home;
+export default Contact;

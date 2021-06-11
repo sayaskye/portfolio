@@ -7,9 +7,14 @@ module.exports = {
       fontFamily: {
         'Quicksand': ['Quicksand', 'sans-serif'],
       },
-      animation: {
-        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      colors:{
+        navbar: {
+          fondo: '#040B14',
+        }
       },
+      width: {
+        'navbar': '334px',
+       }
     },
   },
   variants: {
