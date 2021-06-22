@@ -10,6 +10,10 @@ module.exports = {
       colors:{
         navbar: {
           fondo: '#040B14',
+        },
+        main:{
+          blue: '#3AB5EF',
+          grey: '#C4C4C4'
         }
       },
       width: {

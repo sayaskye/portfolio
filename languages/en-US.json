@@ -1,4 +1,14 @@
 {
-    "app.test": "Welcome Saya",
-    "nav.language":"Cambiar a Español"
+    "app.test": "Bienvenida Saya",
+
+
+    "nav.language":"Cambiar a Español",
+    "nav.home":"Home",
+    "nav.about":"About",
+    "nav.projects":"Projects",
+    "nav.contact":"Contact",
+
+    
+    "test":"",
+    "test2":""
 }

@@ -1,13 +1,13 @@
 import { FormattedMessage } from 'react-intl'
-import Config from '../components/layout'
+import Layout from '../components/layout'
 
 const About = () => {
   return (
-    <Config>
+    <Layout>
       <div className="">
         <h1> Hola mundo about</h1>
       </div>
-    </Config>
+    </Layout>
   )
 }
 export default About;
