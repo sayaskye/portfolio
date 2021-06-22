@@ -17,7 +17,7 @@ module.exports = {
         }
       },
       width: {
-        'navbar': '334px',
+        'navbar': '368px',
        }
     },
   },

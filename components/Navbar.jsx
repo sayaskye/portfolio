@@ -26,7 +26,7 @@ const Navbar = () => {
                     <Image src="/../public/images/ProfilePictureMenu.png" alt="Imagen de Andres Cazares" width="200%" height="200%"/>
                 </div>
             </div>
-            <div className="text-white flex justify-around w-64 ">
+            <div className="text-white flex justify-around w-60 ">
                 <a href="#" target="_blank" className="hover:scale-150 duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#3AB5EF" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -50,9 +50,9 @@ const Navbar = () => {
                 </svg>
                 </a>
             </div>
-            <div className="text-main-blue text-2xl flex flex-col items-center w-64 mb-16">
+            <div className="text-main-blue text-2xl flex flex-col items-center w-60 mb-16">
                 <Link href="/">
-                    <a className="w-full h-14 rounded-full flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
+                    <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
                         <FormattedMessage
                             id="nav.home"
                             defaultMessage="Home"
@@ -60,7 +60,7 @@ const Navbar = () => {
                     </a>
                 </Link>
                 <Link href="/about">
-                    <a className="w-full h-14 rounded-full flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
+                    <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
                         <FormattedMessage
                             id="nav.about"
                             defaultMessage="About"
@@ -68,7 +68,7 @@ const Navbar = () => {
                     </a>
                 </Link>
                 <Link href="/portfolio">
-                    <a className="w-full h-14 rounded-full flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
+                    <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
                         <FormattedMessage
                             id="nav.projects"
                             defaultMessage="Projects"
@@ -76,7 +76,7 @@ const Navbar = () => {
                     </a>
                 </Link>
                 <Link href="/contact">
-                    <a className="w-full h-14 rounded-full flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
+                    <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-main-grey/10 hover:bg-main-blue/20 hover:text-white duration-200 ease-in mb-2">
                         <FormattedMessage
                             id="nav.contact"
                             defaultMessage="Contact"
@@ -84,7 +84,7 @@ const Navbar = () => {
                     </a>
                 </Link>
             </div>
-            <div className="flex flex-col pb-20 w-64">
+            <div className="flex flex-col pb-20 w-60">
                 <div className="pb-2 mx-2">
                     <Switch
                     checked={darkEnabled}
