@@ -6,41 +6,21 @@ import { IntlProvider } from 'react-intl';
 const configContext = createContext();
 
 const ConfigProvider = ({children}) => {
-	const [messages, setMessages] = useState(SpanishMessages);
-	const [locale, setLocale] = useState('es-MX');
-	const [theme, setTheme] = useState('dark');
+	const [messages, setMessages] = useState(EnglishMessages);
+	const [locale, setLocale] = useState('en-US');
+	const [theme, setTheme] = useState('');
 
-	const setLanguage = (language) => {
-		switch (language){
-			case 'es-MX':
-				setMessages(SpanishMessages);
-				setLocale('es-MX');
-				break;
-			case 'en-US':
-				setMessages(EnglishMessages);
-				setLocale('en-US');
-				break;
-			default:
-				setMessages(SpanishMessages);
-				setLocale('es-MX');
-		}
+	const setLanguage = () => {
+		locale=="en-US" ? setLocale("es-MX") : setLocale("en-US")
+		messages===EnglishMessages ? setMessages(SpanishMessages) : setMessages(EnglishMessages)
 	}
 
-	const setDarkmode = (mode) => {
-		switch (mode){
-			case 'dark':
-				setTheme('dark');
-				break;
-			case '':
-				setTheme('');
-				break;
-			default:
-				setTheme('dark');
-		}
+	const setDarkmode = () => {
+		theme=="dark" ? setTheme("") : setTheme("dark")
 	}
 
 	return (
-		<configContext.Provider value={{setLanguage:setLanguage, setDarkmode, theme}}>
+		<configContext.Provider value={{setLanguage, setDarkmode, theme}}>
 			<IntlProvider locale={locale} messages={messages}>
 				{children}
 			</IntlProvider>
