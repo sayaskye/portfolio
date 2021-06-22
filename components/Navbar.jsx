@@ -85,7 +85,6 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex flex-col pb-20 w-64">
-
                 <div className="pb-2 mx-2">
                     <Switch
                     checked={darkEnabled}
@@ -108,7 +107,6 @@ const Navbar = () => {
                     </span>
                     </Switch>
                 </div>
-
                 <div className="flex">
                     <button className="bg-white rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2" onClick={() => setLanguage('es')}>
                         Español
@@ -117,13 +115,6 @@ const Navbar = () => {
                         English
                     </button>
                 </div>
-               {/*  <button className="bg-white rounded-full py-2 px-3 text-lg font-bold" onClick={setLangEnabled}>
-                    <FormattedMessage
-                        id="nav.language"
-                        defaultMessage="Language"
-                    />
-                </button>  */}
-
             </div>
         </div>
     </div>
