@@ -16,6 +16,10 @@ module.exports = {
           grey: '#C4C4C4'
         }
       },
+      backgroundImage: theme => ({
+        'profile-picture': "url('https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg')",
+        'home-background': "url('https://cdn.discordapp.com/attachments/767855867819065364/859999084763807744/Background.png')",
+      }),
       width: {
         'navbar': '368px',
        }

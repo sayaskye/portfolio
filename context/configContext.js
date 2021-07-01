@@ -9,6 +9,8 @@ const ConfigProvider = ({children}) => {
 	const [messages, setMessages] = useState(SpanishMessages);
 	const [locale, setLocale] = useState('es-MX');
 	const [theme, setTheme] = useState('dark');
+    const [darkEnabled, setDarkEnabled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
 	const setLanguage = (language) => {
 		switch (language){
@@ -41,7 +43,7 @@ const ConfigProvider = ({children}) => {
 	}
 
 	return (
-		<configContext.Provider value={{setLanguage, setDarkmode, theme, setTheme, locale, setLocale}}>
+		<configContext.Provider value={{setLanguage, setDarkmode, theme, setTheme, locale, setLocale, darkEnabled, setDarkEnabled, menuOpen, setMenuOpen}}>
 			<IntlProvider locale={locale} messages={messages}>
 				{children}
 			</IntlProvider>
