@@ -1,11 +1,14 @@
-import { FormattedMessage } from 'react-intl'
+
 import Layout from '../components/layout'
+import Info from '../components/contact/Info'
+import Form from '../components/contact/Form'
 
 const Contact = () => {
   return (
     <Layout>
-      <div className="w-screen h-screen bg-gray-200 duration-500  ease-in dark:bg-gray-800">
-        <p>Hola mundo contact</p>
+      <div className="w-screen h-auto bg-gray-200 duration-500 ease-in dark:bg-gray-800">
+        <Info></Info>
+        <Form></Form>
       </div> 
     </Layout>
   )

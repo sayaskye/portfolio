@@ -8,7 +8,18 @@
     "nav.projects":"Proyectos",
     "nav.contact":"Contacto",
 
+    "home.subtitle":"Desarrollador Web",
     
+    "contact.title":"Contacto",
+    "contact.title2":"Mandame un mensaje",
+    "contact.name":"Tu nombre:",
+    "contact.phone":"Tu telefono:",
+    "contact.email":"Tu correo electronico:",
+    "contact.message":"Tu mensaje:",
+    "contact.button":"Enviar",
+    "contact.confirm":"Mensaje enviado correctamente, me pondre en contacto contigo a la brevedad posible.",
+    "contact.fail":"Lo siento, algo ha salido mal, intentalo de nuevo mas tarde o mandame un correo directamente, gracias.",
+
     "test":"",
     "test2":""
 }

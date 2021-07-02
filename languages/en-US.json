@@ -8,7 +8,18 @@
     "nav.projects":"Projects",
     "nav.contact":"Contact",
 
-    
+    "home.subtitle":"Web Developer",
+
+    "contact.title":"Contact",
+    "contact.title2":"Send me a message",
+    "contact.name":"Your name:",
+    "contact.phone":"Your phone:",
+    "contact.email":"Your email:",
+    "contact.message":"Your message:",
+    "contact.button":"Send",
+    "contact.confirm":"Message sent correctly, I will contact you as soon as possible.",
+    "contact.fail":"Sorry, something went wrong, please try again later or email me directly, thank you.",
+
     "test":"",
     "test2":""
 }
