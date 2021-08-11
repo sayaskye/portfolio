@@ -31,7 +31,7 @@ const Info = () => {
                     </div>
                 </div>
             </div>
-            <hr className="dark:border-main-blue border-main-lightblue mx-3"></hr>
+            <hr className="dark:border-main-blue border-main-lightblue mx-3 duration-300 ease-in "></hr>
         </div>
      );
 }
