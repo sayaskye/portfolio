@@ -17,10 +17,10 @@ const Navbar = () => {
     }, [darkEnabled])
 
   return (
-    <div className="">
+    <div className="overflow-auto scrollbarhidden">
         <div className="">
             <button 
-                className="w-14 h-14 rounded-full dark:bg-main-grey/40 bg-main-grey hover:bg-main-blue/60 fixed flex items-center justify-center top-2 right-2 duration-300 ease-in z-50 md:hidden" 
+                className="w-14 h-14 rounded-full dark:bg-main-grey/40 bg-main-grey hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 fixed flex items-center justify-center top-2 right-2 duration-300 ease-in z-50 md:hidden" 
                 onClick={() => setMenuOpen(!menuOpen)}
             >
                 {menuOpen ? 
@@ -36,13 +36,13 @@ const Navbar = () => {
         </div>
         <div className={`bg-gray-100 dark:bg-navbar-fondo w-screen md:w-navbar duration-300 ease-in px-10 h-screen justify-center pt-10 md:pt-20 fixed md:static md:flex ${menuOpen ? "flex absolute z-40" : "hidden"}`}>
             <div className="flex flex-col justify-between mx-0 items-center">
-                <div className="bg-[#4677ff] dark:bg-main-blue w-48 h-48 rounded-full hidden md:flex items-center justify-center duration-300 ease-in">
-                    <div className="bg-profile bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture">
+                <div className="border-main-lightblue dark:border-main-blue w-48 h-48 rounded-full hidden md:flex items-center justify-center duration-300 ease-in border-8 bg-profile-picture">
+                    <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture">
                         {/* <Image src="/../public/images/mitsuha.jpg" className="rounded-full" alt="Imagen de Andres Cazares" width="200%" height="200%"/> */}
                         {/* <img src="https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg" className="rounded-full" alt="Imagen de Andres Cazares" /> */}
                     </div>
                 </div>
-                <div className="text-[#4677ff] dark:text-main-blue flex justify-around w-60  ">
+                <div className="text-main-lightblue dark:text-main-blue flex justify-around w-60  ">
                     <a href="https://github.com/sayaskye" target="_blank" className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -66,9 +66,10 @@ const Navbar = () => {
                         </svg>
                     </a>
                 </div>
-                <div className="text-[#4677ff] dark:text-main-blue text-2xl flex flex-col items-center w-60 font-bold">
+                <div className="text-main-lightblue dark:text-main-blue text-2xl flex flex-col items-center w-60 font-bold">
                     <Link href="/">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white">
+                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                            
                             <FormattedMessage
                                 id="nav.home"
                                 defaultMessage="Home"
@@ -76,7 +77,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/about">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white">
+                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.about"
                                 defaultMessage="About"
@@ -84,7 +85,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/portfolio">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white">
+                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.projects"
                                 defaultMessage="Projects"
@@ -92,7 +93,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/contact">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white">
+                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.contact"
                                 defaultMessage="Contact"
@@ -124,10 +125,10 @@ const Navbar = () => {
                         </Switch>
                     </div>
                     <div className="flex">
-                        <button className="text-[#4677ff] dark:text-main-blue dark:hover:text-white rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('es')}>
+                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('es')}>
                             Español
                         </button>
-                        <button className="text-[#4677ff] dark:text-main-blue dark:hover:text-white rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('en')}>
+                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('en')}>
                             English
                         </button>
                     </div>

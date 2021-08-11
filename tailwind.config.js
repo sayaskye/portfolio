@@ -13,12 +13,13 @@ module.exports = {
         },
         main:{
           blue: '#3AB5EF',
+          lightblue: '#4677ff',
           grey: '#C4C4C4'
         }
       },
       backgroundImage: theme => ({
         'profile-picture': "url('https://64.media.tumblr.com/7ee9edf89132ea81ae45284dc493f285/f86179c4b2109386-74/s2048x3072/ed22ddb8302b0cdfe9301368caa411103751c1ca.png')",
-        'home-background': "url('https://cdn.discordapp.com/attachments/767855867819065364/859999084763807744/Background.png')",
+        'home-background': "url('https://pbs.twimg.com/media/E8eZsJkXoAImOGb?format=jpg&name=large')",
       }),
       width: {
         'navbar': '368px',

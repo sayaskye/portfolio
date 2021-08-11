@@ -51,7 +51,7 @@ const Form = () => {
             <div className="container mx-auto ">
                 <div className="mx-auto lg:mx-20 xl:mx-48 duration-300 ease-in">
                     <div className="items-center ">
-                        <h2 className="text-5xl my-10 text-[#4677ff] dark:text-main-blue duration-300 ease-in">
+                        <h2 className="text-5xl my-10 text-main-lightblue dark:text-main-blue duration-300 ease-in">
                             <FormattedMessage
                                 id="contact.title2"
                                 defaultMessage="Send me a message"
@@ -70,7 +70,7 @@ const Form = () => {
                                     </p>
                                 </div>
                             )}
-                        <form onSubmit={handleOnSubmit} className="flex flex-col">
+                        <form onSubmit={handleOnSubmit} className="flex flex-col justify-between content-between ">
                             <label htmlFor="nombre">
                                 <FormattedMessage
                                     id="contact.name"
@@ -105,9 +105,9 @@ const Form = () => {
                                 />
                             </label>
                             <textarea 
-                                className=" text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
+                                className="scrollbarhidden text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
                                 id="message" name="message" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quis necessitatibus atque laudantium. " required ></textarea>
-                            <button className=" text-[#4677ff] dark:text-main-blue dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center" type="submit" disabled={serverState.submitting}>
+                            <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center" type="submit" disabled={serverState.submitting}>
                                 <FormattedMessage
                                     id="contact.button"
                                     defaultMessage="Send"
