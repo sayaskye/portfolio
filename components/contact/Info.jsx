@@ -9,7 +9,7 @@ const Info = () => {
                         defaultMessage="Contact"
                     />
                 </h1>
-                <div className="flex flex-col mx-3 lg:mx-0 duration-300 ease-in">
+                <div className="flex flex-col mx-3 lg:mx-0 duration-300 ease-in text-2xl">
                     <div className="flex flex-grow">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />

@@ -16,6 +16,14 @@ const Navbar = () => {
         }
     }, [darkEnabled])
 
+    let copy;
+    let year = new Date().getFullYear();
+    if(year!=2021){
+        copy="2021-"+(new Date().getFullYear())
+    }else{
+        copy=2021
+    }
+
   return (
     <div className="overflow-auto scrollbarhidden">
         <div className="">
@@ -131,6 +139,9 @@ const Navbar = () => {
                         <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('en')}>
                             English
                         </button>
+                    </div>
+                    <div className="my-3 mx-auto">
+                        <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in "> &copy; {copy} Andrés Cazares</span>
                     </div>
                 </div>
             </div>
