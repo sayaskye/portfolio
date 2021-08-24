@@ -46,6 +46,66 @@
     "about.DataList9th":"English (Intermediate) ",
     "about.DataListTitle3":"Technologies I use: ",
 
+    "about.download":"Download here",
+
+    "about.title2":"Summary",
+    "about.title2.1":"Education ",
+    "about.title2.2":"Work experience ",
+
+    "about.TitleEducation1":"Computer stystems engineer ",
+    "about.DateEducation1":"2015-2020 ",
+    "about.PlaceEducation1":"Tec. Institute of Ciudad Juaréz ",
+    "about.DescriptionEducation1":"I studied my career for 5 years, where I learned the fundamentals and the great importance of being self-taught. ",
+    "about.AboutEducation1":" ",
+
+    "about.TitleEducation2":"Online courses ",
+    "about.DateEducation2":"2019-Present ",
+    "about.PlaceEducation2":"Udemy - Platzi - Others ",
+    "about.DescriptionEducation2":"Despite being self-taught, from time to time I like to take a practical course where I can improve my technical skills, I like to learn on my own but sometimes it is good to learn from the experience of others.",
+    "about.AboutEducation2":" ",
+    
+    "about.TitleExperience1":"Mobile app developer  - IONIC ",
+    "about.DateExperience1":"2019-2020 ",
+    "about.PlaceExperience1":"MABU - Ciudad Juaréz, Chih. MX ",
+    "about.DescriptionExperience1":"In charge of the total programming of the application (Full-stack). Design of direct communication tools for exchange house owners. Market supervisor the first month of application deployment. ",
+    "about.AboutExperience1":" ",
+
+    "about.TitleExperience2":" ",
+    "about.DateExperience2":" ",
+    "about.PlaceExperience2":" ",
+    "about.DescriptionExperience2":" ",
+    "about.AboutExperience2":" ",
+
+    "portfolio.title":"Projects",
+
+    "portfolio.ProjectTitel1":"PHP Blog",
+    "portfolio.ProjectDate1":"2019",
+    "portfolio.ProjectFeatures1":"MVC",
+    "portfolio.ProjectDescription1":"Basic blog with pure PHP, do not use any framework or CMS, it was only developed for reasons of practice, nothing serious.",
+    "portfolio.ProjectTec1":"PHP, CRUD",
+    "portfolio.ProjectType1":"WEB",
+
+    "portfolio.ProjectTitel2":"Asembly PC",
+    "portfolio.ProjectDate2":"2018",
+    "portfolio.ProjectFeatures2":"Smart selector",
+    "portfolio.ProjectDescription2":"Selector of computer components specialized in avoiding compatibility failures between components, takes into account sizes, voltages and software restrictions such as bios",
+    "portfolio.ProjectTec2":"Java, SQL",
+    "portfolio.ProjectType2":"Desktop",
+
+    "portfolio.ProjectTitel3":"Exchange houses APP",
+    "portfolio.ProjectDate3":"2019",
+    "portfolio.ProjectFeatures3":"Real time DB",
+    "portfolio.ProjectDescription3":"Application that receives real-time information updates on quotes and prices of the most popular currency exchange on this border, the dollar and the Mexican peso",
+    "portfolio.ProjectTec3":"Ionic - Angular",
+    "portfolio.ProjectType3":"Mobile",
+    
+    "portfolio.ProjectTitel4":"",
+    "portfolio.ProjectDate4":"",
+    "portfolio.ProjectFeatures4":"",
+    "portfolio.ProjectDescription4":"",
+    "portfolio.ProjectTec4":"",
+    "portfolio.ProjectType4":"",
+
     "test":"",
     "test2":""
 }

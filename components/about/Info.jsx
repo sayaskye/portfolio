@@ -11,7 +11,7 @@ const AboutInfo = () => {
 
     return ( 
         <div className="container mx-auto">
-            <div className=" mx-auto lg:mx-20 xl:mx-48 my-10 dark:text-white duration-300 ease-in">
+            <div className=" mx-auto lg:mx-20 xl:mx-32 my-10 dark:text-white duration-300 ease-in">
                 <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
                     <FormattedMessage
                         id="about.title"
@@ -167,6 +167,18 @@ const AboutInfo = () => {
                                     defaultMessage=" "
                                 /> 
                             </li>
+
+                            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-3"></hr>
+                            <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
+                                Curriculum Vitae 
+                                <br  className="2xl:hidden"/>
+                                <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center"> 
+                                    <FormattedMessage
+                                        id="about.download"
+                                        defaultMessage=" "
+                                    /> 
+                                </button>
+                            </h2>
                         </ul>
                     </div>
 
@@ -205,6 +217,10 @@ const AboutInfo = () => {
                                 <p className="mx-auto">NodeJS</p>
                             </div>
                             <div className="flex flex-col">
+                                <img className="m-3 h-[160px] w-[160px]" src={`/images/firebase.svg`} alt="Technologie" loading="lazy" />
+                                <p className="mx-auto">Firebase</p>
+                            </div>
+                            <div className="flex flex-col">
                                 <img className="m-3" src={`/images/RESTful.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">RestFull</p>
                             </div>
@@ -218,8 +234,9 @@ const AboutInfo = () => {
                             </div>
                         </div>
                     </div>
-
+                    
                 </div>
+                <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-6 h-auto"></hr>
             </div>
         </div>
     );

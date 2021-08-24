@@ -46,6 +46,67 @@
     "about.DataList9th":"Ingles (Intermedio) ",
     "about.DataListTitle3":"Tecnologías que utilizo: ",
 
+    "about.download":"Descargar aqui",
+    
+    "about.title2":"Resumen",
+    "about.title2.1":"Educacion ",
+    "about.title2.2":"Experiencia laboral ",
+
+    "about.TitleEducation1":"Ingenieria Sist. Computacionales ",
+    "about.DateEducation1":"2015-2020 ",
+    "about.PlaceEducation1":"Instituto Tec. Ciudad Juaréz ",
+    "about.DescriptionEducation1":"Estudie durante 5 años mi carrera, donde aprendi los fundamentos y la gran importancia de ser autodidacta. ",
+    "about.AboutEducation1":" ",
+
+    "about.TitleEducation2":"Cursos en linea ",
+    "about.DateEducation2":"2019-Actualidad ",
+    "about.PlaceEducation2":"Udemy - Platzi - Otros ",
+    "about.DescriptionEducation2":"A pesar de ser autodidacta, de vez en cuando me gusta tomar algun curso practico donde puedo mejorar mis habilidades tecnicas, me gusta aprender por mi cuenta pero a veces es bueno aprender de la experiencia de los demas. ",
+    "about.AboutEducation2":" ",
+    
+    "about.TitleExperience1":"Programador de app movil  - IONIC ",
+    "about.DateExperience1":"2019-2020 ",
+    "about.PlaceExperience1":"MABU - Ciudad Juaréz, Chih. MX ",
+    "about.DescriptionExperience1":"Encargado de la programacion total de la aplicacion (Full-stack). Diseño de herramientas de comunicacion directa para los dueños de casas de cambio. Supervisor del mercado el primer mes de despliegue de la aplicacion. ",
+    "about.AboutExperience1":" ",
+
+    "about.TitleExperience2":" ",
+    "about.DateExperience2":" ",
+    "about.PlaceExperience2":" ",
+    "about.DescriptionExperience2":" ",
+    "about.AboutExperience2":" ",
+
+    "portfolio.title":"Proyectos",
+
+    "portfolio.ProjectTitel1":"Blog PHP",
+    "portfolio.ProjectDate1":"2019",
+    "portfolio.ProjectFeatures1":"MVC",
+    "portfolio.ProjectDescription1":"Blog basico con PHP puro, no utilice ningun framework ni CMS, solo se desarrollo por motivos de practica, nada serio.",
+    "portfolio.ProjectTec1":"PHP, CRUD",
+    "portfolio.ProjectType1":"WEB",
+
+    "portfolio.ProjectTitel2":"Asembly PC",
+    "portfolio.ProjectDate2":"2018",
+    "portfolio.ProjectFeatures2":"Selector inteligente",
+    "portfolio.ProjectDescription2":"Selector de componentes de computadora especializado en evitar fallos de compatibilidad entre componentes, toma en cuenta tamaños, voltajes y restricciones de software como la bios",
+    "portfolio.ProjectTec2":"Java, SQL",
+    "portfolio.ProjectType2":"Escritorio",
+
+    "portfolio.ProjectTitel3":"Casas de cambio APP",
+    "portfolio.ProjectDate3":"2019",
+    "portfolio.ProjectFeatures3":"DB a tiempo real",
+    "portfolio.ProjectDescription3":"Aplicacion que recibe actualizaciones de informacion a tiempo real sobre cotizaciones y precios del intercambio de divisas mas conocidos en esta frontera, el dolar y el peso mexicano",
+    "portfolio.ProjectTec3":"Ionic - Angular",
+    "portfolio.ProjectType3":"Movil",
+    
+    "portfolio.ProjectTitel4":"",
+    "portfolio.ProjectDate4":"",
+    "portfolio.ProjectFeatures4":"",
+    "portfolio.ProjectDescription4":"",
+    "portfolio.ProjectTec4":"",
+    "portfolio.ProjectType4":"",
+    
+
     "test":"",
     "test2":""
 }
