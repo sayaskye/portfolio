@@ -11,8 +11,8 @@ const AboutInfo = () => {
 
     return ( 
         <div className="container mx-auto">
-            <div className=" mx-auto lg:mx-20 xl:mx-32 my-10 dark:text-white duration-300 ease-in">
-                <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
+            <div className=" mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white duration-300 ease-in">
+                <h1 className="text-main-lightblue dark:text-main-blue text-5xl mb-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
                     <FormattedMessage
                         id="about.title"
                         defaultMessage="About"
@@ -80,7 +80,7 @@ const AboutInfo = () => {
                             defaultMessage=" "
                         />
 
-                        <hr className="2xl:hidden block dark:border-main-blue border-main-lightblue duration-300 ease-in my-3"></hr>
+                        <hr className="2xl:hidden block dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                     </div>
 
                     <div className="col-span-2 2xl:col-span-1 mx-3 lg:mx-0 duration-300 ease-in">
@@ -147,7 +147,7 @@ const AboutInfo = () => {
                                 />
                             </li>
 
-                            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-3"></hr>
+                            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                             <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
                                 <FormattedMessage
                                     id="about.DataListTitle2"
@@ -168,7 +168,7 @@ const AboutInfo = () => {
                                 /> 
                             </li>
 
-                            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-3"></hr>
+                            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                             <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
                                 Curriculum Vitae 
                                 <br  className="2xl:hidden"/>
@@ -184,7 +184,7 @@ const AboutInfo = () => {
 
                     <div className="col-span-2 2xl:col-span-4 mx-3 lg:mx-0 duration-300 ease-in">
                         
-                        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-3"></hr>
+                        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                         <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
                             <FormattedMessage
                                     id="about.DataListTitle3"

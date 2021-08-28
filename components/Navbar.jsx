@@ -50,7 +50,7 @@ const Navbar = () => {
                         {/* <img src="https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg" className="rounded-full" alt="Imagen de Andres Cazares" /> */}
                     </div>
                 </div>
-                <div className="text-main-lightblue dark:text-main-blue flex justify-around w-60  ">
+                <div className="text-main-lightblue dark:text-main-blue flex justify-around w-60 py-2">
                     <a href="https://github.com/sayaskye" target="_blank" className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -76,7 +76,7 @@ const Navbar = () => {
                 </div>
                 <div className="text-main-lightblue dark:text-main-blue text-2xl flex flex-col items-center w-60 font-bold">
                     <Link href="/">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             
                             <FormattedMessage
                                 id="nav.home"
@@ -85,7 +85,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/about">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.about"
                                 defaultMessage="About"
@@ -93,7 +93,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/portfolio">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.projects"
                                 defaultMessage="Projects"
@@ -101,7 +101,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/contact">
-                        <a className="w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black duration-200 ease-in mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.contact"
                                 defaultMessage="Contact"

@@ -34,7 +34,7 @@ const Experience = () => {
                             about="AboutEducation2"
                         />
                     </div>
-                    <div>
+                    <div className="mt-8 2xl:mt-0">
                         <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-3 duration-300 ease-in ">
                             <FormattedMessage
                                 id="about.title2.2"

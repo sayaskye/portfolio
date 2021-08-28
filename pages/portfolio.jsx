@@ -32,10 +32,10 @@ const Portfolio = () => {
         </Head>
       }
       <Layout>
-        <div className="w-screen h-auto py-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
+        <div className="w-screen h-auto pb-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
           <div className="container mx-auto">
             <div className=" mx-auto lg:mx-20  my-10 dark:text-white duration-300 ease-in">
-              <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
+              <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 duration-300 ease-in ">
                 <FormattedMessage
                     id="portfolio.title"
                     defaultMessage="Projects"
