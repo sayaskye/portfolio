@@ -1,5 +1,34 @@
 import { FormattedMessage } from "react-intl"
+import Modal from '@material-ui/core/Modal';
+import { useState } from "react";
+import { useContext } from "react";
+import {configContext} from '../../context/configContext' 
+
 const PortfolioCard = ({title, date, tecnologies, description, features, type, url}) => {
+
+    const {theme} = useContext(configContext)
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const body = (
+        <div className="bg-gray-200 dark:bg-gray-800 duration-500 ease-in absolute translate-x-[12%] translate-y-[100%] w-4/5 rounded-xl p-5 dark:text-white text-black">
+            <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in ">
+                <FormattedMessage
+                    id={"portfolio."+title} 
+                    defaultMessage=""
+                />
+            </h2>
+            <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
+        </div>
+    );
+
     return ( 
         <div className="text-black dark:text-white   my-4 bg-gray-300 dark:bg-gray-700  rounded-3xl shadow-xl mx-5 lg:mx-3 flex flex-col lg:flex-row xl:flex-col 2xl:flex-row  transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
             <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 ">
@@ -52,12 +81,22 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, u
                         />
                     </h3>
                     
-                    <button type="button" className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mr-5 text-lg font-bold w-auto px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
+                    <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mr-5 text-lg font-bold w-auto px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
                         <FormattedMessage
                             id={"portfolio.watch"} 
                             defaultMessage=""
                         />
                     </button>
+
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        <div className={`${theme}` }>
+                        {body}
+
+                        </div>
+                    </Modal>
                 </div>
                 
             </div>
