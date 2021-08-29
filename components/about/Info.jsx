@@ -20,6 +20,13 @@ const AboutInfo = () => {
                 </h1>
                 <div className="grid grid-cols-1 2xl:grid-cols-3 gap-2 text-xl">
 
+                    <div className="border-main-lightblue dark:border-main-blue w-48 h-48 mx-auto mb-5 rounded-full md:hidden flex items-center justify-center duration-300 ease-in border-8 bg-profile-picture">
+                        <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture">
+                            {/* <Image src="/../public/images/mitsuha.jpg" className="rounded-full" alt="Imagen de Andres Cazares" width="200%" height="200%"/> */}
+                            {/* <img src="https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg" className="rounded-full" alt="Imagen de Andres Cazares" /> */}
+                        </div>
+                    </div>
+
                     <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
                         <div className="font-bold text-3xl">
                             <FormattedMessage
@@ -169,16 +176,17 @@ const AboutInfo = () => {
                             </li>
 
                             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
-                            <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
-                                Curriculum Vitae 
-                                <br  className="2xl:hidden"/>
-                                <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center"> 
+                            <div className="flex flex-col">
+                                <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
+                                    Curriculum Vitae 
+                                </h2>
+                                <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
                                     <FormattedMessage
                                         id="about.download"
                                         defaultMessage=" "
                                     /> 
                                 </button>
-                            </h2>
+                            </div>
                         </ul>
                     </div>
 
@@ -192,44 +200,44 @@ const AboutInfo = () => {
                                 />
                         </h2>
                         <div className="flex flex-row flex-wrap justify-center dark:text-white duration-300 ease-in">
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/HTML.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/HTML.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">HTML</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/CSS3.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/CSS3.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">CSS</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/Javascript.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/Javascript.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">Javascript</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/React.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/React.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">React</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3 h-[160px] w-[160px]" src={`/images/tailwind.svg`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">Tailwind CSS</p>
+                            <div className="flex flex-col items-center justify-center ">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px] " src={`/images/tailwind.svg`} alt="Technologie" loading="lazy" />
+                                <p className="mx-auto">Tailwind</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/NodeJS.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/NodeJS.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">NodeJS</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3 h-[160px] w-[160px]" src={`/images/firebase.svg`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/firebase.svg`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">Firebase</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/RESTful.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/RESTful.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">RestFull</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/SQL.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/SQL.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">SQL</p>
                             </div>
-                            <div className="flex flex-col">
-                                <img className="m-3" src={`/images/GraphQL.png`} alt="Technologie" loading="lazy" />
+                            <div className="flex flex-col items-center justify-center">
+                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/GraphQL.png`} alt="Technologie" loading="lazy" />
                                 <p className="mx-auto">GraphQL</p>
                             </div>
                         </div>

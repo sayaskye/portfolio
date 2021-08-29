@@ -2,7 +2,7 @@ import { FormattedMessage } from "react-intl"
 const ExperienceCard = ({title, date, place, description, about}) => {
 
     return ( 
-        <div className="text-black dark:text-white p-6 my-4 bg-gray-300 dark:bg-gray-700  rounded-lg shadow-xl mx-3 transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
+        <div className="text-black dark:text-white p-3 my-2 md:p-6 md:my-4 bg-gray-300 dark:bg-gray-700  rounded-lg shadow-xl mx-3 transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
             <h4 className="mb-3  font-semibold tracking-widest uppercase "> 
                 <FormattedMessage
                     id={"about."+date} 

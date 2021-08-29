@@ -76,7 +76,7 @@ const Navbar = () => {
                 </div>
                 <div className="text-main-lightblue dark:text-main-blue text-2xl flex flex-col items-center w-60 font-bold">
                     <Link href="/">
-                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             
                             <FormattedMessage
                                 id="nav.home"
@@ -85,7 +85,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/about">
-                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.about"
                                 defaultMessage="About"
@@ -93,7 +93,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/portfolio">
-                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.projects"
                                 defaultMessage="Projects"
@@ -101,7 +101,7 @@ const Navbar = () => {
                         </a>
                     </Link>
                     <Link href="/contact">
-                        <a className="transition-all duration-300 ease-in-out transform  hover:scale-[1.1] w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                        <a className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
                             <FormattedMessage
                                 id="nav.contact"
                                 defaultMessage="Contact"
