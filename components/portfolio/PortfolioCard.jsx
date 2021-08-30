@@ -187,7 +187,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                     {
                         urlBool ? 
                         <div className="flex flex-col   w-3/4 mx-auto ">
-                            <a href={url} target="_blank" className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 leading-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in text-center  my-3">
+                            <a href={url} target="_blank" rel="noopener" className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 leading-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in text-center  my-3">
                                 <FormattedMessage
                                     id={"portfolio.link"} 
                                     defaultMessage=""
