@@ -52,7 +52,7 @@ const Portfolio = () => {
                   imageType="web"
                   videoId="dpMQ3WPNOqE"
                   videoBool={true}
-                  urlBool={true}
+                  urlBool={false}
                   url="https://twitter.com/ChaoCazares"
                 />
 
@@ -80,7 +80,7 @@ const Portfolio = () => {
                   imageType="mobile"
                   videoId="x4eM3QJlwDE"
                   videoBool={true}
-                  urlBool={true}
+                  urlBool={false}
                   url="https://twitter.com/ChaoCazares"
                 />
 

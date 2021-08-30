@@ -38,28 +38,28 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
 
 
             <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
-                <h3 className=" flex flex-col text-xl"> 
-                    <div className="text-main-lightblue dark:text-main-blue font-bold">
+                <h3 className=" flex flex-col "> 
+                    <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
                         <FormattedMessage
                             id="portfolio.card.typeLabel" 
                             defaultMessage=""
                         />
                     </div>
-                    <span className="text-left underline font-bold text-2xl">
+                    <span className="text-left underline font-bold text-lg md:text-2xl">
                         <FormattedMessage
                             id={"portfolio."+type} 
                             defaultMessage=""
                         />
                     </span>
                 </h3>
-                <h3 className=" flex flex-col text-xl"> 
-                    <div className="text-main-lightblue dark:text-main-blue font-bold">
+                <h3 className=" flex flex-col "> 
+                    <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
                         <FormattedMessage
                             id="portfolio.card.dateLabel" 
                             defaultMessage=""
                         />
                     </div>
-                    <span className="text-right underline font-bold text-2xl">
+                    <span className="text-right underline font-bold text-lg md:text-2xl">
                         <FormattedMessage
                             id={"portfolio."+date} 
                             defaultMessage=""
@@ -68,16 +68,16 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                 </h3>
             </div>
             <div className=" mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white ">
-                <div className=" text-xl ">
+                <div className="  ">
                     <div className=" mx-3 lg:mx-0 ">
                         <div className="   my-5 flex flex-col">
-                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                            <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
                                 <FormattedMessage
                                     id="portfolio.card.featuresLabel" 
                                     defaultMessage=""
                                 /> 
                             </span>
-                            <span className="underline font-bold text-2xl">
+                            <span className="underline font-bold text-lg md:text-2xl">
                                 <FormattedMessage
                                     id={"portfolio."+features} 
                                     defaultMessage=""
@@ -85,13 +85,13 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             </span>
                         </div>
                         <div className="   my-5 flex flex-col">
-                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                            <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
                                 <FormattedMessage
                                     id="portfolio.card.descriptionLabel" 
                                     defaultMessage=""
                                 /> 
                             </span>
-                            <span className=" text-2xl">
+                            <span className=" text-lg md:text-2xl">
                                 <FormattedMessage
                                     id={"portfolio."+description} 
                                     defaultMessage=""
@@ -99,13 +99,13 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             </span>
                         </div>
                         <div className="   my-5 flex flex-col">
-                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                            <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
                                 <FormattedMessage
                                     id="portfolio.card.tecLabel" 
                                     defaultMessage=""
                                 /> 
                             </span>
-                            <span className="underline font-bold text-2xl">
+                            <span className="underline font-bold text-lg md:text-2xl">
                                 <FormattedMessage
                                     id={"portfolio."+tecnologies} 
                                     defaultMessage=""
