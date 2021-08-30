@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import {configContext} from '../../context/configContext' 
 
-const PortfolioCard = ({title, date, tecnologies, description, features, type, url}) => {
+const PortfolioCard = ({title, date, tecnologies, description, features, type, imageType, videoId, url, urlBool, videoBool}) => {
 
     const {theme} = useContext(configContext)
     const [open, setOpen] = useState(false);
@@ -25,7 +25,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, u
                     defaultMessage=""
                 />
                 <button 
-                    className="w-10 mt-3 h-10 rounded-full absolute inset-y-0 right-0 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center" 
+                    className="w-10 mt-3 h-10 rounded-full absolute inset-y-0 right-0 bg-main-grey dark:bg-main-grey/40 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center" 
                     onClick={() => handleClose()}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,60 +38,107 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, u
 
 
             <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
-                <h3 className="  font-semibold underline tracking-widest uppercase "> 
-                    <FormattedMessage
-                        id={"portfolio."+type} 
-                        defaultMessage=""
-                    />
-                </h3>
-                <h3 className="  font-semibold underline tracking-widest uppercase "> 
-                    <FormattedMessage
-                        id={"portfolio."+date} 
-                        defaultMessage=""
-                    />
-                </h3>
-            </div>
-            <div className=" mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white duration-300 ease-in">
-                <div className=" text-xl duration-300 ease-in">
-                    <div className=" mx-3 lg:mx-0 duration-300 ease-in">
-                        <div className="font-bold text-3xl duration-300 ease-in my-5">
-                            <FormattedMessage
-                                id={"portfolio."+features} 
-                                defaultMessage=""
-                            />
-                        </div>
+                <h3 className=" flex flex-col text-xl"> 
+                    <div className="text-main-lightblue dark:text-main-blue font-bold">
                         <FormattedMessage
-                            id={"portfolio."+description} 
+                            id="portfolio.card.typeLabel" 
                             defaultMessage=""
                         />
-                        <div className="font-bold text-sm my-5 duration-300 ease-in">
-                            <FormattedMessage
-                                id={"portfolio."+tecnologies} 
-                                defaultMessage=""
-                            />
+                    </div>
+                    <span className="text-left underline font-bold text-2xl">
+                        <FormattedMessage
+                            id={"portfolio."+type} 
+                            defaultMessage=""
+                        />
+                    </span>
+                </h3>
+                <h3 className=" flex flex-col text-xl"> 
+                    <div className="text-main-lightblue dark:text-main-blue font-bold">
+                        <FormattedMessage
+                            id="portfolio.card.dateLabel" 
+                            defaultMessage=""
+                        />
+                    </div>
+                    <span className="text-right underline font-bold text-2xl">
+                        <FormattedMessage
+                            id={"portfolio."+date} 
+                            defaultMessage=""
+                        />
+                    </span>
+                </h3>
+            </div>
+            <div className=" mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white ">
+                <div className=" text-xl ">
+                    <div className=" mx-3 lg:mx-0 ">
+                        <div className="   my-5 flex flex-col">
+                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                                <FormattedMessage
+                                    id="portfolio.card.featuresLabel" 
+                                    defaultMessage=""
+                                /> 
+                            </span>
+                            <span className="underline font-bold text-2xl">
+                                <FormattedMessage
+                                    id={"portfolio."+features} 
+                                    defaultMessage=""
+                                />
+                            </span>
+                        </div>
+                        <div className="   my-5 flex flex-col">
+                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                                <FormattedMessage
+                                    id="portfolio.card.descriptionLabel" 
+                                    defaultMessage=""
+                                /> 
+                            </span>
+                            <span className=" text-2xl">
+                                <FormattedMessage
+                                    id={"portfolio."+description} 
+                                    defaultMessage=""
+                                />
+                            </span>
+                        </div>
+                        <div className="   my-5 flex flex-col">
+                            <span className="text-main-lightblue dark:text-main-blue font-bold">
+                                <FormattedMessage
+                                    id="portfolio.card.tecLabel" 
+                                    defaultMessage=""
+                                /> 
+                            </span>
+                            <span className="underline font-bold text-2xl">
+                                <FormattedMessage
+                                    id={"portfolio."+tecnologies} 
+                                    defaultMessage=""
+                                />
+                            </span>
                         </div>
 
-                        <hr className=" dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
+                        <hr className=" dark:border-main-blue border-main-lightblue  mt-3 mb-6"></hr>
                     </div>
                 </div>
             </div>
 
-            <div className="w-full h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh]">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JBDoscllt0w?showinfo=0" title="YouTube video player" allowFullScreen></iframe>
-          
-            </div>
+            {
+                videoBool ? 
+                <div className=" h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh] mx-auto lg:mx-20 xl:mx-32 mb-5">
+                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${videoId}?showinfo=0`} title="YouTube video player" allowFullScreen></iframe>
+                </div>
+                :
+                <div className="mb-3"></div>
+            }
 
-            <div className="mb-5"/>
+            
+
         </div>
     );
 
     return ( 
         <div className="text-black dark:text-white   my-4 bg-gray-300 dark:bg-gray-700  rounded-3xl shadow-xl mx-5 lg:mx-3 flex flex-col lg:flex-row xl:flex-col 2xl:flex-row  transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
-            <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 ">
-                <img className="lg:rounded-l-3xl 2xl:rounded-l-3xl lg:rounded-r-none 2xl:rounded-r-none rounded-t-3xl rounded-b-none xl:rounded-t-3xl xl:rounded-b-none object-cover h-full w-full shadow-xl " src={url} alt="Project"  />
+            <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 h-1/2 lg:h-full xl:h-1/2 2xl:h-full">
+                <img className="lg:rounded-l-3xl 2xl:rounded-l-3xl lg:rounded-r-none 2xl:rounded-r-none rounded-t-3xl rounded-b-none xl:rounded-t-3xl xl:rounded-b-none object-fill h-full w-full  p-3" src={`/images/cards/${imageType}.svg`} alt="Project"  />
             </div>
-            <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 mt-3 h-1/2 ">
-                <div className="flex justify-between mx-3">
+            <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 mt-3 h-auto ">
+                <div className="flex flex-col text-center ">
                     <h2 className="text-main-lightblue dark:text-main-blue text-3xl mb-3 font-bold lg:mx-0 duration-300 ease-in ">
                         <FormattedMessage
                             id={"portfolio."+title} 
@@ -115,8 +162,8 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, u
                     />
                 </h4> */}
                 
-                <p  className=" mx-3 limitTextLines my-5 md:my-10 2xl:my-20"> 
-                <FormattedMessage
+                <p  className=" w-3/4 mx-auto  limitTextLines"> 
+                    <FormattedMessage
                         id={"portfolio."+description} 
                         defaultMessage=""
                     /> 
@@ -129,20 +176,45 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, u
                     />
                 </p> */}
 
-                <div className="flex justify-between m-3 items-end">
+                <div className="flex justify-between my-3  ">
                     {/* <h3 className="  font-semibold underline tracking-widest uppercase "> 
                         <FormattedMessage
                             id={"portfolio."+tecnologies} 
                             defaultMessage=""
                         />
                     </h3> */}
+
+                    {
+                        urlBool ? 
+                        <div className="flex flex-col   w-3/4 mx-auto ">
+                            <a href={url} target="_blank" className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 leading-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in text-center  my-3">
+                                <FormattedMessage
+                                    id={"portfolio.link"} 
+                                    defaultMessage=""
+                                />
+                            </a>
+                            <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
+                                <FormattedMessage
+                                    id={"portfolio.watch"} 
+                                    defaultMessage=""
+                                />
+                            </button>
+                        </div>
+                        :
+                        <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-[12.5%] text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-3">
+                            <FormattedMessage
+                                id={"portfolio.watch"} 
+                                defaultMessage=""
+                            />
+                        </button>
+                    }
                     
-                    <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-5 text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
+                    {/* <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-5 text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
                         <FormattedMessage
                             id={"portfolio.watch"} 
                             defaultMessage=""
                         />
-                    </button>
+                    </button> */}
 
                     <Modal
                         open={open}

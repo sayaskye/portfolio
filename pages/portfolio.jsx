@@ -49,7 +49,11 @@ const Portfolio = () => {
                   description="ProjectDescription1"
                   tecnologies="ProjectTec1"
                   type="ProjectType1"
-                  url="/images/background.png"
+                  imageType="web"
+                  videoId="dpMQ3WPNOqE"
+                  videoBool={true}
+                  urlBool={true}
+                  url="https://twitter.com/ChaoCazares"
                 />
 
                 <PortfolioCard
@@ -59,7 +63,11 @@ const Portfolio = () => {
                   description="ProjectDescription2"
                   tecnologies="ProjectTec2"
                   type="ProjectType2"
-                  url="/images/background.png"
+                  imageType="desktop"
+                  videoId="lWhj9hW31Js"
+                  videoBool={true}
+                  urlBool={false}
+                  url="https://twitter.com/ChaoCazares"
                 />
 
                 <PortfolioCard
@@ -69,7 +77,39 @@ const Portfolio = () => {
                   description="ProjectDescription3"
                   tecnologies="ProjectTec3"
                   type="ProjectType3"
-                  url="/images/background.png"
+                  imageType="mobile"
+                  videoId="x4eM3QJlwDE"
+                  videoBool={true}
+                  urlBool={true}
+                  url="https://twitter.com/ChaoCazares"
+                />
+
+                <PortfolioCard
+                  title="ProjectTitel4"
+                  date="ProjectDate4"
+                  features="ProjectFeatures4"
+                  description="ProjectDescription4"
+                  tecnologies="ProjectTec4"
+                  type="ProjectType4"
+                  imageType="videogame"
+                  videoId="g-3pOXJKiiE"
+                  videoBool={true}
+                  urlBool={false}
+                  url="https://twitter.com/ChaoCazares"
+                />
+
+                <PortfolioCard
+                  title="ProjectTitel5"
+                  date="ProjectDate5"
+                  features="ProjectFeatures5"
+                  description="ProjectDescription5"
+                  tecnologies="ProjectTec5"
+                  type="ProjectType5"
+                  imageType="web"
+                  videoId=""
+                  videoBool={false}
+                  urlBool={true}
+                  url="https://andrescazares-phc.netlify.app/"
                 />
               </div>
             </div> 
