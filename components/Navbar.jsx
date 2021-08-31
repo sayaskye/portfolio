@@ -6,18 +6,55 @@ import Link from 'next/link'
 
 
 const Navbar = () => {
-    const {setDarkmode, setLanguage, darkEnabled, setDarkEnabled, menuOpen, setMenuOpen} = useContext(configContext)
-
-    useEffect(() => {
-        if(darkEnabled){
-            setDarkmode("")
-        }else{
-            setDarkmode("dark")
-        }
-    }, [darkEnabled])
-
+    const {setDarkmode, setLanguage, theme, darkEnabled, setDarkEnabled, menuOpen, setMenuOpen} = useContext(configContext)
     let copy;
     let year = new Date().getFullYear();
+
+    const changeToEs = ()=>{
+        setLanguage('es')
+        localStorage.setItem('lang', 'es');
+    }
+    const changeToEn = ()=>{
+        setLanguage('en')
+        localStorage.setItem('lang', 'en');
+    }
+    const changeTheme = ()=>{
+        if(darkEnabled){
+            setDarkEnabled(false)
+            localStorage.setItem('theme', 'dark');
+        }else{
+            setDarkEnabled(true)
+            localStorage.setItem('theme', '');
+        }
+        setDarkmode(localStorage.getItem('theme'))
+    }
+    useEffect(() => {
+        if (window) { 
+            const themeStorage = localStorage.getItem('theme');
+            const langStorage = localStorage.getItem('lang');
+
+            if(themeStorage!==null){
+                if(themeStorage==='dark'){
+                    setDarkEnabled(false)
+                }else{
+                    setDarkEnabled(true)
+                }
+            }else{
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            if(langStorage!==null){
+                if(langStorage==='es'){
+                    setLanguage('es')
+                }else{
+                    setLanguage('en')
+                }
+            }else{
+                localStorage.setItem('lang', 'es');
+            }
+        }
+    }, []); 
+
     if(year!=2021){
         copy="2021-"+(new Date().getFullYear())
     }else{
@@ -113,7 +150,7 @@ const Navbar = () => {
                     <div className="pb-2 mx-2">
                         <Switch
                         checked={darkEnabled}
-                        onChange={setDarkEnabled}
+                        onChange={changeTheme}
                         className={`${darkEnabled ? "bg-blue-200" : "bg-blue-900"} relative inline-flex flex-shrink-0 h-10 w-16 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-500 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                         >
                             <span
@@ -133,10 +170,10 @@ const Navbar = () => {
                         </Switch>
                     </div>
                     <div className="flex">
-                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('es')}>
+                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => changeToEs()}>
                             Español
                         </button>
-                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => setLanguage('en')}>
+                        <button className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in" onClick={() => changeToEn()}>
                             English
                         </button>
                     </div>

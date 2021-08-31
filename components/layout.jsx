@@ -1,9 +1,19 @@
-import {useContext} from 'react'
+import {useContext,useEffect} from 'react'
 import {configContext} from '../context/configContext' 
 import Navbar from './Navbar'
 import FakeNavbar from './FakeNav'
 const Layout = ({children}) => {
-    const {theme} = useContext(configContext)
+    const {theme, setTheme} = useContext(configContext)
+    useEffect(() => {
+        if (window) { 
+            const themeStorage = localStorage.getItem('theme')
+            if(themeStorage==='dark'){
+                setTheme('dark')
+            }else{
+                setTheme('')
+            }
+        }
+    }, []);
     return ( 
         <div className={`${theme}` }>
             <div className="flex">
