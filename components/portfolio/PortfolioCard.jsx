@@ -2,17 +2,15 @@ import { FormattedMessage } from "react-intl"
 import Modal from '@material-ui/core/Modal';
 import { useState } from "react";
 import { useContext } from "react";
-import {configContext} from '../../context/configContext' 
+import { configContext } from '../../context/configContext' 
 
 const PortfolioCard = ({title, date, tecnologies, description, features, type, imageType, videoId, url, urlBool, videoBool}) => {
 
     const {theme} = useContext(configContext)
     const [open, setOpen] = useState(false);
-
     const handleOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };
@@ -32,11 +30,8 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-            
                 <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 "></hr>
             </h2>
-
-
             <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
                 <h3 className=" flex flex-col "> 
                     <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
@@ -112,12 +107,10 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                                 />
                             </span>
                         </div>
-
                         <hr className=" dark:border-main-blue border-main-lightblue  mt-3 mb-6"></hr>
                     </div>
                 </div>
             </div>
-
             {
                 videoBool ? 
                 <div className=" h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh] mx-auto lg:mx-20 xl:mx-32 mb-5">
@@ -126,12 +119,8 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                 :
                 <div className="mb-3"></div>
             }
-
-            
-
         </div>
     );
-
     return ( 
         <div className="text-black dark:text-white   my-4 bg-gray-300 dark:bg-gray-700  rounded-3xl shadow-xl mx-5 lg:mx-3 flex flex-col lg:flex-row xl:flex-col 2xl:flex-row  transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
             <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 h-1/2 lg:h-full xl:h-1/2 2xl:h-full">
@@ -139,51 +128,20 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
             </div>
             <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 mt-3 h-auto ">
                 <div className="flex flex-col text-center ">
-                    <h2 className="text-main-lightblue dark:text-main-blue text-3xl mb-3 font-bold lg:mx-0 duration-300 ease-in ">
+                    <h2 className="text-main-lightblue dark:text-main-blue text-3xl mb-3 font-bold lg:mx-3 duration-300 ease-in mx-5">
                         <FormattedMessage
                             id={"portfolio."+title} 
                             defaultMessage=""
                         />
                     </h2>
-                    
-                    {/* <h4 className="mb-3  font-semibold  uppercase text-gray-600 dark:text-gray-400 mx-2 "> 
-                        <FormattedMessage
-                            id={"portfolio."+type} 
-                            defaultMessage=""
-                        />
-                    </h4> */}
                 </div>
-                
-
-                {/* <h4 className="mb-3 mx-3 font-semibold  uppercase text-gray-600 dark:text-gray-400 "> 
-                    <FormattedMessage
-                        id={"portfolio."+date} 
-                        defaultMessage=""
-                    />
-                </h4> */}
-                
                 <p  className=" w-3/4 mx-auto  limitTextLines"> 
                     <FormattedMessage
                         id={"portfolio."+description} 
                         defaultMessage=""
                     /> 
                 </p>
-
-                {/* <p  className="mb-3 mx-3 "> 
-                    <FormattedMessage
-                        id={"portfolio."+features} 
-                        defaultMessage=""
-                    />
-                </p> */}
-
                 <div className="flex justify-between my-3  ">
-                    {/* <h3 className="  font-semibold underline tracking-widest uppercase "> 
-                        <FormattedMessage
-                            id={"portfolio."+tecnologies} 
-                            defaultMessage=""
-                        />
-                    </h3> */}
-
                     {
                         urlBool ? 
                         <div className="flex flex-col   w-3/4 mx-auto ">
@@ -208,14 +166,6 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             />
                         </button>
                     }
-                    
-                    {/* <button type="button" onClick={handleOpen} className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-5 text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in ">
-                        <FormattedMessage
-                            id={"portfolio.watch"} 
-                            defaultMessage=""
-                        />
-                    </button> */}
-
                     <Modal
                         open={open}
                         onClose={handleClose}

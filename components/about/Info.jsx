@@ -1,4 +1,5 @@
 import { FormattedMessage } from "react-intl"
+import Tecnologie from "./Tecnologie";
 const AboutInfo = () => {
 
     let year;
@@ -12,80 +13,44 @@ const AboutInfo = () => {
     return ( 
         <div className="container mx-auto">
             <div className=" mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white duration-300 ease-in">
-                <h1 className="text-main-lightblue dark:text-main-blue text-5xl mb-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
-                    <FormattedMessage
-                        id="about.title"
-                        defaultMessage="About"
-                    />
+                <h1 className="text-main-lightblue dark:text-main-blue text-5xl mb-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
+                    <FormattedMessage id="about.title"defaultMessage="About"/>
                 </h1>
                 <div className="grid grid-cols-1 2xl:grid-cols-3 gap-2 text-xl">
 
                     <div className="border-main-lightblue dark:border-main-blue w-48 h-48 mx-auto mb-5 rounded-full md:hidden flex items-center justify-center duration-300 ease-in border-8 bg-profile-picture">
-                        <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture">
-                            {/* <Image src="/../public/images/mitsuha.jpg" className="rounded-full" alt="Imagen de Andres Cazares" width="200%" height="200%"/> */}
-                            {/* <img src="https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg" className="rounded-full" alt="Imagen de Andres Cazares" /> */}
-                        </div>
+                        <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture"/>
                     </div>
 
                     <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
                         <div className="font-bold text-3xl">
-                            <FormattedMessage
-                                id="about.mainmsg1"
-                                defaultMessage="Hi, im "
-                            />
+                            <FormattedMessage id="about.mainmsg1" defaultMessage="Hi, im "/>
                             <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
                                 Carlos Andrés Gutiérrez Cazares 
                             </span> 
-                            <FormattedMessage
-                                id="about.mainmsg2"
-                                defaultMessage=" Web programmer "
-                            />
+                            <FormattedMessage id="about.mainmsg2" defaultMessage=" Web programmer "/>
                         </div>
                         <br />
-                        <FormattedMessage
-                            id="about.mainmsg3"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage id="about.mainmsg3" defaultMessage=" "/>
                         <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
-                            <FormattedMessage
-                                id="about.mainmsg4"
-                                defaultMessage=" "
-                            />
+                            <FormattedMessage id="about.mainmsg4" defaultMessage=" "/>
                         </span> 
-                        <FormattedMessage
-                            id="about.mainmsg5"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage id="about.mainmsg5" defaultMessage=" "/>
                         <span className="font-bold underline">
-                            <FormattedMessage
-                                id="about.mainmsg6"
-                                defaultMessage=" "
-                            />
+                            <FormattedMessage id="about.mainmsg6" defaultMessage=" "/>
                         </span>
-                        <FormattedMessage
-                            id="about.mainmsg7"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage  id="about.mainmsg7" defaultMessage=" "/>
                         <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
                             Front-end  
                         </span> 
-                        <FormattedMessage
-                            id="about.mainmsg8"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage id="about.mainmsg8" defaultMessage=" "/>
                         <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
                             Back-end  
                         </span> 
-                        <FormattedMessage
-                            id="about.mainmsg9"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage id="about.mainmsg9" defaultMessage=" "/>
                         <br />
                         <br />
-                        <FormattedMessage
-                            id="about.mainmsg10"
-                            defaultMessage=" "
-                        />
+                        <FormattedMessage id="about.mainmsg10" defaultMessage=" "/>
 
                         <hr className="2xl:hidden block dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                     </div>
@@ -94,85 +59,46 @@ const AboutInfo = () => {
                         
                         <ul className="list-disc 2xl:list-outside list-inside 2xl:ml-10">
                             <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
-                            <FormattedMessage
-                                id="about.DataListTitle1"
-                                defaultMessage="My data "
-                            />
+                            <FormattedMessage id="about.DataListTitle1" defaultMessage="My data "/>
                             </h2>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList1st1"
-                                    defaultMessage="Age: "
-                                />
+                                <FormattedMessage id="about.DataList1st1" defaultMessage="Age: "/>
                                 { year }
-                                <FormattedMessage
-                                    id="about.DataList1st2"
-                                    defaultMessage=" Years "
-                                />
+                                <FormattedMessage id="about.DataList1st2" defaultMessage=" Years "/>
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList2nd"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList2nd" defaultMessage=" "/>
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList3rd"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList3rd" defaultMessage=" "/>
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList4th1"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList4th1" defaultMessage=" "/>
                                 <a href="#" className="underline">
-                                    <FormattedMessage
-                                        id="about.DataList4th2"
-                                        defaultMessage=" "
-                                    />
+                                    <FormattedMessage id="about.DataList4th2" defaultMessage=" " />
                                 </a>
                                     
                             </li>
                             <li>    
-                                <FormattedMessage
-                                    id="about.DataList5th"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList5th"  defaultMessage=" "  />
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList6th"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList6th" defaultMessage=" "/>
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList7th"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList7th" defaultMessage=" " />
                             </li>
 
                             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                             <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
-                                <FormattedMessage
-                                    id="about.DataListTitle2"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataListTitle2" defaultMessage=" " />
                             </h2>
                             
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList8th"
-                                    defaultMessage=" "
-                                />
+                                <FormattedMessage id="about.DataList8th" defaultMessage=" "/>
                             </li>
                             <li>
-                                <FormattedMessage
-                                    id="about.DataList9th"
-                                    defaultMessage=" "
-                                /> 
+                                <FormattedMessage id="about.DataList9th" defaultMessage=" "/> 
                             </li>
 
                             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
@@ -181,10 +107,7 @@ const AboutInfo = () => {
                                     Curriculum Vitae 
                                 </h2>
                                 <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
-                                    <FormattedMessage
-                                        id="about.download"
-                                        defaultMessage=" "
-                                    /> 
+                                    <FormattedMessage id="about.download" defaultMessage=" "/> 
                                 </button>
                             </div>
                         </ul>
@@ -193,53 +116,37 @@ const AboutInfo = () => {
                     <div className="col-span-2 2xl:col-span-4 mx-3 lg:mx-0 duration-300 ease-in">
                         
                         <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
-                        <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
-                            <FormattedMessage
-                                    id="about.DataListTitle3"
-                                    defaultMessage=" "
-                                />
+                        <h2 className="text-main-lightblue dark:text-main-blue font-bold text-2xl duration-300 ease-in text-center">
+                            <FormattedMessage id="about.DataListTitle3" defaultMessage=" "/>
                         </h2>
-                        <div className="flex flex-row flex-wrap justify-center dark:text-white duration-300 ease-in">
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/HTML.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">HTML</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/CSS3.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">CSS</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/Javascript.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">Javascript</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/React.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">React</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center ">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px] " src={`/images/tailwind.svg`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">Tailwind</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/NodeJS.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">NodeJS</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/firebase.svg`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">Firebase</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/RESTful.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">RestFull</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/SQL.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">SQL</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center">
-                                <img className="m-3 h-[80px] w-[80px] md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px]" src={`/images/GraphQL.png`} alt="Technologie" loading="lazy" />
-                                <p className="mx-auto">GraphQL</p>
-                            </div>
+                        <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in ">
+                            <Tecnologie name="HTML"svgname="html"/>
+                            <Tecnologie name="CSS"svgname="css"/>
+                            <Tecnologie name="Javascript"svgname="js"/>
+                            <Tecnologie name="Git"svgname="git"/>
+                            <Tecnologie name="React"svgname="react"/>
+                            <Tecnologie name="Tailwind"svgname="tailwind"/>
+                            <Tecnologie name="Bootstrap"svgname="bootstrap"/> 
+                            <Tecnologie name="Firebase"svgname="firebase"/>
+                            <Tecnologie name="Rest API"svgname="rest"/>
+                            <Tecnologie name="SQL"svgname="database"/>
+                            <Tecnologie name="MongoDB"svgname="mongo"/>
+                            
+                            {/* <Tecnologie name=""svgname=""/>  */}
+                        </div>
+                        <h2 className="text-main-lightblue dark:text-main-blue mt-14 font-bold text-2xl duration-300 ease-in text-center">
+                            <FormattedMessage id="about.DataListTitle4" defaultMessage=" "/>
+                        </h2>
+                        <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in">
+                            <Tecnologie name="NodeJS"svgname="node"/>
+                            <Tecnologie name="Express"svgname="express"/>
+                            <Tecnologie name="GraphQL"svgname="graphql"/>
+                            <Tecnologie name="VueJs"svgname="vue"/> 
+                            <Tecnologie name="PHP"svgname="php"/>
+                            <Tecnologie name="Laravel"svgname="laravel"/>
+                            <Tecnologie name="Python"svgname="python"/> 
+                            <Tecnologie name="Angular"svgname="angular"/> 
+                            {/* <Tecnologie name=""svgname=""/>  */}
                         </div>
                     </div>
                     

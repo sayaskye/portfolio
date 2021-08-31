@@ -5,7 +5,7 @@ const Experience = () => {
     return ( 
         <div className="container mx-auto">
             <div className=" mx-auto lg:mx-20 xl:mx-32 my-10 dark:text-white duration-300 ease-in">
-                <h2 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in ">
+                <h2 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
                     <FormattedMessage
                         id="about.title2"
                         defaultMessage=""

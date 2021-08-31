@@ -15,6 +15,7 @@
     "contact.name":"Tu nombre:",
     "contact.phone":"Tu telefono:",
     "contact.email":"Tu correo electronico:",
+    "contact.subject":"Tu asunto:",
     "contact.message":"Tu mensaje:",
     "contact.button":"Enviar",
     "contact.confirm":"Mensaje enviado correctamente, me pondre en contacto contigo a la brevedad posible.",
@@ -45,6 +46,7 @@
     "about.DataList8th":"Español (Nativo)",
     "about.DataList9th":"Ingles (Intermedio) ",
     "about.DataListTitle3":"Tecnologías que utilizo: ",
+    "about.DataListTitle4":"Tecnologías que estoy aprendiendo: ",
 
     "about.download":"Descargar aqui",
     
@@ -77,6 +79,8 @@
     "about.AboutExperience2":" ",
 
     "portfolio.title":"Proyectos",
+    "portfolio.front":"Proyectos Front-End",
+    "portfolio.back":"Proyectos Back-End",
     "portfolio.watch":"Ver detalles",
     "portfolio.link":"Ir al sitio",
 

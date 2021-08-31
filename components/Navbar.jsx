@@ -11,10 +11,12 @@ const Navbar = () => {
     let year = new Date().getFullYear();
 
     const changeToEs = ()=>{
+        setMenuOpen(!menuOpen)
         setLanguage('es')
         localStorage.setItem('lang', 'es');
     }
     const changeToEn = ()=>{
+        setMenuOpen(!menuOpen)
         setLanguage('en')
         localStorage.setItem('lang', 'en');
     }

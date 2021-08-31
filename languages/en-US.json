@@ -15,6 +15,7 @@
     "contact.name":"Your name:",
     "contact.phone":"Your phone:",
     "contact.email":"Your email:",
+    "contact.subject":"Your subject:",
     "contact.message":"Your message:",
     "contact.button":"Send",
     "contact.confirm":"Message sent correctly, I will contact you as soon as possible.",
@@ -45,6 +46,7 @@
     "about.DataList8th":"Spanish (Native)",
     "about.DataList9th":"English (Intermediate) ",
     "about.DataListTitle3":"Technologies I use: ",
+    "about.DataListTitle4":"Technologies I'm learning: ",
 
     "about.download":"Download here",
 
@@ -77,6 +79,8 @@
     "about.AboutExperience2":" ",
 
     "portfolio.title":"Projects",
+    "portfolio.front":"Front-End Projects",
+    "portfolio.back":"Back-End Projects",
     "portfolio.watch":"Watch details",
     "portfolio.link":"Go to site",
 

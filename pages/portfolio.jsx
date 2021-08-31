@@ -35,27 +35,20 @@ const Portfolio = () => {
         <div className="w-screen h-auto pb-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
           <div className="container mx-auto">
             <div className=" mx-auto lg:mx-20  my-10 dark:text-white duration-300 ease-in">
-              <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 duration-300 ease-in ">
+              <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 duration-300 ease-in text-center">
                 <FormattedMessage
                     id="portfolio.title"
                     defaultMessage="Projects"
                 />
               </h1>
-              <div className=" grid grid-cols-1 xl:grid-cols-2 ">
-                <PortfolioCard
-                  title="ProjectTitel1"
-                  date="ProjectDate1"
-                  features="ProjectFeatures1"
-                  description="ProjectDescription1"
-                  tecnologies="ProjectTec1"
-                  type="ProjectType1"
-                  imageType="web"
-                  videoId="dpMQ3WPNOqE"
-                  videoBool={true}
-                  urlBool={false}
-                  url="https://twitter.com/ChaoCazares"
+              <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-5 lg:mx-3 duration-300 ease-in ">
+                <FormattedMessage
+                    id="portfolio.front"
+                    defaultMessage=""
                 />
-
+              </h3>
+              <div className=" grid grid-cols-1 xl:grid-cols-2 ">
+                
                 <PortfolioCard
                   title="ProjectTitel2"
                   date="ProjectDate2"
@@ -110,6 +103,27 @@ const Portfolio = () => {
                   videoBool={false}
                   urlBool={true}
                   url="https://andrescazares-phc.netlify.app/"
+                />
+              </div>
+              <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-5 lg:mx-3 duration-300 ease-in mt-10">
+                <FormattedMessage
+                    id="portfolio.back"
+                    defaultMessage=""
+                />
+              </h3>
+              <div className=" grid grid-cols-1 xl:grid-cols-2 ">
+                <PortfolioCard
+                  title="ProjectTitel1"
+                  date="ProjectDate1"
+                  features="ProjectFeatures1"
+                  description="ProjectDescription1"
+                  tecnologies="ProjectTec1"
+                  type="ProjectType1"
+                  imageType="web"
+                  videoId="dpMQ3WPNOqE"
+                  videoBool={true}
+                  urlBool={false}
+                  url="https://twitter.com/ChaoCazares"
                 />
               </div>
             </div> 

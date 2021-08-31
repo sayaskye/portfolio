@@ -9,6 +9,10 @@ body{
   font-family: Quicksand;
 }
 
+.popovers{
+  font-family: Quicksand;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

@@ -60,17 +60,14 @@ const Form = () => {
                             {serverState.status && (
                                 <div>
                                     <p className={!serverState.status.ok ? "bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-3" : "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-3"}>
-                                        
                                         <button className="" onClick={hanndleCloseNotification}>
-                                            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                            </svg> */}
-                                        {serverState.status.msg}
+                                            {serverState.status.msg}
                                         </button>
                                     </p>
                                 </div>
                             )}
                         <form onSubmit={handleOnSubmit} className="flex flex-col justify-between content-between ">
+                            
                             <label htmlFor="nombre">
                                 <FormattedMessage
                                     id="contact.name"
@@ -79,7 +76,8 @@ const Form = () => {
                             </label>
                             <input 
                                 className=" text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
-                                id="nombre" type="text" name="nombre" placeholder="Bill Gates" required /> <br />
+                                id="nombre" type="text" name="nombre" placeholder="John Doe" required /> <br />
+
                             <label htmlFor="telefono">
                                 <FormattedMessage
                                     id="contact.phone"
@@ -89,6 +87,7 @@ const Form = () => {
                             <input 
                                 className=" text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
                                 id="telefono" type="text" name="telefono" placeholder="(123) 456 7890"  required /> <br />
+
                             <label htmlFor="email">
                                 <FormattedMessage
                                     id="contact.email"
@@ -97,10 +96,21 @@ const Form = () => {
                             </label>
                             <input 
                                 className=" text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
-                                id="email" type="email" name="email" placeholder="example@example.com" required /> <br />
+                                id="email" type="email" name="email" placeholder="Example@example.com" required /> <br />
+
+                            <label htmlFor="subject">
+                                <FormattedMessage
+                                    id="contact.subject"
+                                    defaultMessage="Your subject:"
+                                />
+                            </label>
+                            <input 
+                                className=" text-black rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-450 focus:border-transparent items-center bg-gray-300 px-5 py-2 font-bold mt-1" 
+                                id="subject" type="text" name="subject" placeholder="I need to quote a website" required /> <br />
+                            
                             <label htmlFor="message">
                                 <FormattedMessage
-                                    id="contact.message"
+                                    id="contact.subject"
                                     defaultMessage="Your message:"
                                 />
                             </label>
