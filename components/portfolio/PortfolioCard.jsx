@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { configContext } from '../../context/configContext' 
 
-const PortfolioCard = ({title, date, tecnologies, description, features, type, imageType, videoId, url, urlBool, videoBool}) => {
+const PortfolioCard = ({title, imageType, videoId, url, urlBool, videoBool}) => {
 
     const {theme} = useContext(configContext)
     const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
         <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden">
             <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
                 <FormattedMessage
-                    id={"portfolio."+title} 
+                    id={"portfolio.ProjectTitle."+title} 
                     defaultMessage=""
                 />
                 <button 
@@ -42,7 +42,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                     </div>
                     <span className="text-left underline font-bold text-lg md:text-2xl">
                         <FormattedMessage
-                            id={"portfolio."+type} 
+                            id={"portfolio.ProjectType."+title} 
                             defaultMessage=""
                         />
                     </span>
@@ -56,7 +56,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                     </div>
                     <span className="text-right underline font-bold text-lg md:text-2xl">
                         <FormattedMessage
-                            id={"portfolio."+date} 
+                            id={"portfolio.ProjectDate."+title} 
                             defaultMessage=""
                         />
                     </span>
@@ -74,7 +74,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             </span>
                             <span className="underline font-bold text-lg md:text-2xl">
                                 <FormattedMessage
-                                    id={"portfolio."+features} 
+                                    id={"portfolio.ProjectFeatures."+title} 
                                     defaultMessage=""
                                 />
                             </span>
@@ -88,7 +88,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             </span>
                             <span className=" text-lg md:text-2xl">
                                 <FormattedMessage
-                                    id={"portfolio."+description} 
+                                    id={"portfolio.ProjectDescription."+title} 
                                     defaultMessage=""
                                 />
                             </span>
@@ -102,7 +102,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                             </span>
                             <span className="underline font-bold text-lg md:text-2xl">
                                 <FormattedMessage
-                                    id={"portfolio."+tecnologies} 
+                                    id={"portfolio.ProjectTec."+title} 
                                     defaultMessage=""
                                 />
                             </span>
@@ -130,14 +130,14 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                 <div className="flex flex-col text-center ">
                     <h2 className="text-main-lightblue dark:text-main-blue text-3xl mb-3 font-bold lg:mx-3 duration-300 ease-in mx-5">
                         <FormattedMessage
-                            id={"portfolio."+title} 
+                            id={"portfolio.ProjectTitle."+title} 
                             defaultMessage=""
                         />
                     </h2>
                 </div>
                 <p  className=" w-3/4 mx-auto  limitTextLines"> 
                     <FormattedMessage
-                        id={"portfolio."+description} 
+                        id={"portfolio.ProjectDescription."+title} 
                         defaultMessage=""
                     /> 
                 </p>

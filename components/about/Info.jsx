@@ -53,6 +53,10 @@ const AboutInfo = () => {
                         <br />
                         <br />
                         <FormattedMessage id="about.mainmsg10" defaultMessage=" "/>
+                        <br /><br />
+                        <FormattedMessage id="about.mainmsg11" defaultMessage=" "/>
+                        <br /><br />
+                        <FormattedMessage id="about.mainmsg12" defaultMessage=" "/>
 
                         <hr className="2xl:hidden block dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                     </div>
@@ -70,7 +74,7 @@ const AboutInfo = () => {
                             </li>
                             <li>
                                 <FormattedMessage id="about.DataList2nd" defaultMessage=" "/>
-                            </li>
+                            </li> 
                             <li>
                                 <FormattedMessage id="about.DataList3rd" defaultMessage=" "/>
                             </li>
@@ -81,7 +85,7 @@ const AboutInfo = () => {
                                 </a>
                                     
                             </li>
-                            <li>    
+                            {/* <li>    
                                 <FormattedMessage id="about.DataList5th"  defaultMessage=" "  />
                             </li>
                             <li>
@@ -89,7 +93,7 @@ const AboutInfo = () => {
                             </li>
                             <li>
                                 <FormattedMessage id="about.DataList7th" defaultMessage=" " />
-                            </li>
+                            </li> */}
 
                             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                             <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
