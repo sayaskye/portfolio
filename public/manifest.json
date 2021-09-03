@@ -1,0 +1,22 @@
+{
+    "name": "Andres Cazares Web",
+    "short_name": "ACWeb",
+    "icons": [
+      {
+        "src": "/192Logo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+  
+      {
+        "src": "/512Logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#3AB5EF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
