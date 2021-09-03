@@ -1,7 +1,8 @@
-import { FormattedMessage } from 'react-intl'
+
 import Layout from '../components/layout'
 import Info from '../components/about/Info'
 import Experience from '../components/about/Experience'
+import MyTecnologies from '../components/about/MyTecnologies'
 import Head from 'next/head';
 import { useContext } from 'react';
 import { configContext } from "../context/configContext";
@@ -37,6 +38,7 @@ const About = () => {
           {/* <p>Hola mundo about</p> */}
           <Info/>
           <Experience/>
+          <MyTecnologies/>
         </div> 
       </Layout>
     </>

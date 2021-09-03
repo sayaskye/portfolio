@@ -83,10 +83,9 @@ const Navbar = () => {
         </div>
         <div className={`bg-gray-100 dark:bg-navbar-fondo w-screen md:w-navbar duration-300 ease-in px-10 h-screen justify-center pt-10 md:pt-20 fixed md:static md:flex ${menuOpen ? "flex absolute z-40" : "hidden"}`}>
             <div className="flex flex-col justify-between mx-0 items-center">
-                <div className="border-main-lightblue dark:border-main-blue w-48 h-48 rounded-full hidden md:flex items-center justify-center duration-300 ease-in border-8 bg-profile-picture">
-                    <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture">
-                        {/* <Image src="/../public/images/mitsuha.jpg" className="rounded-full" alt="Imagen de Andres Cazares" width="200%" height="200%"/> */}
-                        {/* <img src="https://cdn.discordapp.com/attachments/767855867819065364/859997625755369522/ExThq95UUAARyjt.jpg" className="rounded-full" alt="Imagen de Andres Cazares" /> */}
+                <div className="border-main-lightblue dark:border-main-blue w-48 h-48 rounded-full hidden md:flex items-center justify-center duration-300 ease-in border-8">
+                    <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center">
+                        <img className="" src="/images/Profile menu.png" alt="Andrés Cazares"  />
                     </div>
                 </div>
                 <div className="text-main-lightblue dark:text-main-blue flex justify-around w-60 py-2">

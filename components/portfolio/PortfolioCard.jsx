@@ -48,7 +48,7 @@ const PortfolioCard = ({title, date, tecnologies, description, features, type, i
                     </span>
                 </h3>
                 <h3 className=" flex flex-col "> 
-                    <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl  font-bold">
+                    <div className="text-main-lightblue text-right dark:text-main-blue text-base md:text-xl  font-bold">
                         <FormattedMessage
                             id="portfolio.card.dateLabel" 
                             defaultMessage=""

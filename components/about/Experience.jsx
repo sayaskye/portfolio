@@ -11,7 +11,7 @@ const Experience = () => {
                         defaultMessage=""
                     />
                 </h2>
-                <div className="flex flex-col 2xl:flex-row ">
+                <div className="flex flex-col  ">
                     <div>
                         <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-3 duration-300 ease-in ">
                             <FormattedMessage
@@ -19,20 +19,22 @@ const Experience = () => {
                                 defaultMessage=""
                             />
                         </h3>
-                        <ExperienceCard
-                            title="TitleEducation1"
-                            date="DateEducation1"
-                            place="PlaceEducation1"
-                            description="DescriptionEducation1"
-                            about="AboutEducation1"
-                        />
-                        <ExperienceCard
-                            title="TitleEducation2"
-                            date="DateEducation2"
-                            place="PlaceEducation2"
-                            description="DescriptionEducation2"
-                            about="AboutEducation2"
-                        />
+                        <div className="grid grid-cols-1 2xl:grid-cols-2">
+                            <ExperienceCard
+                                title="TitleEducation1"
+                                date="DateEducation1"
+                                place="PlaceEducation1"
+                                description="DescriptionEducation1"
+                                about="AboutEducation1"
+                            />
+                            <ExperienceCard
+                                title="TitleEducation2"
+                                date="DateEducation2"
+                                place="PlaceEducation2"
+                                description="DescriptionEducation2"
+                                about="AboutEducation2"
+                            />
+                        </div>
                     </div>
                     <div className="mt-8 2xl:mt-0">
                         <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-3 duration-300 ease-in ">
@@ -41,13 +43,16 @@ const Experience = () => {
                                 defaultMessage=""
                             />
                         </h3>
-                        <ExperienceCard
-                            title="TitleExperience1"
-                            date="DateExperience1"
-                            place="PlaceExperience1"
-                            description="DescriptionExperience1"
-                            about="AboutExperience1"
-                        />
+                        <div className="grid grid-cols-1 2xl:grid-cols-2">
+                            <ExperienceCard
+                                title="TitleExperience1"
+                                date="DateExperience1"
+                                place="PlaceExperience1"
+                                description="DescriptionExperience1"
+                                about="AboutExperience1"
+                            />
+                            
+                        </div>
                     </div>
                 </div>
             </div>

@@ -51,7 +51,7 @@ const Form = () => {
             <div className="container mx-auto ">
                 <div className="mx-auto lg:mx-20 xl:mx-48 duration-300 ease-in">
                     <div className="items-center ">
-                        <h2 className="text-5xl my-10 text-main-lightblue dark:text-main-blue duration-300 ease-in">
+                        <h2 className="text-5xl my-10 text-center text-main-lightblue dark:text-main-blue duration-300 ease-in">
                             <FormattedMessage
                                 id="contact.title2"
                                 defaultMessage="Send me a message"

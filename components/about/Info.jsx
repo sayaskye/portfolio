@@ -18,8 +18,10 @@ const AboutInfo = () => {
                 </h1>
                 <div className="grid grid-cols-1 2xl:grid-cols-3 gap-2 text-xl">
 
-                    <div className="border-main-lightblue dark:border-main-blue w-48 h-48 mx-auto mb-5 rounded-full md:hidden flex items-center justify-center duration-300 ease-in border-8 bg-profile-picture">
-                        <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center bg-profile-picture"/>
+                    <div className="border-main-lightblue dark:border-main-blue w-48 h-48 mx-auto mb-5 rounded-full md:hidden flex items-center justify-center duration-300 ease-in border-8">
+                        <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center ">
+                            <img className="" src="/images/Profile menu.png" alt="Andrés Cazares"  />
+                        </div>
                     </div>
 
                     <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
@@ -113,42 +115,7 @@ const AboutInfo = () => {
                         </ul>
                     </div>
 
-                    <div className="col-span-2 2xl:col-span-4 mx-3 lg:mx-0 duration-300 ease-in">
-                        
-                        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
-                        <h2 className="text-main-lightblue dark:text-main-blue font-bold text-2xl duration-300 ease-in text-center">
-                            <FormattedMessage id="about.DataListTitle3" defaultMessage=" "/>
-                        </h2>
-                        <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in ">
-                            <Tecnologie name="HTML"svgname="html"/>
-                            <Tecnologie name="CSS"svgname="css"/>
-                            <Tecnologie name="Javascript"svgname="js"/>
-                            <Tecnologie name="Git"svgname="git"/>
-                            <Tecnologie name="React"svgname="react"/>
-                            <Tecnologie name="Tailwind"svgname="tailwind"/>
-                            <Tecnologie name="Bootstrap"svgname="bootstrap"/> 
-                            <Tecnologie name="Firebase"svgname="firebase"/>
-                            <Tecnologie name="Rest API"svgname="rest"/>
-                            <Tecnologie name="SQL"svgname="database"/>
-                            <Tecnologie name="MongoDB"svgname="mongo"/>
-                            
-                            {/* <Tecnologie name=""svgname=""/>  */}
-                        </div>
-                        <h2 className="text-main-lightblue dark:text-main-blue mt-14 font-bold text-2xl duration-300 ease-in text-center">
-                            <FormattedMessage id="about.DataListTitle4" defaultMessage=" "/>
-                        </h2>
-                        <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in">
-                            <Tecnologie name="NodeJS"svgname="node"/>
-                            <Tecnologie name="Express"svgname="express"/>
-                            <Tecnologie name="GraphQL"svgname="graphql"/>
-                            <Tecnologie name="VueJs"svgname="vue"/> 
-                            <Tecnologie name="PHP"svgname="php"/>
-                            <Tecnologie name="Laravel"svgname="laravel"/>
-                            <Tecnologie name="Python"svgname="python"/> 
-                            <Tecnologie name="Angular"svgname="angular"/> 
-                            {/* <Tecnologie name=""svgname=""/>  */}
-                        </div>
-                    </div>
+                    
                     
                 </div>
                 <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in my-6 h-auto"></hr>
