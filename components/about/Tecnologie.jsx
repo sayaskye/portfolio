@@ -3,9 +3,12 @@ import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { FormattedMessage } from "react-intl"
+import { useContext } from "react";
+import { configContext } from '../../context/configContext' 
 
 const tecnologie = ({name, svgname, idtext}) => {
-
+    
+    const {theme} = useContext(configContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -37,12 +40,15 @@ const tecnologie = ({name, svgname, idtext}) => {
                 vertical: 'top',
                 horizontal: 'center',
                 }}
+                className={`${theme}` }
             >
-                <Typography> 
-                    <div className="m-3">
-                        <span className="">
-                            <FormattedMessage id={"about.popover."+name} defaultMessage={name}/>
-                        </span>
+                <Typography className="w-full md:w-[300px] dark:bg-black bg-white"> 
+                    <div className="bg-gray-300 dark:bg-gray-700">
+                        <div className="p-3 dark:text-white text-black popovers">
+                            <span className="">
+                                <FormattedMessage id={"about.popover."+name} defaultMessage={name}/>
+                            </span>
+                        </div>
                     </div>
                 </Typography>
             </Popover>

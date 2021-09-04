@@ -5,7 +5,7 @@ const MyTecnologies = () => {
         <div className="col-span-2 2xl:col-span-4 mx-3 lg:mx-0 duration-300 ease-in">
                         
             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
-            <h2 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
+            <h2 className="text-main-lightblue dark:text-main-blue text-3xl md:text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
                 <FormattedMessage id="about.DataListTitle3" defaultMessage=" "/>
             </h2>
             <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in ">
@@ -23,7 +23,7 @@ const MyTecnologies = () => {
                 
                 {/* <Tecnologie name=""svgname=""/>  */}
             </div>
-            <h2 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
+            <h2 className="text-main-lightblue dark:text-main-blue text-3xl md:text-5xl my-10 font-bold mx-3 lg:mx-0 duration-300 ease-in text-center">
                 <FormattedMessage id="about.DataListTitle4" defaultMessage=" "/>
             </h2>
             <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in">
