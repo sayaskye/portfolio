@@ -110,7 +110,7 @@ const AboutInfo = () => {
                             <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                             <div className="flex flex-col">
                                 <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
-                                    Curriculum Vitae 
+                                    Currículum  Vitae 
                                 </h2>
                                 <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
                                     <FormattedMessage id="about.download" defaultMessage=" "/> 
