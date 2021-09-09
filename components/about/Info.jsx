@@ -1,5 +1,5 @@
 import { FormattedMessage } from "react-intl"
-import Tecnologie from "./Tecnologie";
+
 const AboutInfo = () => {
 
     let year;
@@ -25,38 +25,40 @@ const AboutInfo = () => {
                     </div>
 
                     <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
-                        <div className="font-bold text-3xl">
+                        <div className="font-bold text-2xl lg:text-3xl">
                             <FormattedMessage id="about.mainmsg1" defaultMessage="Hi, im "/>
                             <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
                                 Carlos Andrés Gutiérrez Cazares 
                             </span> 
                             <FormattedMessage id="about.mainmsg2" defaultMessage=" Web programmer "/>
                         </div>
-                        <br />
-                        <FormattedMessage id="about.mainmsg3" defaultMessage=" "/>
-                        <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
-                            <FormattedMessage id="about.mainmsg4" defaultMessage=" "/>
-                        </span> 
-                        <FormattedMessage id="about.mainmsg5" defaultMessage=" "/>
-                        <span className="font-bold underline">
-                            <FormattedMessage id="about.mainmsg6" defaultMessage=" "/>
-                        </span>
-                        <FormattedMessage  id="about.mainmsg7" defaultMessage=" "/>
-                        <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
-                            Front-end  
-                        </span> 
-                        <FormattedMessage id="about.mainmsg8" defaultMessage=" "/>
-                        <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
-                            Back-end  
-                        </span> 
-                        <FormattedMessage id="about.mainmsg9" defaultMessage=" "/>
-                        <br />
-                        <br />
-                        <FormattedMessage id="about.mainmsg10" defaultMessage=" "/>
-                        <br /><br />
-                        <FormattedMessage id="about.mainmsg11" defaultMessage=" "/>
-                        <br /><br />
-                        <FormattedMessage id="about.mainmsg12" defaultMessage=" "/>
+                        <div className="text-lg lg:text-xl">
+                            <br />
+                            <FormattedMessage id="about.mainmsg3" defaultMessage=" "/>
+                            <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
+                                <FormattedMessage id="about.mainmsg4" defaultMessage=" "/>
+                            </span> 
+                            <FormattedMessage id="about.mainmsg5" defaultMessage=" "/>
+                            <span className="font-bold underline">
+                                <FormattedMessage id="about.mainmsg6" defaultMessage=" "/>
+                            </span>
+                            <FormattedMessage  id="about.mainmsg7" defaultMessage=" "/>
+                            <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
+                                Front-end  
+                            </span> 
+                            <FormattedMessage id="about.mainmsg8" defaultMessage=" "/>
+                            <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
+                                Back-end  
+                            </span> 
+                            <FormattedMessage id="about.mainmsg9" defaultMessage=" "/>
+                            <br />
+                            <br />
+                            <FormattedMessage id="about.mainmsg10" defaultMessage=" "/>
+                            <br /><br />
+                            <FormattedMessage id="about.mainmsg11" defaultMessage=" "/>
+                            <br /><br />
+                            <FormattedMessage id="about.mainmsg12" defaultMessage=" "/>
+                        </div>
 
                         <hr className="2xl:hidden block dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
                     </div>
@@ -112,9 +114,9 @@ const AboutInfo = () => {
                                 <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
                                     Currículum  Vitae 
                                 </h2>
-                                <button className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
+                                <a href="/images/404.svg" target="_blank" rel="noreferrer noopener" className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
                                     <FormattedMessage id="about.download" defaultMessage=" "/> 
-                                </button>
+                                </a>
                             </div>
                         </ul>
                     </div>

@@ -110,7 +110,7 @@ const Form = () => {
                             
                             <label htmlFor="message">
                                 <FormattedMessage
-                                    id="contact.subject"
+                                    id="contact.message"
                                     defaultMessage="Your message:"
                                 />
                             </label>
