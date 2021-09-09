@@ -58,14 +58,14 @@ const Portfolio = () => {
                   url=""
                 />
 
-                <PortfolioCard
+                {/* <PortfolioCard
                   title="personalBlog" 
                   imageType="personalblog" 
                   videoId="" 
                   videoBool={false} 
                   urlBool={false} 
                   url=""
-                />
+                /> */}
 
                 <PortfolioCard
                   title="ASMPC" 
@@ -94,23 +94,23 @@ const Portfolio = () => {
                   url="https://andrescazares-phc.netlify.app/"
                 />
 
-                <PortfolioCard
+                {/* <PortfolioCard
                   title="weather" 
                   imageType="weather" 
                   videoId="" 
                   videoBool={false} 
                   urlBool={false} 
                   url=""
-                />
+                /> */}
 
-                <PortfolioCard
+                {/* <PortfolioCard
                   title="chat" 
                   imageType="chat" 
                   videoId="" 
                   videoBool={false} 
                   urlBool={false} 
                   url=""
-                />
+                /> */}
 
                 <PortfolioCard
                   title="blogphp" 
@@ -121,14 +121,14 @@ const Portfolio = () => {
                   url=""
                 />
 
-                <PortfolioCard
+                {/* <PortfolioCard
                   title="ffxiv" 
                   imageType="ffxiv" 
                   videoId="" 
                   videoBool={false} 
                   urlBool={false} 
                   url=""
-                />
+                /> */}
 
                 <PortfolioCard
                   title="taquero" 
@@ -152,25 +152,30 @@ const Portfolio = () => {
                   imageType="apis" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={false} 
-                  url=""
+                  urlBool={true} 
+                  url="https://github.com/sayaskye/apirestlaravel"
                 />
                 <PortfolioCard
                   title="apiNode" 
                   imageType="apis" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={false} 
-                  url=""
+                  urlBool={true} 
+                  url="https://github.com/sayaskye/apirestnodejs"
                 />
-                <PortfolioCard
+                {/* <PortfolioCard
                   title="strapiBlog" 
                   imageType="strapi" 
                   videoId="" 
                   videoBool={false} 
                   urlBool={false} 
                   url=""
-                />
+                /> */}
+
+
+
+
+
                 {/* 
                 <PortfolioCard
                   title="" 

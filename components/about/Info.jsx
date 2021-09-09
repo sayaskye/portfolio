@@ -1,6 +1,21 @@
 import { FormattedMessage } from "react-intl"
+import { useContext} from "react";
+import { configContext } from "../../context/configContext";
 
 const AboutInfo = () => {
+
+    let spanish=false;
+    let english=false;
+
+    const {locale} = useContext(configContext)
+
+    if(locale==="es-MX"){
+        spanish=true; 
+        english=false;                       
+    }else{
+        english=true; 
+        spanish=false; 
+    }
 
     let year;
     let month = new Date().getMonth();
@@ -114,9 +129,18 @@ const AboutInfo = () => {
                                 <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
                                     Currículum  Vitae 
                                 </h2>
-                                <a href="/images/404.svg" target="_blank" rel="noreferrer noopener" className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
-                                    <FormattedMessage id="about.download" defaultMessage=" "/> 
-                                </a>
+                                {
+                                    spanish && 
+                                    <a href="/cv/AndresCazares_CV_ES.pdf" target="_blank" rel="noreferrer noopener" className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
+                                        <FormattedMessage id="about.download" defaultMessage=" "/> 
+                                    </a>
+                                }
+                                {
+                                    english && 
+                                    <a href="/cv/AndresCazares_CV_EN.pdf" target="_blank" rel="noreferrer noopener" className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-10 text-lg font-bold  bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center mx-auto"> 
+                                        <FormattedMessage id="about.download" defaultMessage=" "/> 
+                                    </a>
+                                }
                             </div>
                         </ul>
                     </div>
