@@ -4,7 +4,7 @@
 
     "nav.language":"Change to English",
     "nav.home":"Inicio",
-    "nav.about":"Sobre mi",
+    "nav.about":"Sobre mí",
     "nav.projects":"Proyectos",
     "nav.contact":"Contacto",
 
@@ -21,7 +21,7 @@
     "contact.confirm":"Mensaje enviado correctamente, me pondre en contacto contigo a la brevedad posible.",
     "contact.fail":"Lo siento, algo ha salido mal, intentalo de nuevo mas tarde o mandame un correo directamente, gracias.",
 
-    "about.title":"Sobre mi",
+    "about.title":"Sobre mí",
     "about.mainmsg1":"Hola, mi nombre es ",
     "about.mainmsg2":" y soy desarrollador web enfocado al Front-end. ",
     "about.mainmsg3":"Soy Ingeniero egresado del ",
