@@ -91,26 +91,26 @@ const Portfolio = () => {
                   videoId="" 
                   videoBool={false} 
                   urlBool={true} 
-                  url="https://andrescazares-phc.netlify.app/"
+                  url="https://phclone-ac.netlify.app"
                 />
 
-                {/* <PortfolioCard
+                <PortfolioCard
                   title="weather" 
                   imageType="weather" 
-                  videoId="" 
-                  videoBool={false} 
-                  urlBool={false} 
-                  url=""
-                /> */}
+                  videoId="0gCM5yIAZ7Q" 
+                  videoBool={true} 
+                  urlBool={true} 
+                  url="https://clima-ac.netlify.app"
+                /> 
 
-                {/* <PortfolioCard
+                <PortfolioCard
                   title="chat" 
                   imageType="chat" 
-                  videoId="" 
-                  videoBool={false} 
-                  urlBool={false} 
-                  url=""
-                /> */}
+                  videoId="D3u3pPRJStk" 
+                  videoBool={true} 
+                  urlBool={true} 
+                  url="https://superchat-ac.netlify.app"
+                />
 
                 <PortfolioCard
                   title="blogphp" 
