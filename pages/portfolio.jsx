@@ -12,23 +12,23 @@ const Portfolio = () => {
       {locale==="es-MX"&&
         <Head>
           <title> Proyectos | Andrés Cazares Web </title>
-          <link rel='icon' href='/logo.png' />
+          <link rel='icon' href='/logo.svg' />
           <meta name='description' content='Andrés Cazares Portfolio personal' />
           <meta name='keywords' content='México, Desarrollador, Programador, HTML, ReactJS, Tailwind, Web' />
           <meta name='author' content='Andrés Cazares' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <meta property='og:image' content='/images/logo.png' />
+          <meta property='og:image' content='/logo.svg' />
         </Head>
       }
       {locale==="en-US"&&
         <Head>
           <title> Projects | Andrés Cazares Web </title>
-          <link rel='icon' href='/logo.png' />
+          <link rel='icon' href='/logo.svg' />
           <meta name='description' content='Andrés Cazares Personal Portfolio' />
           <meta name='keywords' content='México, Programmer, Developer, HTML, ReactJS, Tailwind, Web' />
           <meta name='author' content='Andrés Cazares' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <meta property='og:image' content='/images/logo.png' />
+          <meta property='og:image' content='/logo.svg' />
         </Head>
       }
       <Layout>
@@ -58,14 +58,14 @@ const Portfolio = () => {
                   url=""
                 />
 
-                {/* <PortfolioCard
+                <PortfolioCard
                   title="personalBlog" 
                   imageType="personalblog" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={false} 
-                  url=""
-                /> */}
+                  urlBool={true} 
+                  url="https://blog-andrescazares.netlify.app/"
+                /> 
 
                 <PortfolioCard
                   title="ASMPC" 
@@ -86,15 +86,6 @@ const Portfolio = () => {
                 />
 
                 <PortfolioCard
-                  title="ProductHunt" 
-                  imageType="web" 
-                  videoId="" 
-                  videoBool={false} 
-                  urlBool={true} 
-                  url="https://phclone-ac.netlify.app"
-                />
-
-                <PortfolioCard
                   title="weather" 
                   imageType="weather" 
                   videoId="0gCM5yIAZ7Q" 
@@ -102,24 +93,6 @@ const Portfolio = () => {
                   urlBool={true} 
                   url="https://clima-ac.netlify.app"
                 /> 
-
-                <PortfolioCard
-                  title="chat" 
-                  imageType="chat" 
-                  videoId="D3u3pPRJStk" 
-                  videoBool={true} 
-                  urlBool={true} 
-                  url="https://superchat-ac.netlify.app"
-                />
-
-                <PortfolioCard
-                  title="blogphp" 
-                  imageType="phpblog" 
-                  videoId="dpMQ3WPNOqE" 
-                  videoBool={true} 
-                  urlBool={false} 
-                  url=""
-                />
 
                 {/* <PortfolioCard
                   title="ffxiv" 
@@ -147,6 +120,49 @@ const Portfolio = () => {
                 />
               </h3>
               <div className=" grid grid-cols-1 xl:grid-cols-2 ">
+                 <PortfolioCard
+                  title="strapiBlog" 
+                  imageType="strapi" 
+                  videoId="" 
+                  videoBool={false} 
+                  urlBool={false} 
+                  url=""
+                /> 
+              </div>
+              <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-5 lg:mx-3 duration-300 ease-in mt-10">
+                <FormattedMessage
+                    id="portfolio.course"
+                    defaultMessage=""
+                />
+              </h3>
+              <div className=" grid grid-cols-1 xl:grid-cols-2 ">
+                <PortfolioCard
+                  title="ProductHunt" 
+                  imageType="web" 
+                  videoId="" 
+                  videoBool={false} 
+                  urlBool={true} 
+                  url="https://phclone-ac.netlify.app"
+                />
+
+                <PortfolioCard
+                  title="chat" 
+                  imageType="chat" 
+                  videoId="D3u3pPRJStk" 
+                  videoBool={true} 
+                  urlBool={true} 
+                  url="https://superchat-ac.netlify.app"
+                />
+
+                <PortfolioCard
+                  title="blogphp" 
+                  imageType="phpblog" 
+                  videoId="dpMQ3WPNOqE" 
+                  videoBool={true} 
+                  urlBool={false} 
+                  url=""
+                />
+
                 <PortfolioCard
                   title="apiLaravel" 
                   imageType="apis" 
@@ -163,19 +179,7 @@ const Portfolio = () => {
                   urlBool={true} 
                   url="https://github.com/sayaskye/apirestnodejs"
                 />
-                {/* <PortfolioCard
-                  title="strapiBlog" 
-                  imageType="strapi" 
-                  videoId="" 
-                  videoBool={false} 
-                  urlBool={false} 
-                  url=""
-                /> */}
-
-
-
-
-
+                
                 {/* 
                 <PortfolioCard
                   title="" 

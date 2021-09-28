@@ -13,23 +13,23 @@ const Home = () => {
       {locale==="es-MX"&&
         <Head>
           <title> Inicio | Andrés Cazares Web </title>
-          <link rel='icon' href='/logo.png' />
+          <link rel='icon' href='/logo.svg' />
           <meta name='description' content='Andrés Cazares Portfolio personal' />
           <meta name='keywords' content='México, Desarrollador, Programador, HTML, ReactJS, Tailwind, Web' />
           <meta name='author' content='Andrés Cazares' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <meta property='og:image' content='/images/logo.png' />
+          <meta property='og:image' content='/logo.svg' />
         </Head>
       }
       {locale==="en-US"&&
         <Head>
           <title> Home | Andrés Cazares Web </title>
-          <link rel='icon' href='/logo.png' />
+          <link rel='icon' href='/logo.svg' />
           <meta name='description' content='Andrés Cazares Personal Portfolio' />
           <meta name='keywords' content='México, Programmer, Developer, HTML, ReactJS, Tailwind, Web' />
           <meta name='author' content='Andrés Cazares' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          <meta property='og:image' content='/images/logo.png' />
+          <meta property='og:image' content='/logo.svg' />
         </Head>
       }
       <Layout>

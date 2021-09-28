@@ -92,12 +92,12 @@ const AboutInfo = () => {
                             <li>
                                 <FormattedMessage id="about.DataList2nd" defaultMessage=" "/>
                             </li> 
-                            <li>
+                            {/* <li>
                                 <FormattedMessage id="about.DataList3rd" defaultMessage=" "/>
-                            </li>
+                            </li> */}
                             <li>
                                 <FormattedMessage id="about.DataList4th1" defaultMessage=" "/>
-                                <a href="#" className="underline">
+                                <a href="https://blog-andrescazares.netlify.app/" className="underline" target="_blank" rel="noopener">
                                     <FormattedMessage id="about.DataList4th2" defaultMessage=" " />
                                 </a>
                                     

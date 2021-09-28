@@ -41,7 +41,7 @@
     "about.DataList2nd":"Estudios: Ingeniería",
     "about.DataList3rd":"Freelance: Disponible",
     "about.DataList4th1":"Blog: ",
-    "about.DataList4th2":"Próximamente",
+    "about.DataList4th2":"Ir al blog",
     "about.DataList5th":"Ciudad: Juarez, Chihhuahua. MX",
     "about.DataList6th":"Telefono: 656-393-1234",
     "about.DataList7th":"Correo: Chaotears@gmail.com",
@@ -65,7 +65,7 @@
 
     "about.TitleEducation2":"Cursos en línea ",
     "about.DateEducation2":"2019-Actualidad ",
-    "about.PlaceEducation2":"Udemy - Platzi - EdTeam ",
+    "about.PlaceEducation2":"Udemy - Platzi - Otros ",
     "about.DescriptionEducation2":"Antes terminar mi carrera me di cuenta de que la carrera por sí sola no bastaba para lo que yo me quería dedicar, por lo tanto decidí invertir más en mi educación, fue ahí cuando empecé a seguir cursos en línea de todo tipo que me ayudaran al crecimiento personal, gracias a los cursos de las plataformas conseguí los conocimientos de otras personas y los adapté a mí mismo, los utilizo a mi manera y me aseguro de seguir evolucionando el conocimiento que otras personas me transmitieron. ",
     "about.AboutEducation2":" ",
     
@@ -84,6 +84,7 @@
     "portfolio.title":"Proyectos",
     "portfolio.front":"Proyectos Front-End",
     "portfolio.back":"Proyectos Back-End",
+    "portfolio.course":"Proyectos de cursos",
     "portfolio.watch":"Ver detalles",
     "portfolio.link":"Ir al sitio",
 
