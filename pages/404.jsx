@@ -33,7 +33,7 @@ const Home = () => {
         </Head>
       }
       <Layout>
-        <div className="w-screen h-screen bg-gray-200 duration-500 ease-in dark:bg-gray-800 text-white dark:text-main-blue ">
+        <div className="w-screen h-screen bg-gray-200 duration-500 ease-in dark:bg-gray-800 text-white">
           {/* <p>Hola mundo Index</p> */}
           <div className="h-full w-full bg-error bg-cover bg-top flex flex-col items-center justify-center">
             <div className="absolute flex flex-col  text-center">
@@ -43,8 +43,8 @@ const Home = () => {
                     defaultMessage=""
                 />
               </h1>
-              <div className="mt-40 mx-10 bg-main-lightblue/30 dark:bg-main-blue/30 backdrop-blur-sm rounded-full">
-                <h2 className="dark:text-white text-xl md:text-3xl font-black items-center self-center bg-black bg-opacity-[.08] rounded-full ">
+              <div className="mt-40 mx-10 bg-main-blue/30 backdrop-blur-sm rounded-full">
+                <h2 className="text-xl md:text-3xl font-black items-center self-center bg-black bg-opacity-[.08] rounded-full ">
                     <FormattedMessage
                     id="error.subtitle"
                     defaultMessage=""
