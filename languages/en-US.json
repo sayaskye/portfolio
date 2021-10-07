@@ -8,6 +8,9 @@
     "nav.projects":"Projects",
     "nav.contact":"Contact",
 
+    "error.title":"Error 404",
+    "error.subtitle":"The page you are looking for doesn't exist, please use the navigation bar to continue your navigation.",
+    
     "home.subtitle":"Web Developer",
 
     "contact.title":"Contact",
@@ -29,8 +32,8 @@
     "about.mainmsg5":", I successfully completed the career of ",
     "about.mainmsg6":"Computer Systems Engineering, taking the specialty of Advanced Software Development",
     "about.mainmsg7":", I am very excited to be able to work with recent technologies that allow to improve processes and help the development of complete and robust software, I specialize in ",
-    "about.mainmsg8":" web development with ReactJS and TailwindCSS, however I also have technical knowledge of ",
-    "about.mainmsg9":", for example NodeJS or PHP, I also have some knowledge of mobile development thanks to technologies such as React Native or Ionic.",
+    "about.mainmsg8":" web development with ReactJS and TailwindCSS, however I also have some basic technical knowledge of ",
+    "about.mainmsg9":", for example NodeJS, I also have some knowledge of mobile development thanks to technologies such as React Native.",
     "about.mainmsg10":"I consider myself a highly responsible person who always tries to prioritize the quality of his work even when I do not know 100% the technology that is asked of me, I do my best to reach my own quality standards and those that are proposed to me later.",
     "about.mainmsg11":"Regarding my hobbies, I really like to play video games, especially those that require a considerable amount of strategy, I also like to investigate current and relevant issues, both scientific and technological issues, I really like to keep up to date with this type of thing since that gives me motivation to continue acquiring knowledge and not miss out on interesting news, at the same time I like to share each new knowledge that I acquire and internalize with others.",
     "about.mainmsg12":"Regarding my level of English, I obtained a score between B1 and B2 by TOEFL ITP, this score was achieved in 2018 and since then I have continued to improve my English skills on my own to strengthen myself in the language. ",
@@ -41,8 +44,8 @@
     "about.DataList1st2":" Years",
     "about.DataList2nd":"Studies: Engineering",
     "about.DataList3rd":"Freelance: Available",
-    "about.DataList4th1":"Blog: ",
-    "about.DataList4th2":"Go to blog",
+    "about.DataList4th1":"Personal blog: ",
+    "about.DataList4th2":"Go to blog (Available only in spanish)",
     "about.DataList5th":"City: Juarez, Chihuahua. MX",
     "about.DataList6th":"Phone: 656-393-1234",
     "about.DataList7th":"E-mail: Chaotears@gmail.com",
@@ -61,7 +64,7 @@
     "about.TitleEducation1":"Computer Systems Engineer ",
     "about.DateEducation1":"2015-2020 ",
     "about.PlaceEducation1":"Technological Institute of Ciudad Juárez ",
-    "about.DescriptionEducation1":"I studied my career for 5 years, where due to pandemic complications it was difficult for me to finish the process until almost 1 year later, while studying the degree I learned the incredible importance of the fundamentals of any software process, learning to be self-taught and to communicate and transmit my ideas towards my colleagues to be able to work as a team so that the project continues its progress. ",
+    "about.DescriptionEducation1":"I studied my career for 5 years, where due to pandemic complications it was difficult for me to finish the process until almost 1 year later (2021), while studying the degree I learned the incredible importance of the fundamentals of any software process, learning to be self-taught and to communicate and transmit my ideas towards my colleagues to be able to work as a team so that the project continues its progress. ",
     "about.AboutEducation1":" ",
 
     "about.TitleEducation2":"Online courses ",
@@ -97,16 +100,16 @@
 
     "portfolio.ProjectTitle.portfolio":"Personal portfolio",
     "portfolio.ProjectDate.portfolio":"2021",
-    "portfolio.ProjectFeatures.portfolio":"Dark/Bright Mode, Multi-Language, PWA",
+    "portfolio.ProjectFeatures.portfolio":"Dark/Bright Mode, Multi-Language, PWA, SSR",
     "portfolio.ProjectTec.portfolio":"Javascript, NextJS, TailwindCSS",
     "portfolio.ProjectType.portfolio":"Web",
-    "portfolio.ProjectDescription.portfolio":"You are right now in my personal portfolio, just in the details section of it, so far this has been the personal project that I am most proud of the amount of time I spent researching every aspect of it, it has modern technologies essential in any modern website, as the Dark and Bright theme selector, plus the incredible speed and convenience that gives the NextJS framework when developing and deploying the application, in addition has an incredible responsive design oriented to mobile screens first, which allows the experience to be optimal in any possible situation, also has the feature of being a Progressive Web Application (PWA), which allows the user to install the website on your device you use at that time to access the website.  ",
+    "portfolio.ProjectDescription.portfolio":"You are right now in my personal portfolio, just in the details section of it, this was my first personal project done in React using server side rendering with NextJS, it has modern technologies essential in any modern website, such as the Dark and Bright theme selector, it also has an incredible responsive design oriented to mobile screens first, which allows the experience to be optimal in any possible situation, it also has the feature of being a Progressive Web Application (PWA), which allows the user to install the website on their device that they use at that moment when accessing the website.  ",
 
     "portfolio.ProjectTitle.personalBlog":"Personal blog",
     "portfolio.ProjectType.personalBlog":"Web",
     "portfolio.ProjectDate.personalBlog":"2021",
-    "portfolio.ProjectFeatures.personalBlog":"Authentication, Image upload",
-    "portfolio.ProjectTec.personalBlog":"Javascript, React",
+    "portfolio.ProjectFeatures.personalBlog":"Zustand, Search bar, SPA, Markdown",
+    "portfolio.ProjectTec.personalBlog":"Javascript, React, TailwindCSS",
     "portfolio.ProjectDescription.personalBlog":"This blog was designed with React and Strapi, the intention of the blog is to share knowledge and opinions that I have regarding certain topics of interest, both programming and entertainment, the ease that gives me Strapi as a CMS Back-end, allows me to focus more on the Front-end development of the same project, with features such as search engine publications, category selector, among many other features that should have any minimally decent blog, I chose to use Strapi because I wanted to use a CMS to make my life easier, since I wanted to use something other than Firebase because I wanted to polish my skills regarding the consumption of restful apis, and Wordpress simply seemed to me something that I should not take into account for a project where the Back-end and Front-end are worked separately, despite giving the option to do so, Strapi is simply better because it is already designed for this. ",
 
     "portfolio.ProjectTitle.ASMPC":"Assembly pc",
@@ -133,9 +136,9 @@
     "portfolio.ProjectTitle.weather":"Weather",
     "portfolio.ProjectType.weather":"Web",
     "portfolio.ProjectDate.weather":"2021",
-    "portfolio.ProjectFeatures.weather":"Api consumption, PWA",
+    "portfolio.ProjectFeatures.weather":"Api weather, Dinamic visual info",
     "portfolio.ProjectTec.weather":"Javascript, React",
-    "portfolio.ProjectDescription.weather":"This project was done only as a practice because I wanted to improve my skills on apis restful consumption but at the same time I realized that I wanted a weather application that was according to my needs when I look at my cell phone, the relevant data that I like to look at and not have to waste time looking at irrelevant data, so I decided to make it PWA so I could install it and not have to open the browser every time I wanted to access it with a simple click and not having to constantly search for my city.  ",
+    "portfolio.ProjectDescription.weather":"This project is very basic and was done only as a practice because I wanted to improve my skills on apis restful consumption but at the same time I realized that I wanted a weather application that was according to my needs, the relevant data that I like to look at and not have to waste time looking at irrelevant data.  ",
 
     "portfolio.ProjectTitle.chat":"Chat in real time",
     "portfolio.ProjectType.chat":"Web",
@@ -170,7 +173,7 @@
     "portfolio.ProjectDate.apiLaravel":"2021",
     "portfolio.ProjectFeatures.apiLaravel":"JWT, Authentication, MySQL",
     "portfolio.ProjectTec.apiLaravel":"PHP",
-    "portfolio.ProjectDescription.apiLaravel":"This api rest developed in laravel is a back-end oriented to a simple blog, I thought about using it for the personal portfolio, however in the end I discarded it because although it allows me to host the api in a very cheap shared hosting service, I didn't want the slowness of the system to make a bottleneck to React, because Back-end is not my specialty and I didn't spend as much time as I wanted, it stayed in a way that didn't meet my own quality standards and I ended up leaving it, however it is fully functional for its main purpose and I learned a lot about the Back-end world because it was my first api rest. ",
+    "portfolio.ProjectDescription.apiLaravel":"This api rest developed in laravel is a back-end oriented to a simple blog, I thought about using it for the personal portfolio, however in the end I discarded it because multiple reasons, since Back-end is not my specialty and I didn't spend as much time as I wanted, it stayed in a way that didn't meet my own quality standards and I ended up leaving it, however it is fully functional for its main purpose and I learned a lot about the Back-end world because it was my first api rest. ",
     
     "portfolio.ProjectTitle.apiNode":"Api NodeJS",
     "portfolio.ProjectType.apiNode":"Web",
@@ -183,8 +186,8 @@
     "portfolio.ProjectType.strapiBlog":"Web",
     "portfolio.ProjectDate.strapiBlog":"2021",
     "portfolio.ProjectFeatures.strapiBlog":"Authentication, Headless CMS",
-    "portfolio.ProjectTec.strapiBlog":"Javascript, Strapi",
-    "portfolio.ProjectDescription.strapiBlog":"For practice reasons with the Front-end, using a custom api rest meant a considerable waste of time, so I decided to use a CMS for the Back-end, in this case I chose Strapi because it has no Front-end side, so it is much easier for me to manipulate the endpoints and to connect both parts to develop the full stack application, this Back-end is the Back-end of the personal blog project that is in the Front-end section. ",
+    "portfolio.ProjectTec.strapiBlog":"Javascript, Strapi, Cloudinary, Heroku",
+    "portfolio.ProjectDescription.strapiBlog":"For practice reasons with the Front-end, using a custom api rest meant something a bit far of my posibilities, so I decided to use a CMS for the Back-end, in this case I chose Strapi because it has no Front-end side, so it is much easier for me to manipulate the endpoints and to connect both parts to develop the full stack application, this Back-end is the Back-end of the personal blog project that is in the Front-end section. ",
     
     "portfolio.ProjectTitle.test":"",
     "portfolio.ProjectType.test":"",

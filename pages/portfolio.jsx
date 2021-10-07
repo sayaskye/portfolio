@@ -125,8 +125,8 @@ const Portfolio = () => {
                   imageType="strapi" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={false} 
-                  url=""
+                  urlBool={true} 
+                  url="https://blogstrapi-ac.herokuapp.com/"
                 /> 
               </div>
               <h3 className="text-main-lightblue dark:text-main-blue text-xl font-bold mx-5 lg:mx-3 duration-300 ease-in mt-10">
@@ -168,7 +168,7 @@ const Portfolio = () => {
                   imageType="apis" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={true} 
+                  urlBool={false} 
                   url="https://github.com/sayaskye/apirestlaravel"
                 />
                 <PortfolioCard
@@ -176,7 +176,7 @@ const Portfolio = () => {
                   imageType="apis" 
                   videoId="" 
                   videoBool={false} 
-                  urlBool={true} 
+                  urlBool={false} 
                   url="https://github.com/sayaskye/apirestnodejs"
                 />
                 

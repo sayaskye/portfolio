@@ -19,7 +19,7 @@ const AboutInfo = () => {
 
     let year;
     let month = new Date().getMonth();
-    if(month!=10){
+    if(month<=8){ //8 = septiembre 
         year=(new Date().getFullYear())-1998
     }else{
         year=(new Date().getFullYear())-1997
@@ -42,7 +42,7 @@ const AboutInfo = () => {
                     <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
                         <div className="font-bold text-2xl lg:text-3xl">
                             <FormattedMessage id="about.mainmsg1" defaultMessage="Hi, im "/>
-                            <span className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in ">
+                            <span className="text-main-lightblue dark:text-main-blue  duration-300 ease-in ">
                                 Carlos Andrés Gutiérrez Cazares 
                             </span> 
                             <FormattedMessage id="about.mainmsg2" defaultMessage=" Web programmer "/>
@@ -54,7 +54,7 @@ const AboutInfo = () => {
                                 <FormattedMessage id="about.mainmsg4" defaultMessage=" "/>
                             </span> 
                             <FormattedMessage id="about.mainmsg5" defaultMessage=" "/>
-                            <span className="font-bold underline">
+                            <span className=" underline">
                                 <FormattedMessage id="about.mainmsg6" defaultMessage=" "/>
                             </span>
                             <FormattedMessage  id="about.mainmsg7" defaultMessage=" "/>

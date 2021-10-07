@@ -23,6 +23,7 @@ module.exports = {
         /* 'profile-picture': "url('https://64.media.tumblr.com/7ee9edf89132ea81ae45284dc493f285/f86179c4b2109386-74/s2048x3072/ed22ddb8302b0cdfe9301368caa411103751c1ca.png')", */
         'profile-picture': "url('/images/Profile menu.png')",
         'home-background': "url('/images/Background.png')",
+        'error': "url('/images/bgerror.jpg')",
       }),
       width: {
         'navbar': '368px',

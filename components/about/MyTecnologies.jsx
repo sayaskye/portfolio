@@ -20,6 +20,8 @@ const MyTecnologies = () => {
                 <Tecnologie name="Rest API"svgname="rest"/>
                 <Tecnologie name="SQL"svgname="database"/>
                 <Tecnologie name="MongoDB"svgname="mongo"/>
+                <Tecnologie name="Redux"svgname="redux"/>
+                 
                 
                 {/* <Tecnologie name=""svgname=""/>  */}
             </div>
@@ -27,6 +29,9 @@ const MyTecnologies = () => {
                 <FormattedMessage id="about.DataListTitle4" defaultMessage=" "/>
             </h2>
             <div className="flex flex-row flex-wrap justify-center dark:text-white duration-100 ease-in">
+                <Tecnologie name="Typecript"svgname="ts"/> 
+                <Tecnologie name="Jest"svgname="jest"/> 
+                <Tecnologie name="React Native"svgname="react"/>
                 <Tecnologie name="NodeJS"svgname="node"/>
                 <Tecnologie name="Express"svgname="express"/>
                 <Tecnologie name="GraphQL"svgname="graphql"/>
@@ -34,7 +39,7 @@ const MyTecnologies = () => {
                 <Tecnologie name="PHP"svgname="php"/>
                 <Tecnologie name="Laravel"svgname="laravel"/>
                 <Tecnologie name="Python"svgname="python"/> 
-                <Tecnologie name="Angular"svgname="angular"/> 
+                {/* <Tecnologie name="Angular"svgname="angular"/>  */}
                 {/* <Tecnologie name=""svgname=""/>  */}
             </div>
         </div>
