@@ -32,7 +32,7 @@
     "about.mainmsg5":", concluí con éxito la carrera de ",
     "about.mainmsg6":"Ingeniería en Sistemas computacionales, tomando la especialidad de Desarrollo de software avanzado",
     "about.mainmsg7":", me entusiasma mucho poder trabajar con tecnologías recientes que permitan mejorar los procesos y ayuden al desarrollo de software completo y robusto, me especializo en el desarrollo web  ",
-    "about.mainmsg8":" con ReactJS y TailwindCSS, sin embargo, también cuento con algunos conocimientos técnicos basicos de ",
+    "about.mainmsg8":" con ReactJS y TailwindCSS, sin embargo, también cuento con algunos conocimientos técnicos básicos de ",
     "about.mainmsg9":", por ejemplo NodeJS, además cuento con cierto conocimiento de desarrollo móvil gracias a las tecnologías como React Native.",
     "about.mainmsg10":"Me considero una persona altamente responsable y que siempre trata de priorizar la calidad de su trabajo aun cuando no conozco al 100% la tecnología que se me pide, hago lo mejor posible para cumplir con mis propios estándares de calidad y los que se me propongan más adelante.",
     "about.mainmsg11":"Respecto a mis pasatiempos me gusta mucho jugar videojuegos, sobre todo que requieran una cantidad de estrategia considerable, también me gusta investigar sobre temas de la actualidad y con relevancia, tanto temas científicos y tecnológicos, me gusta mucho estar al día con este tipo de cosas ya que eso me da motivación para seguir adquiriendo conocimiento y no perderme de novedades interesantes, al mismo tiempo me gusta compartir cada conocimiento nuevo que adquiero e interiorizo con los demás.",
@@ -75,7 +75,7 @@
     "about.TitleExperience1":"Programador de app móvil",
     "about.DateExperience1":"2019-2020 ",
     "about.PlaceExperience1":"MABU - Ciudad Juaréz, Chih. MX ",
-    "about.DescriptionExperience1":"Fui el programador principal de la aplicación Casas de cambio Jrz., realicé la programación full stack de la misma en el framework de Ionic en su versión 5 con Angular y Firebase, desarrollé las herramientas de comunicación directa con las casas de cambio para poder añadirlas a la aplicación y estuve monitorizando el desempeño de la aplicación durante las primeras semanas del despliegue de la misma. ",
+    "about.DescriptionExperience1":"Fui el programador principal de la aplicación Casas de cambio Jrz., realicé la programación full stack de la misma en el framework de React Native y Firebase, desarrollé las herramientas de comunicación directa con las casas de cambio para poder añadirlas a la aplicación y estuve monitorizando el desempeño de la aplicación durante las primeras semanas del despliegue de la misma. ",
     "about.AboutExperience1":" ",
 
     "about.TitleExperience2":" ",
@@ -123,7 +123,7 @@
     "portfolio.ProjectDate.CDC":"2019-2020",
     "portfolio.ProjectFeatures.CDC":"Actualizaciones en tiempo real",
     "portfolio.ProjectTec.CDC":"Javascript, Firebase",
-    "portfolio.ProjectDescription.CDC":"Esta aplicación fue pensada para mejorar la calidad de vida de los residentes de la frontera México - Estados Unidos que viajan constantemente al país vecino para hacer sus compras, debido a que el cambio de divisas es un negocio enorme y que varía muy frecuentemente, a veces resulta muy difícil encontrar el lugar ideal para hacer el cambio, donde el usuario pierda menos dinero, por lo tanto, la idea principal de la aplicación es tener al alcance de un simple clic las actualizaciones en tiempo real de cada casa de cambio disponible y cercana al usuario, para que de esta manera pueda decidir dónde ir a cambiar su divisa, todo esto es posible gracias a que Firebase proporciona un servicio increíblemente veloz y a tiempo real, además de la tecnología híbrida que permitía hacer aplicaciones móviles tanto para Android como para IOS llamada Ionic, si bien hoy en día sin duda alguna elegiría una opción mucho menos problemática como React Native o Flutter, aprendí mucho gracias al desarrollo con esta y no me arrepiento en lo absoluto del resultado. ",
+    "portfolio.ProjectDescription.CDC":"Esta aplicación fue pensada para mejorar la calidad de vida de los residentes de la frontera México - Estados Unidos que viajan constantemente al país vecino para hacer sus compras, debido a que el cambio de divisas es un negocio enorme y que varía muy frecuentemente, a veces resulta muy difícil encontrar el lugar ideal para hacer el cambio, donde el usuario pierda menos dinero, por lo tanto, la idea principal de la aplicación es tener al alcance de un simple clic las actualizaciones en tiempo real de cada casa de cambio disponible y cercana al usuario, para que de esta manera pueda decidir dónde ir a cambiar su divisa, todo esto es posible gracias a que Firebase proporciona un servicio increíblemente veloz y a tiempo real, además de la tecnología híbrida que permitía hacer aplicaciones móviles tanto para Android como para IOS llamada React Native, aprendí mucho gracias al desarrollo con esta y no me arrepiento en lo absoluto del resultado. ",
 
     "portfolio.ProjectTitle.ProductHunt":"Clon de Product Hunt",
     "portfolio.ProjectType.ProductHunt":"Web",

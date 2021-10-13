@@ -76,7 +76,7 @@
     "about.TitleExperience1":"Mobile app developer",
     "about.DateExperience1":"2019-2020 ",
     "about.PlaceExperience1":"MABU - Ciudad Juaréz, Chih. MX ",
-    "about.DescriptionExperience1":"I was the main programmer of the Casas de Cambio Jrz application, I did the full stack programming of it in the Ionic framework in version 5 with Angular and Firebase, I developed the tools for direct communication with the exchange houses to be able to add them to the application and I was monitoring the performance of the application during the firsts weeks of its deployment.",
+    "about.DescriptionExperience1":"I was the main programmer of the Casas de Cambio Jrz application, I did the full stack programming of it in the React Native framework and Firebase, I developed the tools for direct communication with the exchange houses to be able to add them to the application and I was monitoring the performance of the application during the firsts weeks of its deployment.",
     "about.AboutExperience1":" ",
 
     "about.TitleExperience2":" ",
@@ -124,7 +124,7 @@
     "portfolio.ProjectDate.CDC":"2019-2020",
     "portfolio.ProjectFeatures.CDC":"Real-time updates",
     "portfolio.ProjectTec.CDC":"Javascript, Firebase",
-    "portfolio.ProjectDescription.CDC":"This application was designed to improve the quality of life of residents of the Mexico - United States border who constantly travel to the nearby country to make their purchases, because the currency exchange is a huge business and varies very frequently, sometimes it is very difficult to find the ideal place to make the change, where the user loses less money, therefore, the main idea of the application is to have within reach of a simple click the real-time updates of each exchange house available and close to the user, so that in this way you can decide where to go to change your currency, all this is possible thanks to Firebase provides an incredibly fast service and in real time, in addition to the hybrid technology that allowed to make mobile applications for both Android and IOS called Ionic, although today I would certainly choose a much less problematic option as React Native or Flutter, I learned a lot thanks to the development with this and I do not regret the result at all. ",
+    "portfolio.ProjectDescription.CDC":"This application was designed to improve the quality of life of residents of the Mexico - United States border who constantly travel to the nearby country to make their purchases, because the currency exchange is a huge business and varies very frequently, sometimes it is very difficult to find the ideal place to make the change, where the user loses less money, therefore, the main idea of the application is to have within reach of a simple click the real-time updates of each exchange house available and close to the user, so that in this way you can decide where to go to change your currency, all this is possible thanks to Firebase provides an incredibly fast service and in real time, in addition to the hybrid technology that allowed to make mobile applications for both Android and IOS called React Native, I learned a lot thanks to the development with this and I do not regret the result at all. ",
 
     "portfolio.ProjectTitle.ProductHunt":"Product Hunt Clone",
     "portfolio.ProjectType.ProductHunt":"Web",
