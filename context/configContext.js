@@ -6,8 +6,8 @@ import { IntlProvider } from 'react-intl';
 const configContext = createContext();
 
 const ConfigProvider = ({children}) => {
-	const [messages, setMessages] = useState(SpanishMessages);
-	const [locale, setLocale] = useState('es-MX');
+	const [messages, setMessages] = useState(EnglishMessages);
+	const [locale, setLocale] = useState('en-US');
 	const [theme, setTheme] = useState('dark');
     const [darkEnabled, setDarkEnabled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -23,8 +23,8 @@ const ConfigProvider = ({children}) => {
 				setLocale('en-US');
 				break;
 			default:
-				setMessages(SpanishMessages);
-				setLocale('es-MX');
+				setMessages(EnglishMessages);
+				setLocale('en-US')
 		}
 	}
 

@@ -52,7 +52,7 @@ const Navbar = () => {
                     setLanguage('en')
                 }
             }else{
-                localStorage.setItem('lang', 'es');
+                localStorage.setItem('lang', 'en');
             }
         }
     }, []); 
