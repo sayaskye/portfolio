@@ -64,7 +64,7 @@ const Portfolio = () => {
                   videoId="" 
                   videoBool={false} 
                   urlBool={true} 
-                  url="https://blog-andrescazares.netlify.app/"
+                  url="https://www.blog.andrescazares.com/"
                 /> 
 
                 <PortfolioCard
@@ -91,7 +91,7 @@ const Portfolio = () => {
                   videoId="0gCM5yIAZ7Q" 
                   videoBool={true} 
                   urlBool={true} 
-                  url="https://clima-ac.netlify.app"
+                  url="https://www.clima.andrescazares.com"
                 /> 
 
                 {/* <PortfolioCard
@@ -142,7 +142,7 @@ const Portfolio = () => {
                   videoId="" 
                   videoBool={false} 
                   urlBool={true} 
-                  url="https://phclone-ac.netlify.app"
+                  url="https://www.phc.andrescazares.com"
                 />
 
                 <PortfolioCard
@@ -151,7 +151,7 @@ const Portfolio = () => {
                   videoId="D3u3pPRJStk" 
                   videoBool={true} 
                   urlBool={true} 
-                  url="https://superchat-ac.netlify.app"
+                  url="https://www.superchat.andrescazares.com"
                 />
 
                 <PortfolioCard

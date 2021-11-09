@@ -97,7 +97,7 @@ const AboutInfo = () => {
                             </li> */}
                             <li>
                                 <FormattedMessage id="about.DataList4th1" defaultMessage=" "/>
-                                <a href="https://blog-andrescazares.netlify.app/" className="underline" target="_blank" rel="noopener">
+                                <a href="https://www.blog.andrescazares.com/" className="underline" target="_blank" rel="noopener">
                                     <FormattedMessage id="about.DataList4th2" defaultMessage=" " />
                                 </a>
                                     
