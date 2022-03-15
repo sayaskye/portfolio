@@ -79,11 +79,17 @@
     "about.DescriptionExperience1":"I was the main programmer of the Casas de Cambio Jrz application, I did the full stack programming of it in the React Native framework and Firebase, I developed the tools for direct communication with the exchange houses to be able to add them to the application and I was monitoring the performance of the application during the firsts weeks of its deployment.",
     "about.AboutExperience1":" ",
 
-    "about.TitleExperience2":" ",
-    "about.DateExperience2":" ",
-    "about.PlaceExperience2":" ",
-    "about.DescriptionExperience2":" ",
+    "about.TitleExperience2":"Software Engineer | Frontend",
+    "about.DateExperience2":"Dec. 2021 - Present",
+    "about.PlaceExperience2":"Houm",
+    "about.DescriptionExperience2":"I work full time in the system administrator of the company, I develop 100% in react with TypeScript, I test with Cypress, I use libraries like Material UI to have a wide ecosystem and easy to update, I develop focused on the product, I review the PR of my colleagues and I work with agile methodologies.",
     "about.AboutExperience2":" ",
+
+    "about.TitleExperience3":" ",
+    "about.DateExperience3":" ",
+    "about.PlaceExperience3":" ",
+    "about.DescriptionExperience3":" ",
+    "about.AboutExperience3":" ",
 
     "portfolio.title":"Projects",
     "portfolio.front":"Front-End Projects",

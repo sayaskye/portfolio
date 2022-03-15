@@ -67,7 +67,7 @@
     "about.AboutEducation1":" ",
 
     "about.TitleEducation2":"Cursos en línea ",
-    "about.DateEducation2":"2019-Actualidad ",
+    "about.DateEducation2":"2019 - Actualidad ",
     "about.PlaceEducation2":"Udemy - Platzi - Otros ",
     "about.DescriptionEducation2":"Antes terminar mi carrera me di cuenta de que la carrera por sí sola no bastaba para lo que yo me quería dedicar, por lo tanto decidí invertir más en mi educación, fue ahí cuando empecé a seguir cursos en línea de todo tipo que me ayudaran al crecimiento personal, gracias a los cursos de las plataformas conseguí los conocimientos de otras personas y los adapté a mí mismo, los utilizo a mi manera y me aseguro de seguir evolucionando el conocimiento que otras personas me transmitieron. ",
     "about.AboutEducation2":" ",
@@ -78,11 +78,17 @@
     "about.DescriptionExperience1":"Fui el programador principal de la aplicación Casas de cambio Jrz., realicé la programación full stack de la misma en el framework de React Native y Firebase, desarrollé las herramientas de comunicación directa con las casas de cambio para poder añadirlas a la aplicación y estuve monitorizando el desempeño de la aplicación durante las primeras semanas del despliegue de la misma. ",
     "about.AboutExperience1":" ",
 
-    "about.TitleExperience2":" ",
-    "about.DateExperience2":" ",
-    "about.PlaceExperience2":" ",
-    "about.DescriptionExperience2":" ",
+    "about.TitleExperience2":"Ingeniero de software | Frontend",
+    "about.DateExperience2":"Dic. 2021 - Actualidad",
+    "about.PlaceExperience2":"Houm",
+    "about.DescriptionExperience2":"Trabajo a tiempo completo en el sistema administrador de la empresa, desarrollo 100% en react con TypeScript, pruebas con Cypress, uso de librerias como Material UI para tener un ecosistema amplio y facil de actualizar, desarrollo centrado al producto, reviso las PR de mis compañeros y trabajo con metodologias agiles.",
     "about.AboutExperience2":" ",
+
+    "about.TitleExperience3":" ",
+    "about.DateExperience3":" ",
+    "about.PlaceExperience3":" ",
+    "about.DescriptionExperience3":" ",
+    "about.AboutExperience3":" ",
 
     "portfolio.title":"Proyectos",
     "portfolio.front":"Proyectos Front-End",

@@ -51,6 +51,13 @@ const Experience = () => {
                                 description="DescriptionExperience1"
                                 about="AboutExperience1"
                             />
+                            <ExperienceCard
+                                title="TitleExperience2"
+                                date="DateExperience2"
+                                place="PlaceExperience2"
+                                description="DescriptionExperience2"
+                                about="AboutExperience2"
+                            />
                             
                         </div>
                     </div>
