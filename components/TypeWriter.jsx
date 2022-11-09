@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
-import Typed from 'typed.js';
+import { useRef, useEffect } from "react";
+import Typed from "typed.js";
 
-const TypeWriter = ({ text, typeSpeed = 90, classElements = '' }) => {
+const TypeWriter = ({ text, typeSpeed = 90, classElements = "" }) => {
   const typeTarget = useRef(null);
 
   useEffect(() => {
@@ -18,9 +18,7 @@ const TypeWriter = ({ text, typeSpeed = 90, classElements = '' }) => {
     };
   }, []);
 
-  return (
-    <span className={`${classElements} `} ref={typeTarget} />
-  );
+  return <span className={`${classElements} `} ref={typeTarget} />;
 };
 
 export default TypeWriter;
