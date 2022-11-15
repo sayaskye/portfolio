@@ -1,0 +1,12 @@
+{
+  "contact.title": "Contacto",
+  "contact.title2": "Mándame un mensaje",
+  "contact.name": "Tu nombre:",
+  "contact.phone": "Tu teléfono:",
+  "contact.email": "Tu correo electrónico:",
+  "contact.subject": "Tu asunto:",
+  "contact.message": "Tu mensaje:",
+  "contact.button": "Enviar",
+  "contact.confirm": "Mensaje enviado correctamente, me pondré en contacto contigo a la brevedad posible.",
+  "contact.fail": "Lo siento, algo ha salido mal, intentalo de nuevo mas tarde o mandame un correo directamente, gracias."
+}

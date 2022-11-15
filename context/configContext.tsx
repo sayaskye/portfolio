@@ -1,9 +1,7 @@
 import { useState, createContext, ReactNode } from "react";
 
 import { IntlProvider } from "react-intl";
-
-import EnglishMessages from "../languages/en-US.json";
-import SpanishMessages from "../languages/es-MX.json";
+import { es_MX, en_US } from '../languages/langs';
 
 type Locale = "es-MX" | "en-US"
 interface CtxProps {
@@ -41,7 +39,7 @@ interface Props {
 type langs = "es" | "en";
 
 const ConfigProvider = ({ children }: Props) => {
-  const [messages, setMessages] = useState(EnglishMessages);
+  const [messages, setMessages] = useState<{}>(en_US);
   const [locale, setLocale] = useState<Locale>("en-US");
   const [theme, setTheme] = useState("dark");
   const [darkEnabled, setDarkEnabled] = useState(false);
@@ -50,15 +48,15 @@ const ConfigProvider = ({ children }: Props) => {
   const setLanguage = (language: langs) => {
     switch (language) {
       case "es":
-        setMessages(SpanishMessages);
+        setMessages(es_MX);
         setLocale("es-MX");
         break;
       case "en":
-        setMessages(EnglishMessages);
+        setMessages(en_US);
         setLocale("en-US");
         break;
       default:
-        setMessages(EnglishMessages);
+        setMessages(en_US);
         setLocale("en-US");
     }
   };
