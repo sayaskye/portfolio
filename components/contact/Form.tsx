@@ -1,9 +1,17 @@
 import { FormattedMessage } from "react-intl";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import axios from "axios";
 
+interface ServerState {
+  submitting: boolean;
+  status?: { 
+    ok: boolean;
+    msg: JSX.Element;
+  } | null;
+}
+
 const Form = () => {
-  const [serverState, setServerState] = useState({
+  const [serverState, setServerState] = useState<ServerState>({
     submitting: false,
     status: null,
   });
@@ -13,18 +21,21 @@ const Form = () => {
       status: null,
     });
   };
-  const handleServerResponse = (ok, msg, form) => {
+  const handleServerResponse = (ok: boolean, msg: JSX.Element, form: HTMLFormElement) => {
     setServerState({
       submitting: false,
-      status: { ok, msg },
+      status: { 
+        ok,
+        msg 
+      },
     });
     if (ok) {
       form.reset();
     }
   };
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
     setServerState({ submitting: true });
     axios({
       method: "post",

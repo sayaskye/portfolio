@@ -4,6 +4,15 @@ import { useState } from "react";
 import { useContext } from "react";
 import { configContext } from "../../context/configContext";
 
+interface Props {
+  title: string;
+  imageType: string;
+  videoId: string;
+  url: string;
+  urlBool: boolean;
+  videoBool: boolean;
+}
+
 const PortfolioCard = ({
   title,
   imageType,
@@ -11,7 +20,7 @@ const PortfolioCard = ({
   url,
   urlBool,
   videoBool,
-}) => {
+}: Props) => {
   const { theme } = useContext(configContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {

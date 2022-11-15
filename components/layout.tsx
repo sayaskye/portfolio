@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { configContext } from "../context/configContext";
 import Navbar from "./Navbar";
 import FakeNavbar from "./FakeNav";
+import React from "react";
 const Layout = ({ children }) => {
   const { theme, setTheme } = useContext(configContext);
   useEffect(() => {

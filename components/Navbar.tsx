@@ -3,6 +3,7 @@ import { Switch } from "@headlessui/react";
 import { configContext } from "../context/configContext";
 import { FormattedMessage } from "react-intl";
 import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
   const {

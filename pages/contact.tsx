@@ -4,6 +4,7 @@ import Form from "../components/contact/Form";
 import Head from "next/head";
 import { useContext } from "react";
 import { configContext } from "../context/configContext";
+import React from "react";
 
 const Contact = () => {
   const { locale } = useContext(configContext);

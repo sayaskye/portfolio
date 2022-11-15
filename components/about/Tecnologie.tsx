@@ -1,4 +1,9 @@
-const tecnologie = ({ name, svgname }) => {
+interface Props {
+  name: string;
+  svgname: string;
+}
+
+const tecnologie = ({ name, svgname }: Props) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center my-2">

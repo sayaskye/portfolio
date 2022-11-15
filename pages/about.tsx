@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from "../components/layout";
 import Info from "../components/about/Info";
 import Experience from "../components/about/Experience";

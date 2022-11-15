@@ -1,5 +1,14 @@
 import { FormattedMessage } from "react-intl";
-const ExperienceCard = ({ title, date, place, description, about }) => {
+
+interface Props {
+  title: string;
+  date: string;
+  place: string;
+  description: string;
+  about: string;
+}
+
+const ExperienceCard = ({ title, date, place, description, about }: Props) => {
   return (
     <div className="text-black dark:text-white p-3 my-2 md:p-6 md:my-4 bg-gray-300 dark:bg-gray-700  rounded-lg shadow-xl mx-3 transition-all duration-500 ease-in-out transform  hover:scale-[1.01]">
       <h4 className="mb-3  font-semibold tracking-widest uppercase ">
