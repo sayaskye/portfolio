@@ -9,7 +9,6 @@ const Navbar = () => {
   const {
     setDarkmode,
     setLanguage,
-    theme,
     darkEnabled,
     setDarkEnabled,
     menuOpen,
