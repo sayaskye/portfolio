@@ -8,10 +8,9 @@ interface Props {
 }
 
 const HeaderSeo = ({ locale, page }: Props) => {
-  console.log(seoOptions[page][locale]);
   return (
     <Head>
-      <title> {seoOptions[page][locale].title} </title>
+      <title>{seoOptions[page][locale].title}</title>
       <link rel="icon" href="/logo.svg" />
       <meta name="description" content={seoOptions[page][locale].description} />
       <meta name="keywords" content={seoOptions[page][locale].keywords} />
