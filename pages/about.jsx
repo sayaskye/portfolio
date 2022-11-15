@@ -51,8 +51,7 @@ const About = () => {
         </Head>
       )}
       <Layout>
-        <div className="w-screen h-full py-[54px] bg-gray-200 duration-500  ease-in dark:bg-gray-800">
-          {/* <p>Hola mundo about</p> */}
+        <div className="w-screen h-full md:py-[54px] bg-gray-200 duration-500  ease-in dark:bg-gray-800">
           <Info />
           <Experience />
           <MyTecnologies />

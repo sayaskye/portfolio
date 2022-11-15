@@ -51,7 +51,6 @@ const Home = () => {
       )}
       <Layout>
         <div className="w-screen h-screen bg-gray-200 duration-500 ease-in dark:bg-gray-800 text-white">
-          {/* <p>Hola mundo Index</p> */}
           <div className="h-full w-full bg-error bg-cover bg-top flex flex-col items-center justify-center">
             <div className="absolute flex flex-col  text-center">
               <h1 className="text-4xl md:text-[3.27rem] lg:text-6xl xl:text-[4.5rem] 2xl:text-[6rem] font-black bg-black bg-opacity-[.02] rounded-full flicker neonText">

@@ -31,14 +31,12 @@ const AboutInfo = () => {
           <FormattedMessage id="about.title" defaultMessage="About" />
         </h1>
         <div className="grid grid-cols-1 2xl:grid-cols-3 gap-2 text-xl">
-          <div className="border-main-lightblue dark:border-main-blue w-48 h-48 mx-auto mb-5 rounded-full md:hidden flex items-center justify-center duration-300 ease-in border-8">
-            <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center ">
-              <img
-                className=""
-                src="/images/Profile menu.png"
-                alt="Andrés Cazares"
-              />
-            </div>
+          <div className="md:hidden flex items-center justify-center duration-300 ease-in pb-6">
+            <img
+              className="w-40 h-40 ring-8 rounded-full ring-main-lightblue dark:ring-main-blue duration-300 ease-in mt-2 md:mt-6 lg:mt-8 xl:mt-10"
+              src="/images/Profile menu.png"
+              alt="Andrés Cazares"
+            />
           </div>
 
           <div className="col-span-2 mx-3 lg:mx-0 duration-300 ease-in">
@@ -111,7 +109,7 @@ const AboutInfo = () => {
                 <FormattedMessage id="about.DataList4th1" defaultMessage=" " />
                 <a
                   href="https://www.blog.andrescazares.com/"
-                  className="underline"
+                  className="underline dark:text-main-blue text-main-lightblue duration-300 ease-in"
                   target="_blank"
                   rel="noopener"
                 >

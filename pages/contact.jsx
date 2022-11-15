@@ -50,7 +50,7 @@ const Contact = () => {
         </Head>
       )}
       <Layout>
-        <div className="w-screen h-auto py-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
+        <div className="w-screen h-full min-h-screen  bg-gray-200 duration-500 ease-in dark:bg-gray-800">
           <Info></Info>
           <Form></Form>
         </div>

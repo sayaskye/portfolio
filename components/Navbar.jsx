@@ -74,7 +74,7 @@ const Navbar = () => {
     <div className="overflow-auto scrollbarhidden">
       <div className="">
         <button
-          className="w-14 h-14 rounded-full dark:bg-main-grey/40 bg-main-grey hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 fixed flex items-center justify-center top-2 right-2 duration-300 ease-in z-50 md:hidden"
+          className="w-14 h-14 border-none rounded-full dark:bg-main-grey/40 bg-main-grey hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 fixed flex items-center justify-center top-2 right-2 duration-300 ease-in z-50 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? (
@@ -111,26 +111,23 @@ const Navbar = () => {
         </button>
       </div>
       <div
-        className={`bg-gray-100 dark:bg-navbar-fondo w-screen md:w-navbar duration-300 ease-in px-10 h-screen justify-center pt-10 md:pt-20 fixed md:static md:flex ${
+        className={`bg-gray-100 dark:bg-navbar-fondo w-screen md:w-navbar duration-300 ease-in px-0 h-screen justify-center pt-2 md:pt-4 lh:pt-16 fixed md:static md:flex ${
           menuOpen ? "flex absolute z-40" : "hidden"
         }`}
       >
         <div className="flex flex-col justify-between mx-0 items-center">
-          <div className="border-main-lightblue dark:border-main-blue w-48 h-48 rounded-full hidden md:flex items-center justify-center duration-300 ease-in border-8">
-            <div className=" bg-cover w-44 h-44 rounded-full flex items-center justify-center">
-              <img
-                className=""
-                src="/images/Profile menu.png"
-                alt="Andrés Cazares"
-              />
-            </div>
-          </div>
+          <img
+            className="w-40 h-40 ring-8 rounded-full ring-main-lightblue dark:ring-main-blue duration-300 ease-in mt-2 md:mt-6 lg:mt-8 xl:mt-10"
+            src="/images/Profile menu.png"
+            alt="Andrés Cazares"
+          />
+
           <div className="text-main-lightblue dark:text-main-blue flex justify-around w-60 py-2">
             <a
               href="https://github.com/sayaskye"
               target="_blank"
               rel="noopener"
-              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white"
+              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white dark:text-main-blue text-main-lightblue"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +147,7 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/andres-cazares-web/"
               target="_blank"
               rel="noopener"
-              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white"
+              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white dark:text-main-blue text-main-lightblue"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +171,7 @@ const Navbar = () => {
               href="https://twitter.com/ChaoCazares"
               target="_blank"
               rel="noopener"
-              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white"
+              className="hover:scale-150 duration-300 stroke-current  hover:text-black dark:hover:text-white dark:text-main-blue text-main-lightblue"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -192,37 +189,33 @@ const Navbar = () => {
             </a>
           </div>
           <div className="text-main-lightblue dark:text-main-blue text-2xl flex flex-col items-center w-60 font-semibold">
-            <Link href="/">
-              <a
-                className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <FormattedMessage id="nav.home" defaultMessage="Home" />
-              </a>
+            <Link
+              href="/"
+              className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white no-underline dark:text-main-blue text-main-lightblue"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <FormattedMessage id="nav.home" defaultMessage="Home" />
             </Link>
-            <Link href="/about">
-              <a
-                className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <FormattedMessage id="nav.about" defaultMessage="About" />
-              </a>
+            <Link
+              href="/about"
+              className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white no-underline dark:text-main-blue text-main-lightblue"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <FormattedMessage id="nav.about" defaultMessage="About" />
             </Link>
-            <Link href="/portfolio">
-              <a
-                className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <FormattedMessage id="nav.projects" defaultMessage="Projects" />
-              </a>
+            <Link
+              href="/portfolio"
+              className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white no-underline dark:text-main-blue text-main-lightblue"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <FormattedMessage id="nav.projects" defaultMessage="Projects" />
             </Link>
-            <Link href="/contact">
-              <a
-                className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                <FormattedMessage id="nav.contact" defaultMessage="Contact" />
-              </a>
+            <Link
+              href="/contact"
+              className="duration-300 ease-in-out w-full h-14 rounded-3xl flex items-center justify-center bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 hover:text-black mb-2 dark:hover:text-white no-underline dark:text-main-blue text-main-lightblue"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <FormattedMessage id="nav.contact" defaultMessage="Contact" />
             </Link>
           </div>
           <div className="flex flex-col pb-12 md:pb-20 w-60">
@@ -232,18 +225,18 @@ const Navbar = () => {
                 onChange={changeTheme}
                 className={`${
                   darkEnabled ? "bg-blue-200" : "bg-blue-900"
-                } relative inline-flex flex-shrink-0 h-10 w-16 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-500 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                } relative inline-flex w-16 h-10 items-center border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-500 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
               >
                 <span
                   aria-hidden="true"
                   className={`${
-                    darkEnabled ? "translate-x-6" : "translate-x-0"
-                  } pointer-events-none h-9 w-9 rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-500 flex items-center justify-center`}
+                    darkEnabled ? "translate-x-5" : "-translate-x-[3px]"
+                  } pointer-events-none h-9 w-9 rounded-full bg-white shadow-lg transform transition ease-in-out duration-500 flex items-center justify-center`}
                 >
                   {darkEnabled ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
+                      className="h-4 w-4"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -268,13 +261,13 @@ const Navbar = () => {
             </div>
             <div className="flex">
               <button
-                className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in"
+                className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in border-none"
                 onClick={() => changeToEs()}
               >
                 Español
               </button>
               <button
-                className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in"
+                className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in border-none"
                 onClick={() => changeToEn()}
               >
                 English

@@ -22,7 +22,7 @@ const Info = () => {
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            <p className="ml-2">
+            <p className="ml-2 my-0">
               +52 656 <strong>393 1234</strong>{" "}
             </p>
           </div>
@@ -41,7 +41,7 @@ const Info = () => {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            <p className="ml-2">
+            <p className="ml-2 my-0">
               <strong>chaotears</strong>@gmail.com
             </p>
           </div>
@@ -66,7 +66,7 @@ const Info = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <p className="ml-2">
+            <p className="ml-2 my-0">
               Ciudad Juárez, Chihuahua, <strong>México.</strong>
             </p>
           </div>

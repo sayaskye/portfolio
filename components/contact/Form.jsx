@@ -156,7 +156,7 @@ const Form = () => {
                 required
               ></textarea>
               <button
-                className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center"
+                className=" text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full py-2 px-20 text-lg font-bold w-auto bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-9 self-center border-none"
                 type="submit"
                 disabled={serverState.submitting}
               >
