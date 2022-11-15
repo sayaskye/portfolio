@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+body, button, input, textarea, ul, li, h1, h2, h3, h4, h5, h6{
   font-family: Quicksand;
   margin: 0px;
   border: 0px;

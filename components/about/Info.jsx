@@ -84,8 +84,8 @@ const AboutInfo = () => {
           </div>
 
           <div className="col-span-2 2xl:col-span-1 mx-3 lg:mx-0 duration-300 ease-in">
-            <ul className="list-disc 2xl:list-outside list-inside 2xl:ml-10">
-              <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
+            <ul className="list-disc 2xl:list-outside list-inside">
+              <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in text-xl">
                 <FormattedMessage
                   id="about.DataListTitle1"
                   defaultMessage="My data "
@@ -121,7 +121,7 @@ const AboutInfo = () => {
               </li>
 
               <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
-              <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
+              <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in text-xl">
                 <FormattedMessage
                   id="about.DataListTitle2"
                   defaultMessage=" "
@@ -137,7 +137,7 @@ const AboutInfo = () => {
 
               <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 mb-6"></hr>
               <div className="flex flex-col">
-                <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in">
+                <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in text-xl">
                   Currículum Vitae
                 </h2>
                 {spanish && (

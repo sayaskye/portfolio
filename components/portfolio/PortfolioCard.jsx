@@ -22,8 +22,8 @@ const PortfolioCard = ({
   };
 
   const body = (
-    <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden">
-      <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold flex items-center justify-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3 border-b-2 border-main-lightblue dark:border-main-blue border-solid">
+    <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
+      <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
         <FormattedMessage
           id={"portfolio.ProjectTitle." + title}
           defaultMessage=""
@@ -47,6 +47,7 @@ const PortfolioCard = ({
             />
           </svg>
         </button>
+        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 "></hr>
       </h2>
       <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
         <h3 className=" flex flex-col ">
@@ -122,7 +123,7 @@ const PortfolioCard = ({
         </div>
       </div>
       {videoBool ? (
-        <div className=" h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh] mx-auto lg:mx-20 xl:mx-32 mb-5">
+        <div className=" h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh] mx-auto lg:mx-20 xl:mx-32 mb-5 rounded-2xl overflow-hidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
           <iframe
             width="100%"
             height="100%"
