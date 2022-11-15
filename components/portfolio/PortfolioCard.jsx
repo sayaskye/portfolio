@@ -23,7 +23,7 @@ const PortfolioCard = ({
 
   const body = (
     <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden">
-      <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
+      <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold flex items-center justify-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3 border-b-2 border-main-lightblue dark:border-main-blue border-solid">
         <FormattedMessage
           id={"portfolio.ProjectTitle." + title}
           defaultMessage=""
@@ -47,7 +47,6 @@ const PortfolioCard = ({
             />
           </svg>
         </button>
-        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 "></hr>
       </h2>
       <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
         <h3 className=" flex flex-col ">
@@ -175,7 +174,7 @@ const PortfolioCard = ({
               <button
                 type="button"
                 onClick={handleOpen}
-                className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in "
+                className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full  text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in cursor-pointer"
               >
                 <FormattedMessage id={"portfolio.watch"} defaultMessage="" />
               </button>
@@ -184,7 +183,7 @@ const PortfolioCard = ({
             <button
               type="button"
               onClick={handleOpen}
-              className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-[12.5%] text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-3"
+              className="text-main-lightblue dark:text-main-blue hover:text-black dark:hover:text-white rounded-full mx-[12.5%] text-lg font-bold w-full px-3 h-8 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in my-3 cursor-pointer"
             >
               <FormattedMessage id={"portfolio.watch"} defaultMessage="" />
             </button>
