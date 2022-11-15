@@ -1,5 +1,7 @@
-import Tecnologie from "./Tecnologie";
 import { FormattedMessage } from "react-intl";
+
+import Tecnologie from "./Tecnologie";
+
 const MyTecnologies = () => {
   return (
     <div className="col-span-2 2xl:col-span-4 mx-3 lg:mx-0 duration-300 ease-in">

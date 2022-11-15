@@ -2,7 +2,13 @@ import React from "react";
 import { useRef, useEffect } from "react";
 import Typed from "typed.js";
 
-const TypeWriter = ({ text, typeSpeed = 90, classElements = "" }) => {
+interface Props {
+  text: string;
+  typeSpeed?: number;
+  classElements?: string;
+}
+
+const TypeWriter = ({ text, typeSpeed = 90, classElements = "" }: Props) => {
   const typeTarget = useRef(null);
 
   useEffect(() => {

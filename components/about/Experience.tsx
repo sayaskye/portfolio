@@ -1,5 +1,7 @@
 import { FormattedMessage } from "react-intl";
+
 import ExperienceCard from "./ExperienceCard";
+
 const Experience = () => {
   return (
     <div className="container mx-auto">

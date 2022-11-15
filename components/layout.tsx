@@ -1,9 +1,13 @@
-import { useContext, useEffect } from "react";
-import { configContext } from "../context/configContext";
+import { ReactNode, useContext, useEffect } from "react";
+
 import Navbar from "./Navbar";
 import FakeNavbar from "./FakeNav";
-import React from "react";
-const Layout = ({ children }) => {
+
+import { configContext } from "../context/configContext";
+interface Props {
+  children: ReactNode;
+}
+const Layout = ({ children }: Props) => {
   const { theme, setTheme } = useContext(configContext);
   useEffect(() => {
     if (window) {

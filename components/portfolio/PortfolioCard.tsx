@@ -1,7 +1,8 @@
+import { useState, useContext } from "react";
+
 import { FormattedMessage } from "react-intl";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
-import { useContext } from "react";
+
 import { configContext } from "../../context/configContext";
 
 interface Props {

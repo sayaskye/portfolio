@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
-import { Switch } from "@headlessui/react";
-import { configContext } from "../context/configContext";
-import { FormattedMessage } from "react-intl";
 import Link from "next/link";
-import React from "react";
+
+import { FormattedMessage } from "react-intl";
+import { Switch } from "@headlessui/react";
+
+import { configContext } from "../context/configContext";
 
 const Navbar = () => {
   const {

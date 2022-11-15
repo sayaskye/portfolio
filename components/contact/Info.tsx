@@ -1,4 +1,5 @@
 import { FormattedMessage } from "react-intl";
+
 const Info = () => {
   return (
     <div className="container mx-auto">

@@ -1,54 +1,18 @@
-import { FormattedMessage } from "react-intl";
-import Layout from "../components/layout";
-import Head from "next/head";
 import { useContext } from "react";
-import { configContext } from "../context/configContext";
+
+import { FormattedMessage } from "react-intl";
+
+import HeaderSeo from "../components/seo/HeaderSeo";
+import Layout from "../components/layout";
 import PortfolioCard from "../components/portfolio/PortfolioCard";
+
+import { configContext } from "../context/configContext";
 
 const Portfolio = () => {
   const { locale } = useContext(configContext);
   return (
     <>
-      {locale === "es-MX" && (
-        <Head>
-          <title> Proyectos | Andrés Cazares Web </title>
-          <link rel="icon" href="/logo.svg" />
-          <meta
-            name="description"
-            content="Andrés Cazares Portfolio personal"
-          />
-          <meta
-            name="keywords"
-            content="México, Desarrollador, Programador, HTML, ReactJS, Tailwind, Web"
-          />
-          <meta name="author" content="Andrés Cazares" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta property="og:image" content="/logo.svg" />
-        </Head>
-      )}
-      {locale === "en-US" && (
-        <Head>
-          <title> Projects | Andrés Cazares Web </title>
-          <link rel="icon" href="/logo.svg" />
-          <meta
-            name="description"
-            content="Andrés Cazares Personal Portfolio"
-          />
-          <meta
-            name="keywords"
-            content="México, Programmer, Developer, HTML, ReactJS, Tailwind, Web"
-          />
-          <meta name="author" content="Andrés Cazares" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta property="og:image" content="/logo.svg" />
-        </Head>
-      )}
+      <HeaderSeo locale={locale} page="portfolio" />
       <Layout>
         <div className="w-screen h-auto pb-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
           <div className="container mx-auto">

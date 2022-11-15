@@ -1,8 +1,11 @@
 import { useState, createContext, ReactNode } from "react";
-import EnglishMessages from "../languages/en-US.json";
-import SpanishMessages from "../languages/es-MX.json";
+
 import { IntlProvider } from "react-intl";
 
+import EnglishMessages from "../languages/en-US.json";
+import SpanishMessages from "../languages/es-MX.json";
+
+type Locale = "es-MX" | "en-US"
 interface CtxProps {
   setDarkmode: (mode: string | null) => void;
   setLanguage: (language: langs) => void;
@@ -12,8 +15,8 @@ interface CtxProps {
   setMenuOpen: (open: boolean) => void;
   theme: string;
   setTheme: (theme: string) => void;
-  locale: string;
-  setLocale: (locale: string) => void;
+  locale: Locale;
+  setLocale: (locale: Locale) => void;
 }
 
 const initialState = {
@@ -23,10 +26,10 @@ const initialState = {
   setDarkEnabled: (enabled: boolean) => {},
   menuOpen: false,
   setMenuOpen: (open: boolean) => {},
-  theme: "",
+  theme: "dark",
   setTheme: (theme: string) => {},
-  locale: "",
-  setLocale: (locale: string) => {},
+  locale: "en-US" as Locale,
+  setLocale: (locale: Locale) => {},
 };
 
 const configContext = createContext<CtxProps>(initialState);
@@ -39,7 +42,7 @@ type langs = "es" | "en";
 
 const ConfigProvider = ({ children }: Props) => {
   const [messages, setMessages] = useState(EnglishMessages);
-  const [locale, setLocale] = useState("en-US");
+  const [locale, setLocale] = useState<Locale>("en-US");
   const [theme, setTheme] = useState("dark");
   const [darkEnabled, setDarkEnabled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

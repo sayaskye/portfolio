@@ -1,5 +1,7 @@
-import { FormattedMessage } from "react-intl";
 import { useContext } from "react";
+
+import { FormattedMessage } from "react-intl";
+
 import { configContext } from "../../context/configContext";
 
 const AboutInfo = () => {

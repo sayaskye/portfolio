@@ -1,55 +1,18 @@
-import React from "react";
-import { FormattedMessage } from "react-intl";
-import Layout from "../components/layout";
-import Head from "next/head";
 import { useContext } from "react";
-import { configContext } from "../context/configContext";
+
+import { FormattedMessage } from "react-intl";
+
+import HeaderSeo from "../components/seo/HeaderSeo";
+import Layout from "../components/layout";
 import TypeWriter from "../components/TypeWriter";
+
+import { configContext } from "../context/configContext";
 
 const Home = () => {
   const { locale } = useContext(configContext);
   return (
     <>
-      {locale === "es-MX" && (
-        <Head>
-          <title> Inicio | Andrés Cazares Web </title>
-          <link rel="icon" href="/logo.svg" />
-          <meta
-            name="description"
-            content="Andrés Cazares Portfolio personal"
-          />
-          <meta
-            name="keywords"
-            content="México, Desarrollador, Programador, HTML, ReactJS, Tailwind, Web"
-          />
-          <meta name="author" content="Andrés Cazares" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta property="og:image" content="/logo.svg" />
-        </Head>
-      )}
-      {locale === "en-US" && (
-        <Head>
-          <title> Home | Andrés Cazares Web </title>
-          <link rel="icon" href="/logo.svg" />
-          <meta
-            name="description"
-            content="Andrés Cazares Personal Portfolio"
-          />
-          <meta
-            name="keywords"
-            content="México, Programmer, Developer, HTML, ReactJS, Tailwind, Web"
-          />
-          <meta name="author" content="Andrés Cazares" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta property="og:image" content="/logo.svg" />
-        </Head>
-      )}
+      <HeaderSeo locale={locale} page="home" />
       <Layout>
         <div className="w-screen h-screen bg-gray-200 duration-500 ease-in dark:bg-gray-800 text-white dark:text-main-blue ">
           <div className="h-full w-full bg-home-background bg-cover bg-top flex flex-col items-center justify-center">

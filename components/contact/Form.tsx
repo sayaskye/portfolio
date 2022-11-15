@@ -1,10 +1,11 @@
-import { FormattedMessage } from "react-intl";
 import { FormEvent, useState } from "react";
+
 import axios from "axios";
+import { FormattedMessage } from "react-intl";
 
 interface ServerState {
   submitting: boolean;
-  status?: { 
+  status?: {
     ok: boolean;
     msg: JSX.Element;
   } | null;
@@ -21,12 +22,16 @@ const Form = () => {
       status: null,
     });
   };
-  const handleServerResponse = (ok: boolean, msg: JSX.Element, form: HTMLFormElement) => {
+  const handleServerResponse = (
+    ok: boolean,
+    msg: JSX.Element,
+    form: HTMLFormElement
+  ) => {
     setServerState({
       submitting: false,
-      status: { 
+      status: {
         ok,
-        msg 
+        msg,
       },
     });
     if (ok) {
