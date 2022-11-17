@@ -15,13 +15,12 @@ const Layout = ({ children }: Props) => {
       const themeStorage = localStorage.getItem("theme");
       const langStorage = localStorage.getItem("lang");
 
-      if (themeStorage === "dark") {
-        setTheme("dark");
-      } else {
-        setTheme("");
-      }
-
       if (themeStorage !== null) {
+        if (themeStorage === "dark") {
+          setTheme("dark");
+        } else {
+          setTheme("");
+        }
         if (themeStorage === "dark") {
           setDarkEnabled(false);
         } else {
@@ -29,6 +28,8 @@ const Layout = ({ children }: Props) => {
         }
       } else {
         localStorage.setItem("theme", "dark");
+        setTheme("dark");
+        setDarkEnabled(false);
       }
 
       if (langStorage !== null) {
@@ -39,6 +40,7 @@ const Layout = ({ children }: Props) => {
         }
       } else {
         localStorage.setItem("lang", "en-US");
+        setLanguage("en-US");
       }
     }
   }, []);
