@@ -1,10 +1,10 @@
 import { useContext } from "react";
 
-import { configContext } from "../context/configContext";
-import Footer from "./Navbar/Footer";
-import FloatingButton from "./Navbar/FloatingButton";
-import NavigationLinks from "./Navbar/NavigationLinks";
-import Socials from "./Navbar/Socials";
+import { configContext } from "../../context/configContext";
+import Footer from "./Footer";
+import FloatingButton from "./FloatingButton";
+import NavigationLinks from "./NavigationLinks";
+import Socials from "./Socials";
 
 const Navbar = () => {
   const { menuOpen } = useContext(configContext);

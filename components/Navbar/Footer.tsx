@@ -76,10 +76,10 @@ const Footer = () => {
           </span>
         </Switch>
         <button
-          className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-1/2 mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in border-none cursor-pointer"
+          className="text-main-lightblue dark:text-main-blue dark:hover:text-white hover:text-black rounded-full py-2 px-3 text-lg font-bold w-auto mx-2 bg-gray-500/10 dark:bg-main-grey/10 hover:bg-main-blue/50 dark:hover:bg-main-blue/30 duration-300 ease-in border-none cursor-pointer"
           onClick={locale === "es-MX" ? changeToEn : changeToEs}
         >
-          {locale === "es-MX" ? "English" : "Español"}
+          {locale === "es-MX" ? "In English" : "En Español"}
         </button>
       </div>
       <div className="my-3 mx-auto">

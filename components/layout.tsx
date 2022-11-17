@@ -8,11 +8,18 @@ interface Props {
   children: ReactNode;
 }
 const Layout = ({ children }: Props) => {
-  const { theme, setDarkEnabled, setLanguage } = useContext(configContext);
+  const { theme, setTheme, setDarkEnabled, setLanguage } =
+    useContext(configContext);
   useEffect(() => {
     if (window) {
       const themeStorage = localStorage.getItem("theme");
       const langStorage = localStorage.getItem("lang");
+
+      if (themeStorage === "dark") {
+        setTheme("dark");
+      } else {
+        setTheme("");
+      }
 
       if (themeStorage !== null) {
         if (themeStorage === "dark") {
