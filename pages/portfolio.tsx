@@ -20,7 +20,7 @@ const Portfolio = () => {
     <>
       <HeaderSeo locale={locale} page="portfolio" />
       <Layout>
-        <div className="w-screen h-auto pb-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
+        <div className="w-screen h-full min-h-screen pb-[54px] bg-gray-200 duration-500 ease-in dark:bg-gray-800">
           <h1 className="text-main-lightblue dark:text-main-blue text-5xl my-10 font-bold mx-3 duration-300 ease-in text-center">
             <FormattedMessage id="portfolio.title" />
           </h1>

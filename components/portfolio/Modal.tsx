@@ -8,92 +8,92 @@ interface Props {
   onClose: () => void;
 }
 
-const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => {
-  return (
-    <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
-      <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
-        <FormattedMessage id={"portfolio.ProjectTitle." + title} />
-        <button
-          className="w-10 mt-3 h-10 rounded-full absolute inset-y-0 right-0 bg-main-grey dark:bg-main-grey/40 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center"
-          onClick={onClose}
+const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
+  <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
+    <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
+      <FormattedMessage id={"portfolio.ProjectTitle." + title} />
+      <button
+        className="w-10 mt-3 h-10 rounded-full absolute inset-y-0 right-0 bg-main-grey dark:bg-main-grey/40 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center"
+        onClick={onClose}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 "></hr>
-      </h2>
-      <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
-        <h3 className="flex flex-col">
-          <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
-            <FormattedMessage id="portfolio.card.typeLabel" />
-          </div>
-          <span className="text-left underline font-bold text-lg md:text-2xl">
-            <FormattedMessage id={"portfolio.ProjectType." + title} />
-          </span>
-        </h3>
-        <h3 className="flex flex-col">
-          <div className="text-main-lightblue text-right dark:text-main-blue text-base md:text-xl font-bold">
-            <FormattedMessage id="portfolio.card.dateLabel" />
-          </div>
-          <span className="text-right underline font-bold text-lg md:text-2xl">
-            <FormattedMessage id={"portfolio.ProjectDate." + title} />
-          </span>
-        </h3>
-      </div>
-      <div className="mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white">
-        <div className="my-5 flex flex-col mx-3 lg:mx-0">
-          <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
-            <FormattedMessage id="portfolio.card.featuresLabel" />
-          </span>
-          <span className="underline font-bold text-lg md:text-2xl">
-            <FormattedMessage id={"portfolio.ProjectFeatures." + title} />
-          </span>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <hr className="dark:border-main-blue border-main-lightblue duration-300 ease-in mt-3 "></hr>
+    </h2>
+    <div className="flex justify-between my-3 items-end  mx-3 lg:mx-20 xl:mx-32 ">
+      <h3 className="flex flex-col">
+        <div className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
+          <FormattedMessage id="portfolio.card.typeLabel" />
         </div>
-        <div className="my-5 flex flex-col">
-          <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
-            <FormattedMessage id="portfolio.card.descriptionLabel" />
-          </span>
-          <span className="text-lg md:text-2xl">
-            <FormattedMessage id={"portfolio.ProjectDescription." + title} />
-          </span>
+        <span className="text-left underline font-bold text-lg md:text-2xl">
+          <FormattedMessage id={"portfolio.ProjectType." + title} />
+        </span>
+      </h3>
+      <h3 className="flex flex-col">
+        <div className="text-main-lightblue text-right dark:text-main-blue text-base md:text-xl font-bold">
+          <FormattedMessage id="portfolio.card.dateLabel" />
         </div>
-        <div className="my-5 flex flex-col">
-          <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
-            <FormattedMessage id="portfolio.card.tecLabel" />
-          </span>
-          <span className="underline font-bold text-lg md:text-2xl">
-            <FormattedMessage id={"portfolio.ProjectTec." + title} />
-          </span>
-        </div>
-        <hr className="dark:border-main-blue border-main-lightblue mt-3 mb-6"></hr>
-      </div>
-      {videoBool ? (
-        <div className="h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[65vh] mx-auto lg:mx-20 xl:mx-32 mb-5 rounded-2xl overflow-hidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
-          <iframe
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${videoId}?showinfo=0`}
-            title="YouTube video player"
-            allowFullScreen
-          ></iframe>
-        </div>
-      ) : (
-        <div className="mb-3"></div>
-      )}
+        <span className="text-right underline font-bold text-lg md:text-2xl">
+          <FormattedMessage id={"portfolio.ProjectDate." + title} />
+        </span>
+      </h3>
     </div>
-  );
-};
+    <div className="mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white">
+      <div className="my-5 flex flex-col mx-3 lg:mx-0">
+        <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
+          <FormattedMessage id="portfolio.card.featuresLabel" />
+        </span>
+        <span className="underline font-bold text-lg md:text-2xl">
+          <FormattedMessage id={"portfolio.ProjectFeatures." + title} />
+        </span>
+      </div>
+      <div className="my-5 flex flex-col">
+        <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
+          <FormattedMessage id="portfolio.card.descriptionLabel" />
+        </span>
+        <span className="text-lg md:text-2xl">
+          <FormattedMessage id={"portfolio.ProjectDescription." + title} />
+        </span>
+      </div>
+      <div className="my-5 flex flex-col">
+        <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
+          <FormattedMessage id="portfolio.card.tecLabel" />
+        </span>
+        <span className="underline font-bold text-lg md:text-2xl">
+          <FormattedMessage id={"portfolio.ProjectTec." + title} />
+        </span>
+      </div>
+      <hr className="dark:border-main-blue border-main-lightblue mt-3 mb-6"></hr>
+    </div>
+    {videoBool ? (
+      <div className="max-h-[1000px] flex items-center mx-auto mb-5 rounded-2xl overflow-hidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30 aspect-video">
+        {/* For some reason, iFrame blurs the modal if exist, working on it */}
+        <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${videoId}?showinfo=0`}
+          title="YouTube video player"
+          allowFullScreen
+          className="border-none"
+        />
+      </div>
+    ) : (
+      <div className="mb-3"></div>
+    )}
+  </div>
+);
 
 export default ModalCard;

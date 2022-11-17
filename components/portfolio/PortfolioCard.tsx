@@ -71,7 +71,7 @@ const PortfolioCard = ({
             </button>
           </div>
           <Modal open={open} onClose={handleClose}>
-            <div className={`${theme} overflow-auto`}>
+            <div className={`${theme}`}>
               <ModalCard
                 title={title}
                 videoBool={videoBool}

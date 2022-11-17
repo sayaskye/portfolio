@@ -14,7 +14,7 @@ const About = () => {
     <>
       <HeaderSeo locale={locale} page="about" />
       <Layout>
-        <div className="w-screen h-full md:py-[54px] bg-gray-200 duration-500  ease-in dark:bg-gray-800">
+        <div className="w-screen h-full min-h-screen md:py-[54px] bg-gray-200 duration-500  ease-in dark:bg-gray-800">
           <Info />
           <Experience />
           <MyTecnologies />
