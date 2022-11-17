@@ -45,6 +45,7 @@ a{
 }
 
 .limitTextLines {
+  line-height: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
