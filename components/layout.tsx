@@ -1,7 +1,7 @@
 import { ReactNode, useContext, useEffect } from "react";
 
 import Navbar from "./Navbar";
-import FakeNavbar from "./FakeNav";
+import Spacer from "./Spacer";
 
 import { configContext } from "../context/configContext";
 interface Props {
@@ -48,7 +48,7 @@ const Layout = ({ children }: Props) => {
         <div className="fixed z-50">
           <Navbar />
         </div>
-        <FakeNavbar />
+        <Spacer />
         {children}
       </div>
     </div>

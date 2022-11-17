@@ -1,4 +1,4 @@
-const Navbar = () => {
+const Spacer = () => {
   return (
     <div className="hidden md:flex">
       <div className=" md:w-navbar"></div>
@@ -6,4 +6,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Spacer;
