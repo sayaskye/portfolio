@@ -9,11 +9,11 @@ interface Props {
 }
 
 const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
-  <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute translate-x-[0%] md:translate-x-[12%] translate-y-[0%] md:translate-y-[5%] w-full md:w-4/5 max-h-[100%] md:max-h-[90%] rounded-none md:rounded-xl px-5 dark:text-white text-black overflow-auto scrollbarhidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
+  <div className="bg-gray-200 dark:bg-gray-800 duration-300 ease-in absolute w-full h-full rounded-none dark:text-white text-black overflow-auto scrollbarhidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
     <h2 className="text-main-lightblue dark:text-main-blue text-3xl font-bold text-center duration-300 ease-in sticky top-0 bg-gray-200 dark:bg-gray-800 py-3">
       <FormattedMessage id={"portfolio.ProjectTitle." + title} />
       <button
-        className="w-10 mt-3 h-10 rounded-full absolute inset-y-0 right-0 bg-main-grey dark:bg-main-grey/40 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center"
+        className="w-10 mt-3 mr-3 h-10 rounded-full absolute inset-y-0 right-0 bg-main-grey dark:bg-main-grey/40 hover:text-black hover:bg-main-blue/60 dark:hover:bg-main-blue/60 flex items-center justify-center"
         onClick={onClose}
       >
         <svg
@@ -51,8 +51,8 @@ const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
         </span>
       </h3>
     </div>
-    <div className="mx-auto lg:mx-20 xl:mx-32 mb-10 dark:text-white">
-      <div className="my-5 flex flex-col mx-3 lg:mx-0">
+    <div className="mx-3 lg:mx-20 xl:mx-32 mb-10 dark:text-white">
+      <div className="my-5 flex flex-col">
         <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
           <FormattedMessage id="portfolio.card.featuresLabel" />
         </span>
@@ -60,7 +60,7 @@ const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
           <FormattedMessage id={"portfolio.ProjectFeatures." + title} />
         </span>
       </div>
-      <div className="my-5 flex flex-col">
+      <div className="my-5 sm:mx-0 flex flex-col">
         <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
           <FormattedMessage id="portfolio.card.descriptionLabel" />
         </span>
@@ -68,7 +68,7 @@ const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
           <FormattedMessage id={"portfolio.ProjectDescription." + title} />
         </span>
       </div>
-      <div className="my-5 flex flex-col">
+      <div className="my-5 sm:mx-0 flex flex-col">
         <span className="text-main-lightblue dark:text-main-blue text-base md:text-xl font-bold">
           <FormattedMessage id="portfolio.card.tecLabel" />
         </span>
@@ -79,8 +79,7 @@ const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
       <hr className="dark:border-main-blue border-main-lightblue mt-3 mb-6"></hr>
     </div>
     {videoBool ? (
-      <div className="max-h-[1000px] flex items-center mx-auto mb-5 rounded-2xl overflow-hidden ring-2 dark:ring-main-blue/30 ring-main-lightblue/30 aspect-video">
-        {/* For some reason, iFrame blurs the modal if exist, working on it */}
+      <div className="max-h-[960px] px-3 mx-auto mb-5 rounded-2xl overflow-hidden aspect-video">
         <iframe
           width="100%"
           height="100%"

@@ -33,7 +33,7 @@ const PortfolioCard = ({
   };
 
   return (
-    <div className="text-black dark:text-white h/auto my-4 bg-gray-300 dark:bg-gray-700 rounded-3xl shadow-xl mx-5 lg:mx-3 flex flex-col lg:flex-row xl:flex-col 2xl:flex-row transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
+    <div className="text-black dark:text-white h-auto my-4 bg-gray-300 dark:bg-gray-700 rounded-3xl shadow-xl mx-5 lg:mx-3 flex flex-col lg:flex-row xl:flex-col 2xl:flex-row transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
       <div className="lg:w-1/2 xl:w-full 2xl-w-1/2 h-1/2 lg:h-full xl:h-1/2 2xl:h-full flex items-center justify-center">
         <img
           className="lg:rounded-l-3xl 2xl:rounded-l-3xl lg:rounded-r-none 2xl:rounded-r-none rounded-t-3xl rounded-b-none xl:rounded-t-3xl xl:rounded-b-none object-fill max-h-[200px] w-[calc(100%-12px)]  m-3"

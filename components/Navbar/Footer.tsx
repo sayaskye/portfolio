@@ -35,7 +35,7 @@ const Footer = () => {
     setDarkmode(localStorage.getItem("theme"));
   };
   return (
-    <div className="flex flex-col pb-12 md:pb-20 w-60">
+    <div className="flex flex-col w-60">
       <div className="pb-2 mx-2 flex items-center justify-center">
         <Switch
           checked={darkEnabled}
