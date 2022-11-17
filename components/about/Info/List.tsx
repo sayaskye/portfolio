@@ -17,7 +17,7 @@ const List = () => {
 
   return (
     <div className="col-span-2 2xl:col-span-1 mx-3 lg:mx-0 duration-300 ease-in">
-      <ul className="list-disc 2xl:list-outside list-inside">
+      <ul className="list-disc 2xl:list-outside list-inside p-0">
         <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in text-xl">
           <FormattedMessage id="about.DataListTitle1" />
         </h2>
