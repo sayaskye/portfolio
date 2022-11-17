@@ -79,15 +79,17 @@ const ModalCard = ({ title, videoBool, videoId, onClose }: Props) => (
       <hr className="dark:border-main-blue border-main-lightblue mt-3 mb-6"></hr>
     </div>
     {videoBool ? (
-      <div className="max-h-[960px] px-3 mx-auto mb-5 rounded-2xl overflow-hidden aspect-video">
-        <iframe
-          width="100%"
-          height="100%"
-          src={`https://www.youtube.com/embed/${videoId}?showinfo=0`}
-          title="YouTube video player"
-          allowFullScreen
-          className="border-none"
-        />
+      <div className="px-3">
+        <div className="max-h-[960px] mx-auto mb-5 rounded-2xl overflow-hidden aspect-video ring-2 dark:ring-main-blue/30 ring-main-lightblue/30">
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${videoId}?showinfo=0`}
+            title="YouTube video player"
+            allowFullScreen
+            className="border-none"
+          />
+        </div>
       </div>
     ) : (
       <div className="mb-3"></div>
