@@ -17,7 +17,7 @@ const Navbar = () => {
           menuOpen ? "flex absolute z-40" : "hidden"
         }`}
       >
-        <div className="flex flex-col justify-between mx-0 items-center">
+        <div className="flex flex-col justify-evenly mx-0 items-center">
           <img
             className="w-40 h-40 hidden md:flex ring-8 rounded-full ring-main-lightblue dark:ring-main-blue duration-300 ease-in mt-2 md:mt-6 lg:mt-8 xl:mt-10"
             src="/images/Profile menu.png"
