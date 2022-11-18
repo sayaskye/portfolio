@@ -16,7 +16,7 @@ const List = () => {
   const year = getYearDiffWithMonth(new Date("1997-09-21"), new Date());
 
   return (
-    <div className="col-span-2 2xl:col-span-1 mx-3 lg:mx-0 duration-300 ease-in">
+    <div className="col-span-2 2xl:col-span-1 mx-3 lg:mx-0 duration-300 ease-in 2xl:pl-10">
       <ul className="list-disc 2xl:list-outside list-inside p-0">
         <h2 className="text-main-lightblue dark:text-main-blue font-bold duration-300 ease-in text-xl">
           <FormattedMessage id="about.DataListTitle1" />

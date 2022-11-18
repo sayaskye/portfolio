@@ -7,7 +7,7 @@ const MyTecnologies = () => {
     { name: "HTML", svgname: "html" },
     { name: "CSS", svgname: "css" },
     { name: "Javascript", svgname: "js" },
-    { name: "Typecript", svgname: "ts" },
+    { name: "Typescript", svgname: "ts" },
     { name: "Git", svgname: "git" },
     { name: "React", svgname: "react" },
     { name: "NextJS", svgname: "next" },
