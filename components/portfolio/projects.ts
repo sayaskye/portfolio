@@ -10,8 +10,8 @@ export const portfolioFront = [
   {
     title: "personalBlog",
     imageType: "personalblog",
-    videoId: "",
-    videoBool: false,
+    videoId: "3VB6-KLYQss",
+    videoBool: true,
     urlBool: true,
     url: "https://www.blog.andrescazares.com/",
   },
