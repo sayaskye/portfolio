@@ -12,6 +12,7 @@ const HeaderSeo = ({ locale, page }: Props) => {
     <Head>
       <title>{seoOptions[page][locale].title}</title>
       <link rel="icon" href="/logo.svg" />
+      <meta name="robots" content="noindex, nofollow" />
       <meta name="description" content={seoOptions[page][locale].description} />
       <meta name="keywords" content={seoOptions[page][locale].keywords} />
       <meta name="author" content="Andrés Cazares" />
