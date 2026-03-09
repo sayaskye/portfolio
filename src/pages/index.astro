@@ -1,0 +1,6 @@
+---
+import { getDefaultLanguage } from '@/i18n';
+
+const defaultLang = getDefaultLanguage();
+return Astro.redirect(`/${defaultLang}/`);
+---

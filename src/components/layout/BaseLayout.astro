@@ -1,0 +1,70 @@
+---
+import type { SEOMetadata } from '@/lib/seo';
+
+interface Props {
+  seo: SEOMetadata;
+}
+
+const { seo } = Astro.props;
+
+import '@/styles/global.css';
+---
+
+<!doctype html>
+<html lang={seo.lang} data-theme="light" transition:animate="fade">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Metadata -->
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <link rel="canonical" href={seo.canonical} />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={seo.ogTitle || seo.title} />
+    <meta property="og:description" content={seo.ogDescription || seo.description} />
+    <meta property="og:type" content={seo.ogType || 'website'} />
+    <meta property="og:url" content={seo.canonical} />
+    {seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
+
+    <!-- Alternate Language Links -->
+    {
+      seo.alternateLanguages?.map((alt) => (
+        <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+      ))
+    }
+
+    <!-- Theme Initialization Script (runs before page render to prevent flash) -->
+    <script is:inline>
+      (function () {
+        const THEME_STORAGE_KEY = 'preferred-theme';
+        const THEME_ATTRIBUTE = 'data-theme';
+        const supportedThemes = ['light', 'dark'];
+        const defaultTheme = 'light';
+
+        function getSystemTheme() {
+          if (typeof window === 'undefined') return defaultTheme;
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          return prefersDark ? 'dark' : 'light';
+        }
+
+        function getCurrentTheme() {
+          if (typeof localStorage === 'undefined') return defaultTheme;
+          const stored = localStorage.getItem(THEME_STORAGE_KEY);
+          if (stored && supportedThemes.includes(stored)) {
+            return stored;
+          }
+          return getSystemTheme();
+        }
+
+        // Apply theme immediately to prevent flash
+        const theme = getCurrentTheme();
+        document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-(--bg-primary) text-(--text-primary) transition-colors duration-200">
+    <slot />
+  </body>
+</html>

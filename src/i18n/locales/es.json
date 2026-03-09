@@ -1,0 +1,42 @@
+{
+  "common": {
+    "nav": {
+      "home": "Inicio",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    },
+    "actions": {
+      "submit": "Enviar",
+      "cancel": "Cancelar"
+    },
+    "theme": {
+      "toggle": "Cambiar tema",
+      "light": "Tema claro",
+      "dark": "Tema oscuro"
+    },
+    "language": {
+      "select": "Seleccionar idioma"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Bienvenido a Mi Portafolio",
+      "subtitle": "Desarrollador full-stack especializado en tecnologías web modernas"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+      "sending": "Enviando...",
+      "throttle": "Por favor espera antes de enviar de nuevo",
+      "validation": {
+        "required": "Este campo es obligatorio",
+        "invalidEmail": "Por favor ingresa un correo electrónico válido"
+      }
+    }
+  }
+}

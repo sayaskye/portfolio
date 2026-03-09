@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import ContactForm from '@/components/forms/ContactForm.astro';
+import { getTranslation, getSupportedLanguages } from '@/i18n';
+import type { SEOMetadata } from '@/lib/seo';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const languages = getSupportedLanguages();
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+};
+
+const { lang } = Astro.params;
+const t = (key: string) => getTranslation(key, lang as string);
+
+// Build SEO metadata
+const siteUrl = import.meta.env.SITE || 'https://zares.dev';
+const supportedLanguages = getSupportedLanguages();
+
+const seo: SEOMetadata = {
+  title: `${t('common.nav.contact')} - ${t('home.hero.title')}`,
+  description: `${t('common.nav.contact')} page`,
+  canonical: `${siteUrl}/${lang}/contact/`,
+  lang: lang as string,
+  alternateLanguages: supportedLanguages.map((l) => ({
+    lang: l,
+    url: `${siteUrl}/${l}/contact/`,
+  })),
+};
+---
+
+<BaseLayout seo={seo}>
+  <Header lang={lang as string} />
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="mb-8 text-center text-4xl font-bold md:text-5xl">
+        {t('common.nav.contact')}
+      </h1>
+
+      <ContactForm lang={lang as string} />
+    </div>
+  </main>
+
+  <Footer lang={lang as string} />
+</BaseLayout>

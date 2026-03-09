@@ -1,0 +1,48 @@
+---
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-(--border-color) bg-(--bg-secondary) py-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+      <!-- Copyright -->
+      <p class="text-sm text-(--text-secondary)">
+        © {currentYear} Portfolio. All rights reserved.
+      </p>
+
+      <!-- Footer Links -->
+      <ul class="flex items-center gap-6">
+        <li>
+          <a
+            href={`/${lang}/`}
+            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href={`/${lang}/projects/`}
+            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a
+            href={`/${lang}/contact/`}
+            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,42 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "actions": {
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "theme": {
+      "toggle": "Toggle theme",
+      "light": "Light theme",
+      "dark": "Dark theme"
+    },
+    "language": {
+      "select": "Select language"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Welcome to My Portfolio",
+      "subtitle": "Full-stack developer specializing in modern web technologies"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "sending": "Sending...",
+      "throttle": "Please wait before submitting again",
+      "validation": {
+        "required": "This field is required",
+        "invalidEmail": "Please enter a valid email address"
+      }
+    }
+  }
+}

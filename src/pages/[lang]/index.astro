@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { getTranslation, getSupportedLanguages } from '@/i18n';
+import { getCollection } from 'astro:content';
+import type { SEOMetadata } from '@/lib/seo';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const languages = getSupportedLanguages();
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+};
+
+const { lang } = Astro.params;
+const t = (key: string) => getTranslation(key, lang as string);
+
+// Get featured projects for this language
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects
+  .filter((project) => project.data.language === lang && project.data.featured)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+
+// Build SEO metadata
+const siteUrl = import.meta.env.SITE || 'https://zares.dev';
+const supportedLanguages = getSupportedLanguages();
+const seo: SEOMetadata = {
+  title: t('home.hero.title'),
+  description: t('home.hero.subtitle'),
+  canonical: `${siteUrl}/${lang}/`,
+  lang: lang as string,
+  alternateLanguages: supportedLanguages.map((l) => ({
+    lang: l,
+    url: `${siteUrl}/${l}/`,
+  })),
+};
+---
+
+<BaseLayout seo={seo}>
+  <Header lang={lang as string} />
+
+  <main class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="py-16 text-center">
+      <h1 class="mb-4 text-4xl font-bold md:text-6xl">
+        {t('home.hero.title')}
+      </h1>
+      <p class="mb-8 text-xl text-(--text-secondary) md:text-2xl">
+        {t('home.hero.subtitle')}
+      </p>
+    </section>
+
+    <!-- Featured Projects Section -->
+    {
+      featuredProjects.length > 0 && (
+        <section class="py-16">
+          <h2 class="mb-8 text-3xl font-bold">{t('common.nav.projects')}</h2>
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => {
+              const slug = project.slug.replace(`${lang}/`, '');
+              return (
+                <article class="rounded-lg border border-(--border-color) p-6 transition-shadow hover:shadow-lg">
+                  {project.data.image && (
+                    <img
+                      src={project.data.image.src}
+                      alt={project.data.image.alt}
+                      class="mb-4 h-48 w-full rounded-md object-cover"
+                    />
+                  )}
+                  <h3 class="mb-2 text-xl font-bold">
+                    <a href={`/${lang}/projects/${slug}/`} class="hover:text-primary-500">
+                      {project.data.title}
+                    </a>
+                  </h3>
+                  <p class="mb-4 text-(--text-secondary)">{project.data.description}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {project.data.tags.map((tag) => (
+                      <span class="rounded bg-(--bg-secondary) px-2 py-1 text-sm">{tag}</span>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )
+    }
+  </main>
+
+  <Footer lang={lang as string} />
+</BaseLayout>

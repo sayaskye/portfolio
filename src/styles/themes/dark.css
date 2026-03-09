@@ -1,0 +1,13 @@
+/* Dark theme CSS custom properties */
+:root[data-theme='dark'] {
+  /* Background colors */
+  --bg-primary: oklch(0.15 0 0);
+  --bg-secondary: oklch(0.2 0 0);
+
+  /* Text colors */
+  --text-primary: oklch(0.95 0 0);
+  --text-secondary: oklch(0.7 0 0);
+
+  /* Border colors */
+  --border-color: oklch(0.3 0 0);
+}

@@ -1,0 +1,131 @@
+---
+// LanguageSelector component - switches between supported languages
+import { getSupportedLanguages } from '@/i18n';
+
+interface Props {
+  currentLang: string;
+}
+
+const { currentLang } = Astro.props;
+const supportedLanguages = getSupportedLanguages();
+
+// Language display names
+const languageNames: Record<string, string> = {
+  en: 'EN',
+  es: 'ES',
+};
+---
+
+<div class="relative inline-block">
+  <button
+    id="language-selector-button"
+    type="button"
+    aria-label="Select language"
+    aria-haspopup="true"
+    aria-expanded="false"
+    class="rounded-md px-3 py-2 font-medium transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+  >
+    {languageNames[currentLang] || currentLang.toUpperCase()}
+  </button>
+
+  <div
+    id="language-selector-menu"
+    class="ring-opacity-5 absolute right-0 z-10 mt-2 hidden w-24 rounded-md bg-white shadow-lg ring-1 ring-black dark:bg-gray-800"
+    role="menu"
+    aria-orientation="vertical"
+  >
+    <div class="py-1">
+      {
+        supportedLanguages.map((lang) => (
+          <button
+            type="button"
+            data-lang={lang}
+            class="language-option block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
+            class:list={[currentLang === lang && 'bg-gray-50 font-bold dark:bg-gray-700']}
+            role="menuitem"
+          >
+            {languageNames[lang] || lang.toUpperCase()}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  import { setStoredLanguage } from '@/i18n/utils';
+
+  const button = document.getElementById('language-selector-button') as HTMLButtonElement;
+  const menu = document.getElementById('language-selector-menu') as HTMLDivElement;
+  const languageOptions = document.querySelectorAll(
+    '.language-option'
+  ) as NodeListOf<HTMLButtonElement>;
+
+  function toggleMenu() {
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!isExpanded));
+    menu.classList.toggle('hidden');
+  }
+
+  function closeMenu() {
+    button.setAttribute('aria-expanded', 'false');
+    menu.classList.add('hidden');
+  }
+
+  function switchLanguage(lang: string) {
+    // Store the language preference
+    setStoredLanguage(lang);
+
+    // Get current path and replace language segment
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+
+    // If first segment is a language code, replace it
+    if (pathSegments.length > 0 && /^[a-z]{2}$/.test(pathSegments[0])) {
+      pathSegments[0] = lang;
+    } else {
+      // If no language in path, add it at the beginning
+      pathSegments.unshift(lang);
+    }
+
+    const newPath = '/' + pathSegments.join('/');
+
+    // Navigate to the new path
+    window.location.href = newPath;
+  }
+
+  // Toggle menu on button click
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Handle language selection
+  languageOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      const lang = option.getAttribute('data-lang');
+      if (lang) {
+        switchLanguage(lang);
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target as Node) && e.target !== button) {
+      closeMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+
+  // Re-initialize on page navigation (for Astro view transitions)
+  document.addEventListener('astro:page-load', () => {
+    closeMenu();
+  });
+</script>

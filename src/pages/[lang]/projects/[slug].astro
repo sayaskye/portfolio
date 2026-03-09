@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { getTranslation, getSupportedLanguages } from '@/i18n';
+import { getCollection } from 'astro:content';
+import type { SEOMetadata } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((project) => {
+    const slug = project.slug.replace(`${project.data.language}/`, '');
+    return {
+      params: {
+        lang: project.data.language,
+        slug,
+      },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const { lang } = Astro.params;
+const t = (key: string) => getTranslation(key, lang as string);
+
+const { Content } = await project.render();
+
+// Build SEO metadata
+const siteUrl = import.meta.env.SITE || 'https://zares.dev';
+const supportedLanguages = getSupportedLanguages();
+const slug = project.slug.replace(`${lang}/`, '');
+
+const seo: SEOMetadata = {
+  title: `${project.data.title} - ${t('common.nav.projects')}`,
+  description: project.data.description,
+  canonical: `${siteUrl}/${lang}/projects/${slug}/`,
+  lang: lang as string,
+  ogImage: project.data.image?.src,
+  alternateLanguages: supportedLanguages.map((l) => ({
+    lang: l,
+    url: `${siteUrl}/${l}/projects/${slug}/`,
+  })),
+};
+---
+
+<BaseLayout seo={seo}>
+  <Header lang={lang as string} />
+
+  <main class="container mx-auto px-4 py-8">
+    <article class="mx-auto max-w-4xl">
+      <!-- Project Header -->
+      <header class="mb-8">
+        <h1 class="mb-4 text-4xl font-bold md:text-5xl">
+          {project.data.title}
+        </h1>
+        <p class="mb-4 text-xl text-(--text-secondary)">
+          {project.data.description}
+        </p>
+
+        <!-- Tags -->
+        <div class="mb-4 flex flex-wrap gap-2">
+          {
+            project.data.tags.map((tag) => (
+              <span class="rounded-full bg-(--bg-secondary) px-3 py-1 text-sm">{tag}</span>
+            ))
+          }
+        </div>
+
+        <!-- Links -->
+        <div class="flex gap-4">
+          {
+            project.data.github && (
+              <a
+                href={project.data.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary-500 hover:bg-primary-600 rounded px-4 py-2 text-white transition-colors"
+              >
+                GitHub
+              </a>
+            )
+          }
+          {
+            project.data.demo && (
+              <a
+                href={project.data.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-primary-500 text-primary-500 hover:bg-primary-50 rounded border px-4 py-2 transition-colors"
+              >
+                Live Demo
+              </a>
+            )
+          }
+        </div>
+      </header>
+
+      <!-- Project Image -->
+      {
+        project.data.image && (
+          <div class="mb-8">
+            <img
+              src={project.data.image.src}
+              alt={project.data.image.alt}
+              class="w-full rounded-lg shadow-lg"
+            />
+          </div>
+        )
+      }
+
+      <!-- Project Content -->
+      <div class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+
+      <!-- Back Link -->
+      <div class="mt-12 border-t border-(--border-color) pt-8">
+        <a href={`/${lang}/`} class="text-primary-500 hover:text-primary-600 transition-colors">
+          ← {t('common.nav.home')}
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <Footer lang={lang as string} />
+</BaseLayout>
