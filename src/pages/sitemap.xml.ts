@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 
-const SITE_URL = import.meta.env.SITE || 'https://example.com';
+const SITE_URL = import.meta.env.SITE || 'https://zares.dev';
 
 export const GET: APIRoute = async () => {
   const projects = await getCollection('projects');
