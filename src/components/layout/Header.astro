@@ -5,9 +5,10 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
 
 interface Props {
   lang: string;
+  langUrls?: Record<string, string>;
 }
 
-const { lang } = Astro.props;
+const { lang, langUrls } = Astro.props;
 
 // Helper function for translations
 const t = (key: string) => getTranslation(key, lang);
@@ -16,6 +17,7 @@ const t = (key: string) => getTranslation(key, lang);
 const navLinks = [
   { href: `/${lang}/`, label: t('common.nav.home') },
   { href: `/${lang}/projects/`, label: t('common.nav.projects') },
+  { href: `/${lang}/blog/`, label: t('common.nav.blog') || 'Blog' },
   { href: `/${lang}/contact/`, label: t('common.nav.contact') },
 ];
 
@@ -60,7 +62,7 @@ const currentPath = Astro.url.pathname;
       <ThemeToggle />
     </div>
     <div>
-      <LanguageSelector currentLang="en" />
+      <LanguageSelector currentLang={lang} langUrls={langUrls} />
     </div>
   </nav>
 </header>

@@ -15,6 +15,7 @@ const projectSchema = z.object({
   github: z.string().url().optional(),
   demo: z.string().url().optional(),
   language: z.string(),
+  id: z.string(),
 });
 
 export type ProjectFrontmatter = z.infer<typeof projectSchema>;
@@ -24,6 +25,30 @@ const projectCollection = defineCollection({
   schema: projectSchema,
 });
 
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  publishDate: z.coerce.date(),
+  tags: z.array(z.string()),
+  featured: z.boolean().default(false),
+  image: z
+    .object({
+      src: z.string(),
+      alt: z.string(),
+    })
+    .optional(),
+  language: z.string(),
+  id: z.string(),
+});
+
+export type BlogFrontmatter = z.infer<typeof blogSchema>;
+
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: blogSchema,
+});
+
 export const collections = {
   projects: projectCollection,
+  blog: blogCollection,
 };

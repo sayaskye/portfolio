@@ -3,6 +3,7 @@
     "nav": {
       "home": "Inicio",
       "projects": "Proyectos",
+      "blog": "Blog",
       "contact": "Contacto"
     },
     "actions": {

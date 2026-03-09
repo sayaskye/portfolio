@@ -4,9 +4,10 @@ import { getSupportedLanguages } from '@/i18n';
 
 interface Props {
   currentLang: string;
+  langUrls?: Record<string, string>;
 }
 
-const { currentLang } = Astro.props;
+const { currentLang, langUrls } = Astro.props;
 const supportedLanguages = getSupportedLanguages();
 
 // Language display names
@@ -40,6 +41,7 @@ const languageNames: Record<string, string> = {
           <button
             type="button"
             data-lang={lang}
+            data-lang-url={langUrls?.[lang]}
             class="language-option block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
             class:list={[currentLang === lang && 'bg-gray-50 font-bold dark:bg-gray-700']}
             role="menuitem"
@@ -57,9 +59,6 @@ const languageNames: Record<string, string> = {
 
   const button = document.getElementById('language-selector-button') as HTMLButtonElement;
   const menu = document.getElementById('language-selector-menu') as HTMLDivElement;
-  const languageOptions = document.querySelectorAll(
-    '.language-option'
-  ) as NodeListOf<HTMLButtonElement>;
 
   function toggleMenu() {
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
@@ -72,11 +71,17 @@ const languageNames: Record<string, string> = {
     menu.classList.add('hidden');
   }
 
-  function switchLanguage(lang: string) {
+  function switchLanguage(lang: string, specificUrl?: string) {
     // Store the language preference
     setStoredLanguage(lang);
 
-    // Get current path and replace language segment
+    // If we have a specific localized URL (mapping), use it
+    if (specificUrl) {
+      window.location.href = specificUrl;
+      return;
+    }
+
+    // Fallback: Get current path and replace language segment
     const currentPath = window.location.pathname;
     const pathSegments = currentPath.split('/').filter(Boolean);
 
@@ -94,21 +99,31 @@ const languageNames: Record<string, string> = {
     window.location.href = newPath;
   }
 
+  function setup() {
+    const languageOptions = document.querySelectorAll(
+      '.language-option'
+    ) as NodeListOf<HTMLButtonElement>;
+
+    // Handle language selection
+    languageOptions.forEach((option) => {
+      option.addEventListener('click', () => {
+        const lang = option.getAttribute('data-lang');
+        const specificUrl = option.getAttribute('data-lang-url');
+        if (lang) {
+          switchLanguage(lang, specificUrl || undefined);
+        }
+      });
+    });
+  }
+
   // Toggle menu on button click
   button.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleMenu();
   });
 
-  // Handle language selection
-  languageOptions.forEach((option) => {
-    option.addEventListener('click', () => {
-      const lang = option.getAttribute('data-lang');
-      if (lang) {
-        switchLanguage(lang);
-      }
-    });
-  });
+  // Initial setup
+  setup();
 
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {

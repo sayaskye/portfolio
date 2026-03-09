@@ -1,6 +1,8 @@
 export type LanguageCode = string;
 
-export type TranslationNamespace = Record<string, string | TranslationNamespace>;
+export interface TranslationNamespace {
+  [key: string]: string | TranslationNamespace;
+}
 
 export type Translations = Record<string, TranslationNamespace>;
 

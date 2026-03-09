@@ -6,6 +6,7 @@ tags: [Node.js, CLI, Markdown, Static Site Generator]
 featured: false
 github: https://github.com/example/portfolio-generator
 language: en
+id: portfolio-generator
 ---
 
 ## Introduction

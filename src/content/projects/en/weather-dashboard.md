@@ -5,11 +5,12 @@ publishDate: 2023-11-20
 tags: [Vue.js, D3.js, OpenWeather API, PWA]
 featured: false
 image:
-  src: /images/projects/weather-dashboard.jpg
-  alt: Weather dashboard showing current conditions and 7-day forecast
+  src: 'https://placehold.co/800x400/10B981/ffffff?text=Second+Project'
+  alt: 'Second project banner'
 github: https://github.com/example/weather-dashboard
 demo: https://weather-dashboard-demo.netlify.app
 language: en
+id: weather-dashboard
 ---
 
 ## Project Overview

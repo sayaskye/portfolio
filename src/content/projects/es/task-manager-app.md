@@ -5,11 +5,12 @@ publishDate: 2024-01-15
 tags: [React, Node.js, PostgreSQL, WebSocket, TypeScript]
 featured: true
 image:
-  src: /images/projects/task-manager.jpg
-  alt: Captura de pantalla del panel de la aplicación de gestión de tareas
+  src: 'https://placehold.co/800x400/10B981/ffffff?text=Primer+Proyecto'
+  alt: 'Primer projecto banner'
 github: https://github.com/example/task-manager
 demo: https://task-manager-demo.netlify.app
 language: es
+id: task-manager
 ---
 
 ## Descripción General

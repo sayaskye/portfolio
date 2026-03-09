@@ -11,17 +11,26 @@ export async function getStaticPaths() {
 
   return projects.map((project) => {
     const slug = project.slug.replace(`${project.data.language}/`, '');
+    
+    // Find all translations for this project to create mapping
+    const translations = projects.filter(p => p.data.id === project.data.id);
+    const langUrls: Record<string, string> = {};
+    translations.forEach(t => {
+      const tSlug = t.slug.replace(`${t.data.language}/`, '');
+      langUrls[t.data.language] = `/${t.data.language}/projects/${tSlug}/`;
+    });
+
     return {
       params: {
         lang: project.data.language,
         slug,
       },
-      props: { project },
+      props: { project, langUrls },
     };
   });
 }
 
-const { project } = Astro.props;
+const { project, langUrls } = Astro.props;
 const { lang } = Astro.params;
 const t = (key: string) => getTranslation(key, lang as string);
 
@@ -30,23 +39,22 @@ const { Content } = await project.render();
 // Build SEO metadata
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
-const slug = project.slug.replace(`${lang}/`, '');
 
 const seo: SEOMetadata = {
   title: `${project.data.title} - ${t('common.nav.projects')}`,
   description: project.data.description,
-  canonical: `${siteUrl}/${lang}/projects/${slug}/`,
+  canonical: `${siteUrl}${langUrls[lang as string]}`,
   lang: lang as string,
   ogImage: project.data.image?.src,
   alternateLanguages: supportedLanguages.map((l) => ({
     lang: l,
-    url: `${siteUrl}/${l}/projects/${slug}/`,
+    url: `${siteUrl}${langUrls[l] || `/${l}/projects/`}`,
   })),
 };
 ---
 
 <BaseLayout seo={seo}>
-  <Header lang={lang as string} />
+  <Header lang={lang as string} langUrls={langUrls} />
 
   <main class="container mx-auto px-4 py-8">
     <article class="mx-auto max-w-4xl">
