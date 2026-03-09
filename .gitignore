@@ -4,6 +4,7 @@ dist/
 .astro/
 .kiro/
 .husky/
+test/
 
 # dependencies
 node_modules/
