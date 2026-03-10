@@ -25,44 +25,45 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header
-  class="sticky top-0 z-50 border-b border-(--border-color) bg-(--bg-primary)/95 backdrop-blur-sm"
->
-  <nav class="container mx-auto flex items-center justify-between px-4 py-4">
-    <!-- Logo/Brand -->
-    <a
-      href={`/${lang}/`}
-      class="text-xl font-bold text-(--text-primary) transition-opacity hover:opacity-80"
-    >
-      Portfolio
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-(--border-color) px-6 lg:px-20 py-4 bg-(--bg-primary) sticky top-0 z-50">
+  <div class="flex items-center gap-8">
+    <a href={`/${lang}/`} class="flex items-center gap-4 text-primary transition-opacity hover:opacity-80">
+      <div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+        <span class="material-symbols-outlined">terminal</span>
+      </div>
+      <h2 class="text-(--text-primary) text-xl font-bold leading-tight tracking-tight font-display">Portfolio</h2>
     </a>
-
-    <!-- Navigation Links -->
-    <ul class="flex items-center gap-6">
-      {
-        navLinks.map((link) => {
-          const isActive = currentPath === link.href || currentPath.startsWith(link.href);
-          return (
-            <li>
-              <a
-                href={link.href}
-                class={`hover:text-primary-500 text-sm font-medium transition-colors ${
-                  isActive ? 'text-primary-500' : 'text-(--text-secondary)'
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-
-    <div class="flex items-center gap-3">
+    
+    <nav class="hidden md:flex items-center gap-9">
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href || (currentPath.startsWith(link.href) && link.href !== `/${lang}/`);
+        return (
+          <a
+            href={link.href}
+            class={`hover:text-primary transition-colors text-sm font-medium ${
+              isActive ? 'text-primary' : 'text-(--text-secondary) '
+            }`}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+  
+  <div class="flex flex-1 justify-end gap-6 items-center">
+    <label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+      <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+        <div class="text-(--text-secondary) flex border-none bg-(--bg-secondary) items-center justify-center pl-4 rounded-l-lg border-r-0">
+          <span class="material-symbols-outlined text-lg">search</span>
+        </div>
+        <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-(--text-primary) focus:outline-0 focus:ring-0 border-none bg-(--bg-secondary) focus:border-none h-full placeholder:text-(--text-secondary) px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal" placeholder={t('common.nav.search') || "Search insights..."} value=""/>
+      </div>
+    </label>
+    
+    <div class="flex items-center gap-1 md:gap-3">
       <ThemeToggle />
-    </div>
-    <div>
       <LanguageSelector currentLang={lang} langUrls={langUrls} />
     </div>
-  </nav>
+  </div>
 </header>

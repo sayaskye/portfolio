@@ -56,57 +56,74 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} langUrls={langUrls} />
 
-  <main class="container mx-auto px-4 py-8">
-    <article class="mx-auto max-w-4xl">
-      <!-- Blog Header -->
-      <header class="mb-8">
-        <h1 class="mb-4 text-4xl font-bold md:text-5xl">
-          {blog.data.title}
-        </h1>
-        <p class="mb-4 text-xl text-(--text-secondary)">
-          {blog.data.description}
-        </p>
-
-        <div class="mb-4 flex items-center gap-4 text-sm text-(--text-secondary)">
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 py-12">
+    <!-- Article Header -->
+    <nav class="flex flex-wrap gap-2 mb-8 items-center text-sm font-medium">
+      <a class="text-(--text-secondary) hover:text-primary" href={`/${lang}/`}>{t('common.nav.home') || 'Home'}</a>
+      <span class="text-(--text-secondary)">/</span>
+      <a class="text-(--text-secondary) hover:text-primary" href={`/${lang}/blog/`}>{t('common.nav.blog') || 'Blog'}</a>
+    </nav>
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-(--text-primary) mb-8 font-display">
+      {blog.data.title}
+    </h1>
+    <div class="flex items-center gap-4 mb-10 pb-10 border-b border-(--border-color)">
+      <div class="flex flex-col">
+        <p class="text-(--text-primary) text-lg font-bold leading-none mb-1">Author</p>
+        <p class="text-(--text-secondary) text-sm">
           <time datetime={blog.data.publishDate.toISOString()}>
             {blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2">
-            {
-              blog.data.tags.map((tag) => (
-                <span class="rounded-full bg-(--bg-secondary) px-2 py-0.5">{tag}</span>
-              ))
-            }
+        </p>
+      </div>
+      <div class="ml-auto flex gap-2">
+        <button class="p-2 rounded-lg bg-(--bg-secondary) text-(--text-secondary) hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">bookmark</span>
+        </button>
+        <button class="p-2 rounded-lg bg-(--bg-secondary) text-(--text-secondary) hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">share</span>
+        </button>
+      </div>
+    </div>
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Article Text -->
+      <article class="lg:col-span-8 prose prose-slate max-w-none">
+        {blog.data.image && (
+          <div class="mb-8">
+            <img src={blog.data.image.src} alt={blog.data.image.alt} class="w-full rounded-xl shadow-lg border border-(--border-color)" />
+          </div>
+        )}
+        <p class="text-xl leading-relaxed text-(--text-secondary) mb-8 font-light italic">
+          {blog.data.description}
+        </p>
+        
+        <Content />
+        
+      </article>
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-8">
+        <!-- Tags/Topics -->
+        <div class="sticky top-24">
+          <div class="p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color)">
+            <h4 class="text-sm font-bold uppercase tracking-widest text-(--text-secondary) mb-4">Topics</h4>
+            <div class="flex flex-wrap gap-2">
+              {blog.data.tags.map((tag) => (
+                <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase rounded border border-primary/20">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <!-- Newsletter -->
+          <div class="mt-8 p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color) shadow-2xl">
+            <h4 class="text-white text-lg font-bold mb-2 font-display">Stay Updated</h4>
+            <p class="text-(--text-secondary) text-xs mb-4">Get high-level architecture insights delivered to your inbox weekly.</p>
+            <div class="flex flex-col gap-3">
+              <input class="bg-(--bg-secondary) border-none rounded-lg text-sm text-white focus:ring-1 focus:ring-primary h-10 px-4" placeholder="email@company.com" type="email"/>
+              <button class="bg-primary text-background-dark font-bold text-sm h-10 rounded-lg hover:bg-primary/90 transition-colors">Subscribe</button>
+            </div>
           </div>
         </div>
-      </header>
-
-      <!-- Blog Image -->
-      {
-        blog.data.image && (
-          <div class="mb-8">
-            <img
-              src={blog.data.image.src}
-              alt={blog.data.image.alt}
-              class="w-full rounded-lg shadow-lg"
-            />
-          </div>
-        )
-      }
-
-      <!-- Blog Content -->
-      <div class="prose prose-lg max-w-none">
-        <Content />
-      </div>
-
-      <!-- Back Link -->
-      <div class="mt-12 border-t border-(--border-color) pt-8">
-        <a href={`/${lang}/blog/`} class="text-primary-500 hover:text-primary-600 transition-colors">
-          ← {t('common.nav.blog') || 'Blog'}
-        </a>
-      </div>
-    </article>
+      </aside>
+    </div>
   </main>
 
   <Footer lang={lang} />

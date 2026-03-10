@@ -35,6 +35,16 @@ import '@/styles/global.css';
       ))
     }
 
+    <!-- Google Fonts & Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Theme Initialization Script (runs before page render to prevent flash) -->
     <script is:inline>
       (function () {
@@ -64,7 +74,13 @@ import '@/styles/global.css';
       })();
     </script>
   </head>
-  <body class="min-h-screen bg-(--bg-primary) text-(--text-primary) transition-colors duration-200">
-    <slot />
+  <body class="bg-(--bg-primary) text-(--text-primary) antialiased transition-colors duration-200">
+    <div
+      class="group/design-root relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <slot />
+      </div>
+    </div>
   </body>
 </html>

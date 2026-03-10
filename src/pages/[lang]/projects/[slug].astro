@@ -56,80 +56,85 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang as string} langUrls={langUrls} />
 
-  <main class="container mx-auto px-4 py-8">
-    <article class="mx-auto max-w-4xl">
-      <!-- Project Header -->
-      <header class="mb-8">
-        <h1 class="mb-4 text-4xl font-bold md:text-5xl">
-          {project.data.title}
-        </h1>
-        <p class="mb-4 text-xl text-(--text-secondary)">
-          {project.data.description}
-        </p>
-
-        <!-- Tags -->
-        <div class="mb-4 flex flex-wrap gap-2">
-          {
-            project.data.tags.map((tag) => (
-              <span class="rounded-full bg-(--bg-secondary) px-3 py-1 text-sm">{tag}</span>
-            ))
-          }
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 mb-8 text-sm text-(--text-secondary)">
+      <a class="hover:text-primary" href={`/${lang}/projects/`}>{t('common.nav.projects') || 'Portfolio'}</a>
+      <span class="material-symbols-outlined text-xs">chevron_right</span>
+      <span class="text-(--text-primary) font-medium">{project.data.title}</span>
+    </nav>
+    
+    <!-- Project Hero Section -->
+    <section class="mb-16">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-8">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">{project.data.title}</h1>
+          <p class="text-xl text-(--text-secondary) leading-relaxed">
+            {project.data.description}
+          </p>
         </div>
+        {project.data.github && (
+          <a href={project.data.github} target="_blank" class="flex items-center gap-2 bg-(--bg-secondary) hover:bg-primary/20 border border-(--border-color) px-6 py-3 rounded-xl font-bold transition-all text-(--text-primary)">
+            <span class="material-symbols-outlined">code</span>
+            View on GitHub
+          </a>
+        )}
+      </div>
+      <div class="aspect-video rounded-2xl overflow-hidden border border-(--border-color) bg-(--bg-secondary) flex items-center justify-center relative group">
+        {project.data.image ? (
+          <img class="absolute inset-0 w-full h-full object-cover opacity-80" alt={project.data.image.alt} src={project.data.image.src} />
+        ) : (
+          <div class="absolute inset-0 opacity-40 bg-center bg-cover" data-alt="Default project hero" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiJDpibcyCPvMkZ9xh7ElkDNbQFBi-DEafcO4Z-9FFnzcPuGSq2jR6mO-0XcXSL46njDkIuAmOMwrqqG2rI6ggVed7USL-NgsV8UAT1nD7QbuvnfSzBMe7Tv8K7ECYWazR5B-lF9V8uUGM06sNbs1vFcZbd9RlRqMyT7-efcUvTf_aEiH1hMgjQ_DFjP0F9mvCasdtcT-7WWdbi3EyaWNPtLhfUMZYK-Tq5xUHmceShGo2pApur2_9FPT_-PKadHSqmqFZM2vODmw')"></div>
+        )}
+      </div>
+    </section>
 
-        <!-- Links -->
-        <div class="flex gap-4">
-          {
-            project.data.github && (
-              <a
-                href={project.data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="bg-primary-500 hover:bg-primary-600 rounded px-4 py-2 text-white transition-colors"
-              >
-                GitHub
-              </a>
-            )
-          }
-          {
-            project.data.demo && (
-              <a
-                href={project.data.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="border-primary-500 text-primary-500 hover:bg-primary-50 rounded border px-4 py-2 transition-colors"
-              >
-                Live Demo
-              </a>
-            )
-          }
-        </div>
-      </header>
+    <!-- Technical Metadata Grid -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 border-y border-(--border-color) py-8">
+      <div class="col-span-2 md:col-span-1">
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Tags</h4>
+        <p class="font-medium flex flex-wrap gap-1 leading-tight">{project.data.tags.join(', ')}</p>
+      </div>
+      <div>
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Date</h4>
+        <p class="font-medium">{project.data.publishDate.toLocaleDateString(lang as string, { year: 'numeric', month: 'short' })}</p>
+      </div>
+      <div>
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Links</h4>
+        {project.data.demo && (
+            <a href={project.data.demo} target="_blank" rel="noopener noreferrer" class="font-medium text-primary hover:underline block">Live Demo</a>
+        )}
+      </div>
+    </section>
 
-      <!-- Project Image -->
-      {
-        project.data.image && (
-          <div class="mb-8">
-            <img
-              src={project.data.image.src}
-              alt={project.data.image.alt}
-              class="w-full rounded-lg shadow-lg"
-            />
-          </div>
-        )
-      }
-
-      <!-- Project Content -->
-      <div class="prose prose-lg max-w-none">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Article Body -->
+      <div class="lg:col-span-8 prose prose-slate max-w-none">
         <Content />
       </div>
 
-      <!-- Back Link -->
-      <div class="mt-12 border-t border-(--border-color) pt-8">
-        <a href={`/${lang}/`} class="text-primary-500 hover:text-primary-600 transition-colors">
-          ← {t('common.nav.home')}
-        </a>
-      </div>
-    </article>
+      <!-- Sticky Sidebar -->
+      <aside class="lg:col-span-4">
+        <div class="sticky top-24 space-y-8">
+          <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
+            <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">code</span> Technologies</h3>
+            <div class="flex flex-wrap gap-2">
+               {project.data.tags.map(tag => (
+                 <span class="px-3 py-1 bg-(--bg-primary) border border-(--border-color) rounded-full text-xs font-semibold">{tag}</span>
+               ))}
+            </div>
+          </div>
+          <div class="relative overflow-hidden rounded-2xl aspect-square border border-primary/20 flex items-center justify-center p-8 text-center bg-(--bg-secondary)">
+            <div class="absolute inset-0 opacity-20 bg-center bg-cover" data-alt="Microchip circuitry pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbRFuz7iAWvz0BHi5RSq8xT6UhC8sc6Cw3plh0lRZQBG5gDSfEqikZP7NcjXUFdpzIvGG-MCXu71Jv4ZrlxOz5xQINPebSp-b7L8uEP5qLk6TtclVo1WaIOhJ83QKbPpUXm3PvFBjFLJ3ofdBfdHYkfRNiNyCt4lmAFjyxVHXSdW3Qvw6fWVG1-XchRdfwxG2F8AvtGlPFh_3jQMe9xh17sFeZQKlLwhnxUCl29l3Go7i4PObSPglbkt-MbJGml-Bw7M4Go4hbFuI')"></div>
+            <div class="relative">
+              <h4 class="font-bold mb-2 text-white">Need a similar solution?</h4>
+              <p class="text-xs text-(--text-secondary) mb-6">Let's discuss how we can build high-quality software for your needs.</p>
+              <a href={`/${lang}/contact/`} class="block w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm hover:opacity-90">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <Footer lang={lang as string} />

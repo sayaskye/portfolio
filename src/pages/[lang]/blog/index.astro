@@ -42,52 +42,80 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} />
 
-  <main class="container mx-auto px-4 py-8">
-    <div class="mb-8 flex items-center justify-between">
-      <h1 class="text-4xl font-bold md:text-5xl">{t('common.nav.blog') || 'Blog'}</h1>
+  <main class="max-w-5xl mx-auto w-full px-6 py-12">
+    <!-- Feed Title -->
+    <div class="flex flex-col gap-4 mb-10">
+      <h1 class="text-(--text-primary) text-5xl font-bold tracking-tight">{t('common.nav.blog') || 'Technical Feed'}</h1>
+      <p class="text-(--text-secondary) text-lg max-w-2xl leading-relaxed">
+        Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.
+      </p>
     </div>
 
-    {
-      sortedBlogs.length > 0 ? (
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {sortedBlogs.map((blog) => (
-            <article class="bg-(--bg-secondary) flex h-full flex-col overflow-hidden rounded-lg shadow-lg transition-transform hover:-translate-y-1">
-              {blog.data.image && (
-                <div class="aspect-video w-full overflow-hidden">
-                  <img
-                    src={blog.data.image.src}
-                    alt={blog.data.image.alt}
-                    class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
+    <!-- Categories Filter -->
+    <div class="flex gap-3 mb-12 overflow-x-auto pb-2 scrollbar-hide">
+      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-primary text-background-dark text-sm font-bold transition-all shadow-lg shadow-primary/10">
+        All Posts
+      </button>
+      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-(--bg-secondary) hover:bg-(--bg-secondary) text-(--text-secondary) text-sm font-medium transition-all">
+        Architecture
+      </button>
+      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-(--bg-secondary) hover:bg-(--bg-secondary) text-(--text-secondary) text-sm font-medium transition-all">
+        DevOps
+      </button>
+    </div>
+
+    <!-- Blog Posts List -->
+    <div class="flex flex-col gap-16">
+      {sortedBlogs.length > 0 ? (
+        sortedBlogs.map((blog, idx) => {
+          const slug = blog.slug.replace(`${lang}/`, '');
+          const isFirst = idx === 0;
+          return (
+            <article class={`group grid grid-cols-1 md:grid-cols-12 gap-8 items-start ${!isFirst ? 'border-t border-(--border-color)  pt-16' : ''}`}>
+              <div class="md:col-span-4 overflow-hidden rounded-xl">
+                {blog.data.image ? (
+                   <div class="w-full aspect-video bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt={blog.data.image.alt} style={`background-image: url('${blog.data.image.src}');`}></div>
+                ) : (
+                   <div class="w-full aspect-video bg-center bg-cover transition-transform duration-500 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC8HEm3p7a4KlyKMdkuXQvBkCSBk0Wx-e-8X-yvPWkPWPqASXec-tD4zTbHrISvL0ZESHjlEqDOaZfOJxoSDQuEgLIGmXauYM7F750dyPX1GVYty7SnxUKyJkXqIC7OqYrvxcc1oBcgAzpHTdu-DO-2Ar1l7Dbiausju2CbjbK9fhZ2vvy2HZzYmP9NRMgEbVHTxpNb5NGJ9GYQvvQ4PH9F8M_XFDy4_l8ZTcutHshxue_UsogwdEwSXjRbgD8QCQMH9RX81CSbuw");'></div>
+                )}
+              </div>
+              <div class="md:col-span-8 flex flex-col gap-3">
+                <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary">
+                  <span>{blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  {blog.data.tags && blog.data.tags.length > 0 && (
+                    <>
+                      <span class="w-1 h-1 rounded-full bg-slate-400"></span>
+                      <span>{blog.data.tags[0]}</span>
+                    </>
+                  )}
                 </div>
-              )}
-              <div class="flex flex-1 flex-col p-6">
-                <div class="mb-4 flex flex-wrap gap-2">
-                  {blog.data.tags.map((tag) => (
-                    <span class="rounded-full bg-(--bg-primary) px-2 py-1 text-xs">{tag}</span>
+                <h2 class="text-(--text-primary) text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+                  <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
+                </h2>
+                <p class="text-(--text-secondary) text-base leading-relaxed line-clamp-2">
+                  {blog.data.description}
+                </p>
+                <div class="mt-2 flex gap-4">
+                  {blog.data.tags.slice(1,4).map(tag => (
+                    <span class="text-xs text-(--text-secondary) bg-(--bg-secondary) px-2 py-1 rounded">{tag}</span>
                   ))}
                 </div>
-                <h3 class="mb-2 text-xl font-bold text-(--text-primary)">
-                  <a href={`/${lang}/blog/${blog.slug.replace(`${lang}/`, '')}/`} class="hover:text-primary-500 transition-colors">
-                    {blog.data.title}
+                <div class="mt-4">
+                  <a class="inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:underline" href={`/${lang}/blog/${slug}/`}>
+                    Read Full Article 
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                   </a>
-                </h3>
-                <p class="mb-4 flex-1 text-(--text-secondary)">{blog.data.description}</p>
-                <div class="mt-auto">
-                  <time datetime={blog.data.publishDate.toISOString()} class="text-sm text-(--text-secondary)">
-                    {blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </time>
                 </div>
               </div>
             </article>
-          ))}
-        </div>
+          )
+        })
       ) : (
         <div class="rounded-lg border border-dashed border-(--border-color) py-12 text-center text-(--text-secondary)">
           No blog posts found for this language.
         </div>
-      )
-    }
+      )}
+    </div>
   </main>
 
   <Footer lang={lang} />

@@ -3,9 +3,9 @@ import BaseLayout from '@/components/layout/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import { getTranslation, getSupportedLanguages } from '@/i18n';
-import { getCollection } from 'astro:content';
 import type { SEOMetadata } from '@/lib/seo';
 import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const languages = getSupportedLanguages();
@@ -42,52 +42,217 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang as string} />
 
-  <main class="container mx-auto px-4 py-8">
+  <main>
     <!-- Hero Section -->
-    <section class="py-16 text-center">
-      <h1 class="mb-4 text-4xl font-bold md:text-6xl">
-        {t('home.hero.title')}
-      </h1>
-      <p class="mb-8 text-xl text-(--text-secondary) md:text-2xl">
-        {t('home.hero.subtitle')}
-      </p>
+    <section class="relative overflow-hidden py-24 lg:py-32">
+      <div class="absolute inset-0 -z-10 opacity-20">
+        <div class="bg-primary absolute top-0 right-0 h-96 w-96 rounded-full blur-[120px]"></div>
+        <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]">
+        </div>
+      </div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div class="space-y-8">
+            <div>
+              <span
+                class="bg-primary/10 text-primary border-primary/20 mb-4 inline-block rounded-full border px-3 py-1 text-xs font-bold tracking-wider uppercase"
+              >
+                Senior Software Engineer & Architect
+              </span>
+              <h1 class="text-5xl leading-tight font-bold tracking-tight lg:text-7xl">
+                Building the <span class="text-primary">future</span> of scalable systems.
+              </h1>
+              <p class="mt-6 max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
+                {
+                  t('home.hero.subtitle') ||
+                    'Over a decade of experience in architecting high-performance distributed systems, mentoring engineering teams, and turning complex product visions into production-ready reality.'
+                }
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                class="bg-primary text-background-dark hover:shadow-primary/20 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
+                href={`/${lang}/projects/`}
+              >
+                View Portfolio
+              </a>
+              <a
+                class="inline-flex items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
+                href={`/${lang}/contact/`}
+              >
+                Let's Talk
+              </a>
+            </div>
+            <div class="flex items-center gap-6 pt-4 text-(--text-secondary)">
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold text-(--text-primary)">12+</span>
+                <span class="text-xs tracking-widest uppercase">Years Exp.</span>
+              </div>
+              <div class="h-10 w-px bg-slate-300"></div>
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold text-(--text-primary)">40+</span>
+                <span class="text-xs tracking-widest uppercase">Shipped</span>
+              </div>
+              <div class="h-10 w-px bg-slate-300"></div>
+              <div class="flex flex-col">
+                <span class="text-2xl font-bold text-(--text-primary)">500k+</span>
+                <span class="text-xs tracking-widest uppercase">Users</span>
+              </div>
+            </div>
+          </div>
+          <div class="group relative">
+            <div
+              class="from-primary to-secondary absolute -inset-1 rounded-xl bg-gradient-to-r opacity-25 blur transition duration-1000 group-hover:opacity-50"
+            >
+            </div>
+            <div
+              class="relative aspect-square overflow-hidden rounded-xl bg-(--bg-secondary) shadow-2xl"
+            >
+              <img
+                class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                data-alt="Professional software engineer developer workspace setup"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zNe3huMkPms8Lf5lDIgJkK0N2rlx5Dm8UB7xzdfbo31SudDxEQamEjIRpHZV4WpSdCYzl46hMfxz1gIL17u1gmso_PrEeoZWEhAAy_49L9ufkTvrJ5-blBePFD1NhMJLxjexKT9-OJlYHLbv9jd_UqN_FXZISW4-uuuxwLwoyobjSLAsUajUd1GWBgttRLthSqj7dAPmRDX-mS6c3v6z9cXxZ-pWckU4w-aLyi3EkkZp7-E0YDDmXAhkyDBNiKRMFsW2Y9Xtdho"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Featured Projects Section -->
-    {
-      featuredProjects.length > 0 && (
-        <section class="py-16">
-          <h2 class="mb-8 text-3xl font-bold">{t('common.nav.projects')}</h2>
-          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => {
-              const slug = project.slug.replace(`${lang}/`, '');
-              return (
-                <article class="rounded-lg border border-(--border-color) p-6 transition-shadow hover:shadow-lg">
-                  {project.data.image && (
-                    <img
-                      src={project.data.image.src}
-                      alt={project.data.image.alt}
-                      class="mb-4 h-48 w-full rounded-md object-cover"
-                    />
-                  )}
-                  <h3 class="mb-2 text-xl font-bold">
-                    <a href={`/${lang}/projects/${slug}/`} class="hover:text-primary-500">
-                      {project.data.title}
-                    </a>
-                  </h3>
-                  <p class="mb-4 text-(--text-secondary)">{project.data.description}</p>
-                  <div class="flex flex-wrap gap-2">
-                    {project.data.tags.map((tag) => (
-                      <span class="rounded bg-(--bg-secondary) px-2 py-1 text-sm">{tag}</span>
-                    ))}
-                  </div>
-                </article>
-              );
-            })}
+    <section class="bg-(--bg-primary) py-24" id="projects">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div class="max-w-2xl">
+            <h2 class="text-primary mb-2 text-base font-bold tracking-widest uppercase">
+              Portfolio
+            </h2>
+            <h3 class="text-4xl font-bold">{t('common.nav.projects')}</h3>
+            <p class="mt-4 text-(--text-secondary)">
+              A selection of enterprise-grade applications, open-source contributions, and high-load
+              architectural designs.
+            </p>
           </div>
-        </section>
-      )
-    }
+          <a
+            class="text-primary inline-flex items-center font-bold hover:underline"
+            href={`/${lang}/projects/`}
+          >
+            View all works <span class="material-symbols-outlined ml-2">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            featuredProjects.map((project, idx) => {
+              const slug = project.slug.replace(`${lang}/`, '');
+              const defaultImages = [
+                'https://lh3.googleusercontent.com/aida-public/AB6AXuB3HjP8FDnYUIg0VJTR6BQSwPKbfwL0JyBbOyObxj2cpN0kAX2EI-udKxwTEpq3uQDKDfluBZ8nEKr_xNx3MsKnSN4YbQW7ygz1pCVWNnlMZz35NrW0lckiceC6oTpzYo8UnwI4Poquj9PCr6n90zMAe4IW4aIBF1dsyPQ7NHqr0Zpxs1opmNekR6YOeJFckeBx_c5kSQ4xPT0WVAXPu7B6o9QIZqV5XCHQyZWWXcAXwbGCjwwimbLxOM6sCwmuAqGf_8RPGaVkt1s',
+                'https://lh3.googleusercontent.com/aida-public/AB6AXuDG6FX9Nd4HCLmTaDzpM_FEykh94W0POf0Ljw4OSDLNCqkWEwwcspENyx84TSdGwwNZUyB4HodM2t-TlH83bRnPzI0occ6c3qvsoqAy_7DTx9adlwJbmHzEb7SBWSouBRefrgc2P_dXZnWXNmarPgglMGXRrV5ajHFzTRFg5SyiLEqgrDLoCU9XM3Cr6CvpJDIve68ye0igNApa_ziFMND5dFpW3vWJsVDnDn9D_xLo91a_VnIeLrd5-Aizoh2N9Ki5SHT7qaW9ocA',
+                'https://lh3.googleusercontent.com/aida-public/AB6AXuB7p_60rpwXvK5mje0sTVQgaXVjS_SIcDaOHMzim5bc87wVR2sTnDemfETkRa7xEPrnbuWx-EWh7u1Tu2ijl0Vq92gTZXXutdyF6JheSxoACfj2Rl8y8IKm8IPpBWG_XKTkhX06RQXKyy74kfpA0ltWH1FCsYgFj4y8eM-TOQe5pAxLJmYRq-cZhuxX4Y8KhJL4arjooQw8yaufIER8AitGZYc7JlfkhiCGESKDhYDyjrhJMNGbmstyn6EBkKx1ggj4VrJvbh7JDIo',
+              ];
+              const imgSrc = project.data.image
+                ? project.data.image.src
+                : defaultImages[idx % defaultImages.length];
+              const blendClass = idx % 2 === 0 ? 'bg-primary/20' : 'bg-secondary/20';
+
+              return (
+                <div class="group flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                  <div class="relative h-56 overflow-hidden">
+                    <div class={`absolute inset-0 ${blendClass} z-10 mix-blend-overlay`} />
+                    <img
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      data-alt={project.data.title}
+                      src={imgSrc}
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-col p-8">
+                    <div class="mb-4 flex flex-wrap gap-2">
+                      {project.data.tags.slice(0, 3).map((tag) => (
+                        <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-2 py-1 text-[10px] font-bold text-(--text-secondary) uppercase">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h4 class="group-hover:text-primary mb-2 text-xl font-bold transition-colors">
+                      {project.data.title}
+                    </h4>
+                    <p class="mb-6 text-sm leading-relaxed text-(--text-secondary)">
+                      {project.data.description}
+                    </p>
+                    <div class="mt-auto flex items-center justify-between border-t border-(--border-color) pt-6">
+                      <a
+                        class="hover:text-primary flex items-center gap-2 text-sm font-bold"
+                        href={`/${lang}/projects/${slug}/`}
+                      >
+                        <span class="material-symbols-outlined text-lg">link</span> Case Study
+                      </a>
+                      {project.data.github && (
+                        <a
+                          class="text-(--text-secondary) hover:text-(--text-primary)"
+                          href={project.data.github}
+                        >
+                          <span class="material-symbols-outlined text-lg">code</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Path Section -->
+    <section class="py-24" id="experience">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-16 lg:grid-cols-3">
+          <div>
+            <h2 class="text-primary mb-2 text-base font-bold tracking-widest uppercase">Career</h2>
+            <h3 class="mb-6 text-4xl font-bold">Experience Path</h3>
+            <p class="mb-8 leading-relaxed text-(--text-secondary)">
+              A track record of growing with teams and building complex systems across various
+              industries—from high-growth startups to Fortune 500 companies.
+            </p>
+          </div>
+          <div
+            class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-(--bg-secondary) md:before:ml-[2.4rem] lg:col-span-2"
+          >
+            <!-- Milestones -->
+            <div class="relative pl-12 md:pl-24">
+              <div
+                class="bg-primary/20 text-primary absolute top-1.5 left-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-(--bg-primary) md:-left-5 md:h-20 md:w-20"
+              >
+                <span class="material-symbols-outlined md:text-3xl">corporate_fare</span>
+              </div>
+              <div>
+                <span class="text-primary text-xs font-bold tracking-widest uppercase"
+                  >2021 — Present</span
+                >
+                <h4 class="mt-1 text-2xl font-bold">Lead Systems Architect</h4>
+                <p class="mb-4 font-medium text-(--text-secondary)">CloudFlow Tech (Remote)</p>
+              </div>
+            </div>
+
+            <div class="relative pl-12 md:pl-24">
+              <div
+                class="bg-secondary/20 text-secondary absolute top-1.5 left-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-(--bg-primary) md:-left-5 md:h-20 md:w-20"
+              >
+                <span class="material-symbols-outlined md:text-3xl">terminal</span>
+              </div>
+              <div>
+                <span class="text-secondary text-xs font-bold tracking-widest uppercase"
+                  >2018 — 2021</span
+                >
+                <h4 class="mt-1 text-2xl font-bold">Senior Backend Engineer</h4>
+                <p class="mb-4 font-medium text-(--text-secondary)">FinStream Solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer lang={lang as string} />

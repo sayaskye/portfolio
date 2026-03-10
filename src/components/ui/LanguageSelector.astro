@@ -24,14 +24,14 @@ const languageNames: Record<string, string> = {
     aria-label="Select language"
     aria-haspopup="true"
     aria-expanded="false"
-    class="rounded-md px-3 py-2 font-medium transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+    class="rounded-md px-3 py-2 font-medium transition-colors hover:bg-(--bg-secondary)"
   >
     {languageNames[currentLang] || currentLang.toUpperCase()}
   </button>
 
   <div
     id="language-selector-menu"
-    class="ring-opacity-5 absolute right-0 z-10 mt-2 hidden w-24 rounded-md bg-white shadow-lg ring-1 ring-black dark:bg-gray-800"
+    class="ring-opacity-5 absolute right-0 z-10 mt-2 hidden w-24 rounded-md bg-(--bg-primary) shadow-lg ring-1 ring-(--border-color)"
     role="menu"
     aria-orientation="vertical"
   >
@@ -42,8 +42,8 @@ const languageNames: Record<string, string> = {
             type="button"
             data-lang={lang}
             data-lang-url={langUrls?.[lang]}
-            class="language-option block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
-            class:list={[currentLang === lang && 'bg-gray-50 font-bold dark:bg-gray-700']}
+            class="language-option block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-(--bg-secondary)"
+            class:list={[currentLang === lang && 'bg-(--bg-secondary) font-bold ']}
             role="menuitem"
           >
             {languageNames[lang] || lang.toUpperCase()}
