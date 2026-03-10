@@ -70,7 +70,7 @@ const seo: SEOMetadata = {
     
     <!-- Filters -->
     <div class="flex gap-3 pb-8 overflow-x-auto no-scrollbar border-b border-(--border-color) mb-10">
-      <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 text-background-dark text-sm font-bold">
+      <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 text-on-primary text-sm font-bold">
         All Projects
       </button>
       <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-(--bg-secondary) border border-(--border-color) px-5 text-(--text-secondary) text-sm font-medium hover:border-primary transition-colors">
@@ -95,7 +95,7 @@ const seo: SEOMetadata = {
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
                 <span class="material-symbols-outlined text-sm">bolt</span> Spotlight
               </div>
-              <h3 class="text-white text-3xl md:text-4xl font-black mb-4 group-hover:text-primary transition-colors">{featuredProject.data.title}</h3>
+              <h3 class="text-(--text-primary) text-3xl md:text-4xl font-black mb-4 group-hover:text-primary transition-colors">{featuredProject.data.title}</h3>
               <p class="text-(--text-secondary) text-lg mb-8 leading-relaxed">
                 {featuredProject.data.description}
               </p>
@@ -105,11 +105,11 @@ const seo: SEOMetadata = {
                 ))}
               </div>
               <div class="flex gap-4">
-                <a href={`/${lang}/projects/${slug}/`} class="bg-primary hover:bg-primary/90 text-background-dark font-bold py-3 px-8 rounded-lg flex items-center gap-2 transition-all">
+                <a href={`/${lang}/projects/${slug}/`} class="bg-primary hover:bg-primary/90 text-on-primary font-bold py-3 px-8 rounded-lg flex items-center gap-2 transition-all">
                   View Case Study <span class="material-symbols-outlined">arrow_right_alt</span>
                 </a>
                 {featuredProject.data.github && (
-                  <a href={featuredProject.data.github} target="_blank" class="bg-transparent border border-(--border-color) hover:border-primary text-white font-bold py-3 px-6 rounded-lg transition-all">
+                  <a href={featuredProject.data.github} target="_blank" class="bg-transparent border border-(--border-color) hover:border-primary text-(--text-primary) font-bold py-3 px-6 rounded-lg transition-all">
                     Source
                   </a>
                 )}
@@ -141,7 +141,7 @@ const seo: SEOMetadata = {
                   <span class="material-symbols-outlined text-(--text-secondary) text-7xl">monitoring</span>
                 </div>
                 <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-40 transition-opacity" data-alt={project.data.title} src={imgSrc}/>
-                <a href={`/${lang}/projects/${slug}/`} class="absolute top-4 right-4 bg-(--bg-secondary)/80 backdrop-blur-sm text-white p-2 rounded-full hover:bg-primary hover:text-background-dark transition-colors">
+                <a href={`/${lang}/projects/${slug}/`} class="absolute top-4 right-4 bg-(--bg-secondary)/80 backdrop-blur-sm text-(--text-primary) p-2 rounded-full hover:bg-primary hover:text-on-primary transition-colors">
                   <span class="material-symbols-outlined text-sm">open_in_new</span>
                 </a>
               </div>

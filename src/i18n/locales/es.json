@@ -8,7 +8,9 @@
     },
     "actions": {
       "submit": "Enviar",
-      "cancel": "Cancelar"
+      "cancel": "Cancelar",
+      "subscribe": "Suscribirse",
+      "contact_me": "Contáctame"
     },
     "theme": {
       "toggle": "Cambiar tema",
@@ -21,8 +23,80 @@
   },
   "home": {
     "hero": {
-      "title": "Bienvenido a Mi Portafolio",
-      "subtitle": "Desarrollador full-stack especializado en tecnologías web modernas"
+      "badge": "Ingeniero y Arquitecto de Software Senior",
+      "title": "Construyendo el futuro de sistemas escalables.",
+      "subtitle": "Más de una década de experiencia arquitectando sistemas distribuidos de alto rendimiento, mentoreando equipos de ingeniería y convirtiendo visiones complejas de producto en realidad lista para producción.",
+      "cta_primary": "Ver Portafolio",
+      "cta_secondary": "Hablemos",
+      "stat_years": "Años Exp.",
+      "stat_shipped": "Entregados",
+      "stat_users": "Usuarios"
+    },
+    "featured_projects": {
+      "eyebrow": "Portafolio",
+      "subtitle": "Una selección de aplicaciones de nivel empresarial, contribuciones de código abierto y diseños de arquitectura de alta carga.",
+      "view_all": "Ver todos los trabajos",
+      "case_study": "Caso de Estudio"
+    },
+    "experience": {
+      "eyebrow": "Carrera",
+      "title": "Trayectoria Profesional",
+      "subtitle": "Un historial de crecimiento con equipos y construcción de sistemas complejos en diversas industrias—desde startups de alto crecimiento hasta empresas Fortune 500.",
+      "achievement_title": "Logro Clave",
+      "achievement_desc": "\"Migración exitosa de infraestructura monolítica a microservicios para una plataforma de más de 5 millones de usuarios sin tiempo de inactividad.\"",
+      "role1": "Arquitecto de Sistemas Líder",
+      "company1": "CloudFlow Tech (Remoto)",
+      "date1": "2021 — Presente",
+      "role2": "Ingeniero Backend Senior",
+      "company2": "FinStream Solutions",
+      "date2": "2018 — 2021"
+    },
+    "about": {
+      "eyebrow": "Mi Filosofía",
+      "quote": "\"El código es para que lo lean los humanos, y solo incidentalmente para que las máquinas lo ejecuten.\"",
+      "p1": "Creo en el poder del código simple, limpio y mantenible. En mis más de 12 años como ingeniero, he visto marcos venir e ir, pero los principios de una arquitectura sólida permanecen constantes.",
+      "p2": "Mi enfoque combina estándares técnicos rigurosos con una comprensión profunda de los objetivos comerciales. No solo construyo características; construyo soluciones que escalan con la organización.",
+      "item1_title": "Diseño Estratégico",
+      "item1_desc": "Enfocado en la sostenibilidad a largo plazo sobre soluciones rápidas.",
+      "item2_title": "Mentoría",
+      "item2_desc": "Empoderamiento de equipos a través del intercambio de conocimientos.",
+      "stat1_val": "99.9%",
+      "stat1_label": "Basado en Uptime",
+      "stat2_val": "Experto Cloud",
+      "stat3_val": "Seguridad Primero",
+      "stat4_val": "10k+",
+      "stat4_label": "PRs Fusionados"
+    }
+  },
+  "projects": {
+    "page": {
+      "subtitle": "Una colección curada de sistemas distribuidos, contribuciones de código abierto y soluciones de arquitectura nativa en la nube.",
+      "all": "Todos los Proyectos",
+      "featured_label": "Arquitectura Destacada",
+      "view_case_study": "Ver Caso de Estudio",
+      "source": "Código Fuente",
+      "documentation": "Documentación",
+      "tags": "Etiquetas",
+      "date": "Fecha",
+      "links": "Enlaces",
+      "live_demo": "Demo en Vivo",
+      "tech_title": "Tecnologías",
+      "cta_title": "¿Necesitas una solución similar?",
+      "cta_desc": "Hablemos de cómo podemos construir software de alta calidad para tus necesidades."
+    }
+  },
+  "blog": {
+    "page": {
+      "subtitle": "Inmersiones técnicas en sistemas distribuidos, internos del kernel, infraestructura de alto rendimiento y paradigmas modernos de software.",
+      "all_posts": "Todos los Posts",
+      "read_more": "Leer Artículo Completo"
+    },
+    "detail": {
+      "author": "Autor",
+      "topics": "Temas",
+      "newsletter_title": "Mantente Informado",
+      "newsletter_subtitle": "Recibe análisis de arquitectura de alto nivel en tu bandeja de entrada semanalmente.",
+      "newsletter_placeholder": "correo@empresa.com"
     }
   },
   "contact": {
@@ -38,6 +112,15 @@
         "required": "Este campo es obligatorio",
         "invalidEmail": "Por favor ingresa un correo electrónico válido"
       }
+    },
+    "page": {
+      "title": "Construyamos algo extraordinario.",
+      "subtitle": "Ya sea que estés buscando consultoría arquitectónica, un líder para tu próximo gran proyecto o simplemente quieras charlar sobre tecnología, mi bandeja de entrada siempre está abierta.",
+      "card_title": "¿Listo para hablar?",
+      "card_subtitle": "Ponte en contacto directamente o utiliza el formulario — respondo en menos de 24 horas.",
+      "email_label": "Correo",
+      "location_label": "Ubicación",
+      "location_value": "Remoto en todo el mundo"
     }
   }
 }

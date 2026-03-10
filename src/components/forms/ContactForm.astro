@@ -1,7 +1,6 @@
 ---
 // ContactForm component - handles contact form submission with validation and throttling
 import { getTranslation } from '@/i18n';
-import Button from '@/components/ui/Button.astro';
 
 interface Props {
   lang: string;
@@ -11,9 +10,9 @@ const { lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 ---
 
-<form id="contact-form" class="max-w-2xl space-y-6">
+<form id="contact-form" class="space-y-4">
   <div>
-    <label for="contact-name" class="mb-2 block text-sm font-medium">
+    <label for="contact-name" class="mb-2 block text-sm font-bold text-(--text-primary)">
       {t('contact.form.name')}
     </label>
     <input
@@ -21,14 +20,15 @@ const t = (key: string) => getTranslation(key, lang);
       id="contact-name"
       name="name"
       required
-      class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+      placeholder="John Doe"
+      class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"
     />
-    <span id="name-error" class="hidden text-sm text-red-600" role="alert"></span>
+    <span id="name-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
   </div>
 
   <div>
-    <label for="contact-email" class="mb-2 block text-sm font-medium">
+    <label for="contact-email" class="mb-2 block text-sm font-bold text-(--text-primary)">
       {t('contact.form.email')}
     </label>
     <input
@@ -36,31 +36,35 @@ const t = (key: string) => getTranslation(key, lang);
       id="contact-email"
       name="email"
       required
-      class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+      placeholder="john@example.com"
+      class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"
     />
-    <span id="email-error" class="hidden text-sm text-red-600" role="alert"></span>
+    <span id="email-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
   </div>
 
   <div>
-    <label for="contact-message" class="mb-2 block text-sm font-medium">
+    <label for="contact-message" class="mb-2 block text-sm font-bold text-(--text-primary)">
       {t('contact.form.message')}
     </label>
     <textarea
       id="contact-message"
       name="message"
-      rows="6"
+      rows="4"
       required
-      class="resize-vertical w-full rounded-md border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+      placeholder="Tell me about your project..."
+      class="w-full resize-y rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"></textarea>
-    <span id="message-error" class="hidden text-sm text-red-600" role="alert"></span>
+    <span id="message-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
   </div>
 
-  <div>
-    <Button type="submit" variant="primary" size="md" class="w-full">
-      {t('common.actions.submit')}
-    </Button>
-  </div>
+  <button
+    type="submit"
+    id="contact-submit"
+    class="w-full rounded-lg bg-primary py-4 text-base font-bold text-on-primary transition-opacity hover:opacity-90"
+  >
+    {t('common.actions.submit')}
+  </button>
 
   <div id="form-message" class="hidden rounded-md p-4" role="status" aria-live="polite"></div>
 </form>
@@ -77,24 +81,22 @@ const t = (key: string) => getTranslation(key, lang);
   const nameError = document.getElementById('name-error') as HTMLSpanElement;
   const emailError = document.getElementById('email-error') as HTMLSpanElement;
   const messageError = document.getElementById('message-error') as HTMLSpanElement;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
 
   let lastSubmitTime = 0;
-  const THROTTLE_DURATION = 60000; // 60 seconds
+  const THROTTLE_DURATION = 60000;
 
   function validateField(
     input: HTMLInputElement | HTMLTextAreaElement,
     errorElement: HTMLSpanElement
   ): boolean {
     const value = input.value.trim();
-
     if (!value) {
       errorElement.textContent = 'This field is required';
       errorElement.classList.remove('hidden');
       input.setAttribute('aria-invalid', 'true');
       return false;
     }
-
-    // Email-specific validation
     if (input.type === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
@@ -104,74 +106,57 @@ const t = (key: string) => getTranslation(key, lang);
         return false;
       }
     }
-
     errorElement.classList.add('hidden');
     input.removeAttribute('aria-invalid');
     return true;
   }
 
   function validateForm(): boolean {
-    const nameValid = validateField(nameInput, nameError);
-    const emailValid = validateField(emailInput, emailError);
-    const messageValid = validateField(messageInput, messageError);
-
-    return nameValid && emailValid && messageValid;
+    return (
+      validateField(nameInput, nameError) &&
+      validateField(emailInput, emailError) &&
+      validateField(messageInput, messageError)
+    );
   }
 
   function showMessage(text: string, type: 'success' | 'error') {
     messageDiv.textContent = text;
     messageDiv.className =
       type === 'success'
-        ? 'p-4 rounded-md bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-        : 'p-4 rounded-md bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
+        ? 'p-4 rounded-md bg-green-100 text-green-800'
+        : 'p-4 rounded-md bg-red-100 text-red-800';
     messageDiv.classList.remove('hidden');
-
-    // Scroll message into view
     messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function hideMessage() {
-    messageDiv.classList.add('hidden');
   }
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
-    hideMessage();
+    messageDiv.classList.add('hidden');
 
-    // Validate form
     if (!validateForm()) {
       showMessage('Please fix the errors above', 'error');
       return;
     }
 
-    // Check throttle
     const now = Date.now();
-    const timeSinceLastSubmit = now - lastSubmitTime;
-
-    if (timeSinceLastSubmit < THROTTLE_DURATION) {
-      const remainingSeconds = Math.ceil((THROTTLE_DURATION - timeSinceLastSubmit) / 1000);
-      showMessage(`Please wait ${remainingSeconds} seconds before submitting again`, 'error');
+    if (now - lastSubmitTime < THROTTLE_DURATION) {
+      const remaining = Math.ceil((THROTTLE_DURATION - (now - lastSubmitTime)) / 1000);
+      showMessage(`Please wait ${remaining} seconds before submitting again`, 'error');
       return;
     }
 
-    // Prepare form data
-    const formData = new FormData(form);
-    const data: FormSubmission = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      message: formData.get('message') as string,
-    };
-
-    // Disable submit button
-    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-    const originalButtonText = submitButton.textContent;
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending...';
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
     try {
       const adapter = createFormAdapter();
+      const data: FormSubmission = {
+        name: (document.getElementById('contact-name') as HTMLInputElement).value,
+        email: (document.getElementById('contact-email') as HTMLInputElement).value,
+        message: (document.getElementById('contact-message') as HTMLTextAreaElement).value,
+      };
       const response = await adapter.submit(data);
-
       if (response.success) {
         lastSubmitTime = now;
         form.reset();
@@ -179,48 +164,18 @@ const t = (key: string) => getTranslation(key, lang);
       } else {
         showMessage('Failed to send message. Please try again.', 'error');
       }
-    } catch (error) {
+    } catch {
       showMessage('An unexpected error occurred. Please try again.', 'error');
-      console.error('Form submission error:', error);
     } finally {
-      // Re-enable submit button
-      submitButton.disabled = false;
-      submitButton.textContent = originalButtonText || 'Submit';
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText || 'Submit';
     }
   }
 
-  // Add form submit listener
   form.addEventListener('submit', handleSubmit);
-
-  // Add real-time validation on blur
   nameInput.addEventListener('blur', () => validateField(nameInput, nameError));
   emailInput.addEventListener('blur', () => validateField(emailInput, emailError));
   messageInput.addEventListener('blur', () => validateField(messageInput, messageError));
 
-  // Clear errors on input
-  nameInput.addEventListener('input', () => {
-    if (nameError.textContent) {
-      nameError.classList.add('hidden');
-      nameInput.removeAttribute('aria-invalid');
-    }
-  });
-
-  emailInput.addEventListener('input', () => {
-    if (emailError.textContent) {
-      emailError.classList.add('hidden');
-      emailInput.removeAttribute('aria-invalid');
-    }
-  });
-
-  messageInput.addEventListener('input', () => {
-    if (messageError.textContent) {
-      messageError.classList.add('hidden');
-      messageInput.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Re-initialize on page navigation (for Astro view transitions)
-  document.addEventListener('astro:page-load', () => {
-    hideMessage();
-  });
+  document.addEventListener('astro:page-load', () => messageDiv.classList.add('hidden'));
 </script>

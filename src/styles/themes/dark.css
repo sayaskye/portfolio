@@ -1,13 +1,28 @@
 /* Dark theme CSS custom properties */
+/*
+  Dark mode uses the bright cyan as primary: #79d5e2
+  oklch(0.82 0.085 205) — approximation of #79d5e2
+
+  Backgrounds use true charcoal (not pure black) layered in steps
+  to give depth and elevation differentiation.
+*/
 :root[data-theme='dark'] {
-  /* Background colors */
-  --bg-primary: oklch(0.15 0 0);
-  --bg-secondary: oklch(0.2 0 0);
+  /* Brand / Accent */
+  --color-primary: oklch(0.82 0.085 205);          /* #79d5e2 — bright cyan */
+  --color-secondary: oklch(0.55 0.10 210);         /* slightly deeper cyan */
+  --color-on-primary: oklch(0.13 0.005 265);       /* near-black — readable on bright cyan */
 
-  /* Text colors */
-  --text-primary: oklch(0.95 0 0);
-  --text-secondary: oklch(0.7 0 0);
+  /* Surface backgrounds — layered charcoal for depth */
+  --bg-primary: oklch(0.13 0.005 265);             /* #121212 equivalent — page base */
+  --bg-secondary: oklch(0.18 0.006 265);           /* #1e1e1e — cards, inputs */
+  --bg-elevated: oklch(0.22 0.007 265);            /* #242424 — modals, raised surfaces */
 
-  /* Border colors */
-  --border-color: oklch(0.3 0 0);
+  /* Text */
+  --text-primary: oklch(0.95 0.005 265);           /* near-white */
+  --text-secondary: oklch(0.80 0.008 265);         /* light slate — better p99 contrast */
+  --text-muted: oklch(0.60 0.007 265);             /* medium slate */
+
+  /* Borders */
+  --border-color: oklch(0.28 0.008 265);           /* subtle visible border */
+  --border-subtle: oklch(0.22 0.005 265);          /* barely-visible dividers */
 }

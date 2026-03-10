@@ -68,7 +68,7 @@ const seo: SEOMetadata = {
     </h1>
     <div class="flex items-center gap-4 mb-10 pb-10 border-b border-(--border-color)">
       <div class="flex flex-col">
-        <p class="text-(--text-primary) text-lg font-bold leading-none mb-1">Author</p>
+        <p class="text-(--text-primary) text-lg font-bold leading-none mb-1">{t('blog.detail.author')}</p>
         <p class="text-(--text-secondary) text-sm">
           <time datetime={blog.data.publishDate.toISOString()}>
             {blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -87,7 +87,7 @@ const seo: SEOMetadata = {
     <!-- Content Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       <!-- Article Text -->
-      <article class="lg:col-span-8 prose prose-slate max-w-none">
+      <article class="lg:col-span-8 prose  max-w-none">
         {blog.data.image && (
           <div class="mb-8">
             <img src={blog.data.image.src} alt={blog.data.image.alt} class="w-full rounded-xl shadow-lg border border-(--border-color)" />
@@ -105,7 +105,7 @@ const seo: SEOMetadata = {
         <!-- Tags/Topics -->
         <div class="sticky top-24">
           <div class="p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color)">
-            <h4 class="text-sm font-bold uppercase tracking-widest text-(--text-secondary) mb-4">Topics</h4>
+            <h4 class="text-sm font-bold uppercase tracking-widest text-(--text-secondary) mb-4">{t('blog.detail.topics')}</h4>
             <div class="flex flex-wrap gap-2">
               {blog.data.tags.map((tag) => (
                 <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase rounded border border-primary/20">{tag}</span>
@@ -114,11 +114,11 @@ const seo: SEOMetadata = {
           </div>
           <!-- Newsletter -->
           <div class="mt-8 p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color) shadow-2xl">
-            <h4 class="text-white text-lg font-bold mb-2 font-display">Stay Updated</h4>
-            <p class="text-(--text-secondary) text-xs mb-4">Get high-level architecture insights delivered to your inbox weekly.</p>
+            <h4 class="text-(--text-primary) text-lg font-bold mb-2 font-display">{t('blog.detail.newsletter_title')}</h4>
+            <p class="text-(--text-secondary) text-xs mb-4">{t('blog.detail.newsletter_subtitle')}</p>
             <div class="flex flex-col gap-3">
-              <input class="bg-(--bg-secondary) border-none rounded-lg text-sm text-white focus:ring-1 focus:ring-primary h-10 px-4" placeholder="email@company.com" type="email"/>
-              <button class="bg-primary text-background-dark font-bold text-sm h-10 rounded-lg hover:bg-primary/90 transition-colors">Subscribe</button>
+              <input class="bg-(--bg-secondary) border-none rounded-lg text-sm text-(--text-primary) focus:ring-1 focus:ring-primary h-10 px-4" placeholder={t('blog.detail.newsletter_placeholder')} type="email"/>
+              <button class="bg-primary text-on-primary font-bold text-sm h-10 rounded-lg hover:bg-primary/90 transition-colors">{t('common.actions.subscribe')}</button>
             </div>
           </div>
         </div>

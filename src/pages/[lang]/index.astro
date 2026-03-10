@@ -44,7 +44,7 @@ const seo: SEOMetadata = {
 
   <main>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden py-24 lg:py-32">
+    <section class="relative overflow-hidden py-24 lg:py-32" id="home">
       <div class="absolute inset-0 -z-10 opacity-20">
         <div class="bg-primary absolute top-0 right-0 h-96 w-96 rounded-full blur-[120px]"></div>
         <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]">
@@ -57,52 +57,49 @@ const seo: SEOMetadata = {
               <span
                 class="bg-primary/10 text-primary border-primary/20 mb-4 inline-block rounded-full border px-3 py-1 text-xs font-bold tracking-wider uppercase"
               >
-                Senior Software Engineer & Architect
+                {t('home.hero.badge')}
               </span>
               <h1 class="text-5xl leading-tight font-bold tracking-tight lg:text-7xl">
-                Building the <span class="text-primary">future</span> of scalable systems.
+                {t('home.hero.title')}
               </h1>
               <p class="mt-6 max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
-                {
-                  t('home.hero.subtitle') ||
-                    'Over a decade of experience in architecting high-performance distributed systems, mentoring engineering teams, and turning complex product visions into production-ready reality.'
-                }
+                {t('home.hero.subtitle')}
               </p>
             </div>
             <div class="flex flex-wrap gap-4">
               <a
-                class="bg-primary text-background-dark hover:shadow-primary/20 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
+                class="bg-primary text-on-primary hover:shadow-primary/20 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
                 href={`/${lang}/projects/`}
               >
-                View Portfolio
+                {t('home.hero.cta_primary')}
               </a>
               <a
                 class="inline-flex items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
                 href={`/${lang}/contact/`}
               >
-                Let's Talk
+                {t('home.hero.cta_secondary')}
               </a>
             </div>
             <div class="flex items-center gap-6 pt-4 text-(--text-secondary)">
               <div class="flex flex-col">
                 <span class="text-2xl font-bold text-(--text-primary)">12+</span>
-                <span class="text-xs tracking-widest uppercase">Years Exp.</span>
+                <span class="text-xs tracking-widest uppercase">{t('home.hero.stat_years')}</span>
               </div>
-              <div class="h-10 w-px bg-slate-300"></div>
+              <div class="h-10 w-px bg-(--border-color)"></div>
               <div class="flex flex-col">
                 <span class="text-2xl font-bold text-(--text-primary)">40+</span>
-                <span class="text-xs tracking-widest uppercase">Shipped</span>
+                <span class="text-xs tracking-widest uppercase">{t('home.hero.stat_shipped')}</span>
               </div>
-              <div class="h-10 w-px bg-slate-300"></div>
+              <div class="h-10 w-px bg-(--border-color)"></div>
               <div class="flex flex-col">
                 <span class="text-2xl font-bold text-(--text-primary)">500k+</span>
-                <span class="text-xs tracking-widest uppercase">Users</span>
+                <span class="text-xs tracking-widest uppercase">{t('home.hero.stat_users')}</span>
               </div>
             </div>
           </div>
           <div class="group relative">
             <div
-              class="from-primary to-secondary absolute -inset-1 rounded-xl bg-gradient-to-r opacity-25 blur transition duration-1000 group-hover:opacity-50"
+              class="from-primary to-secondary absolute -inset-1 rounded-xl bg-linear-to-r opacity-25 blur transition duration-1000 group-hover:opacity-50"
             >
             </div>
             <div
@@ -173,7 +170,7 @@ const seo: SEOMetadata = {
                         </span>
                       ))}
                     </div>
-                    <h4 class="group-hover:text-primary mb-2 text-xl font-bold transition-colors">
+                    <h4 class="group-hover:text-primary mb-2 text-xl font-bold text-(--text-primary) transition-colors">
                       {project.data.title}
                     </h4>
                     <p class="mb-6 text-sm leading-relaxed text-(--text-secondary)">
@@ -209,12 +206,23 @@ const seo: SEOMetadata = {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid gap-16 lg:grid-cols-3">
           <div>
-            <h2 class="text-primary mb-2 text-base font-bold tracking-widest uppercase">Career</h2>
-            <h3 class="mb-6 text-4xl font-bold">Experience Path</h3>
+            <h2 class="text-primary mb-2 text-base font-bold tracking-widest uppercase">
+              {t('home.experience.eyebrow')}
+            </h2>
+            <h3 class="mb-6 text-4xl font-bold">{t('home.experience.title')}</h3>
             <p class="mb-8 leading-relaxed text-(--text-secondary)">
-              A track record of growing with teams and building complex systems across various
-              industries—from high-growth startups to Fortune 500 companies.
+              {t('home.experience.subtitle')}
             </p>
+            <!-- Key Achievement callout -->
+            <div class="border-primary/20 bg-primary/5 rounded-xl border p-6">
+              <h5 class="text-primary mb-2 flex items-center gap-2 font-bold">
+                <span class="material-symbols-outlined text-xl">award_star</span>
+                {t('home.experience.achievement_title')}
+              </h5>
+              <p class="text-sm text-(--text-secondary) italic">
+                {t('home.experience.achievement_desc')}
+              </p>
+            </div>
           </div>
           <div
             class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-(--bg-secondary) md:before:ml-[2.4rem] lg:col-span-2"
@@ -228,10 +236,12 @@ const seo: SEOMetadata = {
               </div>
               <div>
                 <span class="text-primary text-xs font-bold tracking-widest uppercase"
-                  >2021 — Present</span
+                  >{t('home.experience.date1')}</span
                 >
-                <h4 class="mt-1 text-2xl font-bold">Lead Systems Architect</h4>
-                <p class="mb-4 font-medium text-(--text-secondary)">CloudFlow Tech (Remote)</p>
+                <h4 class="mt-1 text-2xl font-bold">{t('home.experience.role1')}</h4>
+                <p class="mb-4 font-medium text-(--text-secondary)">
+                  {t('home.experience.company1')}
+                </p>
               </div>
             </div>
 
@@ -243,10 +253,97 @@ const seo: SEOMetadata = {
               </div>
               <div>
                 <span class="text-secondary text-xs font-bold tracking-widest uppercase"
-                  >2018 — 2021</span
+                  >{t('home.experience.date2')}</span
                 >
-                <h4 class="mt-1 text-2xl font-bold">Senior Backend Engineer</h4>
-                <p class="mb-4 font-medium text-(--text-secondary)">FinStream Solutions</p>
+                <h4 class="mt-1 text-2xl font-bold">{t('home.experience.role2')}</h4>
+                <p class="mb-4 font-medium text-(--text-secondary)">
+                  {t('home.experience.company2')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Philosophy Section -->
+    <section class="overflow-hidden bg-(--bg-primary) py-24" id="about">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center gap-16 lg:flex-row">
+          <!-- Left: Text -->
+          <div class="relative lg:w-1/2">
+            <div class="bg-primary/20 absolute top-0 -left-10 h-72 w-72 rounded-full blur-[100px]">
+            </div>
+            <h2 class="text-primary mb-2 text-base font-bold tracking-widest uppercase">
+              {t('home.about.eyebrow')}
+            </h2>
+            <h3 class="mb-8 text-4xl font-bold italic">
+              {t('home.about.quote')}
+            </h3>
+            <div class="space-y-6 leading-relaxed text-(--text-secondary)">
+              <p>
+                {t('home.about.p1')}
+              </p>
+              <p>
+                {t('home.about.p2')}
+              </p>
+            </div>
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="rounded-lg border border-(--border-color) bg-(--bg-primary) p-4">
+                <span class="material-symbols-outlined text-primary mb-2">psychology</span>
+                <h5 class="text-sm font-bold">{t('home.about.item1_title')}</h5>
+                <p class="mt-1 text-xs text-(--text-secondary)">{t('home.about.item1_desc')}</p>
+              </div>
+              <div class="rounded-lg border border-(--border-color) bg-(--bg-primary) p-4">
+                <span class="material-symbols-outlined text-primary mb-2">groups</span>
+                <h5 class="text-sm font-bold">{t('home.about.item2_title')}</h5>
+                <p class="mt-1 text-xs text-(--text-secondary)">{t('home.about.item2_desc')}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Stat grid -->
+          <div class="grid grid-cols-2 gap-4 lg:w-1/2">
+            <div class="space-y-4">
+              <div
+                class="border-primary/20 bg-primary/10 flex aspect-square flex-col items-center justify-center rounded-2xl border p-8 text-center"
+              >
+                <span class="text-primary text-4xl font-bold">{t('home.about.stat1_val')}</span>
+                <span
+                  class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase"
+                  >{t('home.about.stat1_label')}</span
+                >
+              </div>
+              <div
+                class="flex aspect-square flex-col items-center justify-center rounded-2xl bg-(--bg-secondary) p-8 text-center"
+              >
+                <span class="material-symbols-outlined mb-2 text-4xl text-(--text-secondary)"
+                  >cloud_done</span
+                >
+                <span class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase"
+                  >{t('home.about.stat2_val')}</span
+                >
+              </div>
+            </div>
+            <div class="space-y-4 pt-12">
+              <div
+                class="flex aspect-square flex-col items-center justify-center rounded-2xl bg-(--bg-secondary) p-8 text-center"
+              >
+                <span class="material-symbols-outlined mb-2 text-4xl text-(--text-secondary)"
+                  >security</span
+                >
+                <span class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase"
+                  >{t('home.about.stat3_val')}</span
+                >
+              </div>
+              <div
+                class="border-secondary/20 bg-secondary/10 flex aspect-square flex-col items-center justify-center rounded-2xl border p-8 text-center"
+              >
+                <span class="text-secondary text-4xl font-bold">{t('home.about.stat4_val')}</span>
+                <span
+                  class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase"
+                  >{t('home.about.stat4_label')}</span
+                >
               </div>
             </div>
           </div>

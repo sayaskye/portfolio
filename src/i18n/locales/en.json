@@ -8,7 +8,9 @@
     },
     "actions": {
       "submit": "Submit",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "subscribe": "Subscribe",
+      "contact_me": "Contact Me"
     },
     "theme": {
       "toggle": "Toggle theme",
@@ -21,8 +23,80 @@
   },
   "home": {
     "hero": {
-      "title": "Welcome to My Portfolio",
-      "subtitle": "Full-stack developer specializing in modern web technologies"
+      "badge": "Senior Software Engineer & Architect",
+      "title": "Building the future of scalable systems.",
+      "subtitle": "Over a decade of experience in architecting high-performance distributed systems, mentoring engineering teams, and turning complex product visions into production-ready reality.",
+      "cta_primary": "View Portfolio",
+      "cta_secondary": "Let's Talk",
+      "stat_years": "Years Exp.",
+      "stat_shipped": "Shipped",
+      "stat_users": "Users"
+    },
+    "featured_projects": {
+      "eyebrow": "Portfolio",
+      "subtitle": "A selection of enterprise-grade applications, open-source contributions, and high-load architectural designs.",
+      "view_all": "View all works",
+      "case_study": "Case Study"
+    },
+    "experience": {
+      "eyebrow": "Career",
+      "title": "Experience Path",
+      "subtitle": "A track record of growing with teams and building complex systems across various industries—from high-growth startups to Fortune 500 companies.",
+      "achievement_title": "Key Achievement",
+      "achievement_desc": "\"Successfully migrated monolithic infrastructure to microservices for a 5M+ user platform with zero downtime.\"",
+      "role1": "Lead Systems Architect",
+      "company1": "CloudFlow Tech (Remote)",
+      "date1": "2021 — Present",
+      "role2": "Senior Backend Engineer",
+      "company2": "FinStream Solutions",
+      "date2": "2018 — 2021"
+    },
+    "about": {
+      "eyebrow": "My Philosophy",
+      "quote": "\"Code is for humans to read, and only incidentally for machines to execute.\"",
+      "p1": "I believe in the power of simple, clean, and maintainable code. In my 12+ years as an engineer, I've seen frameworks come and go, but the principles of solid architecture remain constant.",
+      "p2": "My approach combines rigorous technical standards with a deep understanding of business goals. I don't just build features; I build solutions that scale with the organization.",
+      "item1_title": "Strategic Design",
+      "item1_desc": "Focusing on long-term sustainability over quick fixes.",
+      "item2_title": "Mentorship",
+      "item2_desc": "Empowering teams through knowledge sharing.",
+      "stat1_val": "99.9%",
+      "stat1_label": "Uptime Driven",
+      "stat2_val": "Cloud Expert",
+      "stat3_val": "Security First",
+      "stat4_val": "10k+",
+      "stat4_label": "PRs Merged"
+    }
+  },
+  "projects": {
+    "page": {
+      "subtitle": "A curated collection of distributed systems, open-source contributions, and cloud-native architecture solutions.",
+      "all": "All Projects",
+      "featured_label": "Featured Architecture",
+      "view_case_study": "View Case Study",
+      "source": "Source",
+      "documentation": "Documentation",
+      "tags": "Tags",
+      "date": "Date",
+      "links": "Links",
+      "live_demo": "Live Demo",
+      "tech_title": "Technologies",
+      "cta_title": "Need a similar solution?",
+      "cta_desc": "Let's discuss how we can build high-quality software for your needs."
+    }
+  },
+  "blog": {
+    "page": {
+      "subtitle": "Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.",
+      "all_posts": "All Posts",
+      "read_more": "Read Full Article"
+    },
+    "detail": {
+      "author": "Author",
+      "topics": "Topics",
+      "newsletter_title": "Stay Updated",
+      "newsletter_subtitle": "Get high-level architecture insights delivered to your inbox weekly.",
+      "newsletter_placeholder": "email@company.com"
     }
   },
   "contact": {
@@ -38,6 +112,15 @@
         "required": "This field is required",
         "invalidEmail": "Please enter a valid email address"
       }
+    },
+    "page": {
+      "title": "Let's build something extraordinary.",
+      "subtitle": "Whether you're looking for architectural consultation, a lead for your next big project, or just want to chat about tech, my inbox is always open.",
+      "card_title": "Ready to talk?",
+      "card_subtitle": "Reach out directly or use the form — I respond within 24 hours.",
+      "email_label": "Email",
+      "location_label": "Location",
+      "location_value": "Remote Worldwide"
     }
   }
 }

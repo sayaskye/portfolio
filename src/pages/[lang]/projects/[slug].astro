@@ -76,7 +76,7 @@ const seo: SEOMetadata = {
         {project.data.github && (
           <a href={project.data.github} target="_blank" class="flex items-center gap-2 bg-(--bg-secondary) hover:bg-primary/20 border border-(--border-color) px-6 py-3 rounded-xl font-bold transition-all text-(--text-primary)">
             <span class="material-symbols-outlined">code</span>
-            View on GitHub
+            {t('projects.page.source')}
           </a>
         )}
       </div>
@@ -92,24 +92,24 @@ const seo: SEOMetadata = {
     <!-- Technical Metadata Grid -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 border-y border-(--border-color) py-8">
       <div class="col-span-2 md:col-span-1">
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Tags</h4>
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.tags')}</h4>
         <p class="font-medium flex flex-wrap gap-1 leading-tight">{project.data.tags.join(', ')}</p>
       </div>
       <div>
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Date</h4>
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.date')}</h4>
         <p class="font-medium">{project.data.publishDate.toLocaleDateString(lang as string, { year: 'numeric', month: 'short' })}</p>
       </div>
       <div>
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Links</h4>
+        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.links')}</h4>
         {project.data.demo && (
-            <a href={project.data.demo} target="_blank" rel="noopener noreferrer" class="font-medium text-primary hover:underline block">Live Demo</a>
+            <a href={project.data.demo} target="_blank" rel="noopener noreferrer" class="font-medium text-primary hover:underline block">{t('projects.page.live_demo')}</a>
         )}
       </div>
     </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       <!-- Article Body -->
-      <div class="lg:col-span-8 prose prose-slate max-w-none">
+      <div class="lg:col-span-8 prose  max-w-none">
         <Content />
       </div>
 
@@ -127,9 +127,9 @@ const seo: SEOMetadata = {
           <div class="relative overflow-hidden rounded-2xl aspect-square border border-primary/20 flex items-center justify-center p-8 text-center bg-(--bg-secondary)">
             <div class="absolute inset-0 opacity-20 bg-center bg-cover" data-alt="Microchip circuitry pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbRFuz7iAWvz0BHi5RSq8xT6UhC8sc6Cw3plh0lRZQBG5gDSfEqikZP7NcjXUFdpzIvGG-MCXu71Jv4ZrlxOz5xQINPebSp-b7L8uEP5qLk6TtclVo1WaIOhJ83QKbPpUXm3PvFBjFLJ3ofdBfdHYkfRNiNyCt4lmAFjyxVHXSdW3Qvw6fWVG1-XchRdfwxG2F8AvtGlPFh_3jQMe9xh17sFeZQKlLwhnxUCl29l3Go7i4PObSPglbkt-MbJGml-Bw7M4Go4hbFuI')"></div>
             <div class="relative">
-              <h4 class="font-bold mb-2 text-white">Need a similar solution?</h4>
-              <p class="text-xs text-(--text-secondary) mb-6">Let's discuss how we can build high-quality software for your needs.</p>
-              <a href={`/${lang}/contact/`} class="block w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm hover:opacity-90">Contact Me</a>
+              <h4 class="font-bold mb-2 text-(--text-primary)">{t('projects.page.cta_title')}</h4>
+              <p class="text-xs text-(--text-secondary) mb-6">{t('projects.page.cta_desc')}</p>
+              <a href={`/${lang}/contact/`} class="block w-full bg-primary text-on-primary py-3 rounded-xl font-bold text-sm hover:opacity-90">{t('common.actions.contact_me')}</a>
             </div>
           </div>
         </div>
