@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
 
 <header
   id="main-header"
-  class="header-main fixed top-0 right-0 left-0 z-50 flex items-center justify-between border-b border-solid border-(--border-color) bg-(--bg-primary)/80 px-6 backdrop-blur-xl transition-all duration-300 lg:px-20"
+  class="fixed top-0 right-0 left-0 z-50 flex items-center justify-between border-b border-solid border-(--border-color) bg-(--bg-primary)/80 p-4 px-6 backdrop-blur-xl transition-all duration-300 lg:px-20"
 >
   <div class="flex items-center gap-8">
     <a
@@ -96,38 +96,3 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <MobileMenu lang={lang} navLinks={navLinks} currentPath={currentPath} langUrls={langUrls} />
-
-<script>
-  function setupHeaderScroll() {
-    const header = document.getElementById('main-header');
-    if (!header) return;
-
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  setupHeaderScroll();
-  document.addEventListener('astro:after-swap', setupHeaderScroll);
-</script>
-
-<style>
-  .header-main {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .header-main.scrolled {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    background-color: var(--bg-primary, rgba(var(--bg-primary-rgb, 255, 255, 255), 0.95));
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
-</style>
