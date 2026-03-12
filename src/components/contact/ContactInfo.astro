@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import SocialLinks from '../ui/SocialLinks.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   lang: string;
@@ -26,7 +27,7 @@ const t = (key: string) => getTranslation(key, lang);
       <div
         class="text-primary flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary)"
       >
-        <span class="material-symbols-outlined">mail</span>
+        <Icon name="mail" class="size-6" />
       </div>
       <div>
         <p class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
@@ -40,7 +41,7 @@ const t = (key: string) => getTranslation(key, lang);
       <div
         class="text-primary flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary)"
       >
-        <span class="material-symbols-outlined">location_on</span>
+        <Icon name="location_on" class="size-6" />
       </div>
       <div>
         <p class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">

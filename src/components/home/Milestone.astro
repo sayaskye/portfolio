@@ -1,4 +1,6 @@
 ---
+import Icon from '../ui/Icon.astro';
+
 interface Props {
   date: string;
   role: string;
@@ -19,8 +21,9 @@ const variantClasses = {
   <div
     class={`absolute top-1.5 left-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border-4 border-(--bg-primary) md:-left-5 md:h-20 md:w-20 ${variantClasses[variant]}`}
   >
-    <span class="material-symbols-outlined md:text-3xl">{icon}</span>
+    <Icon name={icon} class="size-6 md:size-10" />
   </div>
+
   <div>
     <span
       class={`${variant === 'primary' ? 'text-primary' : 'text-secondary'} text-xs font-bold tracking-widest uppercase`}

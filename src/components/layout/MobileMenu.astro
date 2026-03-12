@@ -46,14 +46,16 @@ const t = (key: string) => getTranslation(key, lang);
         <span class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
           {t('common.theme.toggle') || 'Appearance'}
         </span>
-        <ThemeToggle lang={lang} />
+        <div>
+          <ThemeToggle lang={lang} />
+        </div>
       </div>
       <!-- Language Selector -->
       <div class="flex flex-col gap-3">
         <span class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
           {t('common.language.label') || 'Language'}
         </span>
-        <div class="flex">
+        <div>
           <LanguageSelector currentLang={lang} langUrls={langUrls} />
         </div>
       </div>

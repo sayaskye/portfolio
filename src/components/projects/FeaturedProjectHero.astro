@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import type { CollectionEntry } from 'astro:content';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -14,7 +15,7 @@ const slug = project.slug.replace(`${lang}/`, '');
 
 <section class="mb-16">
   <div class="mb-6 flex items-center gap-3">
-    <span class="material-symbols-outlined text-primary fill-1">star</span>
+    <Icon name="star" class="size-6 text-primary" />
     <h2 class="text-2xl font-bold tracking-tight text-(--text-primary)">
       {t('projects.page.featured_label')}
     </h2>
@@ -26,7 +27,7 @@ const slug = project.slug.replace(`${lang}/`, '');
       <div
         class="bg-primary/20 text-primary mb-6 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase"
       >
-        <span class="material-symbols-outlined text-sm">bolt</span>
+        <Icon name="bolt" class="size-4" />
         {t('home.featured_projects.spotlight')}
       </div>
       <h3
@@ -52,7 +53,7 @@ const slug = project.slug.replace(`${lang}/`, '');
           class="bg-primary hover:bg-primary/90 text-on-primary flex cursor-pointer items-center gap-2 self-center rounded-lg px-8 py-3 font-bold transition-all"
         >
           {t('projects.page.view_case_study')}
-          <span class="material-symbols-outlined">arrow_right_alt</span>
+          <Icon name="arrow_right_alt" class="size-6" />
         </a>
         {
           project.data.github && (

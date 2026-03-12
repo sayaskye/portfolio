@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import type { CollectionEntry } from 'astro:content';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -50,7 +51,7 @@ const slug = project.slug.replace(`${lang}/`, '');
         class="hover:text-primary flex items-center gap-2 text-sm font-bold"
         href={`/${lang}/projects/${slug}/`}
       >
-        <span class="material-symbols-outlined text-lg">link</span>
+        <Icon name="link" class="size-5" />
         {t('home.featured_projects.case_study')}
       </a>
       {
@@ -61,7 +62,7 @@ const slug = project.slug.replace(`${lang}/`, '');
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span class="material-symbols-outlined text-lg">code</span>
+            <Icon name="code" class="size-5" />
           </a>
         )
       }

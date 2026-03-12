@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   icon: string;
   title: string;
@@ -9,7 +11,8 @@ const { icon, title, description } = Astro.props;
 ---
 
 <div class="rounded-lg border border-(--border-color) bg-(--bg-primary) p-4">
-  <span class="material-symbols-outlined text-primary mb-2">{icon}</span>
+  <Icon name={icon} class="text-primary mb-2 size-6" />
   <h5 class="text-sm font-bold">{title}</h5>
   <p class="mt-1 text-xs text-(--text-secondary)">{description}</p>
 </div>
+

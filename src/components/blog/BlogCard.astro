@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import type { CollectionEntry } from 'astro:content';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   blog: CollectionEntry<'blog'>;
@@ -79,7 +80,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
         href={`/${lang}/blog/${slug}/`}
       >
         {t('blog.page.read_more')}
-        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        <Icon name="arrow_forward" class="size-4" />
       </a>
     </div>
   </div>

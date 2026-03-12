@@ -2,6 +2,7 @@
 import { getTranslation } from '@/i18n';
 import SectionHeader from '@/components/ui/SectionHeader.astro';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
+import Icon from '@/components/ui/Icon.astro';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -31,9 +32,10 @@ const defaultImages = [
         href={`/${lang}/projects/`}
       >
         {t('home.featured_projects.view_all')}
-        <span class="material-symbols-outlined ml-2">arrow_forward</span>
+        <Icon name="arrow_forward" class="ml-2 size-5" />
       </a>
     </div>
+
 
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {

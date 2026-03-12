@@ -89,18 +89,6 @@ const seo: SEOMetadata = {
           </time>
         </p>
       </div>
-      <div class="ml-auto flex gap-2">
-        <button
-          class="hover:text-primary rounded-lg bg-(--bg-secondary) p-2 text-(--text-secondary) transition-colors"
-        >
-          <span class="material-symbols-outlined">bookmark</span>
-        </button>
-        <button
-          class="hover:text-primary rounded-lg bg-(--bg-secondary) p-2 text-(--text-secondary) transition-colors"
-        >
-          <span class="material-symbols-outlined">share</span>
-        </button>
-      </div>
     </div>
     <!-- Content Grid -->
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -139,28 +127,6 @@ const seo: SEOMetadata = {
                   </span>
                 ))
               }
-            </div>
-          </div>
-          <!-- Newsletter -->
-          <div
-            class="mt-8 rounded-xl border border-(--border-color) bg-(--bg-secondary) p-6 shadow-2xl"
-          >
-            <h4 class="font-display mb-2 text-lg font-bold text-(--text-primary)">
-              {t('blog.detail.newsletter_title')}
-            </h4>
-            <p class="mb-4 text-xs text-(--text-secondary)">
-              {t('blog.detail.newsletter_subtitle')}
-            </p>
-            <div class="flex flex-col gap-3">
-              <input
-                class="focus:ring-primary h-10 rounded-lg border-none bg-(--bg-secondary) px-4 text-sm text-(--text-primary) focus:ring-1"
-                placeholder={t('blog.detail.newsletter_placeholder')}
-                type="email"
-              />
-              <button
-                class="bg-primary text-on-primary hover:bg-primary/90 h-10 rounded-lg text-sm font-bold transition-colors"
-                >{t('common.actions.subscribe')}</button
-              >
             </div>
           </div>
         </div>

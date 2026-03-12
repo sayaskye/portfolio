@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer.astro';
 import { getTranslation, getSupportedLanguages } from '@/i18n';
 import { getCollection } from 'astro:content';
 import type { SEOMetadata } from '@/lib/seo';
+import Icon from '@/components/ui/Icon.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -62,7 +63,7 @@ const seo: SEOMetadata = {
       <a class="hover:text-primary" href={`/${lang}/projects/`}
         >{t('common.nav.projects') || 'Portfolio'}</a
       >
-      <span class="material-symbols-outlined text-xs">chevron_right</span>
+      <Icon name="chevron_right" class="size-3" />
       <span class="font-medium text-(--text-primary)">{project.data.title}</span>
     </nav>
 
@@ -84,7 +85,7 @@ const seo: SEOMetadata = {
               target="_blank"
               class="hover:bg-primary/20 flex items-center gap-2 rounded-xl border border-(--border-color) bg-(--bg-secondary) px-6 py-3 font-bold text-(--text-primary) transition-all"
             >
-              <span class="material-symbols-outlined">code</span>
+              <Icon name="code" class="size-5" />
               {t('projects.page.source')}
             </a>
           )
@@ -100,13 +101,7 @@ const seo: SEOMetadata = {
               alt={project.data.image.alt}
               src={project.data.image.src}
             />
-          ) : (
-            <div
-              class="absolute inset-0 bg-cover bg-center opacity-40"
-              data-alt="Default project hero"
-              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiJDpibcyCPvMkZ9xh7ElkDNbQFBi-DEafcO4Z-9FFnzcPuGSq2jR6mO-0XcXSL46njDkIuAmOMwrqqG2rI6ggVed7USL-NgsV8UAT1nD7QbuvnfSzBMe7Tv8K7ECYWazR5B-lF9V8uUGM06sNbs1vFcZbd9RlRqMyT7-efcUvTf_aEiH1hMgjQ_DFjP0F9mvCasdtcT-7WWdbi3EyaWNPtLhfUMZYK-Tq5xUHmceShGo2pApur2_9FPT_-PKadHSqmqFZM2vODmw')"
-            />
-          )
+          ) : null
         }
       </div>
     </section>
@@ -164,7 +159,7 @@ const seo: SEOMetadata = {
         <div class="sticky top-24 space-y-8">
           <div class="bg-primary/5 border-primary/20 rounded-2xl border p-6">
             <h3 class="mb-4 flex items-center gap-2 text-lg font-bold">
-              <span class="material-symbols-outlined text-primary">code</span> Technologies
+              <Icon name="code" class="text-primary size-5" /> Technologies
             </h3>
             <div class="flex flex-wrap gap-2">
               {
@@ -174,25 +169,6 @@ const seo: SEOMetadata = {
                   </span>
                 ))
               }
-            </div>
-          </div>
-          <div
-            class="border-primary/20 relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border bg-(--bg-secondary) p-8 text-center"
-          >
-            <div
-              class="absolute inset-0 bg-cover bg-center opacity-20"
-              data-alt="Microchip circuitry pattern"
-              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbRFuz7iAWvz0BHi5RSq8xT6UhC8sc6Cw3plh0lRZQBG5gDSfEqikZP7NcjXUFdpzIvGG-MCXu71Jv4ZrlxOz5xQINPebSp-b7L8uEP5qLk6TtclVo1WaIOhJ83QKbPpUXm3PvFBjFLJ3ofdBfdHYkfRNiNyCt4lmAFjyxVHXSdW3Qvw6fWVG1-XchRdfwxG2F8AvtGlPFh_3jQMe9xh17sFeZQKlLwhnxUCl29l3Go7i4PObSPglbkt-MbJGml-Bw7M4Go4hbFuI')"
-            >
-            </div>
-            <div class="relative">
-              <h4 class="mb-2 font-bold text-(--text-primary)">{t('projects.page.cta_title')}</h4>
-              <p class="mb-6 text-xs text-(--text-secondary)">{t('projects.page.cta_desc')}</p>
-              <a
-                href={`/${lang}/contact/`}
-                class="bg-primary text-on-primary block w-full rounded-xl py-3 text-sm font-bold hover:opacity-90"
-                >{t('common.actions.contact_me')}</a
-              >
             </div>
           </div>
         </div>

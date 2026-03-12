@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   value?: string;
   label: string;
@@ -26,10 +28,11 @@ const textClasses = {
 >
   {
     icon && (
-      <span class={`material-symbols-outlined mb-2 text-4xl ${textClasses[variant]}`}>{icon}</span>
+      <Icon name={icon} class={`mb-2 size-10 ${textClasses[variant]}`} />
     )
   }
   {value && <span class={`${textClasses[variant]} text-2xl font-bold md:text-4xl`}>{value}</span>}
+
   <span class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
     {label}
   </span>
