@@ -1,12 +1,20 @@
 ---
 // ThemeToggle component - switches between light and dark themes
+import { getTranslation } from '@/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
 ---
 
 <button
   id="theme-toggle"
   type="button"
-  aria-label="Toggle theme"
-  class="rounded-md p-2 transition-colors hover:bg-(--bg-secondary)"
+  aria-label={t('common.theme.toggle')}
+  class="cursor-pointer rounded-md p-2 transition-colors hover:bg-(--bg-secondary)"
 >
   <svg
     id="theme-icon-light"

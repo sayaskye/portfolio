@@ -4,7 +4,8 @@
       "home": "Inicio",
       "projects": "Proyectos",
       "blog": "Blog",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "search": "Buscar..."
     },
     "actions": {
       "submit": "Enviar",
@@ -19,6 +20,10 @@
     },
     "language": {
       "select": "Seleccionar idioma"
+    },
+    "footer": {
+      "brand": "Portafolio",
+      "rights": "Todos los derechos reservados."
     }
   },
   "home": {
@@ -67,7 +72,9 @@
       "stat1_val": "99.9%",
       "stat1_label": "Basado en Uptime",
       "stat2_val": "Experto Cloud",
+      "stat2_label": "Arquitectura",
       "stat3_val": "Seguridad Primero",
+      "stat3_label": "Estándar",
       "stat4_val": "10k+",
       "stat4_label": "PRs Fusionados"
     }
@@ -121,9 +128,19 @@
       "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
       "sending": "Enviando...",
       "throttle": "Por favor espera antes de enviar de nuevo",
+      "placeholders": {
+        "name": "Juan Pérez",
+        "email": "juan@ejemplo.com",
+        "message": "Cuéntame sobre tu proyecto...",
+        "submit": "Enviar"
+      },
       "validation": {
         "required": "Este campo es obligatorio",
-        "invalidEmail": "Por favor ingresa un correo electrónico válido"
+        "invalidEmail": "Por favor ingresa un correo electrónico válido",
+        "fixErrors": "Por favor corrige los errores anteriores",
+        "throttlePrefix": "Por favor espera",
+        "throttleSuffix": "segundos antes de enviar de nuevo",
+        "unexpected": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
       }
     },
     "page": {

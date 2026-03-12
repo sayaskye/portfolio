@@ -31,13 +31,13 @@ const currentPath = Astro.url.pathname;
   <div class="flex items-center gap-8">
     <a
       href={`/${lang}/`}
-      class="text-primary flex items-center gap-4 transition-opacity hover:opacity-80"
+      class="text-primary flex cursor-pointer items-center gap-4 transition-opacity hover:opacity-80"
     >
       <div class="bg-primary/10 flex size-8 items-center justify-center rounded-lg">
         <span class="material-symbols-outlined">terminal</span>
       </div>
       <h2 class="font-display text-xl leading-tight font-bold tracking-tight text-(--text-primary)">
-        Portfolio
+        {t('common.footer.brand')}
       </h2>
     </a>
 
@@ -50,7 +50,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`hover:text-primary text-sm font-medium transition-colors ${
+              class={`hover:text-primary cursor-pointer text-sm font-medium transition-colors ${
                 isActive ? 'text-primary' : 'text-(--text-secondary)'
               }`}
             >
@@ -63,23 +63,8 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <div class="flex flex-1 items-center justify-end gap-6">
-    <label class="hidden h-10 max-w-64 min-w-40 flex-col sm:flex">
-      <div class="flex h-full w-full flex-1 items-stretch rounded-lg">
-        <div
-          class="flex items-center justify-center rounded-l-lg border-r-0 border-none bg-(--bg-secondary) pl-4 text-(--text-secondary)"
-        >
-          <span class="material-symbols-outlined text-lg">search</span>
-        </div>
-        <input
-          class="form-input flex h-full w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-l-none border-l-0 border-none bg-(--bg-secondary) px-4 pl-2 text-sm font-normal text-(--text-primary) placeholder:text-(--text-secondary) focus:border-none focus:ring-0 focus:outline-0"
-          placeholder={t('common.nav.search') || 'Search insights...'}
-          value=""
-        />
-      </div>
-    </label>
-
     <div class="flex items-center gap-1 md:gap-3">
-      <ThemeToggle />
+      <ThemeToggle lang={lang} />
       <LanguageSelector currentLang={lang} langUrls={langUrls} />
     </div>
   </div>

@@ -34,13 +34,13 @@ const t = (key: string) => getTranslation(key, lang);
         </div>
         <div class="flex flex-wrap gap-4">
           <a
-            class="bg-primary text-on-primary hover:shadow-primary/20 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
+            class="bg-primary text-on-primary hover:shadow-primary/20 inline-flex cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
             href={`/${lang}/projects/`}
           >
             {t('home.hero.cta_primary')}
           </a>
           <a
-            class="inline-flex items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
+            class="inline-flex cursor-pointer items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
             href={`/${lang}/contact/`}
           >
             {t('home.hero.cta_secondary')}

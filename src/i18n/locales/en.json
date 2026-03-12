@@ -4,7 +4,8 @@
       "home": "Home",
       "projects": "Projects",
       "blog": "Blog",
-      "contact": "Contact"
+      "contact": "Contact",
+      "search": "Search insights..."
     },
     "actions": {
       "submit": "Submit",
@@ -19,6 +20,10 @@
     },
     "language": {
       "select": "Select language"
+    },
+    "footer": {
+      "brand": "Portfolio",
+      "rights": "All rights reserved."
     }
   },
   "home": {
@@ -67,7 +72,9 @@
       "stat1_val": "99.9%",
       "stat1_label": "Uptime Driven",
       "stat2_val": "Cloud Expert",
+      "stat2_label": "Architecture",
       "stat3_val": "Security First",
+      "stat3_label": "Standard",
       "stat4_val": "10k+",
       "stat4_label": "PRs Merged"
     }
@@ -121,9 +128,19 @@
       "error": "Failed to send message. Please try again.",
       "sending": "Sending...",
       "throttle": "Please wait before submitting again",
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "message": "Tell me about your project...",
+        "submit": "Submit"
+      },
       "validation": {
         "required": "This field is required",
-        "invalidEmail": "Please enter a valid email address"
+        "invalidEmail": "Please enter a valid email address",
+        "fixErrors": "Please fix the errors above",
+        "throttlePrefix": "Please wait",
+        "throttleSuffix": "seconds before submitting again",
+        "unexpected": "An unexpected error occurred. Please try again."
       }
     },
     "page": {

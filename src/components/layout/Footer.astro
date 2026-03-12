@@ -1,9 +1,12 @@
 ---
+import { getTranslation } from '@/i18n';
+
 interface Props {
   lang?: string;
 }
 
 const { lang = 'en' } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
 
 const currentYear = new Date().getFullYear();
 ---
@@ -13,7 +16,7 @@ const currentYear = new Date().getFullYear();
     <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
       <!-- Copyright -->
       <p class="text-sm text-(--text-secondary)">
-        © {currentYear} Portfolio. All rights reserved.
+        © {currentYear} {t('common.footer.brand')}. {t('common.footer.rights')}
       </p>
 
       <!-- Footer Links -->
@@ -21,25 +24,25 @@ const currentYear = new Date().getFullYear();
         <li>
           <a
             href={`/${lang}/`}
-            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
           >
-            Home
+            {t('common.nav.home')}
           </a>
         </li>
         <li>
           <a
             href={`/${lang}/projects/`}
-            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
           >
-            Projects
+            {t('common.nav.projects')}
           </a>
         </li>
         <li>
           <a
             href={`/${lang}/contact/`}
-            class="text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
+            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
           >
-            Contact
+            {t('common.nav.contact')}
           </a>
         </li>
       </ul>

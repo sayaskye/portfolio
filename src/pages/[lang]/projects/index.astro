@@ -65,10 +65,10 @@ const seo: SEOMetadata = {
         </div>
         <div class="flex gap-2">
           <div class="flex rounded-lg border border-(--border-color) bg-(--bg-secondary) p-1">
-            <button class="text-primary rounded bg-(--bg-primary) p-2 shadow-sm">
+            <button class="text-primary cursor-pointer rounded bg-(--bg-primary) p-2 shadow-sm">
               <span class="material-symbols-outlined">grid_view</span>
             </button>
-            <button class="p-2 text-(--text-secondary) hover:text-(--text-secondary)">
+            <button class="cursor-pointer p-2 text-(--text-secondary) hover:text-(--text-secondary)">
               <span class="material-symbols-outlined">view_list</span>
             </button>
           </div>
@@ -81,17 +81,17 @@ const seo: SEOMetadata = {
       class="no-scrollbar mb-10 flex gap-3 overflow-x-auto border-b border-(--border-color) pb-8"
     >
       <button
-        class="bg-primary text-on-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
+        class="bg-primary text-on-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
       >
         {t('projects.page.all')}
       </button>
       <button
-        class="hover:border-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+        class="hover:border-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
       >
         {t('projects.page.filter_distributed')}
       </button>
       <button
-        class="hover:border-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+        class="hover:border-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
       >
         {t('projects.page.filter_cloud')}
       </button>

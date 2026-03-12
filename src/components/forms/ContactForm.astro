@@ -10,7 +10,20 @@ const { lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 ---
 
-<form id="contact-form" class="space-y-4">
+<form
+  id="contact-form"
+  class="space-y-4"
+  data-msg-success={t('contact.form.success')}
+  data-msg-error={t('contact.form.error')}
+  data-msg-sending={t('contact.form.sending')}
+  data-msg-required={t('contact.form.validation.required')}
+  data-msg-invalid-email={t('contact.form.validation.invalidEmail')}
+  data-msg-fix-errors={t('contact.form.validation.fixErrors')}
+  data-msg-throttle-prefix={t('contact.form.validation.throttlePrefix')}
+  data-msg-throttle-suffix={t('contact.form.validation.throttleSuffix')}
+  data-msg-unexpected={t('contact.form.validation.unexpected')}
+  data-msg-submit={t('contact.form.placeholders.submit')}
+>
   <div>
     <label for="contact-name" class="mb-2 block text-sm font-bold text-(--text-primary)">
       {t('contact.form.name')}
@@ -20,7 +33,7 @@ const t = (key: string) => getTranslation(key, lang);
       id="contact-name"
       name="name"
       required
-      placeholder="John Doe"
+      placeholder={t('contact.form.placeholders.name')}
       class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"
     />
@@ -36,7 +49,7 @@ const t = (key: string) => getTranslation(key, lang);
       id="contact-email"
       name="email"
       required
-      placeholder="john@example.com"
+      placeholder={t('contact.form.placeholders.email')}
       class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"
     />
@@ -52,7 +65,7 @@ const t = (key: string) => getTranslation(key, lang);
       name="message"
       rows="4"
       required
-      placeholder="Tell me about your project..."
+      placeholder={t('contact.form.placeholders.message')}
       class="w-full resize-y rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
       aria-required="true"></textarea>
     <span id="message-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
@@ -61,7 +74,7 @@ const t = (key: string) => getTranslation(key, lang);
   <button
     type="submit"
     id="contact-submit"
-    class="w-full rounded-lg bg-primary py-4 text-base font-bold text-on-primary transition-opacity hover:opacity-90"
+    class="w-full cursor-pointer rounded-lg bg-primary py-4 text-base font-bold text-on-primary transition-opacity hover:opacity-90"
   >
     {t('common.actions.submit')}
   </button>
@@ -83,6 +96,20 @@ const t = (key: string) => getTranslation(key, lang);
   const messageError = document.getElementById('message-error') as HTMLSpanElement;
   const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
 
+  // Get translations from data attributes
+  const translations = {
+    success: form.dataset.msgSuccess || '',
+    error: form.dataset.msgError || '',
+    sending: form.dataset.msgSending || '',
+    required: form.dataset.msgRequired || '',
+    invalidEmail: form.dataset.msgInvalidEmail || '',
+    fixErrors: form.dataset.msgFixErrors || '',
+    throttlePrefix: form.dataset.msgThrottlePrefix || '',
+    throttleSuffix: form.dataset.msgThrottleSuffix || '',
+    unexpected: form.dataset.msgUnexpected || '',
+    submit: form.dataset.msgSubmit || '',
+  };
+
   let lastSubmitTime = 0;
   const THROTTLE_DURATION = 60000;
 
@@ -92,15 +119,15 @@ const t = (key: string) => getTranslation(key, lang);
   ): boolean {
     const value = input.value.trim();
     if (!value) {
-      errorElement.textContent = 'This field is required';
+      errorElement.textContent = translations.required;
       errorElement.classList.remove('hidden');
       input.setAttribute('aria-invalid', 'true');
       return false;
     }
-    if (input.type === 'email') {
+    if (input instanceof HTMLInputElement && input.type === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
-        errorElement.textContent = 'Please enter a valid email address';
+        errorElement.textContent = translations.invalidEmail;
         errorElement.classList.remove('hidden');
         input.setAttribute('aria-invalid', 'true');
         return false;
@@ -134,41 +161,41 @@ const t = (key: string) => getTranslation(key, lang);
     messageDiv.classList.add('hidden');
 
     if (!validateForm()) {
-      showMessage('Please fix the errors above', 'error');
+      showMessage(translations.fixErrors, 'error');
       return;
     }
 
     const now = Date.now();
     if (now - lastSubmitTime < THROTTLE_DURATION) {
       const remaining = Math.ceil((THROTTLE_DURATION - (now - lastSubmitTime)) / 1000);
-      showMessage(`Please wait ${remaining} seconds before submitting again`, 'error');
+      showMessage(`${translations.throttlePrefix} ${remaining} ${translations.throttleSuffix}`, 'error');
       return;
     }
 
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    submitBtn.textContent = translations.sending;
 
     try {
       const adapter = createFormAdapter();
       const data: FormSubmission = {
-        name: (document.getElementById('contact-name') as HTMLInputElement).value,
-        email: (document.getElementById('contact-email') as HTMLInputElement).value,
-        message: (document.getElementById('contact-message') as HTMLTextAreaElement).value,
+        name: nameInput.value,
+        email: emailInput.value,
+        message: messageInput.value,
       };
       const response = await adapter.submit(data);
       if (response.success) {
         lastSubmitTime = now;
         form.reset();
-        showMessage('Message sent successfully!', 'success');
+        showMessage(translations.success, 'success');
       } else {
-        showMessage('Failed to send message. Please try again.', 'error');
+        showMessage(translations.error, 'error');
       }
     } catch {
-      showMessage('An unexpected error occurred. Please try again.', 'error');
+      showMessage(translations.unexpected, 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = originalText || 'Submit';
+      submitBtn.textContent = originalText || translations.submit;
     }
   }
 
