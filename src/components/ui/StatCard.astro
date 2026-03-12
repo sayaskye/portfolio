@@ -1,0 +1,32 @@
+---
+interface Props {
+  value?: string;
+  label: string;
+  icon?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+}
+
+const { value, label, icon, variant = 'ghost' } = Astro.props;
+
+const variantClasses = {
+  primary: 'border-primary/20 bg-primary/10',
+  secondary: 'border-secondary/20 bg-secondary/10',
+  ghost: 'bg-(--bg-secondary)',
+};
+
+const textClasses = {
+  primary: 'text-primary',
+  secondary: 'text-secondary',
+  ghost: 'text-(--text-secondary)',
+};
+---
+
+<div
+  class={`flex aspect-square flex-col items-center justify-center rounded-2xl p-8 text-center border transition-all ${variantClasses[variant]}`}
+>
+  {icon && <span class={`material-symbols-outlined mb-2 text-4xl ${textClasses[variant]}`}>{icon}</span>}
+  {value && <span class={`${textClasses[variant]} text-4xl font-bold`}>{value}</span>}
+  <span class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
+    {label}
+  </span>
+</div>

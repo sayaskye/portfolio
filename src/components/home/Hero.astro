@@ -1,0 +1,74 @@
+---
+import { getTranslation } from '@/i18n';
+import StatItem from '@/components/ui/StatItem.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+---
+
+<section class="relative overflow-hidden py-24 lg:py-32" id="home">
+  <div class="absolute inset-0 -z-10 opacity-20">
+    <div class="bg-primary absolute top-0 right-0 h-96 w-96 rounded-full blur-[120px]"></div>
+    <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]">
+    </div>
+  </div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="space-y-8">
+        <div>
+          <span
+            class="bg-primary/10 text-primary border-primary/20 mb-4 inline-block rounded-full border px-3 py-1 text-xs font-bold tracking-wider uppercase"
+          >
+            {t('home.hero.badge')}
+          </span>
+          <h1 class="text-5xl leading-tight font-bold tracking-tight lg:text-7xl">
+            {t('home.hero.title')}
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
+            {t('home.hero.subtitle')}
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a
+            class="bg-primary text-on-primary hover:shadow-primary/20 inline-flex items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
+            href={`/${lang}/projects/`}
+          >
+            {t('home.hero.cta_primary')}
+          </a>
+          <a
+            class="inline-flex items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
+            href={`/${lang}/contact/`}
+          >
+            {t('home.hero.cta_secondary')}
+          </a>
+        </div>
+        <div class="flex items-center gap-6 pt-4 text-(--text-secondary)">
+          <StatItem value="12+" label={t('home.hero.stat_years')} />
+          <div class="h-10 w-px bg-(--border-color)"></div>
+          <StatItem value="40+" label={t('home.hero.stat_shipped')} />
+          <div class="h-10 w-px bg-(--border-color)"></div>
+          <StatItem value="500k+" label={t('home.hero.stat_users')} />
+        </div>
+      </div>
+      <div class="group relative">
+        <div
+          class="from-primary to-secondary absolute -inset-1 rounded-xl bg-linear-to-r opacity-25 blur transition duration-1000 group-hover:opacity-50"
+        >
+        </div>
+        <div
+          class="relative aspect-square overflow-hidden rounded-xl bg-(--bg-secondary) shadow-2xl"
+        >
+          <img
+            class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+            alt="Professional software engineer developer workspace setup"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zNe3huMkPms8Lf5lDIgJkK0N2rlx5Dm8UB7xzdfbo31SudDxEQamEjIRpHZV4WpSdCYzl46hMfxz1gIL17u1gmso_PrEeoZWEhAAy_49L9ufkTvrJ5-blBePFD1NhMJLxjexKT9-OJlYHLbv9jd_UqN_FXZISW4-uuuxwLwoyobjSLAsUajUd1GWBgttRLthSqj7dAPmRDX-mS6c3v6z9cXxZ-pWckU4w-aLyi3EkkZp7-E0YDDmXAhkyDBNiKRMFsW2Y9Xtdho"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+---
+import { getTranslation } from '@/i18n';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import Milestone from '@/components/home/Milestone.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+---
+
+<section class="py-24" id="experience">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-16 lg:grid-cols-3">
+      <div>
+        <SectionHeader 
+          eyebrow={t('home.experience.eyebrow')}
+          title={t('home.experience.title')}
+          className="mb-6"
+        />
+        <p class="mb-8 leading-relaxed text-(--text-secondary)">
+          {t('home.experience.subtitle')}
+        </p>
+        <!-- Key Achievement callout -->
+        <div class="border-primary/20 bg-primary/5 rounded-xl border p-6">
+          <h5 class="text-primary mb-2 flex items-center gap-2 font-bold">
+            <span class="material-symbols-outlined text-xl">award_star</span>
+            {t('home.experience.achievement_title')}
+          </h5>
+          <p class="text-sm text-(--text-secondary) italic">
+            {t('home.experience.achievement_desc')}
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-(--bg-secondary) md:before:ml-[2.4rem] lg:col-span-2"
+      >
+        <Milestone 
+          date={t('home.experience.date1')}
+          role={t('home.experience.role1')}
+          company={t('home.experience.company1')}
+          icon="corporate_fare"
+          variant="primary"
+        />
+        
+        <Milestone 
+          date={t('home.experience.date2')}
+          role={t('home.experience.role2')}
+          company={t('home.experience.company2')}
+          icon="terminal"
+          variant="secondary"
+        />
+      </div>
+    </div>
+  </div>
+</section>

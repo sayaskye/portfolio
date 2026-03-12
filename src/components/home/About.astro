@@ -1,0 +1,81 @@
+---
+import { getTranslation } from '@/i18n';
+import SectionHeader from '@/components/ui/SectionHeader.astro';
+import FeatureItem from '@/components/ui/FeatureItem.astro';
+import StatCard from '@/components/ui/StatCard.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+---
+
+<section class="overflow-hidden bg-(--bg-primary) py-24" id="about">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center gap-16 lg:flex-row">
+      <!-- Left: Text -->
+      <div class="relative lg:w-1/2">
+        <div class="bg-primary/20 absolute top-0 -left-10 h-72 w-72 rounded-full blur-[100px]">
+        </div>
+        
+        <SectionHeader 
+          eyebrow={t('home.about.eyebrow')}
+          title={t('home.about.quote')}
+          className="mb-8 italic"
+        />
+
+        <div class="space-y-6 leading-relaxed text-(--text-secondary)">
+          <p>
+            {t('home.about.p1')}
+          </p>
+          <p>
+            {t('home.about.p2')}
+          </p>
+        </div>
+        
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <FeatureItem 
+            icon="psychology"
+            title={t('home.about.item1_title')}
+            description={t('home.about.item1_desc')}
+          />
+          <FeatureItem 
+            icon="groups"
+            title={t('home.about.item2_title')}
+            description={t('home.about.item2_desc')}
+          />
+        </div>
+      </div>
+
+      <!-- Right: Stat grid -->
+      <div class="grid grid-cols-2 gap-4 lg:w-1/2">
+        <div class="space-y-4">
+          <StatCard 
+            variant="primary"
+            value={t('home.about.stat1_val')}
+            label={t('home.about.stat1_label')}
+          />
+          <StatCard 
+            icon="cloud_done"
+            value={t('home.about.stat2_val')}
+            label={t('home.about.stat2_label')}
+          />
+        </div>
+        <div class="space-y-4 pt-12">
+          <StatCard 
+            icon="security"
+            value={t('home.about.stat3_val')}
+            label={t('home.about.stat3_label')}
+          />
+          <StatCard 
+            variant="secondary"
+            value={t('home.about.stat4_val')}
+            label={t('home.about.stat4_label')}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
