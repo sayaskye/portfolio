@@ -11,6 +11,7 @@ github: https://github.com/example/distributed-cache
 demo: https://cache-demo.example.dev
 language: es
 id: distributed-cache
+category: Distributed
 ---
 
 ## Resumen

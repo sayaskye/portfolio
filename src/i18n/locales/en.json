@@ -90,6 +90,8 @@
       "all": "All Projects",
       "filter_distributed": "Distributed Systems",
       "filter_cloud": "Cloud Native",
+      "filter_frontend": "Frontend",
+      "filter_data": "Data Engineering",
       "featured_label": "Featured Architecture",
       "view_case_study": "View",
       "source": "Source",
@@ -111,6 +113,9 @@
       "all_posts": "All Posts",
       "cat_architecture": "Architecture",
       "cat_devops": "DevOps",
+      "cat_general": "General Insights",
+      "cat_distributed": "Distributed",
+      "cat_cloud": "Cloud",
       "read_more": "Read Full Article",
       "empty": "No blog posts found for this language."
     },

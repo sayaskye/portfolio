@@ -29,8 +29,19 @@ const sortedProjects = projects.sort(
   (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
 );
 
+// Get unique categories for filtering, skip missing ones
+const categories = [...new Set(sortedProjects.map((p) => p.data.category).filter(Boolean))];
+
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
+
+// Map normalized category keys to translation keys
+const categoryLabels: Record<string, string> = {
+  distributed: 'projects.page.filter_distributed',
+  cloud: 'projects.page.filter_cloud',
+  frontend: 'projects.page.filter_frontend',
+  data: 'projects.page.filter_data',
+};
 
 const seo: SEOMetadata = {
   title: t('common.nav.projects'),
@@ -71,36 +82,40 @@ const seo: SEOMetadata = {
     <!-- Filters -->
     <div
       class="no-scrollbar mb-10 flex gap-3 overflow-x-auto border-b border-(--border-color) pb-8"
+      id="filter-container"
     >
       <button
-        class="bg-primary text-on-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
+        data-filter="all"
+        class="filter-btn bg-primary text-on-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold transition-all"
       >
         {t('projects.page.all')}
       </button>
-      <button
-        class="hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
-      >
-        {t('projects.page.filter_distributed')}
-      </button>
-      <button
-        class="hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
-      >
-        {t('projects.page.filter_cloud')}
-      </button>
+      {
+        categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all"
+          >
+            {t(categoryLabels[cat.toLowerCase()] || `projects.page.filter_${cat.toLowerCase()}`)}
+          </button>
+        ))
+      }
     </div>
 
     <!-- Featured Highlight Section -->
-    {
-      sortedProjects
-        .filter((p) => p.data.featured)
-        .slice(0, 1)
-        .map((featuredProject) => <FeaturedProjectHero project={featuredProject} lang={lang} />)
-    }
+    <div id="featured-section">
+      {
+        sortedProjects
+          .filter((p) => p.data.featured)
+          .slice(0, 1)
+          .map((featuredProject) => <FeaturedProjectHero project={featuredProject} lang={lang} />)
+      }
+    </div>
 
     <!-- Projects Grid -->
     {
       sortedProjects.length > 0 ? (
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div id="projects-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {sortedProjects.map((project) => (
             <ProjectGridCard project={project} lang={lang} />
           ))}
@@ -112,6 +127,61 @@ const seo: SEOMetadata = {
       )
     }
   </main>
+
+  <script>
+    function setupFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+      const featuredSection = document.getElementById('featured-section');
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update buttons UI
+          filterBtns.forEach((b) => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+            b.classList.add(
+              'bg-(--bg-secondary)',
+              'text-(--text-secondary)',
+              'font-medium',
+              'border',
+              'border-(--border-color)'
+            );
+          });
+          btn.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+          btn.classList.remove(
+            'bg-(--bg-secondary)',
+            'text-(--text-secondary)',
+            'font-medium',
+            'border',
+            'border-(--border-color)'
+          );
+
+          // Filter projects
+          projectCards.forEach((card) => {
+            const category = card.getAttribute('data-category')?.toLowerCase();
+            const activeFilter = filter?.toLowerCase();
+            if (activeFilter === 'all' || category === activeFilter) {
+              (card as HTMLElement).style.display = 'flex';
+            } else {
+              (card as HTMLElement).style.display = 'none';
+            }
+          });
+
+          // Show/Hide featured section only on 'all'
+          if (featuredSection) {
+            featuredSection.style.display = filter === 'all' ? 'block' : 'none';
+          }
+        });
+      });
+    }
+
+    // Initial setup
+    setupFilters();
+    // Re-run on View Transitions
+    document.addEventListener('astro:page-load', setupFilters);
+  </script>
 
   <Footer lang={lang} />
 </BaseLayout>

@@ -9,6 +9,7 @@ image:
   alt: 'Dashboard de observabilidad con métricas y trazas'
 language: es
 id: observability-in-practice
+category: Cloud
 ---
 
 ## Los Tres Pilares No Son Suficientes

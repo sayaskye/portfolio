@@ -15,6 +15,7 @@ const projectSchema = z.object({
   github: z.string().url().optional(),
   demo: z.string().url().optional(),
   language: z.string(),
+  category: z.string(),
   id: z.string(),
 });
 
@@ -38,6 +39,7 @@ const blogSchema = z.object({
     })
     .optional(),
   language: z.string(),
+  category: z.string(),
   id: z.string(),
 });
 

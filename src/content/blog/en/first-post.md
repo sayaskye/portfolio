@@ -5,6 +5,7 @@ publishDate: '2026-03-08'
 tags: ['Tech', 'Portfolio']
 language: 'en'
 id: 'first-post'
+category: General
 image:
   src: 'https://placehold.co/800x400/10B981/ffffff?text=First+Post'
   alt: 'First post banner'

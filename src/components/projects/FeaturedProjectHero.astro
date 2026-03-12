@@ -24,11 +24,16 @@ const slug = project.slug.replace(`${lang}/`, '');
     class="group relative flex h-auto min-h-100 flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-secondary) lg:flex-row"
   >
     <div class="relative z-10 flex flex-col justify-center p-8 lg:w-1/2 lg:p-12">
-      <div
-        class="bg-primary/20 text-primary mb-6 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase"
-      >
-        <Icon name="bolt" class="size-4" />
-        {t('home.featured_projects.spotlight')}
+      <div class="mb-6 flex items-center gap-3">
+        <div
+          class="bg-primary/20 text-primary inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase"
+        >
+          <Icon name="bolt" class="size-4" />
+          {t('home.featured_projects.spotlight')}
+        </div>
+        <span class="text-(--text-secondary) text-xs font-bold tracking-widest uppercase">
+          {project.data.category}
+        </span>
       </div>
       <h3
         class="group-hover:text-primary mb-4 text-3xl font-black text-(--text-primary) transition-colors md:text-4xl"

@@ -10,6 +10,7 @@ image:
 github: https://github.com/example/stream-pipeline
 language: es
 id: stream-pipeline
+category: Data
 ---
 
 ## Resumen

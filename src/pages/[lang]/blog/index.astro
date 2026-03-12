@@ -27,8 +27,21 @@ const sortedBlogs = blogs.sort(
   (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
 );
 
+// Get unique categories for filtering, skipping undefined
+const categories = [...new Set(sortedBlogs.map((b) => b.data.category).filter(Boolean))];
+
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
+
+// Normalize keys to lowercase
+// Normalize keys to lowercase for robust lookup
+const categoryLabels: Record<string, string> = {
+  architecture: 'blog.page.cat_architecture',
+  devops: 'blog.page.cat_devops',
+  general: 'blog.page.cat_general',
+  distributed: 'blog.page.cat_distributed',
+  cloud: 'blog.page.cat_cloud',
+};
 
 const seo: SEOMetadata = {
   title: t('common.nav.blog'),
@@ -48,7 +61,7 @@ const seo: SEOMetadata = {
   <main class="mx-auto w-full max-w-7xl px-6 py-12">
     <!-- Feed Title -->
     <div class="mb-10 flex flex-col gap-4">
-      <h1 class="text-5xl font-bold tracking-tight text-(--text-primary)">
+      <h1 class="text-5xl font-bold tracking-tight text-(--text-primary) md:text-6xl">
         {t('blog.page.title')}
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
@@ -57,26 +70,30 @@ const seo: SEOMetadata = {
     </div>
 
     <!-- Categories Filter -->
-    <div class="scrollbar-hide mb-12 flex gap-3 overflow-x-auto pb-2">
+    <div
+      class="no-scrollbar mb-12 flex gap-3 overflow-x-auto border-b border-(--border-color) pb-8"
+      id="filter-container"
+    >
       <button
-        class="bg-primary text-on-primary shadow-primary/10 flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full px-5 text-sm font-bold shadow-lg transition-all"
+        data-filter="all"
+        class="filter-btn bg-primary text-on-primary shadow-primary/10 flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full px-5 text-sm font-bold shadow-lg transition-all"
       >
         {t('blog.page.all_posts')}
       </button>
-      <button
-        class="flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all hover:bg-(--bg-secondary)"
-      >
-        {t('blog.page.cat_architecture')}
-      </button>
-      <button
-        class="flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all hover:bg-(--bg-secondary)"
-      >
-        {t('blog.page.cat_devops')}
-      </button>
+      {
+        categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all"
+          >
+            {t(categoryLabels[cat.toLowerCase()] || `blog.page.cat_${cat.toLowerCase()}`)}
+          </button>
+        ))
+      }
     </div>
 
     <!-- Blog Posts List -->
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-16" id="blog-grid">
       {
         sortedBlogs.length > 0 ? (
           sortedBlogs.map((blog, idx) => <BlogCard blog={blog} lang={lang} isFirst={idx === 0} />)
@@ -88,6 +105,51 @@ const seo: SEOMetadata = {
       }
     </div>
   </main>
+
+  <script>
+    function setupFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const blogCards = document.querySelectorAll('.blog-card');
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update buttons UI
+          filterBtns.forEach((b) => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'font-bold');
+            b.classList.add('bg-(--bg-secondary)', 'text-(--text-secondary)', 'font-medium');
+          });
+          btn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'font-bold');
+          btn.classList.remove('bg-(--bg-secondary)', 'text-(--text-secondary)', 'font-medium');
+
+          // Filter blogs
+          let firstVisible = true;
+          blogCards.forEach((card) => {
+            const category = card.getAttribute('data-category')?.toLowerCase();
+            const activeFilter = filter?.toLowerCase();
+            const htmlCard = card as HTMLElement;
+            if (activeFilter === 'all' || category === activeFilter) {
+              htmlCard.style.display = 'grid';
+              if (firstVisible) {
+                htmlCard.classList.remove('border-t', 'border-(--border-color)', 'pt-16');
+                firstVisible = false;
+              } else {
+                htmlCard.classList.add('border-t', 'border-(--border-color)', 'pt-16');
+              }
+            } else {
+              htmlCard.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // Initial setup
+    setupFilters();
+    // Re-run on View Transitions
+    document.addEventListener('astro:page-load', setupFilters);
+  </script>
 
   <Footer lang={lang} />
 </BaseLayout>

@@ -15,7 +15,8 @@ const slug = blog.slug.replace(`${lang}/`, '');
 ---
 
 <article
-  class={`group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
+  class={`blog-card group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
+  data-category={blog.data.category}
 >
   <div class="overflow-hidden rounded-xl md:col-span-4">
     {
@@ -36,7 +37,14 @@ const slug = blog.slug.replace(`${lang}/`, '');
     }
   </div>
   <div class="flex flex-col gap-3 md:col-span-8">
-    <div class="text-primary flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+    <div class="text-primary flex flex-wrap items-center gap-3 text-xs font-bold tracking-widest uppercase">
+      {
+        blog.data.category && (
+          <span class="bg-primary/10 rounded-full px-2 py-0.5 text-[10px]">
+            {blog.data.category}
+          </span>
+        )
+      }
       <span>
         {
           blog.data.publishDate.toLocaleDateString(lang, {

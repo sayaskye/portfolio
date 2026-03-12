@@ -11,6 +11,7 @@ github: https://github.com/example/weather-dashboard
 demo: https://weather-dashboard-demo.netlify.app
 language: es
 id: weather-dashboard
+category: Frontend
 ---
 
 ## Descripción del Proyecto

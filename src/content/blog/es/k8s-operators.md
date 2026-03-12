@@ -9,6 +9,7 @@ image:
   alt: 'Diagrama del loop de control de Kubernetes operator'
 language: es
 id: k8s-operators
+category: Cloud
 ---
 
 ## ¿Por Qué Escribir un Operator?

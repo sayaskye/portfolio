@@ -90,6 +90,8 @@
       "all": "Todos los Proyectos",
       "filter_distributed": "Sistemas Distribuidos",
       "filter_cloud": "Nativo de la Nube",
+      "filter_frontend": "Frontend",
+      "filter_data": "Ingeniería de Datos",
       "featured_label": "Arquitectura Destacada",
       "view_case_study": "Ver",
       "source": "Fuente",
@@ -111,6 +113,9 @@
       "all_posts": "Todos los Posts",
       "cat_architecture": "Arquitectura",
       "cat_devops": "DevOps",
+      "cat_general": "Perspectivas Generales",
+      "cat_distributed": "Distribuido",
+      "cat_cloud": "Cloud",
       "read_more": "Leer Artículo Completo",
       "empty": "No se encontraron publicaciones para este idioma."
     },

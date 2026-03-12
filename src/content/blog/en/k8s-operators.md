@@ -9,6 +9,7 @@ image:
   alt: 'Kubernetes operator control loop diagram'
 language: en
 id: k8s-operators
+category: Cloud
 ---
 
 ## Why Write an Operator?

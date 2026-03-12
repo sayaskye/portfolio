@@ -18,7 +18,8 @@ const imgSrc = project.data.image ? project.data.image.src : defaultImage;
 ---
 
 <div
-  class="group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all"
+  class="project-card group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all"
+  data-category={project.data.category}
 >
   <div class="relative h-48 overflow-hidden bg-(--bg-secondary)">
     <div class="absolute inset-0 flex items-center justify-center">
@@ -37,7 +38,10 @@ const imgSrc = project.data.image ? project.data.image.src : defaultImage;
     </a>
   </div>
   <div class="flex flex-1 flex-col p-6">
-    <div class="mb-3 flex items-start justify-between">
+    <div class="mb-3 flex flex-col gap-2">
+      <span class="text-primary w-fit text-[10px] font-black tracking-widest uppercase">
+        {project.data.category}
+      </span>
       <h3
         class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors"
       >
