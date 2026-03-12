@@ -123,6 +123,7 @@
     "form": {
       "name": "Nombre",
       "email": "Correo electrónico",
+      "subject": "Asunto",
       "message": "Mensaje",
       "success": "¡Mensaje enviado con éxito!",
       "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
@@ -131,6 +132,7 @@
       "placeholders": {
         "name": "Juan Pérez",
         "email": "juan@ejemplo.com",
+        "subject": "Asunto",
         "message": "Cuéntame sobre tu proyecto...",
         "submit": "Enviar"
       },

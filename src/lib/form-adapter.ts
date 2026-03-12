@@ -2,6 +2,8 @@ export interface FormSubmission {
   name: string;
   email: string;
   message: string;
+  subject: string;
+  [key: string]: string;
 }
 
 export interface FormResponse {
@@ -23,6 +25,7 @@ class FormspreeAdapter implements FormAdapter {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify(data),
       });
@@ -34,10 +37,11 @@ class FormspreeAdapter implements FormAdapter {
         };
       }
 
+      const errorData = await response.json();
       return {
         success: false,
         message: 'Form submission failed',
-        error: `HTTP ${response.status}`,
+        error: errorData.error || `HTTP ${response.status}`,
       };
     } catch (error) {
       return {
@@ -50,7 +54,7 @@ class FormspreeAdapter implements FormAdapter {
 }
 
 export function createFormAdapter(): FormAdapter {
-  const formId = import.meta.env.PUBLIC_FORMSPREE_ID;
+  const formId = 'meqvqpka';
   if (!formId) {
     throw new Error('PUBLIC_FORMSPREE_ID environment variable is required');
   }

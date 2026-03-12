@@ -123,6 +123,7 @@
     "form": {
       "name": "Name",
       "email": "Email",
+      "subject": "Subject",
       "message": "Message",
       "success": "Message sent successfully!",
       "error": "Failed to send message. Please try again.",
@@ -131,6 +132,7 @@
       "placeholders": {
         "name": "John Doe",
         "email": "john@example.com",
+        "subject": "Subject",
         "message": "Tell me about your project...",
         "submit": "Submit"
       },

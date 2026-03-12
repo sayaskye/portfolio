@@ -1,5 +1,4 @@
 ---
-// ContactForm component - handles contact form submission with validation and throttling
 import { getTranslation } from '@/i18n';
 
 interface Props {
@@ -23,6 +22,7 @@ const t = (key: string) => getTranslation(key, lang);
   data-msg-throttle-suffix={t('contact.form.validation.throttleSuffix')}
   data-msg-unexpected={t('contact.form.validation.unexpected')}
   data-msg-submit={t('contact.form.placeholders.submit')}
+  novalidate
 >
   <div>
     <label for="contact-name" class="mb-2 block text-sm font-bold text-(--text-primary)">
@@ -34,7 +34,7 @@ const t = (key: string) => getTranslation(key, lang);
       name="name"
       required
       placeholder={t('contact.form.placeholders.name')}
-      class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) transition-all outline-none placeholder:text-(--text-muted) focus:ring-1"
       aria-required="true"
     />
     <span id="name-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
@@ -50,10 +50,26 @@ const t = (key: string) => getTranslation(key, lang);
       name="email"
       required
       placeholder={t('contact.form.placeholders.email')}
-      class="w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) transition-all outline-none placeholder:text-(--text-muted) focus:ring-1"
       aria-required="true"
     />
     <span id="email-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
+  </div>
+
+  <div>
+    <label for="contact-subject" class="mb-2 block text-sm font-bold text-(--text-primary)">
+      {t('contact.form.subject')}
+    </label>
+    <input
+      type="text"
+      id="contact-subject"
+      name="subject"
+      required
+      placeholder={t('contact.form.placeholders.subject')}
+      class="focus:border-primary focus:ring-primary/20 w-full rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) transition-all outline-none placeholder:text-(--text-muted) focus:ring-1"
+      aria-required="true"
+    />
+    <span id="subject-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
   </div>
 
   <div>
@@ -66,15 +82,17 @@ const t = (key: string) => getTranslation(key, lang);
       rows="4"
       required
       placeholder={t('contact.form.placeholders.message')}
-      class="w-full resize-y rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) placeholder:text-(--text-muted) outline-none transition-all focus:border-primary focus:ring-1 focus:ring-primary/20"
+      class="focus:border-primary focus:ring-primary/20 w-full resize-y rounded-lg border border-(--border-color) bg-(--bg-secondary) px-4 py-3 text-(--text-primary) transition-all outline-none placeholder:text-(--text-muted) focus:ring-1"
       aria-required="true"></textarea>
     <span id="message-error" class="mt-1 hidden text-sm text-red-500" role="alert"></span>
   </div>
 
+  <input type="text" name="_gotcha" style="display:none" />
+
   <button
     type="submit"
     id="contact-submit"
-    class="w-full cursor-pointer rounded-lg bg-primary py-4 text-base font-bold text-on-primary transition-opacity hover:opacity-90"
+    class="bg-primary text-on-primary w-full cursor-pointer rounded-lg py-4 text-base font-bold transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
   >
     {t('common.actions.submit')}
   </button>
@@ -86,123 +104,103 @@ const t = (key: string) => getTranslation(key, lang);
   import { createFormAdapter } from '@/lib/form-adapter';
   import type { FormSubmission } from '@/lib/form-adapter';
 
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
-  const nameInput = document.getElementById('contact-name') as HTMLInputElement;
-  const emailInput = document.getElementById('contact-email') as HTMLInputElement;
-  const messageInput = document.getElementById('contact-message') as HTMLTextAreaElement;
-  const nameError = document.getElementById('name-error') as HTMLSpanElement;
-  const emailError = document.getElementById('email-error') as HTMLSpanElement;
-  const messageError = document.getElementById('message-error') as HTMLSpanElement;
-  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
+  function initContactForm(form: HTMLFormElement) {
+    const messageDiv = form.querySelector('#form-message') as HTMLDivElement;
+    const submitBtn = form.querySelector('#contact-submit') as HTMLButtonElement;
 
-  // Get translations from data attributes
-  const translations = {
-    success: form.dataset.msgSuccess || '',
-    error: form.dataset.msgError || '',
-    sending: form.dataset.msgSending || '',
-    required: form.dataset.msgRequired || '',
-    invalidEmail: form.dataset.msgInvalidEmail || '',
-    fixErrors: form.dataset.msgFixErrors || '',
-    throttlePrefix: form.dataset.msgThrottlePrefix || '',
-    throttleSuffix: form.dataset.msgThrottleSuffix || '',
-    unexpected: form.dataset.msgUnexpected || '',
-    submit: form.dataset.msgSubmit || '',
-  };
+    const inputs = Array.from(
+      form.querySelectorAll('input[id^="contact-"], textarea[id^="contact-"]')
+    ) as (HTMLInputElement | HTMLTextAreaElement)[];
 
-  let lastSubmitTime = 0;
-  const THROTTLE_DURATION = 60000;
+    const t = form.dataset;
+    let lastSubmitTime = 0;
+    const THROTTLE_DURATION = 60000;
 
-  function validateField(
-    input: HTMLInputElement | HTMLTextAreaElement,
-    errorElement: HTMLSpanElement
-  ): boolean {
-    const value = input.value.trim();
-    if (!value) {
-      errorElement.textContent = translations.required;
-      errorElement.classList.remove('hidden');
-      input.setAttribute('aria-invalid', 'true');
-      return false;
-    }
-    if (input instanceof HTMLInputElement && input.type === 'email') {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        errorElement.textContent = translations.invalidEmail;
+    const getErrorElement = (input: HTMLElement) =>
+      form.querySelector(`#${input.id.replace('contact-', '')}-error`) as HTMLSpanElement;
+
+    const validateField = (input: HTMLInputElement | HTMLTextAreaElement): boolean => {
+      const errorElement = getErrorElement(input);
+      if (!errorElement) return true;
+
+      if (!input.checkValidity()) {
+        errorElement.textContent =
+          input.type === 'email' && input.value ? t.msgInvalidEmail || '' : t.msgRequired || '';
         errorElement.classList.remove('hidden');
         input.setAttribute('aria-invalid', 'true');
         return false;
       }
-    }
-    errorElement.classList.add('hidden');
-    input.removeAttribute('aria-invalid');
-    return true;
-  }
+      errorElement.classList.add('hidden');
+      input.removeAttribute('aria-invalid');
+      return true;
+    };
 
-  function validateForm(): boolean {
-    return (
-      validateField(nameInput, nameError) &&
-      validateField(emailInput, emailError) &&
-      validateField(messageInput, messageError)
-    );
-  }
+    const showMessage = (text: string, type: 'success' | 'error') => {
+      messageDiv.textContent = text;
+      messageDiv.className =
+        type === 'success'
+          ? 'p-4 rounded-md bg-green-100 text-green-800'
+          : 'p-4 rounded-md bg-red-100 text-red-800';
+      messageDiv.classList.remove('hidden');
+      messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
 
-  function showMessage(text: string, type: 'success' | 'error') {
-    messageDiv.textContent = text;
-    messageDiv.className =
-      type === 'success'
-        ? 'p-4 rounded-md bg-green-100 text-green-800'
-        : 'p-4 rounded-md bg-red-100 text-red-800';
-    messageDiv.classList.remove('hidden');
-    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+    const handleSubmit = async (e: Event) => {
+      e.preventDefault();
+      messageDiv.classList.add('hidden');
 
-  async function handleSubmit(e: Event) {
-    e.preventDefault();
-    messageDiv.classList.add('hidden');
-
-    if (!validateForm()) {
-      showMessage(translations.fixErrors, 'error');
-      return;
-    }
-
-    const now = Date.now();
-    if (now - lastSubmitTime < THROTTLE_DURATION) {
-      const remaining = Math.ceil((THROTTLE_DURATION - (now - lastSubmitTime)) / 1000);
-      showMessage(`${translations.throttlePrefix} ${remaining} ${translations.throttleSuffix}`, 'error');
-      return;
-    }
-
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = translations.sending;
-
-    try {
-      const adapter = createFormAdapter();
-      const data: FormSubmission = {
-        name: nameInput.value,
-        email: emailInput.value,
-        message: messageInput.value,
-      };
-      const response = await adapter.submit(data);
-      if (response.success) {
-        lastSubmitTime = now;
-        form.reset();
-        showMessage(translations.success, 'success');
-      } else {
-        showMessage(translations.error, 'error');
+      const isFormValid = inputs.every((input) => validateField(input));
+      if (!isFormValid) {
+        showMessage(t.msgFixErrors || '', 'error');
+        return;
       }
-    } catch {
-      showMessage(translations.unexpected, 'error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText || translations.submit;
-    }
+
+      const now = Date.now();
+      if (now - lastSubmitTime < THROTTLE_DURATION) {
+        const remaining = Math.ceil((THROTTLE_DURATION - (now - lastSubmitTime)) / 1000);
+        showMessage(`${t.msgThrottlePrefix} ${remaining} ${t.msgThrottleSuffix}`, 'error');
+        return;
+      }
+
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = t.msgSending || '';
+
+      try {
+        const adapter = createFormAdapter();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries()) as unknown as FormSubmission;
+
+        const response = await adapter.submit(data);
+        if (response.success) {
+          lastSubmitTime = now;
+          form.reset();
+          showMessage(t.msgSuccess || '', 'success');
+        } else {
+          showMessage(t.msgError || '', 'error');
+        }
+      } catch {
+        showMessage(t.msgUnexpected || '', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText || t.msgSubmit || '';
+      }
+    };
+
+    form.addEventListener('submit', handleSubmit);
+    inputs.forEach((input) => {
+      input.addEventListener('blur', () => validateField(input));
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') validateField(input);
+      });
+    });
   }
 
-  form.addEventListener('submit', handleSubmit);
-  nameInput.addEventListener('blur', () => validateField(nameInput, nameError));
-  emailInput.addEventListener('blur', () => validateField(emailInput, emailError));
-  messageInput.addEventListener('blur', () => validateField(messageInput, messageError));
+  const setup = () => {
+    const forms = document.querySelectorAll<HTMLFormElement>('#contact-form');
+    forms.forEach(initContactForm);
+  };
 
-  document.addEventListener('astro:page-load', () => messageDiv.classList.add('hidden'));
+  setup();
+  document.addEventListener('astro:page-load', setup);
 </script>
