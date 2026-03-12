@@ -27,18 +27,25 @@ if (!rawSvg && import.meta.env.DEV) {
 }
 
 // Inline style for custom sizes if provided
-const style = size ? { width: typeof size === 'number' ? `${size}px` : size, height: typeof size === 'number' ? `${size}px` : size } : {};
+const style = size
+  ? {
+      width: typeof size === 'number' ? `${size}px` : size,
+      height: typeof size === 'number' ? `${size}px` : size,
+    }
+  : {};
 ---
 
-{rawSvg ? (
-  <div 
-    class:list={['inline-flex items-center justify-center shrink-0', className]} 
-    style={style}
-    set:html={rawSvg} 
-  />
-) : (
-  <span class="text-xs text-red-500">[Icon:{name}]</span>
-)}
+{
+  rawSvg ? (
+    <div
+      class:list={['inline-flex shrink-0 items-center justify-center', className]}
+      style={style}
+      set:html={rawSvg}
+    />
+  ) : (
+    <span class="text-xs text-red-500">[Icon:{name}]</span>
+  )
+}
 
 <style is:global>
   /* Ensure SVGs inside icons take the full container size and inherit color */
@@ -48,10 +55,9 @@ const style = size ? { width: typeof size === 'number' ? `${size}px` : size, hei
     fill: currentColor;
     display: block;
   }
-  
+
   /* Ensure Tailwind's hidden class works even when inline-flex is present */
   .inline-flex.hidden {
     display: none !important;
   }
 </style>
-

@@ -26,11 +26,7 @@ const textClasses = {
 <div
   class={`flex aspect-square flex-col items-center justify-center rounded-2xl p-8 text-center border transition-all ${variantClasses[variant]}`}
 >
-  {
-    icon && (
-      <Icon name={icon} class={`mb-2 size-10 ${textClasses[variant]}`} />
-    )
-  }
+  {icon && <Icon name={icon} class={`mb-2 size-10 ${textClasses[variant]}`} />}
   {value && <span class={`${textClasses[variant]} text-2xl font-bold md:text-4xl`}>{value}</span>}
 
   <span class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
