@@ -22,7 +22,9 @@ const variantClasses = {
     <span class="material-symbols-outlined md:text-3xl">{icon}</span>
   </div>
   <div>
-    <span class={`${variant === 'primary' ? 'text-primary' : 'text-secondary'} text-xs font-bold tracking-widest uppercase`}>
+    <span
+      class={`${variant === 'primary' ? 'text-primary' : 'text-secondary'} text-xs font-bold tracking-widest uppercase`}
+    >
       {date}
     </span>
     <h4 class="mt-1 text-2xl font-bold">{role}</h4>

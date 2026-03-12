@@ -1,6 +1,6 @@
 ---
-title: "Plataforma Interna de Desarrollo en Kubernetes"
-description: "Una plataforma de autoservicio para desarrolladores construida sobre Kubernetes, que permite a 120+ ingenieros desplegar, escalar y observar servicios de forma autónoma — reduciendo el tiempo de despliegue de 3 días a 12 minutos."
+title: 'Plataforma Interna de Desarrollo en Kubernetes'
+description: 'Una plataforma de autoservicio para desarrolladores construida sobre Kubernetes, que permite a 120+ ingenieros desplegar, escalar y observar servicios de forma autónoma — reduciendo el tiempo de despliegue de 3 días a 12 minutos.'
 publishDate: 2024-06-20
 tags: [Kubernetes, Golang, Terraform, ArgoCD, Backstage, Helm]
 featured: true

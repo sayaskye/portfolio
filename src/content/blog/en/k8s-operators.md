@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Operators: Extending the Control Plane for Fun and Production"
-description: "A practical guide to building production-grade Kubernetes Operators using the controller-runtime framework — from reconciliation loops and informers to leader election and safe upgrades."
+title: 'Kubernetes Operators: Extending the Control Plane for Fun and Production'
+description: 'A practical guide to building production-grade Kubernetes Operators using the controller-runtime framework — from reconciliation loops and informers to leader election and safe upgrades.'
 publishDate: 2024-07-18
 tags: [Kubernetes, Go, Platform Engineering, DevOps]
 featured: false
@@ -16,6 +16,7 @@ id: k8s-operators
 A Kubernetes Operator encodes operational knowledge into software. Instead of a runbook that says "when service X crashes, run these 5 kubectl commands," an operator watches for that state and runs those commands automatically.
 
 The canonical use cases:
+
 - Stateful applications that need ordered lifecycle management (databases, Kafka)
 - Multi-resource workflows where creating one resource should trigger others
 - Automated day-2 operations (backup, scaling policies, rotation)

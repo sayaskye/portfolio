@@ -1,6 +1,6 @@
 ---
-title: "Real-Time Event Streaming Pipeline"
-description: "A fault-tolerant event streaming pipeline processing 12 million events per day using Apache Kafka and Apache Flink, powering real-time analytics dashboards and fraud detection systems."
+title: 'Real-Time Event Streaming Pipeline'
+description: 'A fault-tolerant event streaming pipeline processing 12 million events per day using Apache Kafka and Apache Flink, powering real-time analytics dashboards and fraud detection systems.'
 publishDate: 2024-02-28
 tags: [Apache Kafka, Apache Flink, Java, AWS, PostgreSQL, Grafana]
 featured: false

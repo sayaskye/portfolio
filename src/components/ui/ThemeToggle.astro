@@ -66,10 +66,10 @@ const t = (key: string) => getTranslation(key, lang);
       const themes = getSupportedThemes();
       const currentTheme = getCurrentTheme();
       const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
-      
+
       setTheme(nextTheme);
       // Update ALL toggles on the page
-      document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach(btn => {
+      document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((btn) => {
         const lIcon = btn.querySelector('.theme-icon-light');
         const dIcon = btn.querySelector('.theme-icon-dark');
         if (nextTheme === 'dark') {
@@ -93,4 +93,3 @@ const t = (key: string) => getTranslation(key, lang);
   setup();
   document.addEventListener('astro:page-load', setup);
 </script>
-

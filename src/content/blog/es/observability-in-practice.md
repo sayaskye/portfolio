@@ -1,6 +1,6 @@
 ---
-title: "Observabilidad en Práctica: Más Allá del Logging"
-description: "Cómo construir una stack de observabilidad real usando los tres pilares — métricas, trazas y logs — y por qué la mayoría de los equipos lo están haciendo mal al tratarlos como preocupaciones separadas."
+title: 'Observabilidad en Práctica: Más Allá del Logging'
+description: 'Cómo construir una stack de observabilidad real usando los tres pilares — métricas, trazas y logs — y por qué la mayoría de los equipos lo están haciendo mal al tratarlos como preocupaciones separadas.'
 publishDate: 2024-04-22
 tags: [Observabilidad, OpenTelemetry, Prometheus, Grafana, Arquitectura]
 featured: false

@@ -1,6 +1,6 @@
 ---
-title: "Diseñando para Latencia Sub-Milisegundo en Sistemas Distribuidos"
-description: "Un análisis profundo de los patrones arquitectónicos, consideraciones de hardware y optimizaciones de software que permiten a los sistemas distribuidos lograr latencias p99 consistentes sub-milisegundo a escala."
+title: 'Diseñando para Latencia Sub-Milisegundo en Sistemas Distribuidos'
+description: 'Un análisis profundo de los patrones arquitectónicos, consideraciones de hardware y optimizaciones de software que permiten a los sistemas distribuidos lograr latencias p99 consistentes sub-milisegundo a escala.'
 publishDate: 2024-10-05
 tags: [Sistemas Distribuidos, Arquitectura, Rendimiento, Redes]
 featured: true
@@ -24,8 +24,11 @@ Cada problema tiene causas raíz diferentes y soluciones diferentes.
 ## Los Cuatro Asesinos de Latencia
 
 ### 1. Pausas de Recolección de Basura
+
 ### 2. Contención de Bloqueos
+
 ### 3. Round trips de red
+
 ### 4. Cambios de contexto y planificación
 
 ## Conclusión

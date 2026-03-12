@@ -1,6 +1,6 @@
 ---
-title: "Designing for Sub-Millisecond Latency in Distributed Systems"
-description: "A deep dive into the architectural patterns, hardware considerations, and software optimizations that enable distributed systems to achieve consistent sub-millisecond p99 latencies at scale."
+title: 'Designing for Sub-Millisecond Latency in Distributed Systems'
+description: 'A deep dive into the architectural patterns, hardware considerations, and software optimizations that enable distributed systems to achieve consistent sub-millisecond p99 latencies at scale.'
 publishDate: 2024-10-05
 tags: [Distributed Systems, Architecture, Performance, Networking]
 featured: true
@@ -28,6 +28,7 @@ Each problem has different root causes and different solutions. Most engineers o
 The most common source of tail latency spikes in managed-runtime services. A GC pause in a Go service handling 10,000 concurrent requests causes all of them to stall simultaneously.
 
 **Mitigation strategies:**
+
 - Tune GC pressure by reducing allocation rate (pool objects, avoid escape analysis failures)
 - Use GOGC/GOMEMLIMIT tuning in Go
 - Consider off-heap storage (e.g., RocksDB) for large datasets
@@ -66,6 +67,7 @@ func (c *ShardedCache) shard(key string) *struct {
 Each cross-service call adds at minimum 0.5ms within the same datacenter AZ. Systems that chain 10+ synchronous calls cannot achieve sub-2ms p99 latencies by definition.
 
 **Design patterns that help:**
+
 - **Request collapsing**: batch multiple calls into one
 - **Prefetching**: use async background workers to pre-warm caches
 - **Co-location**: run latency-sensitive services in the same process
@@ -75,6 +77,7 @@ Each cross-service call adds at minimum 0.5ms within the same datacenter AZ. Sys
 At high concurrency, the OS scheduler becomes a bottleneck. A thread waiting on I/O wakes up, but may not get CPU time for milliseconds due to scheduling jitter.
 
 **Solutions:**
+
 - Reduce thread count by using async I/O (Go goroutines, Tokio in Rust)
 - Pin latency-critical threads to dedicated CPU cores (CPU affinity)
 - Use polling mode drivers (DPDK) for network I/O in extreme cases

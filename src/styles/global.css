@@ -3,9 +3,9 @@
 
 @theme {
   --color-primary: oklch(0.42 0.12 252);
-  --color-secondary: oklch(0.55 0.10 210);
+  --color-secondary: oklch(0.55 0.1 210);
   --color-on-primary: oklch(1 0 0);
-  
+
   --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'Fira Code', 'Courier New', monospace;
@@ -69,4 +69,3 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
 }
-

@@ -1,6 +1,6 @@
 ---
-title: "Distributed Cache Layer with Redis & Go"
-description: "A high-throughput distributed caching layer built in Go, reducing p99 database latency by 94% across a fleet of 200+ microservices handling 50,000 req/s at peak load."
+title: 'Distributed Cache Layer with Redis & Go'
+description: 'A high-throughput distributed caching layer built in Go, reducing p99 database latency by 94% across a fleet of 200+ microservices handling 50,000 req/s at peak load.'
 publishDate: 2024-11-10
 tags: [Go, Redis, Kubernetes, gRPC, Prometheus, Terraform]
 featured: true
@@ -52,12 +52,12 @@ func (c *CacheClient) Get(ctx context.Context, key string) ([]byte, error) {
 
 ## Key Results
 
-| Metric | Before | After |
-|---|---|---|
-| p99 DB Query Time | 1,240ms | 72ms |
-| DB Connections at Peak | 4,200 | 310 |
-| Cache Hit Rate | — | 97.3% |
-| Monthly DB Cost | $18,400 | $5,100 |
+| Metric                 | Before  | After  |
+| ---------------------- | ------- | ------ |
+| p99 DB Query Time      | 1,240ms | 72ms   |
+| DB Connections at Peak | 4,200   | 310    |
+| Cache Hit Rate         | —       | 97.3%  |
+| Monthly DB Cost        | $18,400 | $5,100 |
 
 ## Observability
 

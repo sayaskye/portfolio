@@ -1,6 +1,6 @@
 ---
-title: "Observability in Practice: Beyond Logging"
-description: "How to build a true observability stack using the three pillars — metrics, traces, and logs — and why most teams are doing it wrong by treating them as separate concerns instead of a unified system."
+title: 'Observability in Practice: Beyond Logging'
+description: 'How to build a true observability stack using the three pillars — metrics, traces, and logs — and why most teams are doing it wrong by treating them as separate concerns instead of a unified system.'
 publishDate: 2024-04-22
 tags: [Observability, OpenTelemetry, Prometheus, Grafana, Architecture]
 featured: false
@@ -18,6 +18,7 @@ Everyone knows the three pillars: **metrics, traces, logs**. But most teams impl
 The key insight: **a pillar alone is useless. Value comes from correlation.**
 
 When an alert fires on p99 latency, you need to go from:
+
 1. **Metric**: p99 latency spike at 14:23:07
 2. **Trace**: Which trace IDs were affected during that window?
 3. **Log**: What error messages appear in those trace spans?
@@ -68,6 +69,7 @@ Now every log line is linkable to its trace. In Grafana, you can click a spike o
 Most teams alert on symptoms ("CPU > 80%"). Alert on **user impact** instead.
 
 Define an SLO:
+
 ```yaml
 # 99.5% of requests complete in under 500ms, measured over a 28-day rolling window
 name: payments-api-latency

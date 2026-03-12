@@ -15,7 +15,7 @@ const t = (key: string) => getTranslation(key, lang);
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid gap-16 lg:grid-cols-3">
       <div>
-        <SectionHeader 
+        <SectionHeader
           eyebrow={t('home.experience.eyebrow')}
           title={t('home.experience.title')}
           className="mb-6"
@@ -37,15 +37,15 @@ const t = (key: string) => getTranslation(key, lang);
       <div
         class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-(--bg-secondary) md:before:ml-[2.4rem] lg:col-span-2"
       >
-        <Milestone 
+        <Milestone
           date={t('home.experience.date1')}
           role={t('home.experience.role1')}
           company={t('home.experience.company1')}
           icon="corporate_fare"
           variant="primary"
         />
-        
-        <Milestone 
+
+        <Milestone
           date={t('home.experience.date2')}
           role={t('home.experience.role2')}
           company={t('home.experience.company2')}

@@ -1,6 +1,6 @@
 ---
-title: "Capa de Caché Distribuida con Redis y Go"
-description: "Una capa de caché distribuida de alto rendimiento construida en Go, reduciendo la latencia p99 de la base de datos en un 94% en una flota de 200+ microservicios que manejan 50,000 req/s en picos de carga."
+title: 'Capa de Caché Distribuida con Redis y Go'
+description: 'Una capa de caché distribuida de alto rendimiento construida en Go, reduciendo la latencia p99 de la base de datos en un 94% en una flota de 200+ microservicios que manejan 50,000 req/s en picos de carga.'
 publishDate: 2024-11-10
 tags: [Go, Redis, Kubernetes, gRPC, Prometheus, Terraform]
 featured: true
@@ -23,9 +23,9 @@ La plataforma experimentaba fallos en cascada durante los picos de eventos. Cada
 
 ## Resultados Clave
 
-| Métrica | Antes | Después |
-|---|---|---|
-| Tiempo de consulta p99 | 1,240ms | 72ms |
-| Conexiones DB en pico | 4,200 | 310 |
-| Tasa de acierto de caché | — | 97.3% |
-| Costo mensual DB | $18,400 | $5,100 |
+| Métrica                  | Antes   | Después |
+| ------------------------ | ------- | ------- |
+| Tiempo de consulta p99   | 1,240ms | 72ms    |
+| Conexiones DB en pico    | 4,200   | 310     |
+| Tasa de acierto de caché | —       | 97.3%   |
+| Costo mensual DB         | $18,400 | $5,100  |

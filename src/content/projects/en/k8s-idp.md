@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Internal Developer Platform"
-description: "A self-service developer platform built on top of Kubernetes, enabling 120+ engineers to deploy, scale, and observe services autonomously — reducing deployment lead time from 3 days to 12 minutes."
+title: 'Kubernetes Internal Developer Platform'
+description: 'A self-service developer platform built on top of Kubernetes, enabling 120+ engineers to deploy, scale, and observe services autonomously — reducing deployment lead time from 3 days to 12 minutes.'
 publishDate: 2024-06-20
 tags: [Kubernetes, Golang, Terraform, ArgoCD, Backstage, Helm]
 featured: true

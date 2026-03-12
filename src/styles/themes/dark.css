@@ -8,21 +8,21 @@
 */
 :root[data-theme='dark'] {
   /* Brand / Accent */
-  --color-primary: oklch(0.82 0.085 205);          /* #79d5e2 — bright cyan */
-  --color-secondary: oklch(0.55 0.10 210);         /* slightly deeper cyan */
-  --color-on-primary: oklch(0.13 0.005 265);       /* near-black — readable on bright cyan */
+  --color-primary: oklch(0.82 0.085 205); /* #79d5e2 — bright cyan */
+  --color-secondary: oklch(0.55 0.1 210); /* slightly deeper cyan */
+  --color-on-primary: oklch(0.13 0.005 265); /* near-black — readable on bright cyan */
 
   /* Surface backgrounds — layered charcoal for depth */
-  --bg-primary: oklch(0.13 0.005 265);             /* #121212 equivalent — page base */
-  --bg-secondary: oklch(0.18 0.006 265);           /* #1e1e1e — cards, inputs */
-  --bg-elevated: oklch(0.22 0.007 265);            /* #242424 — modals, raised surfaces */
+  --bg-primary: oklch(0.13 0.005 265); /* #121212 equivalent — page base */
+  --bg-secondary: oklch(0.18 0.006 265); /* #1e1e1e — cards, inputs */
+  --bg-elevated: oklch(0.22 0.007 265); /* #242424 — modals, raised surfaces */
 
   /* Text */
-  --text-primary: oklch(0.95 0.005 265);           /* near-white */
-  --text-secondary: oklch(0.80 0.008 265);         /* light slate — better p99 contrast */
-  --text-muted: oklch(0.60 0.007 265);             /* medium slate */
+  --text-primary: oklch(0.95 0.005 265); /* near-white */
+  --text-secondary: oklch(0.8 0.008 265); /* light slate — better p99 contrast */
+  --text-muted: oklch(0.6 0.007 265); /* medium slate */
 
   /* Borders */
-  --border-color: oklch(0.28 0.008 265);           /* subtle visible border */
-  --border-subtle: oklch(0.22 0.005 265);          /* barely-visible dividers */
+  --border-color: oklch(0.28 0.008 265); /* subtle visible border */
+  --border-subtle: oklch(0.22 0.005 265); /* barely-visible dividers */
 }

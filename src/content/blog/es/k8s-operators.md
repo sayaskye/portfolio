@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Operators: Extendiendo el Plano de Control"
-description: "Una guía práctica para construir Kubernetes Operators de nivel productivo usando el framework controller-runtime — desde loops de reconciliación e informers hasta leader election y actualizaciones seguras."
+title: 'Kubernetes Operators: Extendiendo el Plano de Control'
+description: 'Una guía práctica para construir Kubernetes Operators de nivel productivo usando el framework controller-runtime — desde loops de reconciliación e informers hasta leader election y actualizaciones seguras.'
 publishDate: 2024-07-18
 tags: [Kubernetes, Go, Platform Engineering, DevOps]
 featured: false

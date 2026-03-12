@@ -9,21 +9,21 @@
 */
 :root[data-theme='light'] {
   /* Brand / Accent */
-  --color-primary: oklch(0.42 0.12 252);          /* #3865A1 — deep brand blue */
-  --color-secondary: oklch(0.55 0.10 210);         /* mid-blue complementary */
-  --color-on-primary: oklch(1 0 0);               /* white — readable on dark blue */
+  --color-primary: oklch(0.42 0.12 252); /* #3865A1 — deep brand blue */
+  --color-secondary: oklch(0.55 0.1 210); /* mid-blue complementary */
+  --color-on-primary: oklch(1 0 0); /* white — readable on dark blue */
 
   /* Surface backgrounds */
-  --bg-primary: oklch(0.98 0.003 265);             /* near-white, very slightly cool */
-  --bg-secondary: oklch(0.94 0.004 265);           /* cards, secondary surfaces */
-  --bg-elevated: oklch(1 0 0);                     /* pure white, modal/popover level */
+  --bg-primary: oklch(0.98 0.003 265); /* near-white, very slightly cool */
+  --bg-secondary: oklch(0.94 0.004 265); /* cards, secondary surfaces */
+  --bg-elevated: oklch(1 0 0); /* pure white, modal/popover level */
 
   /* Text */
-  --text-primary: oklch(0.18 0.01 265);            /* near-black */
-  --text-secondary: oklch(0.35 0.01 265);          /* darkened for better contrast */
-  --text-muted: oklch(0.50 0.01 265);              /* darkened for better contrast */
+  --text-primary: oklch(0.18 0.01 265); /* near-black */
+  --text-secondary: oklch(0.35 0.01 265); /* darkened for better contrast */
+  --text-muted: oklch(0.5 0.01 265); /* darkened for better contrast */
 
   /* Borders */
-  --border-color: oklch(0.75 0.006 265);           /* more defined in light mode */
-  --border-subtle:  oklch(0.91 0.003 265);         /* barely-there dividers */
+  --border-color: oklch(0.75 0.006 265); /* more defined in light mode */
+  --border-subtle: oklch(0.91 0.003 265); /* barely-there dividers */
 }

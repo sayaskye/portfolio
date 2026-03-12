@@ -1,6 +1,6 @@
 ---
-title: "Pipeline de Streaming de Eventos en Tiempo Real"
-description: "Un pipeline de streaming de eventos tolerante a fallos que procesa 12 millones de eventos por día usando Apache Kafka y Apache Flink, impulsando dashboards de analítica en tiempo real y sistemas de detección de fraude."
+title: 'Pipeline de Streaming de Eventos en Tiempo Real'
+description: 'Un pipeline de streaming de eventos tolerante a fallos que procesa 12 millones de eventos por día usando Apache Kafka y Apache Flink, impulsando dashboards de analítica en tiempo real y sistemas de detección de fraude.'
 publishDate: 2024-02-28
 tags: [Apache Kafka, Apache Flink, Java, AWS, PostgreSQL, Grafana]
 featured: false
