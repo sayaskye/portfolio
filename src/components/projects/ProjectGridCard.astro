@@ -1,0 +1,70 @@
+---
+import { getTranslation } from '@/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: string;
+}
+
+const { project, lang } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+const slug = project.slug.replace(`${lang}/`, '');
+
+const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBvb1QjLNO7j2LQcHq8ShXLQYqP1W_YmdYdOBMUnC9yZstBSP9k-6Io3dPdBx6g4zgzpnYKa6Nx1sbEoNMDJu8IWQq5WrhTSlTKfVuiLC0eE_R4AijCluVXHthGBZYFBdpjHgofUI6tFlVbcL6mv3F6hHUpWdABVbAsILlR1dGa5SG-wzrWzVkkipFSnFWKPDHsEk-kQs_xyJLwmBHV6XjXNZ8uYeSvn2SsY7oynecTECt6clncwrPzv09DxZtfa1UKKZSEDzug1Go';
+const imgSrc = project.data.image ? project.data.image.src : defaultImage;
+---
+
+<div class="group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all">
+  <div class="relative h-48 overflow-hidden bg-(--bg-secondary)">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <span class="material-symbols-outlined text-7xl text-(--text-secondary)">
+        monitoring
+      </span>
+    </div>
+    <img
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity group-hover:opacity-40"
+      alt={project.data.title}
+      src={imgSrc}
+    />
+    <a
+      href={`/${lang}/projects/${slug}/`}
+      class="hover:bg-primary hover:text-on-primary absolute top-4 right-4 rounded-full bg-(--bg-secondary)/80 p-2 text-(--text-primary) backdrop-blur-sm transition-colors"
+    >
+      <span class="material-symbols-outlined text-sm">open_in_new</span>
+    </a>
+  </div>
+  <div class="flex flex-1 flex-col p-6">
+    <div class="mb-3 flex items-start justify-between">
+      <h3 class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors">
+        <a href={`/${lang}/projects/${slug}/`}>{project.data.title}</a>
+      </h3>
+    </div>
+    <p class="mb-6 flex-1 text-sm text-(--text-secondary)">
+      {project.data.description}
+    </p>
+    <div class="mb-6 flex flex-wrap gap-2">
+      {project.data.tags.map((tag) => (
+        <span class="rounded bg-(--bg-secondary) px-2 py-0.5 text-[10px] font-bold text-(--text-secondary) uppercase">
+          {tag}
+        </span>
+      ))}
+    </div>
+    <div class="flex items-center justify-between border-t border-(--border-color) pt-4">
+      <div class="flex items-center gap-2 text-xs text-(--text-secondary)">
+        <span class="material-symbols-outlined text-sm">event</span>{' '}
+        {project.data.publishDate.toLocaleDateString(lang, {
+          year: 'numeric',
+          month: 'short',
+        })}
+      </div>
+      <a
+        class="text-primary flex items-center gap-1 text-sm font-bold hover:underline"
+        href={`/${lang}/projects/${slug}/`}
+      >
+        {t('projects.page.documentation')}{' '}
+        <span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+      </a>
+    </div>
+  </div>
+</div>

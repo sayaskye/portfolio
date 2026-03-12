@@ -19,8 +19,8 @@ const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
 
 const seo: SEOMetadata = {
-  title: `${t('common.nav.contact')} - Portfolio`,
-  description: 'Get in touch for architectural consultation or project collaboration.',
+  title: `${t('common.nav.contact')} | Portfolio`,
+  description: t('contact.page.seo_description'),
   canonical: `${siteUrl}/${lang}/contact/`,
   lang: lang as string,
   alternateLanguages: supportedLanguages.map((l) => ({
@@ -84,7 +84,7 @@ const seo: SEOMetadata = {
                   <span class="material-symbols-outlined">mail</span>
                 </div>
                 <div>
-                  <p class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
+                  <p class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
                     {t('contact.page.email_label')}
                   </p>
                   <p class="font-medium text-(--text-primary)">hello@zares.dev</p>
@@ -98,7 +98,7 @@ const seo: SEOMetadata = {
                   <span class="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
-                  <p class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
+                  <p class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
                     {t('contact.page.location_label')}
                   </p>
                   <p class="font-medium text-(--text-primary)">
@@ -111,8 +111,8 @@ const seo: SEOMetadata = {
             <div class="mt-12 flex gap-4">
               <a
                 class="hover:bg-primary hover:text-on-primary flex h-12 w-12 items-center justify-center rounded-xl border border-(--border-color) bg-(--bg-primary) text-(--text-primary) shadow-sm transition-all hover:-translate-y-1"
-                href="#"
-                aria-label="GitHub"
+                href="https://github.com"
+                aria-label={t('contact.page.social_github')}
               >
                 <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
                   <path
@@ -122,8 +122,8 @@ const seo: SEOMetadata = {
               </a>
               <a
                 class="hover:bg-primary hover:text-on-primary flex h-12 w-12 items-center justify-center rounded-xl border border-(--border-color) bg-(--bg-primary) text-(--text-primary) shadow-sm transition-all hover:-translate-y-1"
-                href="#"
-                aria-label="LinkedIn"
+                href="https://linkedin.com"
+                aria-label={t('contact.page.social_linkedin')}
               >
                 <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
                   <path

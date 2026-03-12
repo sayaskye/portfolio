@@ -36,7 +36,11 @@
       "eyebrow": "Portafolio",
       "subtitle": "Una selección de aplicaciones de nivel empresarial, contribuciones de código abierto y diseños de arquitectura de alta carga.",
       "view_all": "Ver todos los trabajos",
-      "case_study": "Caso de Estudio"
+      "case_study": "Caso de Estudio",
+      "source": "Código fuente",
+      "spotlight": "Destacado",
+      "featured_title": "Arquitectura de Referencia",
+      "empty": "No se encontraron proyectos para este idioma."
     },
     "experience": {
       "eyebrow": "Carrera",
@@ -70,11 +74,15 @@
   },
   "projects": {
     "page": {
-      "subtitle": "Una colección curada de sistemas distribuidos, contribuciones de código abierto y soluciones de arquitectura nativa en la nube.",
+      "title": "Portafolio de Ingeniería",
+      "seo_description": "Una muestra de mis proyectos y trabajos más recientes.",
+      "subtitle": "Una colección curada de sistemas distribuidos, contribuciones de código abierto y soluciones de arquitectura nativa de la nube.",
       "all": "Todos los Proyectos",
+      "filter_distributed": "Sistemas Distribuidos",
+      "filter_cloud": "Nativo de la Nube",
       "featured_label": "Arquitectura Destacada",
       "view_case_study": "Ver Caso de Estudio",
-      "source": "Código Fuente",
+      "source": "Fuente",
       "documentation": "Documentación",
       "tags": "Etiquetas",
       "date": "Fecha",
@@ -87,9 +95,14 @@
   },
   "blog": {
     "page": {
+      "title": "Feed Técnico",
+      "seo_description": "Artículos y publicaciones sobre arquitectura de sistemas e ingeniería.",
       "subtitle": "Inmersiones técnicas en sistemas distribuidos, internos del kernel, infraestructura de alto rendimiento y paradigmas modernos de software.",
       "all_posts": "Todos los Posts",
-      "read_more": "Leer Artículo Completo"
+      "cat_architecture": "Arquitectura",
+      "cat_devops": "DevOps",
+      "read_more": "Leer Artículo Completo",
+      "empty": "No se encontraron publicaciones para este idioma."
     },
     "detail": {
       "author": "Autor",
@@ -115,12 +128,15 @@
     },
     "page": {
       "title": "Construyamos algo extraordinario.",
+      "seo_description": "Ponte en contacto para consultoría arquitectónica o colaboración en proyectos.",
       "subtitle": "Ya sea que estés buscando consultoría arquitectónica, un líder para tu próximo gran proyecto o simplemente quieras charlar sobre tecnología, mi bandeja de entrada siempre está abierta.",
       "card_title": "¿Listo para hablar?",
       "card_subtitle": "Ponte en contacto directamente o utiliza el formulario — respondo en menos de 24 horas.",
       "email_label": "Correo",
       "location_label": "Ubicación",
-      "location_value": "Remoto en todo el mundo"
+      "location_value": "Remoto en todo el mundo",
+      "social_github": "GitHub",
+      "social_linkedin": "LinkedIn"
     }
   }
 }

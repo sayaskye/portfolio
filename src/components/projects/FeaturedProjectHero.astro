@@ -1,0 +1,70 @@
+---
+import { getTranslation } from '@/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: string;
+}
+
+const { project, lang } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+const slug = project.slug.replace(`${lang}/`, '');
+---
+
+<section class="mb-16">
+  <div class="mb-6 flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary fill-1">star</span>
+    <h2 class="text-2xl font-bold tracking-tight text-(--text-primary)">
+      {t('projects.page.featured_label')}
+    </h2>
+  </div>
+  <div class="group relative flex h-auto min-h-100 flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-secondary) lg:flex-row">
+    <div class="relative z-10 flex flex-col justify-center p-8 lg:w-1/2 lg:p-12">
+      <div class="bg-primary/20 text-primary mb-6 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase">
+        <span class="material-symbols-outlined text-sm">bolt</span> {t('home.featured_projects.spotlight')}
+      </div>
+      <h3 class="group-hover:text-primary mb-4 text-3xl font-black text-(--text-primary) transition-colors md:text-4xl">
+        {project.data.title}
+      </h3>
+      <p class="mb-8 text-lg leading-relaxed text-(--text-secondary)">
+        {project.data.description}
+      </p>
+      <div class="mb-8 flex flex-wrap gap-2">
+        {project.data.tags.map((tag) => (
+          <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-3 py-1 text-sm text-(--text-secondary)">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div class="flex gap-4">
+        <a
+          href={`/${lang}/projects/${slug}/`}
+          class="bg-primary hover:bg-primary/90 text-on-primary flex items-center gap-2 rounded-lg px-8 py-3 font-bold transition-all"
+        >
+          {t('projects.page.view_case_study')} <span class="material-symbols-outlined">arrow_right_alt</span>
+        </a>
+        {project.data.github && (
+          <a
+            href={project.data.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:border-primary rounded-lg border border-(--border-color) bg-transparent px-6 py-3 font-bold text-(--text-primary) transition-all"
+          >
+            {t('projects.page.source')}
+          </a>
+        )}
+      </div>
+    </div>
+    <div class="relative min-h-75 bg-(--bg-secondary) lg:w-1/2">
+      <div class="from-primary/10 absolute inset-0 bg-linear-to-br to-transparent" />
+      {project.data.image && (
+        <img
+          class="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-overlay"
+          alt={project.data.image.alt}
+          src={project.data.image.src}
+        />
+      )}
+    </div>
+  </div>
+</section>

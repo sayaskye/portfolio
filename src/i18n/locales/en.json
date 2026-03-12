@@ -36,7 +36,11 @@
       "eyebrow": "Portfolio",
       "subtitle": "A selection of enterprise-grade applications, open-source contributions, and high-load architectural designs.",
       "view_all": "View all works",
-      "case_study": "Case Study"
+      "case_study": "Case Study",
+      "source": "Source",
+      "spotlight": "Spotlight",
+      "featured_title": "Featured Architecture",
+      "empty": "No projects found for this language."
     },
     "experience": {
       "eyebrow": "Career",
@@ -70,8 +74,12 @@
   },
   "projects": {
     "page": {
+      "title": "Engineering Portfolio",
+      "seo_description": "A showcase of my latest projects and work.",
       "subtitle": "A curated collection of distributed systems, open-source contributions, and cloud-native architecture solutions.",
       "all": "All Projects",
+      "filter_distributed": "Distributed Systems",
+      "filter_cloud": "Cloud Native",
       "featured_label": "Featured Architecture",
       "view_case_study": "View Case Study",
       "source": "Source",
@@ -87,9 +95,14 @@
   },
   "blog": {
     "page": {
+      "title": "Technical Feed",
+      "seo_description": "Blog posts and articles regarding systems architecture and engineering.",
       "subtitle": "Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.",
       "all_posts": "All Posts",
-      "read_more": "Read Full Article"
+      "cat_architecture": "Architecture",
+      "cat_devops": "DevOps",
+      "read_more": "Read Full Article",
+      "empty": "No blog posts found for this language."
     },
     "detail": {
       "author": "Author",
@@ -115,12 +128,15 @@
     },
     "page": {
       "title": "Let's build something extraordinary.",
+      "seo_description": "Get in touch for architectural consultation or project collaboration.",
       "subtitle": "Whether you're looking for architectural consultation, a lead for your next big project, or just want to chat about tech, my inbox is always open.",
       "card_title": "Ready to talk?",
       "card_subtitle": "Reach out directly or use the form — I respond within 24 hours.",
       "email_label": "Email",
       "location_label": "Location",
-      "location_value": "Remote Worldwide"
+      "location_value": "Remote Worldwide",
+      "social_github": "GitHub",
+      "social_linkedin": "LinkedIn"
     }
   }
 }

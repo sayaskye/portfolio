@@ -1,0 +1,74 @@
+---
+import { getTranslation } from '@/i18n';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  blog: CollectionEntry<'blog'>;
+  lang: string;
+  isFirst?: boolean;
+}
+
+const { blog, lang, isFirst = false } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+const slug = blog.slug.replace(`${lang}/`, '');
+---
+
+<article
+  class={`group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
+>
+  <div class="overflow-hidden rounded-xl md:col-span-4">
+    {blog.data.image ? (
+      <div
+        class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+        role="img"
+        aria-label={blog.data.image.alt}
+        style={`background-image: url('${blog.data.image.src}');`}
+      />
+    ) : (
+      <div
+        class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+        role="img"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC8HEm3p7a4KlyKMdkuXQvBkCSBk0Wx-e-8X-yvPWkPWPqASXec-tD4zTbHrISvL0ZESHjlEqDOaZfOJxoSDQuEgLIGmXauYM7F750dyPX1GVYty7SnxUKyJkXqIC7OqYrvxcc1oBcgAzpHTdu-DO-2Ar1l7Dbiausju2CbjbK9fhZ2vvy2HZzYmP9NRMgEbVHTxpNb5NGJ9GYQvvQ4PH9F8M_XFDy4_l8ZTcutHshxue_UsogwdEwSXjRbgD8QCQMH9RX81CSbuw");'
+      />
+    )}
+  </div>
+  <div class="flex flex-col gap-3 md:col-span-8">
+    <div class="text-primary flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+      <span>
+        {blog.data.publishDate.toLocaleDateString(lang, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </span>
+      {blog.data.tags && blog.data.tags.length > 0 && (
+        <>
+          <span class="h-1 w-1 rounded-full bg-slate-400" />
+          <span>{blog.data.tags[0]}</span>
+        </>
+      )}
+    </div>
+    <h2 class="group-hover:text-primary text-2xl leading-tight font-bold text-(--text-primary) transition-colors">
+      <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
+    </h2>
+    <p class="line-clamp-2 text-base leading-relaxed text-(--text-secondary)">
+      {blog.data.description}
+    </p>
+    <div class="mt-2 flex gap-4">
+      {blog.data.tags.slice(1, 4).map((tag) => (
+        <span class="rounded bg-(--bg-secondary) px-2 py-1 text-xs text-(--text-secondary)">
+          {tag}
+        </span>
+      ))}
+    </div>
+    <div class="mt-4">
+      <a
+        class="text-primary inline-flex items-center gap-2 text-sm font-bold group-hover:underline"
+        href={`/${lang}/blog/${slug}/`}
+      >
+        {t('blog.page.read_more')}
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</article>
