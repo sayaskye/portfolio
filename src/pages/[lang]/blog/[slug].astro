@@ -11,11 +11,11 @@ export async function getStaticPaths() {
 
   return blogs.map((blog) => {
     const slug = blog.slug.replace(`${blog.data.language}/`, '');
-    
+
     // Find all translations for this post to create mapping
-    const translations = blogs.filter(b => b.data.id === blog.data.id);
+    const translations = blogs.filter((b) => b.data.id === blog.data.id);
     const langUrls: Record<string, string> = {};
-    translations.forEach(t => {
+    translations.forEach((t) => {
       const tSlug = t.slug.replace(`${t.data.language}/`, '');
       langUrls[t.data.language] = `/${t.data.language}/blog/${tSlug}/`;
     });
@@ -56,69 +56,111 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} langUrls={langUrls} />
 
-  <main class="flex-1 max-w-5xl mx-auto w-full px-6 py-12">
+  <main class="mx-auto w-full max-w-7xl flex-1 px-6 py-12">
     <!-- Article Header -->
-    <nav class="flex flex-wrap gap-2 mb-8 items-center text-sm font-medium">
-      <a class="text-(--text-secondary) hover:text-primary" href={`/${lang}/`}>{t('common.nav.home') || 'Home'}</a>
+    <nav class="mb-8 flex flex-wrap items-center gap-2 text-sm font-medium">
+      <a class="hover:text-primary text-(--text-secondary)" href={`/${lang}/`}
+        >{t('common.nav.home') || 'Home'}</a
+      >
       <span class="text-(--text-secondary)">/</span>
-      <a class="text-(--text-secondary) hover:text-primary" href={`/${lang}/blog/`}>{t('common.nav.blog') || 'Blog'}</a>
+      <a class="hover:text-primary text-(--text-secondary)" href={`/${lang}/blog/`}
+        >{t('common.nav.blog') || 'Blog'}</a
+      >
     </nav>
-    <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-(--text-primary) mb-8 font-display">
+    <h1
+      class="font-display mb-8 text-4xl leading-tight font-bold tracking-tight text-(--text-primary) md:text-5xl"
+    >
       {blog.data.title}
     </h1>
-    <div class="flex items-center gap-4 mb-10 pb-10 border-b border-(--border-color)">
+    <div class="mb-10 flex items-center gap-4 border-b border-(--border-color) pb-10">
       <div class="flex flex-col">
-        <p class="text-(--text-primary) text-lg font-bold leading-none mb-1">{t('blog.detail.author')}</p>
-        <p class="text-(--text-secondary) text-sm">
+        <p class="mb-1 text-lg leading-none font-bold text-(--text-primary)">
+          {t('blog.detail.author')}
+        </p>
+        <p class="text-sm text-(--text-secondary)">
           <time datetime={blog.data.publishDate.toISOString()}>
-            {blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+            {
+              blog.data.publishDate.toLocaleDateString(lang, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }
           </time>
         </p>
       </div>
       <div class="ml-auto flex gap-2">
-        <button class="p-2 rounded-lg bg-(--bg-secondary) text-(--text-secondary) hover:text-primary transition-colors">
+        <button
+          class="hover:text-primary rounded-lg bg-(--bg-secondary) p-2 text-(--text-secondary) transition-colors"
+        >
           <span class="material-symbols-outlined">bookmark</span>
         </button>
-        <button class="p-2 rounded-lg bg-(--bg-secondary) text-(--text-secondary) hover:text-primary transition-colors">
+        <button
+          class="hover:text-primary rounded-lg bg-(--bg-secondary) p-2 text-(--text-secondary) transition-colors"
+        >
           <span class="material-symbols-outlined">share</span>
         </button>
       </div>
     </div>
     <!-- Content Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
       <!-- Article Text -->
-      <article class="lg:col-span-8 prose  max-w-none">
-        {blog.data.image && (
-          <div class="mb-8">
-            <img src={blog.data.image.src} alt={blog.data.image.alt} class="w-full rounded-xl shadow-lg border border-(--border-color)" />
-          </div>
-        )}
-        <p class="text-xl leading-relaxed text-(--text-secondary) mb-8 font-light italic">
+      <article class="prose max-w-none lg:col-span-8">
+        {
+          blog.data.image && (
+            <div class="mb-8">
+              <img
+                src={blog.data.image.src}
+                alt={blog.data.image.alt}
+                class="w-full rounded-xl border border-(--border-color) shadow-lg"
+              />
+            </div>
+          )
+        }
+        <p class="mb-8 text-xl leading-relaxed font-light text-(--text-secondary) italic">
           {blog.data.description}
         </p>
-        
+
         <Content />
-        
       </article>
       <!-- Sidebar -->
-      <aside class="lg:col-span-4 space-y-8">
+      <aside class="space-y-8 lg:col-span-4">
         <!-- Tags/Topics -->
         <div class="sticky top-24">
-          <div class="p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color)">
-            <h4 class="text-sm font-bold uppercase tracking-widest text-(--text-secondary) mb-4">{t('blog.detail.topics')}</h4>
+          <div class="rounded-xl border border-(--border-color) bg-(--bg-secondary) p-6">
+            <h4 class="mb-4 text-sm font-bold tracking-widest text-(--text-secondary) uppercase">
+              {t('blog.detail.topics')}
+            </h4>
             <div class="flex flex-wrap gap-2">
-              {blog.data.tags.map((tag) => (
-                <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase rounded border border-primary/20">{tag}</span>
-              ))}
+              {
+                blog.data.tags.map((tag) => (
+                  <span class="bg-primary/10 text-primary border-primary/20 rounded border px-3 py-1 text-xs font-bold uppercase">
+                    {tag}
+                  </span>
+                ))
+              }
             </div>
           </div>
           <!-- Newsletter -->
-          <div class="mt-8 p-6 bg-(--bg-secondary) rounded-xl border border-(--border-color) shadow-2xl">
-            <h4 class="text-(--text-primary) text-lg font-bold mb-2 font-display">{t('blog.detail.newsletter_title')}</h4>
-            <p class="text-(--text-secondary) text-xs mb-4">{t('blog.detail.newsletter_subtitle')}</p>
+          <div
+            class="mt-8 rounded-xl border border-(--border-color) bg-(--bg-secondary) p-6 shadow-2xl"
+          >
+            <h4 class="font-display mb-2 text-lg font-bold text-(--text-primary)">
+              {t('blog.detail.newsletter_title')}
+            </h4>
+            <p class="mb-4 text-xs text-(--text-secondary)">
+              {t('blog.detail.newsletter_subtitle')}
+            </p>
             <div class="flex flex-col gap-3">
-              <input class="bg-(--bg-secondary) border-none rounded-lg text-sm text-(--text-primary) focus:ring-1 focus:ring-primary h-10 px-4" placeholder={t('blog.detail.newsletter_placeholder')} type="email"/>
-              <button class="bg-primary text-on-primary font-bold text-sm h-10 rounded-lg hover:bg-primary/90 transition-colors">{t('common.actions.subscribe')}</button>
+              <input
+                class="focus:ring-primary h-10 rounded-lg border-none bg-(--bg-secondary) px-4 text-sm text-(--text-primary) focus:ring-1"
+                placeholder={t('blog.detail.newsletter_placeholder')}
+                type="email"
+              />
+              <button
+                class="bg-primary text-on-primary hover:bg-primary/90 h-10 rounded-lg text-sm font-bold transition-colors"
+                >{t('common.actions.subscribe')}</button
+              >
             </div>
           </div>
         </div>

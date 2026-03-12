@@ -33,8 +33,8 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang as string} />
 
-  <main class="flex-1 flex flex-col">
-    <section class="flex-1 flex flex-col justify-center py-16 lg:py-24" id="contact">
+  <main class="mx-auto flex max-w-7xl flex-1 flex-col">
+    <section class="flex flex-1 flex-col justify-center py-16 lg:py-24" id="contact">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <!-- Section header -->
         <div class="mb-12 text-center">
@@ -49,7 +49,7 @@ const seo: SEOMetadata = {
 
         <!-- Contact card -->
         <div
-          class="relative overflow-hidden rounded-3xl bg-(--bg-secondary) p-8 lg:flex lg:gap-12 lg:p-16 border border-(--border-color)"
+          class="relative overflow-hidden rounded-3xl border border-(--border-color) bg-(--bg-secondary) p-8 lg:flex lg:gap-12 lg:p-16"
         >
           <!-- Background gradient decoration -->
           <div class="pointer-events-none absolute inset-0 opacity-10">
@@ -66,30 +66,34 @@ const seo: SEOMetadata = {
 
           <!-- Left: Contact info -->
           <div class="relative z-10 mb-10 lg:mb-0 lg:w-1/2">
-            <h3 class="mb-4 text-3xl font-bold text-(--text-primary)">{t('contact.page.card_title')}</h3>
+            <h3 class="mb-4 text-3xl font-bold text-(--text-primary)">
+              {t('contact.page.card_title')}
+            </h3>
             <p class="mb-8 text-lg text-(--text-secondary)">
               {t('contact.page.card_subtitle')}
             </p>
 
             <div class="space-y-6">
               <a
-                class="flex items-center gap-4 text-(--text-primary) transition-colors hover:text-primary"
+                class="hover:text-primary flex items-center gap-4 text-(--text-primary) transition-colors"
                 href="mailto:hello@zares.dev"
               >
                 <div
-                  class="flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary) text-primary"
+                  class="text-primary flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary)"
                 >
                   <span class="material-symbols-outlined">mail</span>
                 </div>
                 <div>
-                  <p class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">{t('contact.page.email_label')}</p>
+                  <p class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
+                    {t('contact.page.email_label')}
+                  </p>
                   <p class="font-medium text-(--text-primary)">hello@zares.dev</p>
                 </div>
               </a>
 
               <div class="flex items-center gap-4 text-(--text-primary)">
                 <div
-                  class="flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary) text-primary"
+                  class="text-primary flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary)"
                 >
                   <span class="material-symbols-outlined">location_on</span>
                 </div>
@@ -97,14 +101,16 @@ const seo: SEOMetadata = {
                   <p class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
                     {t('contact.page.location_label')}
                   </p>
-                  <p class="font-medium text-(--text-primary)">{t('contact.page.location_value')}</p>
+                  <p class="font-medium text-(--text-primary)">
+                    {t('contact.page.location_value')}
+                  </p>
                 </div>
               </div>
             </div>
 
             <div class="mt-12 flex gap-4">
               <a
-                class="flex h-12 w-12 items-center justify-center rounded-xl bg-(--bg-primary) border border-(--border-color) text-(--text-primary) transition-all hover:bg-primary hover:text-on-primary hover:-translate-y-1 shadow-sm"
+                class="hover:bg-primary hover:text-on-primary flex h-12 w-12 items-center justify-center rounded-xl border border-(--border-color) bg-(--bg-primary) text-(--text-primary) shadow-sm transition-all hover:-translate-y-1"
                 href="#"
                 aria-label="GitHub"
               >
@@ -115,7 +121,7 @@ const seo: SEOMetadata = {
                 </svg>
               </a>
               <a
-                class="flex h-12 w-12 items-center justify-center rounded-xl bg-(--bg-primary) border border-(--border-color) text-(--text-primary) transition-all hover:bg-primary hover:text-on-primary hover:-translate-y-1 shadow-sm"
+                class="hover:bg-primary hover:text-on-primary flex h-12 w-12 items-center justify-center rounded-xl border border-(--border-color) bg-(--bg-primary) text-(--text-primary) shadow-sm transition-all hover:-translate-y-1"
                 href="#"
                 aria-label="LinkedIn"
               >
@@ -129,7 +135,9 @@ const seo: SEOMetadata = {
           </div>
 
           <!-- Right: Form -->
-          <div class="relative z-10 rounded-2xl bg-(--bg-elevated) p-8 shadow-xl lg:w-1/2 border border-(--border-subtle)">
+          <div
+            class="relative z-10 rounded-2xl border border-(--border-subtle) bg-(--bg-elevated) p-8 shadow-xl lg:w-1/2"
+          >
             <ContactForm lang={lang as string} />
           </div>
         </div>

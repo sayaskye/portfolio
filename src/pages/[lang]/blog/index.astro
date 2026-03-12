@@ -22,7 +22,9 @@ const blogs = await getCollection('blog', (entry) => {
 });
 
 // Sort by publishDate (newest first)
-const sortedBlogs = blogs.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const sortedBlogs = blogs.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
 
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
@@ -42,79 +44,110 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} />
 
-  <main class="max-w-5xl mx-auto w-full px-6 py-12">
+  <main class="mx-auto w-full max-w-7xl px-6 py-12">
     <!-- Feed Title -->
-    <div class="flex flex-col gap-4 mb-10">
-      <h1 class="text-(--text-primary) text-5xl font-bold tracking-tight">{t('common.nav.blog') || 'Technical Feed'}</h1>
-      <p class="text-(--text-secondary) text-lg max-w-2xl leading-relaxed">
-        Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.
+    <div class="mb-10 flex flex-col gap-4">
+      <h1 class="text-5xl font-bold tracking-tight text-(--text-primary)">
+        {t('common.nav.blog') || 'Technical Feed'}
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
+        Engineering-focused deep dives into distributed systems, kernel internals, high-performance
+        infrastructure, and modern software paradigms.
       </p>
     </div>
 
     <!-- Categories Filter -->
-    <div class="flex gap-3 mb-12 overflow-x-auto pb-2 scrollbar-hide">
-      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-primary text-on-primary text-sm font-bold transition-all shadow-lg shadow-primary/10">
+    <div class="scrollbar-hide mb-12 flex gap-3 overflow-x-auto pb-2">
+      <button
+        class="bg-primary text-on-primary shadow-primary/10 flex h-10 shrink-0 items-center justify-center rounded-full px-5 text-sm font-bold shadow-lg transition-all"
+      >
         All Posts
       </button>
-      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-(--bg-secondary) hover:bg-(--bg-secondary) text-(--text-secondary) text-sm font-medium transition-all">
+      <button
+        class="flex h-10 shrink-0 items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all hover:bg-(--bg-secondary)"
+      >
         Architecture
       </button>
-      <button class="flex h-10 shrink-0 items-center justify-center px-5 rounded-full bg-(--bg-secondary) hover:bg-(--bg-secondary) text-(--text-secondary) text-sm font-medium transition-all">
+      <button
+        class="flex h-10 shrink-0 items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all hover:bg-(--bg-secondary)"
+      >
         DevOps
       </button>
     </div>
 
     <!-- Blog Posts List -->
     <div class="flex flex-col gap-16">
-      {sortedBlogs.length > 0 ? (
-        sortedBlogs.map((blog, idx) => {
-          const slug = blog.slug.replace(`${lang}/`, '');
-          const isFirst = idx === 0;
-          return (
-            <article class={`group grid grid-cols-1 md:grid-cols-12 gap-8 items-start ${!isFirst ? 'border-t border-(--border-color)  pt-16' : ''}`}>
-              <div class="md:col-span-4 overflow-hidden rounded-xl">
-                {blog.data.image ? (
-                   <div class="w-full aspect-video bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt={blog.data.image.alt} style={`background-image: url('${blog.data.image.src}');`}></div>
-                ) : (
-                   <div class="w-full aspect-video bg-center bg-cover transition-transform duration-500 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC8HEm3p7a4KlyKMdkuXQvBkCSBk0Wx-e-8X-yvPWkPWPqASXec-tD4zTbHrISvL0ZESHjlEqDOaZfOJxoSDQuEgLIGmXauYM7F750dyPX1GVYty7SnxUKyJkXqIC7OqYrvxcc1oBcgAzpHTdu-DO-2Ar1l7Dbiausju2CbjbK9fhZ2vvy2HZzYmP9NRMgEbVHTxpNb5NGJ9GYQvvQ4PH9F8M_XFDy4_l8ZTcutHshxue_UsogwdEwSXjRbgD8QCQMH9RX81CSbuw");'></div>
-                )}
-              </div>
-              <div class="md:col-span-8 flex flex-col gap-3">
-                <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-primary">
-                  <span>{blog.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                  {blog.data.tags && blog.data.tags.length > 0 && (
-                    <>
-                      <span class="w-1 h-1 rounded-full bg-slate-400"></span>
-                      <span>{blog.data.tags[0]}</span>
-                    </>
+      {
+        sortedBlogs.length > 0 ? (
+          sortedBlogs.map((blog, idx) => {
+            const slug = blog.slug.replace(`${lang}/`, '');
+            const isFirst = idx === 0;
+            return (
+              <article
+                class={`group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
+              >
+                <div class="overflow-hidden rounded-xl md:col-span-4">
+                  {blog.data.image ? (
+                    <div
+                      class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                      data-alt={blog.data.image.alt}
+                      style={`background-image: url('${blog.data.image.src}');`}
+                    />
+                  ) : (
+                    <div
+                      class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC8HEm3p7a4KlyKMdkuXQvBkCSBk0Wx-e-8X-yvPWkPWPqASXec-tD4zTbHrISvL0ZESHjlEqDOaZfOJxoSDQuEgLIGmXauYM7F750dyPX1GVYty7SnxUKyJkXqIC7OqYrvxcc1oBcgAzpHTdu-DO-2Ar1l7Dbiausju2CbjbK9fhZ2vvy2HZzYmP9NRMgEbVHTxpNb5NGJ9GYQvvQ4PH9F8M_XFDy4_l8ZTcutHshxue_UsogwdEwSXjRbgD8QCQMH9RX81CSbuw");'
+                    />
                   )}
                 </div>
-                <h2 class="text-(--text-primary) text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
-                  <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
-                </h2>
-                <p class="text-(--text-secondary) text-base leading-relaxed line-clamp-2">
-                  {blog.data.description}
-                </p>
-                <div class="mt-2 flex gap-4">
-                  {blog.data.tags.slice(1,4).map(tag => (
-                    <span class="text-xs text-(--text-secondary) bg-(--bg-secondary) px-2 py-1 rounded">{tag}</span>
-                  ))}
+                <div class="flex flex-col gap-3 md:col-span-8">
+                  <div class="text-primary flex items-center gap-3 text-xs font-bold tracking-widest uppercase">
+                    <span>
+                      {blog.data.publishDate.toLocaleDateString(lang, {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
+                    {blog.data.tags && blog.data.tags.length > 0 && (
+                      <>
+                        <span class="h-1 w-1 rounded-full bg-slate-400" />
+                        <span>{blog.data.tags[0]}</span>
+                      </>
+                    )}
+                  </div>
+                  <h2 class="group-hover:text-primary text-2xl leading-tight font-bold text-(--text-primary) transition-colors">
+                    <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
+                  </h2>
+                  <p class="line-clamp-2 text-base leading-relaxed text-(--text-secondary)">
+                    {blog.data.description}
+                  </p>
+                  <div class="mt-2 flex gap-4">
+                    {blog.data.tags.slice(1, 4).map((tag) => (
+                      <span class="rounded bg-(--bg-secondary) px-2 py-1 text-xs text-(--text-secondary)">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="mt-4">
+                    <a
+                      class="text-primary inline-flex items-center gap-2 text-sm font-bold group-hover:underline"
+                      href={`/${lang}/blog/${slug}/`}
+                    >
+                      Read Full Article
+                      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                  </div>
                 </div>
-                <div class="mt-4">
-                  <a class="inline-flex items-center gap-2 text-primary text-sm font-bold group-hover:underline" href={`/${lang}/blog/${slug}/`}>
-                    Read Full Article 
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          )
-        })
-      ) : (
-        <div class="rounded-lg border border-dashed border-(--border-color) py-12 text-center text-(--text-secondary)">
-          No blog posts found for this language.
-        </div>
-      )}
+              </article>
+            );
+          })
+        ) : (
+          <div class="rounded-lg border border-dashed border-(--border-color) py-12 text-center text-(--text-secondary)">
+            No blog posts found for this language.
+          </div>
+        )
+      }
     </div>
   </main>
 

@@ -11,11 +11,11 @@ export async function getStaticPaths() {
 
   return projects.map((project) => {
     const slug = project.slug.replace(`${project.data.language}/`, '');
-    
+
     // Find all translations for this project to create mapping
-    const translations = projects.filter(p => p.data.id === project.data.id);
+    const translations = projects.filter((p) => p.data.id === project.data.id);
     const langUrls: Record<string, string> = {};
-    translations.forEach(t => {
+    translations.forEach((t) => {
       const tSlug = t.slug.replace(`${t.data.language}/`, '');
       langUrls[t.data.language] = `/${t.data.language}/projects/${tSlug}/`;
     });
@@ -56,80 +56,143 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang as string} langUrls={langUrls} />
 
-  <main class="max-w-5xl mx-auto px-4 py-12">
+  <main class="mx-auto max-w-7xl px-4 py-12">
     <!-- Breadcrumbs -->
-    <nav class="flex items-center gap-2 mb-8 text-sm text-(--text-secondary)">
-      <a class="hover:text-primary" href={`/${lang}/projects/`}>{t('common.nav.projects') || 'Portfolio'}</a>
+    <nav class="mb-8 flex items-center gap-2 text-sm text-(--text-secondary)">
+      <a class="hover:text-primary" href={`/${lang}/projects/`}
+        >{t('common.nav.projects') || 'Portfolio'}</a
+      >
       <span class="material-symbols-outlined text-xs">chevron_right</span>
-      <span class="text-(--text-primary) font-medium">{project.data.title}</span>
+      <span class="font-medium text-(--text-primary)">{project.data.title}</span>
     </nav>
-    
+
     <!-- Project Hero Section -->
     <section class="mb-16">
-      <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-8">
+      <div class="mb-8 flex flex-col items-start justify-between gap-6 md:flex-row">
         <div class="max-w-3xl">
-          <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">{project.data.title}</h1>
-          <p class="text-xl text-(--text-secondary) leading-relaxed">
+          <h1 class="mb-4 text-4xl font-black tracking-tighter md:text-6xl">
+            {project.data.title}
+          </h1>
+          <p class="text-xl leading-relaxed text-(--text-secondary)">
             {project.data.description}
           </p>
         </div>
-        {project.data.github && (
-          <a href={project.data.github} target="_blank" class="flex items-center gap-2 bg-(--bg-secondary) hover:bg-primary/20 border border-(--border-color) px-6 py-3 rounded-xl font-bold transition-all text-(--text-primary)">
-            <span class="material-symbols-outlined">code</span>
-            {t('projects.page.source')}
-          </a>
-        )}
+        {
+          project.data.github && (
+            <a
+              href={project.data.github}
+              target="_blank"
+              class="hover:bg-primary/20 flex items-center gap-2 rounded-xl border border-(--border-color) bg-(--bg-secondary) px-6 py-3 font-bold text-(--text-primary) transition-all"
+            >
+              <span class="material-symbols-outlined">code</span>
+              {t('projects.page.source')}
+            </a>
+          )
+        }
       </div>
-      <div class="aspect-video rounded-2xl overflow-hidden border border-(--border-color) bg-(--bg-secondary) flex items-center justify-center relative group">
-        {project.data.image ? (
-          <img class="absolute inset-0 w-full h-full object-cover opacity-80" alt={project.data.image.alt} src={project.data.image.src} />
-        ) : (
-          <div class="absolute inset-0 opacity-40 bg-center bg-cover" data-alt="Default project hero" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiJDpibcyCPvMkZ9xh7ElkDNbQFBi-DEafcO4Z-9FFnzcPuGSq2jR6mO-0XcXSL46njDkIuAmOMwrqqG2rI6ggVed7USL-NgsV8UAT1nD7QbuvnfSzBMe7Tv8K7ECYWazR5B-lF9V8uUGM06sNbs1vFcZbd9RlRqMyT7-efcUvTf_aEiH1hMgjQ_DFjP0F9mvCasdtcT-7WWdbi3EyaWNPtLhfUMZYK-Tq5xUHmceShGo2pApur2_9FPT_-PKadHSqmqFZM2vODmw')"></div>
-        )}
+      <div
+        class="group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border border-(--border-color) bg-(--bg-secondary)"
+      >
+        {
+          project.data.image ? (
+            <img
+              class="absolute inset-0 h-full w-full object-cover opacity-80"
+              alt={project.data.image.alt}
+              src={project.data.image.src}
+            />
+          ) : (
+            <div
+              class="absolute inset-0 bg-cover bg-center opacity-40"
+              data-alt="Default project hero"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiJDpibcyCPvMkZ9xh7ElkDNbQFBi-DEafcO4Z-9FFnzcPuGSq2jR6mO-0XcXSL46njDkIuAmOMwrqqG2rI6ggVed7USL-NgsV8UAT1nD7QbuvnfSzBMe7Tv8K7ECYWazR5B-lF9V8uUGM06sNbs1vFcZbd9RlRqMyT7-efcUvTf_aEiH1hMgjQ_DFjP0F9mvCasdtcT-7WWdbi3EyaWNPtLhfUMZYK-Tq5xUHmceShGo2pApur2_9FPT_-PKadHSqmqFZM2vODmw')"
+            />
+          )
+        }
       </div>
     </section>
 
     <!-- Technical Metadata Grid -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 border-y border-(--border-color) py-8">
+    <section
+      class="mb-16 grid grid-cols-2 gap-6 border-y border-(--border-color) py-8 md:grid-cols-4"
+    >
       <div class="col-span-2 md:col-span-1">
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.tags')}</h4>
-        <p class="font-medium flex flex-wrap gap-1 leading-tight">{project.data.tags.join(', ')}</p>
+        <h4 class="text-primary mb-1 text-xs font-bold tracking-widest uppercase">
+          {t('projects.page.tags')}
+        </h4>
+        <p class="flex flex-wrap gap-1 leading-tight font-medium">{project.data.tags.join(', ')}</p>
       </div>
       <div>
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.date')}</h4>
-        <p class="font-medium">{project.data.publishDate.toLocaleDateString(lang as string, { year: 'numeric', month: 'short' })}</p>
+        <h4 class="text-primary mb-1 text-xs font-bold tracking-widest uppercase">
+          {t('projects.page.date')}
+        </h4>
+        <p class="font-medium">
+          {
+            project.data.publishDate.toLocaleDateString(lang as string, {
+              year: 'numeric',
+              month: 'short',
+            })
+          }
+        </p>
       </div>
       <div>
-        <h4 class="text-primary text-xs font-bold uppercase tracking-widest mb-1">{t('projects.page.links')}</h4>
-        {project.data.demo && (
-            <a href={project.data.demo} target="_blank" rel="noopener noreferrer" class="font-medium text-primary hover:underline block">{t('projects.page.live_demo')}</a>
-        )}
+        <h4 class="text-primary mb-1 text-xs font-bold tracking-widest uppercase">
+          {t('projects.page.links')}
+        </h4>
+        {
+          project.data.demo && (
+            <a
+              href={project.data.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary block font-medium hover:underline"
+            >
+              {t('projects.page.live_demo')}
+            </a>
+          )
+        }
       </div>
     </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
       <!-- Article Body -->
-      <div class="lg:col-span-8 prose  max-w-none">
+      <div class="prose max-w-none lg:col-span-8">
         <Content />
       </div>
 
       <!-- Sticky Sidebar -->
       <aside class="lg:col-span-4">
         <div class="sticky top-24 space-y-8">
-          <div class="bg-primary/5 border border-primary/20 rounded-2xl p-6">
-            <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">code</span> Technologies</h3>
+          <div class="bg-primary/5 border-primary/20 rounded-2xl border p-6">
+            <h3 class="mb-4 flex items-center gap-2 text-lg font-bold">
+              <span class="material-symbols-outlined text-primary">code</span> Technologies
+            </h3>
             <div class="flex flex-wrap gap-2">
-               {project.data.tags.map(tag => (
-                 <span class="px-3 py-1 bg-(--bg-primary) border border-(--border-color) rounded-full text-xs font-semibold">{tag}</span>
-               ))}
+              {
+                project.data.tags.map((tag) => (
+                  <span class="rounded-full border border-(--border-color) bg-(--bg-primary) px-3 py-1 text-xs font-semibold">
+                    {tag}
+                  </span>
+                ))
+              }
             </div>
           </div>
-          <div class="relative overflow-hidden rounded-2xl aspect-square border border-primary/20 flex items-center justify-center p-8 text-center bg-(--bg-secondary)">
-            <div class="absolute inset-0 opacity-20 bg-center bg-cover" data-alt="Microchip circuitry pattern" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbRFuz7iAWvz0BHi5RSq8xT6UhC8sc6Cw3plh0lRZQBG5gDSfEqikZP7NcjXUFdpzIvGG-MCXu71Jv4ZrlxOz5xQINPebSp-b7L8uEP5qLk6TtclVo1WaIOhJ83QKbPpUXm3PvFBjFLJ3ofdBfdHYkfRNiNyCt4lmAFjyxVHXSdW3Qvw6fWVG1-XchRdfwxG2F8AvtGlPFh_3jQMe9xh17sFeZQKlLwhnxUCl29l3Go7i4PObSPglbkt-MbJGml-Bw7M4Go4hbFuI')"></div>
+          <div
+            class="border-primary/20 relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border bg-(--bg-secondary) p-8 text-center"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center opacity-20"
+              data-alt="Microchip circuitry pattern"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbRFuz7iAWvz0BHi5RSq8xT6UhC8sc6Cw3plh0lRZQBG5gDSfEqikZP7NcjXUFdpzIvGG-MCXu71Jv4ZrlxOz5xQINPebSp-b7L8uEP5qLk6TtclVo1WaIOhJ83QKbPpUXm3PvFBjFLJ3ofdBfdHYkfRNiNyCt4lmAFjyxVHXSdW3Qvw6fWVG1-XchRdfwxG2F8AvtGlPFh_3jQMe9xh17sFeZQKlLwhnxUCl29l3Go7i4PObSPglbkt-MbJGml-Bw7M4Go4hbFuI')"
+            >
+            </div>
             <div class="relative">
-              <h4 class="font-bold mb-2 text-(--text-primary)">{t('projects.page.cta_title')}</h4>
-              <p class="text-xs text-(--text-secondary) mb-6">{t('projects.page.cta_desc')}</p>
-              <a href={`/${lang}/contact/`} class="block w-full bg-primary text-on-primary py-3 rounded-xl font-bold text-sm hover:opacity-90">{t('common.actions.contact_me')}</a>
+              <h4 class="mb-2 font-bold text-(--text-primary)">{t('projects.page.cta_title')}</h4>
+              <p class="mb-6 text-xs text-(--text-secondary)">{t('projects.page.cta_desc')}</p>
+              <a
+                href={`/${lang}/contact/`}
+                class="bg-primary text-on-primary block w-full rounded-xl py-3 text-sm font-bold hover:opacity-90"
+                >{t('common.actions.contact_me')}</a
+              >
             </div>
           </div>
         </div>

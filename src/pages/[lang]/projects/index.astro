@@ -22,7 +22,9 @@ const projects = await getCollection('projects', (entry) => {
 });
 
 // Sort by publishDate (newest first)
-const sortedProjects = projects.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const sortedProjects = projects.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
 
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
@@ -42,22 +44,28 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} />
 
-  <main class="flex-1 px-6 py-8">
+  <main class="mx-auto max-w-7xl flex-1 px-6 py-8">
     <!-- Breadcrumbs & Title -->
-    <div class="flex flex-col gap-2 mb-8">
-      <div class="flex items-center gap-2 text-(--text-secondary) text-sm">
-        <a class="hover:text-primary transition-colors" href={`/${lang}/`}>{t('common.nav.home')}</a>
+    <div class="mb-8 flex flex-col gap-2">
+      <div class="flex items-center gap-2 text-sm text-(--text-secondary)">
+        <a class="hover:text-primary transition-colors" href={`/${lang}/`}>{t('common.nav.home')}</a
+        >
         <span class="material-symbols-outlined text-xs">chevron_right</span>
         <span class="text-primary font-medium">{t('common.nav.projects')}</span>
       </div>
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div class="max-w-2xl">
-          <h1 class="text-(--text-primary) text-4xl font-black leading-tight tracking-[-0.033em]">{t('common.nav.projects') || 'Engineering Portfolio'}</h1>
-          <p class="text-(--text-secondary) text-lg mt-2">A curated collection of distributed systems, open-source contributions, and cloud-native architecture solutions.</p>
+          <h1 class="text-4xl leading-tight font-black tracking-[-0.033em] text-(--text-primary)">
+            {t('common.nav.projects') || 'Engineering Portfolio'}
+          </h1>
+          <p class="mt-2 text-lg text-(--text-secondary)">
+            A curated collection of distributed systems, open-source contributions, and cloud-native
+            architecture solutions.
+          </p>
         </div>
         <div class="flex gap-2">
-          <div class="p-1 bg-(--bg-secondary) rounded-lg flex border border-(--border-color)">
-            <button class="p-2 bg-(--bg-primary) shadow-sm rounded text-primary">
+          <div class="flex rounded-lg border border-(--border-color) bg-(--bg-secondary) p-1">
+            <button class="text-primary rounded bg-(--bg-primary) p-2 shadow-sm">
               <span class="material-symbols-outlined">grid_view</span>
             </button>
             <button class="p-2 text-(--text-secondary) hover:text-(--text-secondary)">
@@ -67,116 +75,168 @@ const seo: SEOMetadata = {
         </div>
       </div>
     </div>
-    
+
     <!-- Filters -->
-    <div class="flex gap-3 pb-8 overflow-x-auto no-scrollbar border-b border-(--border-color) mb-10">
-      <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 text-on-primary text-sm font-bold">
+    <div
+      class="no-scrollbar mb-10 flex gap-3 overflow-x-auto border-b border-(--border-color) pb-8"
+    >
+      <button
+        class="bg-primary text-on-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
+      >
         All Projects
       </button>
-      <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-(--bg-secondary) border border-(--border-color) px-5 text-(--text-secondary) text-sm font-medium hover:border-primary transition-colors">
+      <button
+        class="hover:border-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+      >
         Distributed Systems
       </button>
-      <button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-(--bg-secondary) border border-(--border-color) px-5 text-(--text-secondary) text-sm font-medium hover:border-primary transition-colors">
+      <button
+        class="hover:border-primary flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+      >
         Cloud Native
       </button>
     </div>
 
     <!-- Featured Highlight Section -->
-    {sortedProjects.filter(p => p.data.featured).slice(0, 1).map((featuredProject) => {
-      const slug = featuredProject.slug.replace(`${lang}/`, '');
-      return (
-        <section class="mb-16">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="material-symbols-outlined text-primary fill-1">star</span>
-            <h2 class="text-(--text-primary) text-2xl font-bold tracking-tight">Featured Architecture</h2>
-          </div>
-          <div class="group relative overflow-hidden rounded-xl bg-(--bg-secondary) border border-(--border-color) flex flex-col lg:flex-row h-auto min-h-100">
-            <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center relative z-10">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-6 w-fit">
-                <span class="material-symbols-outlined text-sm">bolt</span> Spotlight
+    {
+      sortedProjects
+        .filter((p) => p.data.featured)
+        .slice(0, 1)
+        .map((featuredProject) => {
+          const slug = featuredProject.slug.replace(`${lang}/`, '');
+          return (
+            <section class="mb-16">
+              <div class="mb-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary fill-1">star</span>
+                <h2 class="text-2xl font-bold tracking-tight text-(--text-primary)">
+                  Featured Architecture
+                </h2>
               </div>
-              <h3 class="text-(--text-primary) text-3xl md:text-4xl font-black mb-4 group-hover:text-primary transition-colors">{featuredProject.data.title}</h3>
-              <p class="text-(--text-secondary) text-lg mb-8 leading-relaxed">
-                {featuredProject.data.description}
-              </p>
-              <div class="flex flex-wrap gap-2 mb-8">
-                {featuredProject.data.tags.map(tag => (
-                  <span class="bg-(--bg-secondary) text-(--text-secondary) px-3 py-1 rounded text-sm border border-(--border-color)">{tag}</span>
-                ))}
+              <div class="group relative flex h-auto min-h-100 flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-secondary) lg:flex-row">
+                <div class="relative z-10 flex flex-col justify-center p-8 lg:w-1/2 lg:p-12">
+                  <div class="bg-primary/20 text-primary mb-6 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase">
+                    <span class="material-symbols-outlined text-sm">bolt</span> Spotlight
+                  </div>
+                  <h3 class="group-hover:text-primary mb-4 text-3xl font-black text-(--text-primary) transition-colors md:text-4xl">
+                    {featuredProject.data.title}
+                  </h3>
+                  <p class="mb-8 text-lg leading-relaxed text-(--text-secondary)">
+                    {featuredProject.data.description}
+                  </p>
+                  <div class="mb-8 flex flex-wrap gap-2">
+                    {featuredProject.data.tags.map((tag) => (
+                      <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-3 py-1 text-sm text-(--text-secondary)">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="flex gap-4">
+                    <a
+                      href={`/${lang}/projects/${slug}/`}
+                      class="bg-primary hover:bg-primary/90 text-on-primary flex items-center gap-2 rounded-lg px-8 py-3 font-bold transition-all"
+                    >
+                      View Case Study <span class="material-symbols-outlined">arrow_right_alt</span>
+                    </a>
+                    {featuredProject.data.github && (
+                      <a
+                        href={featuredProject.data.github}
+                        target="_blank"
+                        class="hover:border-primary rounded-lg border border-(--border-color) bg-transparent px-6 py-3 font-bold text-(--text-primary) transition-all"
+                      >
+                        Source
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <div class="relative min-h-75 bg-(--bg-secondary) lg:w-1/2">
+                  <div class="from-primary/10 absolute inset-0 bg-linear-to-br to-transparent" />
+                  {featuredProject.data.image && (
+                    <img
+                      class="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-overlay"
+                      data-alt={featuredProject.data.image.alt}
+                      src={featuredProject.data.image.src}
+                    />
+                  )}
+                </div>
               </div>
-              <div class="flex gap-4">
-                <a href={`/${lang}/projects/${slug}/`} class="bg-primary hover:bg-primary/90 text-on-primary font-bold py-3 px-8 rounded-lg flex items-center gap-2 transition-all">
-                  View Case Study <span class="material-symbols-outlined">arrow_right_alt</span>
-                </a>
-                {featuredProject.data.github && (
-                  <a href={featuredProject.data.github} target="_blank" class="bg-transparent border border-(--border-color) hover:border-primary text-(--text-primary) font-bold py-3 px-6 rounded-lg transition-all">
-                    Source
-                  </a>
-                )}
-              </div>
-            </div>
-            <div class="lg:w-1/2 relative bg-(--bg-secondary) min-h-75">
-              <div class="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent"></div>
-              {featuredProject.data.image && (
-                 <img class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" data-alt={featuredProject.data.image.alt} src={featuredProject.data.image.src}/>
-              )}
-            </div>
-          </div>
-        </section>
-      );
-    })}
+            </section>
+          );
+        })
+    }
 
     <!-- Projects Grid -->
-    {sortedProjects.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedProjects.map((project) => {
-          const slug = project.slug.replace(`${lang}/`, '');
-          const defaultImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuBvb1QjLNO7j2LQcHq8ShXLQYqP1W_YmdYdOBMUnC9yZstBSP9k-6Io3dPdBx6g4zgzpnYKa6Nx1sbEoNMDJu8IWQq5WrhTSlTKfVuiLC0eE_R4AijCluVXHthGBZYFBdpjHgofUI6tFlVbcL6mv3F6hHUpWdABVbAsILlR1dGa5SG-wzrWzVkkipFSnFWKPDHsEk-kQs_xyJLwmBHV6XjXNZ8uYeSvn2SsY7oynecTECt6clncwrPzv09DxZtfa1UKKZSEDzug1Go";
-          const imgSrc = project.data.image ? project.data.image.src : defaultImage;
+    {
+      sortedProjects.length > 0 ? (
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {sortedProjects.map((project) => {
+            const slug = project.slug.replace(`${lang}/`, '');
+            const defaultImage =
+              'https://lh3.googleusercontent.com/aida-public/AB6AXuBvb1QjLNO7j2LQcHq8ShXLQYqP1W_YmdYdOBMUnC9yZstBSP9k-6Io3dPdBx6g4zgzpnYKa6Nx1sbEoNMDJu8IWQq5WrhTSlTKfVuiLC0eE_R4AijCluVXHthGBZYFBdpjHgofUI6tFlVbcL6mv3F6hHUpWdABVbAsILlR1dGa5SG-wzrWzVkkipFSnFWKPDHsEk-kQs_xyJLwmBHV6XjXNZ8uYeSvn2SsY7oynecTECt6clncwrPzv09DxZtfa1UKKZSEDzug1Go';
+            const imgSrc = project.data.image ? project.data.image.src : defaultImage;
 
-          return (
-            <div class="group bg-(--bg-primary) rounded-xl border border-(--border-color) overflow-hidden hover:border-primary/50 transition-all flex flex-col">
-              <div class="h-48 bg-(--bg-secondary) relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="material-symbols-outlined text-(--text-secondary) text-7xl">monitoring</span>
-                </div>
-                <img class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-40 transition-opacity" data-alt={project.data.title} src={imgSrc}/>
-                <a href={`/${lang}/projects/${slug}/`} class="absolute top-4 right-4 bg-(--bg-secondary)/80 backdrop-blur-sm text-(--text-primary) p-2 rounded-full hover:bg-primary hover:text-on-primary transition-colors">
-                  <span class="material-symbols-outlined text-sm">open_in_new</span>
-                </a>
-              </div>
-              <div class="p-6 flex flex-col flex-1">
-                <div class="flex justify-between items-start mb-3">
-                  <h3 class="text-xl font-bold text-(--text-primary) group-hover:text-primary transition-colors">
-                    <a href={`/${lang}/projects/${slug}/`}>{project.data.title}</a>
-                  </h3>
-                </div>
-                <p class="text-(--text-secondary) text-sm mb-6 flex-1">
-                  {project.data.description}
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  {project.data.tags.map(tag => (
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-(--bg-secondary) text-(--text-secondary) uppercase">{tag}</span>
-                  ))}
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-(--border-color)">
-                  <div class="flex items-center gap-2 text-xs text-(--text-secondary)">
-                    <span class="material-symbols-outlined text-sm">event</span> {project.data.publishDate.toLocaleDateString(lang, { year: 'numeric', month: 'short' })}
+            return (
+              <div class="group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all">
+                <div class="relative h-48 overflow-hidden bg-(--bg-secondary)">
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-7xl text-(--text-secondary)">
+                      monitoring
+                    </span>
                   </div>
-                  <a class="text-sm font-bold text-primary flex items-center gap-1 hover:underline" href={`/${lang}/projects/${slug}/`}>
-                    Documentation <span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+                  <img
+                    class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity group-hover:opacity-40"
+                    data-alt={project.data.title}
+                    src={imgSrc}
+                  />
+                  <a
+                    href={`/${lang}/projects/${slug}/`}
+                    class="hover:bg-primary hover:text-on-primary absolute top-4 right-4 rounded-full bg-(--bg-secondary)/80 p-2 text-(--text-primary) backdrop-blur-sm transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
                   </a>
                 </div>
+                <div class="flex flex-1 flex-col p-6">
+                  <div class="mb-3 flex items-start justify-between">
+                    <h3 class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors">
+                      <a href={`/${lang}/projects/${slug}/`}>{project.data.title}</a>
+                    </h3>
+                  </div>
+                  <p class="mb-6 flex-1 text-sm text-(--text-secondary)">
+                    {project.data.description}
+                  </p>
+                  <div class="mb-6 flex flex-wrap gap-2">
+                    {project.data.tags.map((tag) => (
+                      <span class="rounded bg-(--bg-secondary) px-2 py-0.5 text-[10px] font-bold text-(--text-secondary) uppercase">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="flex items-center justify-between border-t border-(--border-color) pt-4">
+                    <div class="flex items-center gap-2 text-xs text-(--text-secondary)">
+                      <span class="material-symbols-outlined text-sm">event</span>{' '}
+                      {project.data.publishDate.toLocaleDateString(lang, {
+                        year: 'numeric',
+                        month: 'short',
+                      })}
+                    </div>
+                    <a
+                      class="text-primary flex items-center gap-1 text-sm font-bold hover:underline"
+                      href={`/${lang}/projects/${slug}/`}
+                    >
+                      Documentation{' '}
+                      <span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-    ) : (
-      <div class="rounded-lg border border-dashed border-(--border-color) py-12 text-center text-(--text-secondary)">
-        No projects found for this language.
-      </div>
-    )}
+            );
+          })}
+        </div>
+      ) : (
+        <div class="rounded-lg border border-dashed border-(--border-color) py-12 text-center text-(--text-secondary)">
+          No projects found for this language.
+        </div>
+      )
+    }
   </main>
 
   <Footer lang={lang} />
