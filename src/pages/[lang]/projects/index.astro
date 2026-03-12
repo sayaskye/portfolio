@@ -46,11 +46,12 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} />
 
-  <main class="mx-auto max-w-7xl flex-1 px-6 py-8">
+  <main class="mx-auto max-w-7xl flex-1 px-2 py-8 sm:px-6 lg:px-8">
     <!-- Breadcrumbs & Title -->
     <div class="mb-8 flex flex-col gap-2">
       <div class="flex items-center gap-2 text-sm text-(--text-secondary)">
-        <a class="hover:text-primary transition-colors" href={`/${lang}/`}>{t('common.nav.home')}</a>
+        <a class="hover:text-primary transition-colors" href={`/${lang}/`}>{t('common.nav.home')}</a
+        >
         <span class="material-symbols-outlined text-xs">chevron_right</span>
         <span class="text-primary font-medium">{t('common.nav.projects')}</span>
       </div>
@@ -68,7 +69,9 @@ const seo: SEOMetadata = {
             <button class="text-primary cursor-pointer rounded bg-(--bg-primary) p-2 shadow-sm">
               <span class="material-symbols-outlined">grid_view</span>
             </button>
-            <button class="cursor-pointer p-2 text-(--text-secondary) hover:text-(--text-secondary)">
+            <button
+              class="cursor-pointer p-2 text-(--text-secondary) hover:text-(--text-secondary)"
+            >
               <span class="material-symbols-outlined">view_list</span>
             </button>
           </div>
@@ -81,17 +84,17 @@ const seo: SEOMetadata = {
       class="no-scrollbar mb-10 flex gap-3 overflow-x-auto border-b border-(--border-color) pb-8"
     >
       <button
-        class="bg-primary text-on-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
+        class="bg-primary text-on-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full px-6 text-sm font-bold"
       >
         {t('projects.page.all')}
       </button>
       <button
-        class="hover:border-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+        class="hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
       >
         {t('projects.page.filter_distributed')}
       </button>
       <button
-        class="hover:border-primary cursor-pointer flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
+        class="hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-colors"
       >
         {t('projects.page.filter_cloud')}
       </button>
@@ -102,9 +105,7 @@ const seo: SEOMetadata = {
       sortedProjects
         .filter((p) => p.data.featured)
         .slice(0, 1)
-        .map((featuredProject) => (
-          <FeaturedProjectHero project={featuredProject} lang={lang} />
-        ))
+        .map((featuredProject) => <FeaturedProjectHero project={featuredProject} lang={lang} />)
     }
 
     <!-- Projects Grid -->
