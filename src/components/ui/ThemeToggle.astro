@@ -11,14 +11,12 @@ const t = (key: string) => getTranslation(key, lang);
 ---
 
 <button
-  id="theme-toggle"
   type="button"
   aria-label={t('common.theme.toggle')}
-  class="cursor-pointer rounded-md p-2 transition-colors hover:bg-(--bg-secondary)"
+  class="theme-toggle cursor-pointer rounded-md p-2 transition-colors hover:bg-(--bg-secondary)"
 >
   <svg
-    id="theme-icon-light"
-    class="hidden h-5 w-5"
+    class="theme-icon-light hidden h-5 w-5"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -32,8 +30,7 @@ const t = (key: string) => getTranslation(key, lang);
     ></path>
   </svg>
   <svg
-    id="theme-icon-dark"
-    class="hidden h-5 w-5"
+    class="theme-icon-dark hidden h-5 w-5"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -51,41 +48,49 @@ const t = (key: string) => getTranslation(key, lang);
 <script>
   import { getCurrentTheme, setTheme, getSupportedThemes } from '@/lib/theme';
 
-  const button = document.getElementById('theme-toggle') as HTMLButtonElement;
-  const lightIcon = document.getElementById('theme-icon-light') as unknown as SVGElement;
-  const darkIcon = document.getElementById('theme-icon-dark') as unknown as SVGElement;
+  function initThemeToggle(button: HTMLButtonElement) {
+    const lightIcon = button.querySelector('.theme-icon-light') as SVGElement;
+    const darkIcon = button.querySelector('.theme-icon-dark') as SVGElement;
 
-  function updateIcon(theme: string) {
-    if (theme === 'dark') {
-      lightIcon.classList.remove('hidden');
-      darkIcon.classList.add('hidden');
-    } else {
-      lightIcon.classList.add('hidden');
-      darkIcon.classList.remove('hidden');
+    function updateIcons(theme: string) {
+      if (theme === 'dark') {
+        lightIcon?.classList.remove('hidden');
+        darkIcon?.classList.add('hidden');
+      } else {
+        lightIcon?.classList.add('hidden');
+        darkIcon?.classList.remove('hidden');
+      }
     }
+
+    button.addEventListener('click', () => {
+      const themes = getSupportedThemes();
+      const currentTheme = getCurrentTheme();
+      const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+      
+      setTheme(nextTheme);
+      // Update ALL toggles on the page
+      document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach(btn => {
+        const lIcon = btn.querySelector('.theme-icon-light');
+        const dIcon = btn.querySelector('.theme-icon-dark');
+        if (nextTheme === 'dark') {
+          lIcon?.classList.remove('hidden');
+          dIcon?.classList.add('hidden');
+        } else {
+          lIcon?.classList.add('hidden');
+          dIcon?.classList.remove('hidden');
+        }
+      });
+    });
+
+    // Initial state
+    updateIcons(getCurrentTheme());
   }
 
-  function toggleTheme() {
-    const currentTheme = getCurrentTheme();
-    const themes = getSupportedThemes();
-    const currentIndex = themes.indexOf(currentTheme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    const nextTheme = themes[nextIndex];
-
-    setTheme(nextTheme);
-    updateIcon(nextTheme);
+  function setup() {
+    document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach(initThemeToggle);
   }
 
-  // Initialize icon based on current theme
-  const initialTheme = getCurrentTheme();
-  updateIcon(initialTheme);
-
-  // Add click event listener
-  button.addEventListener('click', toggleTheme);
-
-  // Update icon when theme changes (e.g., from system preference)
-  document.addEventListener('astro:page-load', () => {
-    const theme = getCurrentTheme();
-    updateIcon(theme);
-  });
+  setup();
+  document.addEventListener('astro:page-load', setup);
 </script>
+

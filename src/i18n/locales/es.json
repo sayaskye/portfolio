@@ -19,11 +19,14 @@
       "dark": "Tema oscuro"
     },
     "language": {
-      "select": "Seleccionar idioma"
+      "select": "Seleccionar idioma",
+      "label": "Idioma"
     },
     "footer": {
       "brand": "Portafolio",
-      "rights": "Todos los derechos reservados."
+      "rights": "Todos los derechos reservados.",
+      "navigation": "Navegación",
+      "contact": "Contacto"
     }
   },
   "home": {

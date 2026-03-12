@@ -19,11 +19,14 @@
       "dark": "Dark theme"
     },
     "language": {
-      "select": "Select language"
+      "select": "Select language",
+      "label": "Language"
     },
     "footer": {
       "brand": "Portfolio",
-      "rights": "All rights reserved."
+      "rights": "All rights reserved.",
+      "navigation": "Navigation",
+      "contact": "Contact"
     }
   },
   "home": {

@@ -19,21 +19,19 @@ const languageNames: Record<string, string> = {
 };
 ---
 
-<div class="relative inline-block">
+<div class="language-selector relative inline-block">
   <button
-    id="language-selector-button"
     type="button"
     aria-label={t('common.language.select')}
     aria-haspopup="true"
     aria-expanded="false"
-    class="cursor-pointer rounded-md px-3 py-2 font-medium transition-colors hover:bg-(--bg-secondary)"
+    class="language-button cursor-pointer rounded-md px-3 py-2 font-medium transition-colors hover:bg-(--bg-secondary)"
   >
     {languageNames[currentLang] || currentLang.toUpperCase()}
   </button>
 
   <div
-    id="language-selector-menu"
-    class="ring-opacity-5 absolute right-0 z-10 mt-2 hidden w-24 rounded-md bg-(--bg-primary) shadow-lg ring-1 ring-(--border-color)"
+    class="language-menu ring-opacity-5 absolute left-0 z-10 mt-2 hidden w-24 rounded-md bg-(--bg-primary) shadow-lg ring-1 ring-(--border-color)"
     role="menu"
     aria-orientation="vertical"
   >
@@ -44,8 +42,8 @@ const languageNames: Record<string, string> = {
             type="button"
             data-lang={lang}
             data-lang-url={langUrls?.[lang]}
-            class="language-option cursor-pointer block w-full px-4 py-2 text-left text-sm transition-colors hover:bg-(--bg-secondary)"
-            class:list={[currentLang === lang && 'bg-(--bg-secondary) font-bold ']}
+            class="language-option block w-full cursor-pointer px-4 py-2 text-left text-sm transition-colors hover:bg-(--bg-secondary)"
+            class:list={[currentLang === lang && 'bg-(--bg-secondary) font-bold']}
             role="menuitem"
           >
             {languageNames[lang] || lang.toUpperCase()}
@@ -59,55 +57,37 @@ const languageNames: Record<string, string> = {
 <script>
   import { setStoredLanguage } from '@/i18n/utils';
 
-  const button = document.getElementById('language-selector-button') as HTMLButtonElement;
-  const menu = document.getElementById('language-selector-menu') as HTMLDivElement;
+  function initLanguageSelector(container: HTMLElement) {
+    const button = container.querySelector('.language-button') as HTMLButtonElement;
+    const menu = container.querySelector('.language-menu') as HTMLDivElement;
+    const options = container.querySelectorAll('.language-option') as NodeListOf<HTMLButtonElement>;
 
-  function toggleMenu() {
-    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!isExpanded));
-    menu.classList.toggle('hidden');
-  }
+    if (!button || !menu) return;
 
-  function closeMenu() {
-    button.setAttribute('aria-expanded', 'false');
-    menu.classList.add('hidden');
-  }
-
-  function switchLanguage(lang: string, specificUrl?: string) {
-    // Store the language preference
-    setStoredLanguage(lang);
-
-    // If we have a specific localized URL (mapping), use it
-    if (specificUrl) {
-      window.location.href = specificUrl;
-      return;
+    function toggleMenu() {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
     }
 
-    // Fallback: Get current path and replace language segment
-    const currentPath = window.location.pathname;
-    const pathSegments = currentPath.split('/').filter(Boolean);
-
-    // If first segment is a language code, replace it
-    if (pathSegments.length > 0 && /^[a-z]{2}$/.test(pathSegments[0])) {
-      pathSegments[0] = lang;
-    } else {
-      // If no language in path, add it at the beginning
-      pathSegments.unshift(lang);
+    function closeMenu() {
+      button.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
     }
 
-    const newPath = '/' + pathSegments.join('/');
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Close other menus first
+      document.querySelectorAll('.language-menu').forEach((m) => {
+        if (m !== menu) m.classList.add('hidden');
+      });
+      document.querySelectorAll('.language-button').forEach((b) => {
+        if (b !== button) b.setAttribute('aria-expanded', 'false');
+      });
+      toggleMenu();
+    });
 
-    // Navigate to the new path
-    window.location.href = newPath;
-  }
-
-  function setup() {
-    const languageOptions = document.querySelectorAll(
-      '.language-option'
-    ) as NodeListOf<HTMLButtonElement>;
-
-    // Handle language selection
-    languageOptions.forEach((option) => {
+    options.forEach((option) => {
       option.addEventListener('click', () => {
         const lang = option.getAttribute('data-lang');
         const specificUrl = option.getAttribute('data-lang-url');
@@ -116,33 +96,41 @@ const languageNames: Record<string, string> = {
         }
       });
     });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target as Node)) {
+        closeMenu();
+      }
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
   }
 
-  // Toggle menu on button click
-  button.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-  });
+  function setup() {
+    const selectors = document.querySelectorAll<HTMLElement>('.language-selector');
+    selectors.forEach(initLanguageSelector);
+  }
 
-  // Initial setup
+  function switchLanguage(lang: string, specificUrl?: string) {
+    setStoredLanguage(lang);
+    if (specificUrl) {
+      window.location.href = specificUrl;
+      return;
+    }
+    const currentPath = window.location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    if (pathSegments.length > 0 && /^[a-z]{2}$/.test(pathSegments[0])) {
+      pathSegments[0] = lang;
+    } else {
+      pathSegments.unshift(lang);
+    }
+    window.location.href = '/' + pathSegments.join('/');
+  }
+
   setup();
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target as Node) && e.target !== button) {
-      closeMenu();
-    }
-  });
-
-  // Close menu on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeMenu();
-    }
-  });
-
-  // Re-initialize on page navigation (for Astro view transitions)
-  document.addEventListener('astro:page-load', () => {
-    closeMenu();
-  });
+  document.addEventListener('astro:page-load', setup);
 </script>

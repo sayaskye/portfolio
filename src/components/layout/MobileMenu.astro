@@ -1,0 +1,111 @@
+---
+import { getTranslation } from '@/i18n';
+import LanguageSelector from '../ui/LanguageSelector.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
+
+interface Props {
+  lang: string;
+  navLinks: { href: string; label: string }[];
+  currentPath: string;
+  langUrls?: Record<string, string>;
+}
+
+const { lang, navLinks, currentPath, langUrls } = Astro.props;
+const t = (key: string) => getTranslation(key, lang);
+---
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 translate-x-full bg-(--bg-primary)/95 p-6 backdrop-blur-2xl transition-transform duration-300 ease-in-out md:hidden"
+>
+  <div class="mt-20 flex flex-col gap-6">
+    <nav class="flex flex-col gap-4 border-b border-(--border-color) pb-8">
+      {
+        navLinks.map((link) => {
+          const isActive =
+            currentPath === link.href ||
+            (currentPath.startsWith(link.href) && link.href !== `/${lang}/`);
+          return (
+            <a
+              href={link.href}
+              class={`text-lg font-semibold transition-colors ${
+                isActive ? 'text-primary' : 'text-(--text-primary)'
+              }`}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="flex flex-col gap-8">
+      <!-- Theme Selector -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
+          {t('common.theme.toggle') || 'Appearance'}
+        </span>
+        <ThemeToggle lang={lang} />
+      </div>
+      <!-- Language Selector -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs font-bold tracking-widest text-(--text-muted) uppercase">
+          {t('common.language.label') || 'Language'}
+        </span>
+        <div class="flex">
+          <LanguageSelector currentLang={lang} langUrls={langUrls} />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+
+    if (!button || !menu) return;
+
+    const toggleMenu = () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', (!isExpanded).toString());
+      menu.classList.toggle('translate-x-full');
+      menu.classList.toggle('translate-x-0');
+
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    };
+
+    button.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking on a link
+    const links = menu.querySelectorAll('a');
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (button.getAttribute('aria-expanded') === 'true') {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close menu when resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && button.getAttribute('aria-expanded') === 'true') {
+        toggleMenu();
+      }
+    });
+
+    // Close menu on ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Run on page load and after Astro swaps pages
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', setupMobileMenu);
+</script>

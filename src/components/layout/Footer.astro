@@ -11,41 +11,92 @@ const t = (key: string) => getTranslation(key, lang);
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-auto border-t border-(--border-color) bg-(--bg-primary) py-8">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-      <!-- Copyright -->
-      <p class="text-sm text-(--text-secondary)">
+<footer class="mt-auto border-t border-(--border-color) bg-(--bg-primary) pt-16 pb-8">
+  <div class="container mx-auto px-6 lg:px-20">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-8">
+      <!-- Column 1: Brand -->
+      <div class="col-span-1 md:col-span-2">
+        <a href={`/${lang}/`} class="flex items-center gap-3 transition-opacity hover:opacity-80">
+          <div class="bg-primary/10 flex size-10 items-center justify-center rounded-xl">
+            <span class="material-symbols-outlined text-primary">terminal</span>
+          </div>
+          <span class="font-display text-2xl font-bold tracking-tight text-(--text-primary)">
+            {t('common.footer.brand')}
+          </span>
+        </a>
+        <p class="mt-6 max-w-sm text-base leading-relaxed text-(--text-secondary)">
+          {t('home.hero.subtitle') || 'Building digital experiences that combine performance with exceptional design.'}
+        </p>
+        <div class="mt-8 flex gap-4">
+          <a href="#" class="bg-secondary/50 text-secondary-foreground hover:bg-secondary flex size-10 items-center justify-center rounded-full transition-all" aria-label="GitHub">
+            <i class="fa-brands fa-github text-lg"></i>
+          </a>
+          <a href="#" class="bg-secondary/50 text-secondary-foreground hover:bg-secondary flex size-10 items-center justify-center rounded-full transition-all" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in text-lg"></i>
+          </a>
+          <a href="#" class="bg-secondary/50 text-secondary-foreground hover:bg-secondary flex size-10 items-center justify-center rounded-full transition-all" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div>
+        <h3 class="text-sm font-bold tracking-widest text-(--text-primary) uppercase">
+          {t('common.footer.navigation') || 'Navigation'}
+        </h3>
+        <ul class="mt-6 space-y-4">
+          <li>
+            <a href={`/${lang}/`} class="text-(--text-secondary) transition-colors hover:text-primary">
+              {t('common.nav.home')}
+            </a>
+          </li>
+          <li>
+            <a href={`/${lang}/projects/`} class="text-(--text-secondary) transition-colors hover:text-primary">
+              {t('common.nav.projects')}
+            </a>
+          </li>
+          <li>
+            <a href={`/${lang}/blog/`} class="text-(--text-secondary) transition-colors hover:text-primary">
+              {t('common.nav.blog') || 'Blog'}
+            </a>
+          </li>
+          <li>
+            <a href={`/${lang}/contact/`} class="text-(--text-secondary) transition-colors hover:text-primary">
+              {t('common.nav.contact')}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact/Legal -->
+      <div>
+        <h3 class="text-sm font-bold tracking-widest text-(--text-primary) uppercase">
+          {t('common.footer.contact') || 'Contact'}
+        </h3>
+        <ul class="mt-6 space-y-4">
+          <li class="flex items-center gap-3 text-(--text-secondary)">
+            <span class="material-symbols-outlined text-sm">mail</span>
+            <span>hello@zares.dev</span>
+          </li>
+          <li class="flex items-center gap-3 text-(--text-secondary)">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span>Latam / Remote</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-16 flex flex-col items-center justify-between border-t border-(--border-color) pt-8 md:flex-row">
+      <p class="text-sm text-(--text-muted)">
         © {currentYear} {t('common.footer.brand')}. {t('common.footer.rights')}
       </p>
-
-      <!-- Footer Links -->
-      <ul class="flex items-center gap-6">
-        <li>
-          <a
-            href={`/${lang}/`}
-            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
-          >
-            {t('common.nav.home')}
-          </a>
-        </li>
-        <li>
-          <a
-            href={`/${lang}/projects/`}
-            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
-          >
-            {t('common.nav.projects')}
-          </a>
-        </li>
-        <li>
-          <a
-            href={`/${lang}/contact/`}
-            class="cursor-pointer text-sm text-(--text-secondary) transition-colors hover:text-(--text-primary)"
-          >
-            {t('common.nav.contact')}
-          </a>
-        </li>
-      </ul>
+      <div class="mt-4 flex gap-8 md:mt-0">
+        <a href="#" class="text-xs text-(--text-muted) hover:text-(--text-primary)">Privacy Policy</a>
+        <a href="#" class="text-xs text-(--text-muted) hover:text-(--text-primary)">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
+

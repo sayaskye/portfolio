@@ -10,11 +10,10 @@ const { lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 ---
 
-<section class="relative overflow-hidden py-24 lg:py-32" id="home">
+<section class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-32" id="home">
   <div class="absolute inset-0 -z-10 opacity-20">
     <div class="bg-primary absolute top-0 right-0 h-96 w-96 rounded-full blur-[120px]"></div>
-    <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]">
-    </div>
+    <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]"></div>
   </div>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid items-center gap-12 lg:grid-cols-2">
