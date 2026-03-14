@@ -18,21 +18,21 @@ const slug = blog.slug.replace(`${lang}/`, '');
   class={`blog-card group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
   data-category={blog.data.category}
 >
-  <div class="overflow-hidden rounded-xl md:col-span-4" transition:name={`blog-image-${blog.data.id}`}>
+  <div class="overflow-hidden rounded-xl md:col-span-4">
     {
       blog.data.image ? (
-        <div
-          class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          role="img"
-          aria-label={blog.data.image.alt}
-          style={`background-image: url('${blog.data.image.src}');`}
+        <img
+          src={blog.data.image.src}
+          alt={blog.data.image.alt}
+          class="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          transition:name={`blog-image-${blog.data.id}`}
+          loading="lazy"
+          decoding="async"
         />
       ) : (
-        <div
-          class="aspect-video w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          role="img"
-          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC8HEm3p7a4KlyKMdkuXQvBkCSBk0Wx-e-8X-yvPWkPWPqASXec-tD4zTbHrISvL0ZESHjlEqDOaZfOJxoSDQuEgLIGmXauYM7F750dyPX1GVYty7SnxUKyJkXqIC7OqYrvxcc1oBcgAzpHTdu-DO-2Ar1l7Dbiausju2CbjbK9fhZ2vvy2HZzYmP9NRMgEbVHTxpNb5NGJ9GYQvvQ4PH9F8M_XFDy4_l8ZTcutHshxue_UsogwdEwSXjRbgD8QCQMH9RX81CSbuw");'
-        />
+        <div class="flex aspect-video w-full items-center justify-center bg-(--bg-secondary)">
+          <Icon name="article" class="size-12 text-(--text-muted)" />
+        </div>
       )
     }
   </div>

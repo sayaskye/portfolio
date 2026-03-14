@@ -97,11 +97,11 @@ const seo: SEOMetadata = {
       <article class="prose max-w-none lg:col-span-8">
         {
           blog.data.image && (
-            <div class="mb-8">
+            <div class="mb-8 overflow-hidden rounded-xl border border-(--border-color) shadow-lg">
               <img
                 src={blog.data.image.src}
                 alt={blog.data.image.alt}
-                class="w-full rounded-xl border border-(--border-color) shadow-lg"
+                class="w-full object-cover"
                 transition:name={`blog-image-${blog.data.id}`}
               />
             </div>
