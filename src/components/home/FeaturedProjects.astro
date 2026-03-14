@@ -1,7 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import SectionHeader from '@/components/ui/SectionHeader.astro';
-import ProjectCard from '@/components/projects/ProjectCard.astro';
+import FeaturedProjectHero from '@/components/projects/FeaturedProjectHero.astro';
 import Icon from '@/components/ui/Icon.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -12,11 +12,16 @@ interface Props {
 
 const { lang, projects } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
+
+// Find the latest featured project
+const featuredProject = projects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())[0];
 ---
 
 <section class="bg-(--bg-primary) py-24" id="projects">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+    <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <SectionHeader
         eyebrow={t('home.featured_projects.eyebrow')}
         title={t('common.nav.projects')}
@@ -31,17 +36,10 @@ const t = (key: string) => getTranslation(key, lang);
       </a>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {
-        projects.map((project, idx) => {
-          const imgSrc = project.data.image ? project.data.image.src : '';
-          const blendClass = idx % 2 === 0 ? 'bg-primary/20' : 'bg-secondary/20';
-
-          return (
-            <ProjectCard project={project} lang={lang} imgSrc={imgSrc} blendClass={blendClass} />
-          );
-        })
-      }
-    </div>
+    {
+      featuredProject && (
+        <FeaturedProjectHero project={featuredProject} lang={lang} hideLabel={true} />
+      )
+    }
   </div>
 </section>
