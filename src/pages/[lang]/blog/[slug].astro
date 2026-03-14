@@ -69,6 +69,7 @@ const seo: SEOMetadata = {
     </nav>
     <h1
       class="font-display mb-8 text-4xl leading-tight font-bold tracking-tight text-(--text-primary) md:text-5xl"
+      transition:name={`blog-title-${blog.data.id}`}
     >
       {blog.data.title}
     </h1>
@@ -101,6 +102,7 @@ const seo: SEOMetadata = {
                 src={blog.data.image.src}
                 alt={blog.data.image.alt}
                 class="w-full rounded-xl border border-(--border-color) shadow-lg"
+                transition:name={`blog-image-${blog.data.id}`}
               />
             </div>
           )

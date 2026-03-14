@@ -1,5 +1,6 @@
 ---
 import type { SEOMetadata } from '@/lib/seo';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   seo: SEOMetadata;
@@ -11,7 +12,7 @@ import '@/styles/global.css';
 ---
 
 <!doctype html>
-<html lang={seo.lang} data-theme="light" transition:animate="fade">
+<html lang={seo.lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,32 +36,34 @@ import '@/styles/global.css';
       ))
     }
 
+    <ViewTransitions />
+
     <!-- Theme Initialization Script (runs before page render to prevent flash) -->
     <script is:inline>
       (function () {
         const THEME_STORAGE_KEY = 'preferred-theme';
         const THEME_ATTRIBUTE = 'data-theme';
-        const supportedThemes = ['light', 'dark'];
-        const defaultTheme = 'light';
 
-        function getSystemTheme() {
-          if (typeof window === 'undefined') return defaultTheme;
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          return prefersDark ? 'dark' : 'light';
+        function getTheme() {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) {
+            return localStorage.getItem(THEME_STORAGE_KEY);
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
 
-        function getCurrentTheme() {
-          if (typeof localStorage === 'undefined') return defaultTheme;
-          const stored = localStorage.getItem(THEME_STORAGE_KEY);
-          if (stored && supportedThemes.includes(stored)) {
-            return stored;
-          }
-          return getSystemTheme();
+        function applyTheme() {
+          const theme = getTheme();
+          document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
         }
 
         // Apply theme immediately to prevent flash
-        const theme = getCurrentTheme();
-        document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+        applyTheme();
+
+        // Re-apply theme after Astro view transitions - Only once
+        if (!window.themeListenerAdded) {
+          document.addEventListener('astro:after-swap', applyTheme);
+          window.themeListenerAdded = true;
+        }
       })();
     </script>
   </head>

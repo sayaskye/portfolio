@@ -71,7 +71,10 @@ const seo: SEOMetadata = {
     <section class="mb-16">
       <div class="mb-8 flex flex-col items-start justify-between gap-6 md:flex-row">
         <div class="max-w-3xl">
-          <h1 class="mb-4 text-4xl font-black tracking-tighter md:text-6xl">
+          <h1
+            class="mb-4 text-4xl font-black tracking-tighter md:text-6xl"
+            transition:name={`project-title-${project.data.id}`}
+          >
             {project.data.title}
           </h1>
           <p class="text-xl leading-relaxed text-(--text-secondary)">
@@ -100,6 +103,7 @@ const seo: SEOMetadata = {
               class="absolute inset-0 h-full w-full object-cover opacity-80"
               alt={project.data.image.alt}
               src={project.data.image.src}
+              transition:name={`project-image-${project.data.id}`}
             />
           ) : null
         }

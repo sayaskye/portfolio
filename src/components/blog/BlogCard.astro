@@ -18,7 +18,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
   class={`blog-card group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
   data-category={blog.data.category}
 >
-  <div class="overflow-hidden rounded-xl md:col-span-4">
+  <div class="overflow-hidden rounded-xl md:col-span-4" transition:name={`blog-image-${blog.data.id}`}>
     {
       blog.data.image ? (
         <div
@@ -67,6 +67,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
     </div>
     <h2
       class="group-hover:text-primary text-2xl leading-tight font-bold text-(--text-primary) transition-colors"
+      transition:name={`blog-title-${blog.data.id}`}
     >
       <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
     </h2>

@@ -145,9 +145,7 @@ const seo: SEOMetadata = {
       });
     }
 
-    // Initial setup
-    setupFilters();
-    // Re-run on View Transitions
+    // Initialize on every page load (first load and View Transition navigations)
     document.addEventListener('astro:page-load', setupFilters);
   </script>
 

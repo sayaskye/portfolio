@@ -56,6 +56,7 @@ const languageNames: Record<string, string> = {
 
 <script>
   import { setStoredLanguage } from '@/i18n/utils';
+  import { navigate } from 'astro:transitions/client';
 
   function initLanguageSelector(container: HTMLElement) {
     const button = container.querySelector('.language-button') as HTMLButtonElement;
@@ -118,7 +119,7 @@ const languageNames: Record<string, string> = {
   function switchLanguage(lang: string, specificUrl?: string) {
     setStoredLanguage(lang);
     if (specificUrl) {
-      window.location.href = specificUrl;
+      navigate(specificUrl);
       return;
     }
     const currentPath = window.location.pathname;
@@ -128,9 +129,9 @@ const languageNames: Record<string, string> = {
     } else {
       pathSegments.unshift(lang);
     }
-    window.location.href = '/' + pathSegments.join('/');
+    navigate('/' + pathSegments.join('/'));
   }
 
-  setup();
+  // Initialize on every page load (first load and View Transition navigations)
   document.addEventListener('astro:page-load', setup);
 </script>

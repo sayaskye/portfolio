@@ -65,6 +65,6 @@ const t = (key: string) => getTranslation(key, lang);
     document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach(initThemeToggle);
   }
 
-  setup();
+  // Initialize on every page load (first load and View Transition navigations)
   document.addEventListener('astro:page-load', setup);
 </script>

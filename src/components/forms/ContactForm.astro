@@ -201,6 +201,6 @@ const t = (key: string) => getTranslation(key, lang);
     forms.forEach(initContactForm);
   };
 
-  setup();
+  // Initialize on every page load (first load and View Transition navigations)
   document.addEventListener('astro:page-load', setup);
 </script>

@@ -108,6 +108,6 @@ const t = (key: string) => getTranslation(key, lang);
   }
 
   // Run on page load and after Astro swaps pages
-  setupMobileMenu();
-  document.addEventListener('astro:after-swap', setupMobileMenu);
+  // Initialize on every page load (first load and View Transition navigations)
+  document.addEventListener('astro:page-load', setupMobileMenu);
 </script>
