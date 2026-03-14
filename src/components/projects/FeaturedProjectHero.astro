@@ -26,7 +26,7 @@ const slug = project.slug.replace(`${lang}/`, '');
     )
   }
   <div
-    class="group relative flex h-auto min-h-100 flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-secondary) lg:flex-row"
+    class="group relative flex h-auto min-h-100 flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-secondary) transition-colors duration-300 lg:flex-row"
   >
     <div class="relative z-10 flex flex-col justify-center p-8 lg:w-1/2 lg:p-12">
       <div class="mb-6 flex items-center gap-3">
@@ -41,17 +41,17 @@ const slug = project.slug.replace(`${lang}/`, '');
         </span>
       </div>
       <h3
-        class="group-hover:text-primary mb-4 text-3xl font-black text-(--text-primary) transition-colors md:text-4xl"
+        class="group-hover:text-primary mb-4 text-3xl font-black text-(--text-primary) transition-colors duration-300 md:text-4xl"
       >
         {project.data.title}
       </h3>
-      <p class="mb-8 text-lg leading-relaxed text-(--text-secondary)">
+      <p class="mb-8 text-lg leading-relaxed text-(--text-secondary) transition-colors duration-300">
         {project.data.description}
       </p>
       <div class="mb-8 flex flex-wrap gap-2">
         {
           project.data.tags.map((tag) => (
-            <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-3 py-1 text-sm text-(--text-secondary)">
+            <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-3 py-1 text-sm text-(--text-secondary) transition-colors duration-300">
               {tag}
             </span>
           ))
@@ -79,8 +79,8 @@ const slug = project.slug.replace(`${lang}/`, '');
         }
       </div>
     </div>
-    <div class="relative min-h-75 bg-(--bg-secondary) lg:w-1/2">
-      <div class="from-primary/10 absolute inset-0 bg-linear-to-br to-transparent"></div>
+    <div class="relative min-h-75 bg-(--bg-secondary) transition-colors duration-300 lg:w-1/2">
+      <div class="from-primary/10 absolute inset-0 bg-linear-to-br transition-all duration-300 to-transparent"></div>
       {
         project.data.image && (
           <img

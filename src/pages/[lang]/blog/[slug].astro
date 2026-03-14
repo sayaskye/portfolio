@@ -59,26 +59,34 @@ const seo: SEOMetadata = {
   <main class="mx-auto w-full max-w-7xl flex-1 px-6 py-12">
     <!-- Article Header -->
     <nav class="mb-8 flex flex-wrap items-center gap-2 text-sm font-medium">
-      <a class="hover:text-primary text-(--text-secondary)" href={`/${lang}/`}
-        >{t('common.nav.home') || 'Home'}</a
+      <a
+        class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
+        href={`/${lang}/`}
       >
-      <span class="text-(--text-secondary)">/</span>
-      <a class="hover:text-primary text-(--text-secondary)" href={`/${lang}/blog/`}
-        >{t('common.nav.blog') || 'Blog'}</a
+        {t('common.nav.home') || 'Home'}
+      </a>
+      <span class="text-(--text-secondary) transition-colors duration-300">/</span>
+      <a
+        class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
+        href={`/${lang}/blog/`}
       >
+        {t('common.nav.blog') || 'Blog'}
+      </a>
     </nav>
     <h1
-      class="font-display mb-8 text-4xl leading-tight font-bold tracking-tight text-(--text-primary) md:text-5xl"
+      class="font-display mb-8 text-4xl leading-tight font-bold tracking-tight text-(--text-primary) transition-colors duration-300 md:text-5xl"
       transition:name={`blog-title-${blog.data.id}`}
     >
       {blog.data.title}
     </h1>
-    <div class="mb-10 flex items-center gap-4 border-b border-(--border-color) pb-10">
+    <div
+      class="mb-10 flex items-center gap-4 border-b border-(--border-color) pb-10 transition-colors duration-300"
+    >
       <div class="flex flex-col">
-        <p class="mb-1 text-lg leading-none font-bold text-(--text-primary)">
+        <p class="mb-1 text-lg leading-none font-bold text-(--text-primary) transition-colors duration-300">
           {t('blog.detail.author')}
         </p>
-        <p class="text-sm text-(--text-secondary)">
+        <p class="text-sm text-(--text-secondary) transition-colors duration-300">
           <time datetime={blog.data.publishDate.toISOString()}>
             {
               blog.data.publishDate.toLocaleDateString(lang, {
@@ -94,10 +102,10 @@ const seo: SEOMetadata = {
     <!-- Content Grid -->
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
       <!-- Article Text -->
-      <article class="prose max-w-none lg:col-span-8">
+      <div class="lg:col-span-8">
         {
           blog.data.image && (
-            <div class="mb-8 overflow-hidden rounded-xl border border-(--border-color) shadow-lg">
+            <div class="mb-10 overflow-hidden rounded-xl border border-(--border-color) shadow-lg transition-colors duration-300">
               <img
                 src={blog.data.image.src}
                 alt={blog.data.image.alt}
@@ -107,18 +115,26 @@ const seo: SEOMetadata = {
             </div>
           )
         }
-        <p class="mb-8 text-xl leading-relaxed font-light text-(--text-secondary) italic">
+        <p
+          class="mb-12 text-xl leading-relaxed font-light text-(--text-secondary) italic transition-colors duration-300"
+        >
           {blog.data.description}
         </p>
 
-        <Content />
-      </article>
+        <article class="prose max-w-none">
+          <Content />
+        </article>
+      </div>
       <!-- Sidebar -->
       <aside class="space-y-8 lg:col-span-4">
         <!-- Tags/Topics -->
         <div class="sticky top-24">
-          <div class="rounded-xl border border-(--border-color) bg-(--bg-secondary) p-6">
-            <h4 class="mb-4 text-sm font-bold tracking-widest text-(--text-secondary) uppercase">
+          <div
+            class="rounded-xl border border-(--border-color) bg-(--bg-secondary) p-6 transition-colors duration-300"
+          >
+            <h4
+              class="mb-4 text-sm font-bold tracking-widest text-(--text-secondary) uppercase transition-colors duration-300"
+            >
               {t('blog.detail.topics')}
             </h4>
             <div class="flex flex-wrap gap-2">

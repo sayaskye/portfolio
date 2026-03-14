@@ -34,12 +34,16 @@ const currentPath = Astro.url.pathname;
   <div class="flex items-center gap-8">
     <a
       href={`/${lang}/`}
-      class="text-primary flex cursor-pointer items-center gap-4 transition-opacity hover:opacity-80"
+      class="text-primary flex cursor-pointer items-center gap-4 transition-opacity duration-300 hover:opacity-80"
     >
-      <div class="bg-primary/10 flex size-8 items-center justify-center rounded-lg">
+      <div
+        class="bg-primary/10 flex size-8 items-center justify-center rounded-lg transition-colors duration-300"
+      >
         <Icon name="terminal" class="text-primary size-5" />
       </div>
-      <h2 class="font-display text-xl leading-tight font-bold tracking-tight text-(--text-primary)">
+      <h2
+        class="font-display text-xl leading-tight font-bold tracking-tight text-(--text-primary) transition-colors duration-300"
+      >
         {t('common.footer.brand')}
       </h2>
     </a>
@@ -53,7 +57,7 @@ const currentPath = Astro.url.pathname;
           return (
             <a
               href={link.href}
-              class={`hover:text-primary cursor-pointer text-sm font-medium transition-colors ${
+              class={`hover:text-primary cursor-pointer text-sm font-medium transition-colors duration-300 ${
                 isActive ? 'text-primary' : 'text-(--text-secondary)'
               }`}
             >

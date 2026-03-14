@@ -76,7 +76,7 @@ const seo: SEOMetadata = {
     >
       <button
         data-filter="all"
-        class="filter-btn bg-primary text-on-primary shadow-primary/10 flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full px-5 text-sm font-bold shadow-lg transition-all"
+        class="filter-btn bg-primary text-on-primary shadow-primary/10 flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full px-5 text-sm font-bold shadow-lg transition-all duration-300"
       >
         {t('blog.page.all_posts')}
       </button>
@@ -84,7 +84,7 @@ const seo: SEOMetadata = {
         categories.map((cat) => (
           <button
             data-filter={cat}
-            class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all"
+            class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all duration-300"
           >
             {t(categoryLabels[cat.toLowerCase()] || `blog.page.cat_${cat.toLowerCase()}`)}
           </button>

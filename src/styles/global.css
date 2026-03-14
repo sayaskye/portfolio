@@ -51,6 +51,12 @@
   --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  --default-transition-duration: 300ms;
+}
+
+.no-transitions * {
+  transition: none !important;
 }
 
 /* 

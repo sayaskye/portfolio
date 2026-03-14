@@ -36,7 +36,7 @@ const seo: SEOMetadata = {
   <Header lang={lang as string} />
 
   <main class="mx-auto flex max-w-7xl flex-1 flex-col">
-    <section class="flex flex-1 flex-col justify-center py-8 lg:py-24" id="contact">
+    <section class="flex flex-1 flex-col justify-center py-8 transition-colors duration-300 lg:py-24" id="contact">
       <div class="mx-auto w-full px-4 sm:px-6 lg:px-8">
         <ContactHero
           eyebrow={t('common.nav.contact')}
@@ -45,7 +45,7 @@ const seo: SEOMetadata = {
         />
 
         <div
-          class="relative w-full overflow-hidden rounded-3xl border border-(--border-color) bg-(--bg-secondary) p-5 sm:p-8 lg:flex lg:gap-12 lg:p-16"
+          class="relative w-full overflow-hidden rounded-3xl border border-(--border-color) bg-(--bg-secondary) p-5 transition-colors duration-300 sm:p-8 lg:flex lg:gap-12 lg:p-16"
         >
           <!-- Background gradient decoration -->
           <div class="pointer-events-none absolute inset-0 opacity-10">
@@ -63,7 +63,7 @@ const seo: SEOMetadata = {
           <ContactInfo lang={lang as string} />
 
           <div
-            class="relative z-10 w-full rounded-2xl border border-(--border-subtle) bg-(--bg-elevated) p-6 shadow-xl sm:p-8 lg:w-1/2"
+            class="relative z-10 w-full rounded-2xl border border-(--border-subtle) bg-(--bg-elevated) p-6 shadow-xl transition-colors duration-300 sm:p-8 lg:w-1/2"
           >
             <ContactForm lang={lang as string} />
           </div>

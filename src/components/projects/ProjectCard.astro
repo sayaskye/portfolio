@@ -32,7 +32,7 @@ const slug = project.slug.replace(`${lang}/`, '');
         project.data.tags
           .slice(0, 3)
           .map((tag) => (
-            <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-2 py-1 text-[10px] font-bold text-(--text-secondary) uppercase">
+            <span class="rounded border border-(--border-color) bg-(--bg-secondary) px-2 py-1 text-[10px] font-bold text-(--text-secondary) uppercase transition-colors duration-300">
               {tag}
             </span>
           ))
@@ -43,12 +43,12 @@ const slug = project.slug.replace(`${lang}/`, '');
     >
       {project.data.title}
     </h4>
-    <p class="mb-6 text-sm leading-relaxed text-(--text-secondary)">
+    <p class="mb-6 text-sm leading-relaxed text-(--text-secondary) transition-colors duration-300">
       {project.data.description}
     </p>
-    <div class="mt-auto flex items-center justify-between border-t border-(--border-color) pt-6">
+    <div class="mt-auto flex items-center justify-between border-t border-(--border-color) pt-6 transition-colors duration-300">
       <a
-        class="hover:text-primary flex items-center gap-2 text-sm font-bold"
+        class="hover:text-primary flex items-center gap-2 text-sm font-bold transition-all duration-300"
         href={`/${lang}/projects/${slug}/`}
       >
         <Icon name="link" class="size-5" />
@@ -57,7 +57,7 @@ const slug = project.slug.replace(`${lang}/`, '');
       {
         project.data.github && (
           <a
-            class="text-(--text-secondary) hover:text-(--text-primary)"
+            class="text-(--text-secondary) transition-colors duration-300 hover:text-(--text-primary)"
             href={project.data.github}
             target="_blank"
             rel="noopener noreferrer"

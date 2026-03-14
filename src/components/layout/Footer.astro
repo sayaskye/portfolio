@@ -13,20 +13,31 @@ const t = (key: string) => getTranslation(key, lang);
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-auto border-t border-(--border-color) bg-(--bg-primary) pt-16 pb-8">
+<footer
+  class="mt-auto border-t border-(--border-color) bg-(--bg-primary) pt-16 pb-8 transition-colors duration-300"
+>
   <div class="container mx-auto px-6 lg:px-20">
     <div class="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-8">
       <!-- Column 1: Brand -->
       <div class="col-span-1 md:col-span-2">
-        <a href={`/${lang}/`} class="flex items-center gap-3 transition-opacity hover:opacity-80">
-          <div class="bg-primary/10 flex size-10 items-center justify-center rounded-xl">
+        <a
+          href={`/${lang}/`}
+          class="flex items-center gap-3 transition-all duration-300 hover:opacity-80"
+        >
+          <div
+            class="bg-primary/10 flex size-10 items-center justify-center rounded-xl transition-colors duration-300"
+          >
             <Icon name="terminal" class="text-primary size-6" />
           </div>
-          <span class="font-display text-2xl font-bold tracking-tight text-(--text-primary)">
+          <span
+            class="font-display text-2xl font-bold tracking-tight text-(--text-primary) transition-colors duration-300"
+          >
             {t('common.footer.brand')}
           </span>
         </a>
-        <p class="mt-6 max-w-sm text-base leading-relaxed text-(--text-secondary)">
+        <p
+          class="mt-6 max-w-sm text-base leading-relaxed text-(--text-secondary) transition-colors duration-300"
+        >
           {
             t('home.hero.subtitle') ||
               'Building digital experiences that combine performance with exceptional design.'
@@ -37,14 +48,16 @@ const currentYear = new Date().getFullYear();
 
       <!-- Column 2: Navigation -->
       <div>
-        <h3 class="text-sm font-bold tracking-widest text-(--text-primary) uppercase">
+        <h3
+          class="text-sm font-bold tracking-widest text-(--text-primary) uppercase transition-colors duration-300"
+        >
           {t('common.footer.navigation') || 'Navigation'}
         </h3>
         <ul class="mt-6 space-y-4">
           <li>
             <a
               href={`/${lang}/`}
-              class="hover:text-primary text-(--text-secondary) transition-colors"
+              class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
             >
               {t('common.nav.home')}
             </a>
@@ -52,7 +65,7 @@ const currentYear = new Date().getFullYear();
           <li>
             <a
               href={`/${lang}/projects/`}
-              class="hover:text-primary text-(--text-secondary) transition-colors"
+              class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
             >
               {t('common.nav.projects')}
             </a>
@@ -60,7 +73,7 @@ const currentYear = new Date().getFullYear();
           <li>
             <a
               href={`/${lang}/blog/`}
-              class="hover:text-primary text-(--text-secondary) transition-colors"
+              class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
             >
               {t('common.nav.blog') || 'Blog'}
             </a>
@@ -68,7 +81,7 @@ const currentYear = new Date().getFullYear();
           <li>
             <a
               href={`/${lang}/contact/`}
-              class="hover:text-primary text-(--text-secondary) transition-colors"
+              class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
             >
               {t('common.nav.contact')}
             </a>
@@ -78,17 +91,23 @@ const currentYear = new Date().getFullYear();
 
       <!-- Column 3: Contact/Legal -->
       <div>
-        <h3 class="text-sm font-bold tracking-widest text-(--text-primary) uppercase">
+        <h3
+          class="text-sm font-bold tracking-widest text-(--text-primary) uppercase transition-colors duration-300"
+        >
           {t('common.footer.contact') || 'Contact'}
         </h3>
         <ul class="mt-6 space-y-4">
-          <li class="flex items-center gap-3 text-(--text-secondary)">
+          <li
+            class="flex items-center gap-3 text-(--text-secondary) transition-colors duration-300"
+          >
             <Icon name="mail" class="size-4" />
-            <span>hello@zares.dev</span>
+            <span class="transition-colors duration-300">hello@zares.dev</span>
           </li>
-          <li class="flex items-center gap-3 text-(--text-secondary)">
+          <li
+            class="flex items-center gap-3 text-(--text-secondary) transition-colors duration-300"
+          >
             <Icon name="location_on" class="size-4" />
-            <span>Latam / Remote</span>
+            <span class="transition-colors duration-300">Latam / Remote</span>
           </li>
         </ul>
       </div>
@@ -96,9 +115,9 @@ const currentYear = new Date().getFullYear();
 
     <!-- Bottom Bar -->
     <div
-      class="mt-16 flex flex-col items-center justify-between border-t border-(--border-color) pt-8 md:flex-row"
+      class="mt-16 flex flex-col items-center justify-between border-t border-(--border-color) pt-8 transition-colors duration-300 md:flex-row"
     >
-      <p class="text-sm text-(--text-muted)">
+      <p class="text-sm text-(--text-muted) transition-colors duration-300">
         © {currentYear}
         {t('common.footer.brand')}. {t('common.footer.rights')}
       </p>

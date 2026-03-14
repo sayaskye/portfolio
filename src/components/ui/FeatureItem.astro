@@ -10,7 +10,7 @@ interface Props {
 const { icon, title, description } = Astro.props;
 ---
 
-<div class="rounded-lg border border-(--border-color) bg-(--bg-primary) p-4">
+<div class="rounded-lg border border-(--border-color) bg-(--bg-primary) p-4 transition-colors duration-300">
   <Icon name={icon} class="text-primary mb-2 size-6" />
   <h5 class="text-sm font-bold">{title}</h5>
   <p class="mt-1 text-xs text-(--text-secondary)">{description}</p>

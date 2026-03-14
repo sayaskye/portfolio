@@ -15,7 +15,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
 ---
 
 <article
-  class={`blog-card group grid grid-cols-1 items-start gap-8 md:grid-cols-12 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
+  class={`blog-card group grid grid-cols-1 items-start gap-8 md:grid-cols-12 transition-all duration-300 ${!isFirst ? 'border-t border-(--border-color) pt-16' : ''}`}
   data-category={blog.data.category}
 >
   <div class="overflow-hidden rounded-xl md:col-span-4">
@@ -24,14 +24,14 @@ const slug = blog.slug.replace(`${lang}/`, '');
         <img
           src={blog.data.image.src}
           alt={blog.data.image.alt}
-          class="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
           transition:name={`blog-image-${blog.data.id}`}
           loading="lazy"
           decoding="async"
         />
       ) : (
-        <div class="flex aspect-video w-full items-center justify-center bg-(--bg-secondary)">
-          <Icon name="article" class="size-12 text-(--text-muted)" />
+        <div class="flex aspect-video w-full items-center justify-center bg-(--bg-secondary) transition-colors duration-300">
+          <Icon name="article" class="size-12 text-(--text-muted) transition-colors duration-300" />
         </div>
       )
     }
@@ -66,12 +66,12 @@ const slug = blog.slug.replace(`${lang}/`, '');
       }
     </div>
     <h2
-      class="group-hover:text-primary text-2xl leading-tight font-bold text-(--text-primary) transition-colors"
+      class="group-hover:text-primary text-2xl leading-tight font-bold text-(--text-primary) transition-colors duration-300"
       transition:name={`blog-title-${blog.data.id}`}
     >
       <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
     </h2>
-    <p class="line-clamp-2 text-base leading-relaxed text-(--text-secondary)">
+    <p class="line-clamp-2 text-base leading-relaxed text-(--text-secondary) transition-colors duration-300">
       {blog.data.description}
     </p>
     <div class="mt-2 flex gap-4">
@@ -79,7 +79,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
         blog.data.tags
           .slice(1, 4)
           .map((tag) => (
-            <span class="rounded bg-(--bg-secondary) px-2 py-1 text-xs text-(--text-secondary)">
+            <span class="rounded bg-(--bg-secondary) px-2 py-1 text-xs text-(--text-secondary) transition-colors duration-300">
               {tag}
             </span>
           ))

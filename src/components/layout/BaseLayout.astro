@@ -53,7 +53,15 @@ import '@/styles/global.css';
 
         function applyTheme() {
           const theme = getTheme();
-          document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
+          const root = document.documentElement;
+
+          // Prevent transition flash by temporarily disabling animations
+          root.classList.add('no-transitions');
+          root.setAttribute(THEME_ATTRIBUTE, theme);
+
+          // Force reflow to ensure the attribute is applied before re-enabling transitions
+          const _reflow = window.getComputedStyle(root).opacity;
+          root.classList.remove('no-transitions');
         }
 
         // Apply theme immediately to prevent flash
@@ -67,7 +75,7 @@ import '@/styles/global.css';
       })();
     </script>
   </head>
-  <body class="bg-(--bg-primary) text-(--text-primary) antialiased transition-colors duration-200">
+  <body class="bg-(--bg-primary) text-(--text-primary) antialiased transition-colors duration-300">
     <div
       class="group/design-root relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
     >

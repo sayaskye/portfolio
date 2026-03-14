@@ -16,14 +16,14 @@ const image = project.data.image;
 ---
 
 <div
-  class="project-card group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all"
+  class="project-card group hover:border-primary/50 flex flex-col overflow-hidden rounded-xl border border-(--border-color) bg-(--bg-primary) transition-all duration-300"
   data-category={project.data.category}
 >
-  <div class="relative h-48 overflow-hidden bg-(--bg-secondary)">
+  <div class="relative h-48 overflow-hidden bg-(--bg-secondary) transition-colors duration-300">
     {
       image ? (
         <img
-          class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
           alt={image.alt}
           src={image.src}
           transition:name={`project-image-${project.data.id}`}
@@ -41,26 +41,26 @@ const image = project.data.image;
         {project.data.category}
       </span>
       <h3
-        class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors"
+        class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors duration-300"
         transition:name={`project-title-${project.data.id}`}
       >
         <a href={`/${lang}/projects/${slug}/`}>{project.data.title}</a>
       </h3>
     </div>
-    <p class="mb-6 flex-1 text-sm text-(--text-secondary)">
+    <p class="mb-6 flex-1 text-sm text-(--text-secondary) transition-colors duration-300">
       {project.data.description}
     </p>
     <div class="mb-6 flex flex-wrap gap-2">
       {
         project.data.tags.map((tag) => (
-          <span class="rounded bg-(--bg-secondary) px-2 py-0.5 text-[10px] font-bold text-(--text-secondary) uppercase">
+          <span class="rounded bg-(--bg-secondary) px-2 py-0.5 text-[10px] font-bold text-(--text-secondary) uppercase transition-colors duration-300">
             {tag}
           </span>
         ))
       }
     </div>
-    <div class="flex items-center justify-between border-t border-(--border-color) pt-4">
-      <div class="flex items-center gap-2 text-xs text-(--text-secondary)">
+    <div class="flex items-center justify-between border-t border-(--border-color) pt-4 transition-colors duration-300">
+      <div class="flex items-center gap-2 text-xs text-(--text-secondary) transition-colors duration-300">
         <Icon name="event" class="size-4" />{' '}
         {
           project.data.publishDate.toLocaleDateString(lang, {

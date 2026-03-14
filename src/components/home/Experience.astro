@@ -27,7 +27,7 @@ const processedExperience = await Promise.all(
 );
 ---
 
-<section class="py-24" id="experience">
+<section class="py-24 transition-colors duration-300" id="experience">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid gap-16 lg:grid-cols-3">
       <div>
@@ -36,16 +36,16 @@ const processedExperience = await Promise.all(
           title={t('home.experience.title')}
           className="mb-6"
         />
-        <p class="mb-8 leading-relaxed text-(--text-secondary)">
+        <p class="mb-8 leading-relaxed text-(--text-secondary) transition-colors duration-300">
           {t('home.experience.subtitle')}
         </p>
         <!-- Key Achievement callout -->
-        <div class="border-primary/20 bg-primary/5 rounded-xl border p-6">
+        <div class="border-primary/20 bg-primary/5 rounded-xl border p-6 transition-colors duration-300">
           <h5 class="text-primary mb-2 flex items-center gap-2 font-bold">
             <Icon name="award_star" class="size-5" />
             {t('home.experience.achievement_title')}
           </h5>
-          <p class="text-sm text-(--text-secondary) italic">
+          <p class="text-sm text-(--text-secondary) italic transition-colors duration-300">
             {t('home.experience.achievement_desc')}
           </p>
         </div>
