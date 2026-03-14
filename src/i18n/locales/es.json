@@ -2,7 +2,7 @@
   "common": {
     "nav": {
       "home": "Inicio",
-      "projects": "Proyecto destacado",
+      "projects": "Proyectos",
       "blog": "Blog",
       "contact": "Contacto",
       "search": "Buscar..."
@@ -42,6 +42,7 @@
     },
     "featured_projects": {
       "eyebrow": "Portafolio",
+      "title": "Proyecto Destacado",
       "subtitle": "Una muestra de mis proyectos y trabajos más recientes.",
       "view_all": "Ver todos los trabajos",
       "case_study": "Caso de Estudio",

@@ -2,7 +2,7 @@
   "common": {
     "nav": {
       "home": "Home",
-      "projects": "Featured project",
+      "projects": "Projects",
       "blog": "Blog",
       "contact": "Contact",
       "search": "Search insights..."
@@ -42,6 +42,7 @@
     },
     "featured_projects": {
       "eyebrow": "Portfolio",
+      "title": "Featured Project",
       "subtitle": "A showcase of my latest projects and work.",
       "view_all": "View all works",
       "case_study": "Case Study",
