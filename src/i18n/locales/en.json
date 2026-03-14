@@ -2,7 +2,7 @@
   "common": {
     "nav": {
       "home": "Home",
-      "projects": "Projects",
+      "projects": "Featured project",
       "blog": "Blog",
       "contact": "Contact",
       "search": "Search insights..."
@@ -42,7 +42,7 @@
     },
     "featured_projects": {
       "eyebrow": "Portfolio",
-      "subtitle": "A selection of enterprise-grade applications, open-source contributions, and high-load architectural designs.",
+      "subtitle": "A showcase of my latest projects and work.",
       "view_all": "View all works",
       "case_study": "Case Study",
       "source": "Source",

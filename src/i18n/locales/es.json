@@ -2,7 +2,7 @@
   "common": {
     "nav": {
       "home": "Inicio",
-      "projects": "Proyectos",
+      "projects": "Proyecto destacado",
       "blog": "Blog",
       "contact": "Contacto",
       "search": "Buscar..."
@@ -42,7 +42,7 @@
     },
     "featured_projects": {
       "eyebrow": "Portafolio",
-      "subtitle": "Una selección de aplicaciones de nivel empresarial, contribuciones de código abierto y diseños de arquitectura de alta carga.",
+      "subtitle": "Una muestra de mis proyectos y trabajos más recientes.",
       "view_all": "Ver todos los trabajos",
       "case_study": "Caso de Estudio",
       "source": "Código fuente",

@@ -12,11 +12,6 @@ interface Props {
 
 const { lang, projects } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
-const defaultImages = [
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuB3HjP8FDnYUIg0VJTR6BQSwPKbfwL0JyBbOyObxj2cpN0kAX2EI-udKxwTEpq3uQDKDfluBZ8nEKr_xNx3MsKnSN4YbQW7ygz1pCVWNnlMZz35NrW0lckiceC6oTpzYo8UnwI4Poquj9PCr6n90zMAe4IW4aIBF1dsyPQ7NHqr0Zpxs1opmNekR6YOeJFckeBx_c5kSQ4xPT0WVAXPu7B6o9QIZqV5XCHQyZWWXcAXwbGCjwwimbLxOM6sCwmuAqGf_8RPGaVkt1s',
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuDG6FX9Nd4HCLmTaDzpM_FEykh94W0POf0Ljw4OSDLNCqkWEwwcspENyx84TSdGwwNZUyB4HodM2t-TlH83bRnPzI0occ6c3qvsoqAy_7DTx9adlwJbmHzEb7SBWSouBRefrgc2P_dXZnWXNmarPgglMGXRrV5ajHFzTRFg5SyiLEqgrDLoCU9XM3Cr6CvpJDIve68ye0igNApa_ziFMND5dFpW3vWJsVDnDn9D_xLo91a_VnIeLrd5-Aizoh2N9Ki5SHT7qaW9ocA',
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuB7p_60rpwXvK5mje0sTVQgaXVjS_SIcDaOHMzim5bc87wVR2sTnDemfETkRa7xEPrnbuWx-EWh7u1Tu2ijl0Vq92gTZXXutdyF6JheSxoACfj2Rl8y8IKm8IPpBWG_XKTkhX06RQXKyy74kfpA0ltWH1FCsYgFj4y8eM-TOQe5pAxLJmYRq-cZhuxX4Y8KhJL4arjooQw8yaufIER8AitGZYc7JlfkhiCGESKDhYDyjrhJMNGbmstyn6EBkKx1ggj4VrJvbh7JDIo',
-];
 ---
 
 <section class="bg-(--bg-primary) py-24" id="projects">
@@ -39,9 +34,7 @@ const defaultImages = [
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
         projects.map((project, idx) => {
-          const imgSrc = project.data.image
-            ? project.data.image.src
-            : defaultImages[idx % defaultImages.length];
+          const imgSrc = project.data.image ? project.data.image.src : '';
           const blendClass = idx % 2 === 0 ? 'bg-primary/20' : 'bg-secondary/20';
 
           return (
