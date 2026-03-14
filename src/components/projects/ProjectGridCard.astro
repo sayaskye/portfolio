@@ -12,9 +12,7 @@ const { project, lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 const slug = project.slug.replace(`${lang}/`, '');
 
-const defaultImage =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBvb1QjLNO7j2LQcHq8ShXLQYqP1W_YmdYdOBMUnC9yZstBSP9k-6Io3dPdBx6g4zgzpnYKa6Nx1sbEoNMDJu8IWQq5WrhTSlTKfVuiLC0eE_R4AijCluVXHthGBZYFBdpjHgofUI6tFlVbcL6mv3F6hHUpWdABVbAsILlR1dGa5SG-wzrWzVkkipFSnFWKPDHsEk-kQs_xyJLwmBHV6XjXNZ8uYeSvn2SsY7oynecTECt6clncwrPzv09DxZtfa1UKKZSEDzug1Go';
-const imgSrc = project.data.image ? project.data.image.src : defaultImage;
+const image = project.data.image;
 ---
 
 <div
@@ -22,20 +20,19 @@ const imgSrc = project.data.image ? project.data.image.src : defaultImage;
   data-category={project.data.category}
 >
   <div class="relative h-48 overflow-hidden bg-(--bg-secondary)">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <Icon name="monitoring" class="size-16 text-(--text-secondary)" />
-    </div>
-    <img
-      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity group-hover:opacity-40"
-      alt={project.data.title}
-      src={imgSrc}
-    />
-    <a
-      href={`/${lang}/projects/${slug}/`}
-      class="hover:bg-primary hover:text-on-primary absolute top-4 right-4 rounded-full bg-(--bg-secondary)/80 p-2 text-(--text-primary) backdrop-blur-sm transition-colors"
-    >
-      <Icon name="open_in_new" class="size-4" />
-    </a>
+    {
+      image ? (
+        <img
+          class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          alt={image.alt}
+          src={image.src}
+        />
+      ) : (
+        <div class="absolute inset-0 flex items-center justify-center">
+          <Icon name="monitoring" class="size-16 text-(--text-secondary)" />
+        </div>
+      )
+    }
   </div>
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-3 flex flex-col gap-2">
