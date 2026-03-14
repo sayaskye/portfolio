@@ -50,7 +50,25 @@ const blogCollection = defineCollection({
   schema: blogSchema,
 });
 
+const experienceSchema = z.object({
+  role: z.string(),
+  company: z.string(),
+  location: z.string().optional(),
+  displayDate: z.string(), // E.g. "2021 — Present"
+  sortDate: z.coerce.date(), // For sorting
+  icon: z.string().default('corporate_fare'),
+  language: z.string(),
+});
+
+export type ExperienceFrontmatter = z.infer<typeof experienceSchema>;
+
+const experienceCollection = defineCollection({
+  type: 'content',
+  schema: experienceSchema,
+});
+
 export const collections = {
   projects: projectCollection,
   blog: blogCollection,
+  experience: experienceCollection,
 };

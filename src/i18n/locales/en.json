@@ -56,13 +56,7 @@
       "title": "Experience Path",
       "subtitle": "A track record of growing with teams and building complex systems across various industries—from high-growth startups to Fortune 500 companies.",
       "achievement_title": "Key Achievement",
-      "achievement_desc": "\"Successfully migrated monolithic infrastructure to microservices for a 5M+ user platform with zero downtime.\"",
-      "role1": "Lead Systems Architect",
-      "company1": "CloudFlow Tech (Remote)",
-      "date1": "2021 — Present",
-      "role2": "Senior Backend Engineer",
-      "company2": "FinStream Solutions",
-      "date2": "2018 — 2021"
+      "achievement_desc": "\"Successfully migrated monolithic infrastructure to microservices for a 5M+ user platform with zero downtime.\""
     },
     "about": {
       "eyebrow": "My Philosophy",

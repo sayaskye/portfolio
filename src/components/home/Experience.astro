@@ -3,6 +3,7 @@ import { getTranslation } from '@/i18n';
 import SectionHeader from '@/components/ui/SectionHeader.astro';
 import Milestone from '@/components/home/Milestone.astro';
 import Icon from '@/components/ui/Icon.astro';
+import { getCollection } from 'astro:content';
 
 interface Props {
   lang: string;
@@ -10,6 +11,20 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
+
+const experienceEntries = await getCollection('experience', (entry) => {
+  return entry.data.language === lang;
+});
+
+// Sort and pre-render content
+const processedExperience = await Promise.all(
+  experienceEntries
+    .sort((a, b) => b.data.sortDate.getTime() - a.data.sortDate.getTime())
+    .map(async (item) => {
+      const { Content } = await item.render();
+      return { item, Content };
+    })
+);
 ---
 
 <section class="py-24" id="experience">
@@ -35,22 +50,20 @@ const t = (key: string) => getTranslation(key, lang);
           </p>
         </div>
       </div>
-      <div class="relative space-y-12 lg:col-span-2">
-        <Milestone
-          date={t('home.experience.date1')}
-          role={t('home.experience.role1')}
-          company={t('home.experience.company1')}
-          icon="corporate_fare"
-          variant="primary"
-        />
-
-        <Milestone
-          date={t('home.experience.date2')}
-          role={t('home.experience.role2')}
-          company={t('home.experience.company2')}
-          icon="terminal"
-          variant="secondary"
-        />
+      <div class="relative flex flex-col gap-12 lg:col-span-2">
+        {
+          processedExperience.map(({ item, Content }, idx) => (
+            <Milestone
+              date={item.data.displayDate}
+              role={item.data.role}
+              company={item.data.company}
+              icon={item.data.icon}
+              variant={idx === 0 ? 'primary' : 'secondary'}
+            >
+              <Content />
+            </Milestone>
+          ))
+        }
       </div>
     </div>
   </div>

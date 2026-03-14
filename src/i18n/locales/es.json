@@ -56,13 +56,7 @@
       "title": "Trayectoria Profesional",
       "subtitle": "Un historial de crecimiento con equipos y construcción de sistemas complejos en diversas industrias—desde startups de alto crecimiento hasta empresas Fortune 500.",
       "achievement_title": "Logro Clave",
-      "achievement_desc": "\"Migración exitosa de infraestructura monolítica a microservicios para una plataforma de más de 5 millones de usuarios sin tiempo de inactividad.\"",
-      "role1": "Arquitecto de Sistemas Líder",
-      "company1": "CloudFlow Tech (Remoto)",
-      "date1": "2021 — Presente",
-      "role2": "Ingeniero Backend Senior",
-      "company2": "FinStream Solutions",
-      "date2": "2018 — 2021"
+      "achievement_desc": "\"Migración exitosa de infraestructura monolítica a microservicios para una plataforma de más de 5 millones de usuarios sin tiempo de inactividad.\""
     },
     "about": {
       "eyebrow": "Mi Filosofía",
