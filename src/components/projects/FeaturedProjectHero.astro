@@ -45,7 +45,9 @@ const slug = project.slug.replace(`${lang}/`, '');
       >
         {project.data.title}
       </h3>
-      <p class="mb-8 text-lg leading-relaxed text-(--text-secondary) transition-colors duration-300">
+      <p
+        class="mb-8 text-lg leading-relaxed text-(--text-secondary) transition-colors duration-300"
+      >
         {project.data.description}
       </p>
       <div class="mb-8 flex flex-wrap gap-2">
@@ -80,7 +82,10 @@ const slug = project.slug.replace(`${lang}/`, '');
       </div>
     </div>
     <div class="relative min-h-75 bg-(--bg-secondary) transition-colors duration-300 lg:w-1/2">
-      <div class="from-primary/10 absolute inset-0 bg-linear-to-br transition-all duration-300 to-transparent"></div>
+      <div
+        class="from-primary/10 absolute inset-0 bg-linear-to-br to-transparent transition-all duration-300"
+      >
+      </div>
       {
         project.data.image && (
           <img

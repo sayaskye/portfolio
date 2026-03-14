@@ -59,8 +59,12 @@ const image = project.data.image;
         ))
       }
     </div>
-    <div class="flex items-center justify-between border-t border-(--border-color) pt-4 transition-colors duration-300">
-      <div class="flex items-center gap-2 text-xs text-(--text-secondary) transition-colors duration-300">
+    <div
+      class="flex items-center justify-between border-t border-(--border-color) pt-4 transition-colors duration-300"
+    >
+      <div
+        class="flex items-center gap-2 text-xs text-(--text-secondary) transition-colors duration-300"
+      >
         <Icon name="event" class="size-4" />{' '}
         {
           project.data.publishDate.toLocaleDateString(lang, {

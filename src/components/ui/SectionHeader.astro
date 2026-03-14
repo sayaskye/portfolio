@@ -15,5 +15,11 @@ const { eyebrow, title, description, align = 'left', className = '' } = Astro.pr
     {eyebrow}
   </h2>
   {title && <h3 class="text-4xl font-bold transition-colors duration-300">{title}</h3>}
-  {description && <p class="mt-4 max-w-2xl text-(--text-secondary) transition-colors duration-300">{description}</p>}
+  {
+    description && (
+      <p class="mt-4 max-w-2xl text-(--text-secondary) transition-colors duration-300">
+        {description}
+      </p>
+    )
+  }
 </div>

@@ -71,7 +71,9 @@ const slug = blog.slug.replace(`${lang}/`, '');
     >
       <a href={`/${lang}/blog/${slug}/`}>{blog.data.title}</a>
     </h2>
-    <p class="line-clamp-2 text-base leading-relaxed text-(--text-secondary) transition-colors duration-300">
+    <p
+      class="line-clamp-2 text-base leading-relaxed text-(--text-secondary) transition-colors duration-300"
+    >
       {blog.data.description}
     </p>
     <div class="mt-2 flex gap-4">

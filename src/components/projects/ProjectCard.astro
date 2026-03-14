@@ -46,7 +46,9 @@ const slug = project.slug.replace(`${lang}/`, '');
     <p class="mb-6 text-sm leading-relaxed text-(--text-secondary) transition-colors duration-300">
       {project.data.description}
     </p>
-    <div class="mt-auto flex items-center justify-between border-t border-(--border-color) pt-6 transition-colors duration-300">
+    <div
+      class="mt-auto flex items-center justify-between border-t border-(--border-color) pt-6 transition-colors duration-300"
+    >
       <a
         class="hover:text-primary flex items-center gap-2 text-sm font-bold transition-all duration-300"
         href={`/${lang}/projects/${slug}/`}
