@@ -1,6 +1,5 @@
 ---
 import { getTranslation } from '@/i18n';
-import StatItem from '@/components/ui/StatItem.astro';
 
 interface Props {
   lang: string;
@@ -10,62 +9,120 @@ const { lang } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 ---
 
-<section class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-32" id="home">
-  <div class="absolute inset-0 -z-10 opacity-20">
-    <div class="bg-primary absolute top-0 right-0 h-96 w-96 rounded-full blur-[120px]"></div>
-    <div class="bg-secondary absolute bottom-0 left-0 h-96 w-96 rounded-full blur-[120px]"></div>
+<section class="relative overflow-hidden pt-16 pb-20 lg:pt-32 lg:pb-40" id="home">
+  <!-- Subtle Architectural Background -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div
+      class="bg-primary/5 absolute top-0 left-1/2 h-200 w-200 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]"
+    >
+    </div>
+    <div
+      class="bg-secondary/5 absolute bottom-0 left-1/4 h-150 w-150 -translate-y-1/4 rounded-full blur-[120px]"
+    >
+    </div>
+    <!-- SVG Grid Pattern -->
+    <div class="absolute inset-0 mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]">
+      <svg
+        class="absolute inset-0 h-full w-full stroke-(--border-color) opacity-[0.03]"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none"></path>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hero-grid)"></rect>
+      </svg>
+    </div>
   </div>
+
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid items-center gap-12 lg:grid-cols-2">
-      <div class="space-y-8">
-        <div>
-          <span
-            class="bg-primary/10 text-primary border-primary/20 mb-4 inline-block rounded-full border px-3 py-1 text-xs font-bold tracking-wider uppercase"
-          >
-            {t('home.hero.badge')}
+    <div class="flex flex-col items-center text-center">
+      <!-- Badge -->
+      <div class="animate-fade-in group mb-8">
+        <span
+          class="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-black tracking-[0.2em] uppercase transition-all duration-300"
+        >
+          <span class="relative flex h-2 w-2">
+            <span
+              class="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+            ></span>
+            <span class="bg-primary relative inline-flex h-2 w-2 rounded-full"></span>
           </span>
-          <h1 class="text-5xl leading-tight font-bold tracking-tight lg:text-7xl">
-            {t('home.hero.title')}
-          </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
-            {t('home.hero.subtitle')}
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a
-            class="bg-primary text-on-primary hover:shadow-primary/20 inline-flex cursor-pointer items-center justify-center rounded-lg px-8 py-4 text-base font-bold transition-all hover:shadow-lg"
-            href={`/${lang}/projects/`}
-          >
-            {t('home.hero.cta_primary')}
-          </a>
-          <a
-            class="inline-flex cursor-pointer items-center justify-center rounded-lg border border-(--border-color) px-8 py-4 text-base font-bold transition-all hover:bg-(--bg-secondary)"
-            href={`/${lang}/contact/`}
-          >
-            {t('home.hero.cta_secondary')}
-          </a>
-        </div>
-        <div class="flex items-center gap-6 pt-4 text-(--text-secondary)">
-          <StatItem value="12+" label={t('home.hero.stat_years')} />
-          <div class="h-10 w-px bg-(--border-color)"></div>
-          <StatItem value="40+" label={t('home.hero.stat_shipped')} />
-          <div class="h-10 w-px bg-(--border-color)"></div>
-          <StatItem value="500k+" label={t('home.hero.stat_users')} />
-        </div>
+          {t('home.hero.badge')}
+        </span>
       </div>
-      <div class="group relative">
-        <div
-          class="from-primary to-secondary absolute -inset-1 rounded-xl bg-linear-to-r opacity-25 blur transition duration-1000 group-hover:opacity-50"
+
+      <!-- Main Title -->
+      <h1
+        class="text-5xl leading-[1.1] font-black tracking-tight text-(--text-primary) md:text-7xl lg:text-8xl"
+      >
+        <span class="block">Andrés Cazares</span>
+        <span
+          class="from-primary to-primary/60 inline-block bg-linear-to-r bg-clip-text text-transparent"
         >
+          {t('home.hero.title')}
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p
+        class="mt-8 max-w-3xl text-lg leading-relaxed text-(--text-secondary) md:text-xl lg:leading-loose"
+      >
+        {t('home.hero.subtitle')}
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-12 flex flex-col gap-4 sm:flex-row">
+        <a
+          class="bg-primary hover:bg-primary/90 text-on-primary ring-primary/20 hover:shadow-primary/20 inline-flex cursor-pointer items-center justify-center rounded-xl px-10 py-5 text-base font-black transition-all duration-300 hover:scale-105 hover:shadow-xl hover:ring-8 active:scale-95"
+          href={`/${lang}/projects/`}
+        >
+          {t('home.hero.cta_primary')}
+        </a>
+        <a
+          class="inline-flex cursor-pointer items-center justify-center rounded-xl border border-(--border-color) bg-(--bg-primary) px-10 py-5 text-base font-black text-(--text-primary) transition-all duration-300 hover:scale-105 hover:bg-(--bg-secondary) active:scale-95"
+          href={`/${lang}/contact/`}
+        >
+          {t('home.hero.cta_secondary')}
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div
+        class="mt-20 flex w-full max-w-3xl flex-wrap items-center justify-center gap-8 md:gap-16"
+      >
+        <div class="group flex flex-col items-center">
+          <span
+            class="from-primary to-primary/60 text-4xl font-black text-(--text-primary) transition-all duration-300 group-hover:scale-110 md:text-5xl"
+          >
+            12+
+          </span>
+          <span class="mt-1 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
+            {t('home.hero.stat_years')}
+          </span>
         </div>
-        <div
-          class="relative aspect-square overflow-hidden rounded-xl bg-(--bg-secondary) shadow-2xl"
-        >
-          <img
-            class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
-            alt="Professional software engineer developer workspace setup"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zNe3huMkPms8Lf5lDIgJkK0N2rlx5Dm8UB7xzdfbo31SudDxEQamEjIRpHZV4WpSdCYzl46hMfxz1gIL17u1gmso_PrEeoZWEhAAy_49L9ufkTvrJ5-blBePFD1NhMJLxjexKT9-OJlYHLbv9jd_UqN_FXZISW4-uuuxwLwoyobjSLAsUajUd1GWBgttRLthSqj7dAPmRDX-mS6c3v6z9cXxZ-pWckU4w-aLyi3EkkZp7-E0YDDmXAhkyDBNiKRMFsW2Y9Xtdho"
-          />
+        <div class="hidden h-12 w-px bg-(--border-color) opacity-50 md:block"></div>
+        <div class="group flex flex-col items-center">
+          <span
+            class="from-primary to-primary/60 text-4xl font-black text-(--text-primary) transition-all duration-300 group-hover:scale-110 md:text-5xl"
+          >
+            40+
+          </span>
+          <span class="mt-1 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
+            {t('home.hero.stat_shipped')}
+          </span>
+        </div>
+        <div class="hidden h-12 w-px bg-(--border-color) opacity-50 md:block"></div>
+        <div class="group flex flex-col items-center">
+          <span
+            class="from-primary to-primary/60 text-4xl font-black text-(--text-primary) transition-all duration-300 group-hover:scale-110 md:text-5xl"
+          >
+            500k+
+          </span>
+          <span class="mt-1 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
+            {t('home.hero.stat_users')}
+          </span>
         </div>
       </div>
     </div>
