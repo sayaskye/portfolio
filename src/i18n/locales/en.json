@@ -50,7 +50,7 @@
       "eyebrow": "Portfolio",
       "title": "Featured Project",
       "subtitle": "A showcase of my latest projects and work.",
-      "view_all": "View all works",
+      "view_all": "View all projects",
       "spotlight": "Spotlight",
       "empty": "No projects found for this language."
     },
@@ -59,12 +59,12 @@
       "title": "Experience Path",
       "subtitle": "A track record of my growth and experience in the software engineering field.",
       "achievement_title": "Key Achievement",
-      "achievement_desc": "\"Engineered a scheduling feature in dashboard to coordinate field operators and company agents for a real state company with heavy load of schedules and users.\""
+      "achievement_desc": "\"Engineered a scheduling feature in the dashboard to coordinate field operators and company agents for a real estate company with a heavy load of schedules and users.\""
     },
     "about": {
       "eyebrow": "My Philosophy",
       "quote": "\"If it is not easy to use and maintain, it is not done.\"",
-      "p1": "I believe in the power of simple, clean, and maintainable code. In my 2+ years as an engineer and a lot more as a developer, I've seen frameworks come and go, but the principles remain constant.",
+      "p1": "I believe in the power of simple, clean, and maintainable code. In my 2+ years as an engineer and many more as a developer, I've seen frameworks come and go, but the principles remain constant.",
       "p2": "My approach combines rigorous technical standards with a deep understanding of business goals. I don't just build features; I build solutions.",
       "item1_title": "Strategic Design",
       "item1_desc": "Focusing on long-term sustainability over quick fixes.",
@@ -80,7 +80,7 @@
     "page": {
       "title": "Engineering Portfolio",
       "seo_description": "A showcase of my latest projects and work.",
-      "subtitle": "A collection of projects and work.",
+      "subtitle": "A collection of my projects and work.",
       "all": "All Projects",
       "featured_label": "Featured Project",
       "view_case_study": "View",
@@ -138,9 +138,9 @@
     "page": {
       "title": "Let's build something extraordinary.",
       "seo_description": "Get in touch for a project collaboration.",
-      "subtitle": "Whether you're looking for a engineering consultation or a lead for your next big project, my inbox is always open.",
+      "subtitle": "Whether you're looking for an engineering consultation or a lead for your next big project, my inbox is always open.",
       "card_title": "Ready to talk?",
-      "card_subtitle": "Reach out directly to my email, any social media or use the form to tell me about your project — I respond within 24 hours.",
+      "card_subtitle": "Reach out directly via email, social media, or use the form to tell me about your project — I typically respond within 24 hours.",
       "email_label": "Email",
       "location_label": "Location",
       "location_value": "Remote Worldwide / México",

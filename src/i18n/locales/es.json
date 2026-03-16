@@ -44,7 +44,7 @@
       "cta_secondary": "Hablemos",
       "stat_years": "Años Exp.",
       "stat_tech": "Tecnologías",
-      "stat_shipped": "Características entregadas"
+      "stat_shipped": "Funcionalidades entregadas"
     },
     "featured_projects": {
       "eyebrow": "Portafolio",
@@ -59,13 +59,13 @@
       "title": "Trayectoria Profesional",
       "subtitle": "Un historial de mi crecimiento y experiencia en el campo de la ingeniería de software.",
       "achievement_title": "Logro Clave",
-      "achievement_desc": "\"Diseñé una funcionalidad de agenda en el dashboard para coordinar operadores de campo y agentes de la empresa para una empresa de bienes raíces con una gran carga de horarios y usuarios.\""
+      "achievement_desc": "\"Diseñé una funcionalidad de agenda en el panel para coordinar operadores de campo y agentes de la empresa para una inmobiliaria con una gran carga de horarios y usuarios.\""
     },
     "about": {
       "eyebrow": "Mi Filosofía",
-      "quote": "\"si no es fácil de usar y mantener, no está hecho.\"",
-      "p1": "Creo en el poder del código simple, limpio y mantenible. En mis más de 2 años como ingeniero y mucho más como desarrollador, he visto frameworks venir e ir, pero los principios permanecen constantes.",
-      "p2": "Mi enfoque combina estándares técnicos rigurosos con una comprensión profunda de los objetivos comerciales. No solo construyo características; construyo soluciones.",
+      "quote": "\"Si no es fácil de usar y mantener, no está terminado.\"",
+      "p1": "Creo en el poder del código simple, limpio y mantenible. En mis más de 2 años como ingeniero y muchos más como desarrollador, he visto Frameworks ir y venir, pero los principios permanecen constantes.",
+      "p2": "Mi enfoque combina estándares técnicos rigurosos con una comprensión profunda de los objetivos comerciales. No solo construyo funcionalidades; construyo soluciones.",
       "item1_title": "Diseño Estratégico",
       "item1_desc": "Enfocado en la sostenibilidad a largo plazo sobre soluciones rápidas.",
       "item2_title": "Mentoría",
@@ -82,7 +82,7 @@
       "seo_description": "Una muestra de mis proyectos y trabajos más recientes.",
       "subtitle": "Una colección de mis proyectos y trabajos más recientes.",
       "all": "Todos los Proyectos",
-      "featured_label": "Arquitectura Destacada",
+      "featured_label": "Proyecto Destacado",
       "view_case_study": "Ver",
       "source": "Fuente",
       "documentation": "Documentación",
@@ -137,13 +137,13 @@
     },
     "page": {
       "title": "Construyamos algo extraordinario.",
-      "seo_description": "Ponte en contacto para consultoría arquitectónica o colaboración en proyectos.",
-      "subtitle": "Ya sea que estés buscando consultoría arquitectónica, un líder para tu próximo gran proyecto o simplemente quieras charlar sobre tecnología, mi bandeja de entrada siempre está abierta.",
+      "seo_description": "Ponte en contacto para una colaboración en un proyecto.",
+      "subtitle": "Ya sea que busques una consulta de ingeniería o un líder para tu próximo gran proyecto, mi bandeja de entrada siempre está abierta.",
       "card_title": "¿Listo para hablar?",
-      "card_subtitle": "Ponte en contacto directamente o utiliza el formulario — respondo en menos de 24 horas.",
+      "card_subtitle": "Contáctame directamente vía email, redes sociales o usa el formulario para contarme sobre tu proyecto — suelo responder en menos de 24 horas.",
       "email_label": "Correo",
       "location_label": "Ubicación",
-      "location_value": "Remoto en todo el mundo",
+      "location_value": "Remoto en todo el mundo / México",
       "social_github": "GitHub",
       "social_linkedin": "LinkedIn"
     }
