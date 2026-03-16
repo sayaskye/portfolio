@@ -59,7 +59,9 @@
       "title": "Trayectoria Profesional",
       "subtitle": "Un historial de mi crecimiento y experiencia en el campo de la ingeniería de software.",
       "achievement_title": "Logro Clave",
-      "achievement_desc": "\"Diseñé una funcionalidad de agenda en el panel para coordinar operadores de campo y agentes de la empresa para una inmobiliaria con una gran carga de horarios y usuarios.\""
+      "achievement_desc": "\"Diseñé una funcionalidad de agenda en el panel para coordinar operadores de campo y agentes de la empresa para una inmobiliaria con una gran carga de horarios y usuarios.\"",
+      "view_all": "Ver trayectoria completa",
+      "view_less": "Ver menos"
     },
     "about": {
       "eyebrow": "Mi Filosofía",

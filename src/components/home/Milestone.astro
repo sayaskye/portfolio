@@ -17,10 +17,13 @@ const variantClasses = {
 };
 ---
 
-<div class="group relative pl-16 md:pl-28">
+<div class="group relative pr-12 md:pr-0 md:pl-28">
   <!-- Timeline Dot/Icon -->
   <div
-    class={`absolute top-0 left-0 z-10 flex h-10 w-10 items-center justify-center rounded-xl border-2 border-(--bg-primary) bg-(--bg-primary) shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg md:h-14 md:w-14 ${variantClasses[variant]}`}
+    class:list={[
+      'absolute top-0 right-0 z-10 flex h-10 w-10 items-center justify-center rounded-xl border-2 border-(--bg-primary) bg-(--bg-primary) shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg md:right-auto md:left-0 md:h-14 md:w-14',
+      variantClasses[variant],
+    ]}
   >
     <div
       class="bg-primary absolute -top-1 -right-1 z-20 h-3 w-3 rounded-full border-2 border-(--bg-primary) opacity-0 transition-all duration-300 group-hover:opacity-100"

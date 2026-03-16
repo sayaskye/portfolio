@@ -59,7 +59,9 @@
       "title": "Experience Path",
       "subtitle": "A track record of my growth and experience in the software engineering field.",
       "achievement_title": "Key Achievement",
-      "achievement_desc": "\"Engineered a scheduling feature in the dashboard to coordinate field operators and company agents for a real estate company with a heavy load of schedules and users.\""
+      "achievement_desc": "\"Engineered a scheduling feature in the dashboard to coordinate field operators and company agents for a real estate company with a heavy load of schedules and users.\"",
+      "view_all": "View full timeline",
+      "view_less": "Show fewer items"
     },
     "about": {
       "eyebrow": "My Philosophy",
