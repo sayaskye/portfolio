@@ -74,7 +74,7 @@ const seo: SEOMetadata = {
     <!-- Project Hero Section -->
     <section class="mb-16">
       <div class="mb-8 flex flex-col items-start justify-between gap-6 md:flex-row">
-        <div class="max-w-3xl">
+        <div class="max-w-auto">
           <h1
             class="mb-4 text-4xl font-black tracking-tighter transition-colors duration-300 md:text-6xl"
             transition:name={`project-title-${project.data.id}`}
@@ -85,18 +85,21 @@ const seo: SEOMetadata = {
             {project.data.description}
           </p>
         </div>
-        {
-          project.data.github && (
-            <a
-              href={project.data.github}
-              target="_blank"
-              class="hover:bg-primary/20 flex items-center gap-2 rounded-xl border border-(--border-color) bg-(--bg-secondary) px-6 py-3 font-bold text-(--text-primary) transition-all"
-            >
-              <Icon name="code" class="size-5" />
-              {t('projects.page.source')}
-            </a>
-          )
-        }
+        <div class="flex w-full flex-wrap items-end justify-end gap-4 md:w-auto">
+          {
+            project.data.demo && (
+              <a
+                href={project.data.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-primary text-on-primary hover:bg-primary/90 shadow-primary/20 flex w-40 items-center gap-2 rounded-xl px-6 py-3 font-bold shadow-lg transition-all"
+              >
+                <Icon name="open_in_new" class="size-5" />
+                {t('projects.page.live_demo')}
+              </a>
+            )
+          }
+        </div>
       </div>
       <div
         class="group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border border-(--border-color) bg-(--bg-secondary) transition-colors duration-300"
@@ -142,14 +145,14 @@ const seo: SEOMetadata = {
           {t('projects.page.links')}
         </h4>
         {
-          project.data.demo && (
+          project.data.github && (
             <a
-              href={project.data.demo}
+              href={project.data.github}
               target="_blank"
               rel="noopener noreferrer"
               class="text-primary block font-medium hover:underline"
             >
-              {t('projects.page.live_demo')}
+              {t('projects.page.source')}
             </a>
           )
         }

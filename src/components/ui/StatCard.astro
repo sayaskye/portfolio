@@ -3,12 +3,12 @@ import Icon from './Icon.astro';
 
 interface Props {
   value?: string;
-  label: string;
+  label?: string;
   icon?: string;
   variant?: 'primary' | 'secondary' | 'ghost';
 }
 
-const { value, label, icon, variant = 'ghost' } = Astro.props;
+const { value, label = '', icon, variant = 'ghost' } = Astro.props;
 
 const variantClasses = {
   primary: 'border-primary/20 bg-primary/10',
@@ -29,7 +29,11 @@ const textClasses = {
   {icon && <Icon name={icon} class={`mb-2 size-10 ${textClasses[variant]}`} />}
   {value && <span class={`${textClasses[variant]} text-2xl font-bold md:text-4xl`}>{value}</span>}
 
-  <span class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
-    {label}
-  </span>
+  {
+    label && (
+      <span class="mt-2 text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
+        {label}
+      </span>
+    )
+  }
 </div>

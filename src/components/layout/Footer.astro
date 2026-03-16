@@ -17,9 +17,9 @@ const currentYear = new Date().getFullYear();
   class="mt-auto border-t border-(--border-color) bg-(--bg-primary) pt-16 pb-8 transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-20">
-    <div class="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-8">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-8">
       <!-- Column 1: Brand -->
-      <div class="col-span-1 md:col-span-2">
+      <div class="col-span-1">
         <a
           href={`/${lang}/`}
           class="flex items-center gap-3 transition-all duration-300 hover:opacity-80"
@@ -35,14 +35,6 @@ const currentYear = new Date().getFullYear();
             {t('common.footer.brand')}
           </span>
         </a>
-        <p
-          class="mt-6 max-w-sm text-base leading-relaxed text-(--text-secondary) transition-colors duration-300"
-        >
-          {
-            t('home.hero.subtitle') ||
-              'Building digital experiences that combine performance with exceptional design.'
-          }
-        </p>
         <SocialLinks lang={lang} class="mt-8" />
       </div>
 
@@ -107,7 +99,9 @@ const currentYear = new Date().getFullYear();
             class="flex items-center gap-3 text-(--text-secondary) transition-colors duration-300"
           >
             <Icon name="location_on" class="size-4" />
-            <span class="transition-colors duration-300">Latam / Remote</span>
+            <span class="transition-colors duration-300"
+              >{t('common.footer.location') || 'Remote'} / México</span
+            >
           </li>
         </ul>
       </div>
@@ -119,7 +113,7 @@ const currentYear = new Date().getFullYear();
     >
       <p class="text-sm text-(--text-muted) transition-colors duration-300">
         © {currentYear}
-        {t('common.footer.brand')}. {t('common.footer.rights')}
+        Andrés Cazares. {t('common.footer.rights')}
       </p>
     </div>
   </div>

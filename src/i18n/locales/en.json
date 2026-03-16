@@ -23,7 +23,8 @@
       "brand": "Portfolio",
       "rights": "All rights reserved.",
       "navigation": "Navigation",
-      "contact": "Contact"
+      "contact": "Contact",
+      "location": "Remote"
     },
     "categories": {
       "frontend": "Frontend",
@@ -36,59 +37,52 @@
   },
   "home": {
     "hero": {
-      "badge": "Senior Software Engineer & Architect",
+      "badge": "Semi-Senior Software Engineer",
       "title": "Software Engineer",
-      "subtitle": "Over a decade of experience in architecting high-performance distributed systems, mentoring engineering teams, and turning complex product visions into production-ready reality.",
+      "subtitle": "Over 2 years of experience crafting fluid, high-fidelity frontend interfaces and 1 year of backend development, specialized in turning complex product visions into seamlessly integrated production realities.",
       "cta_primary": "View Portfolio",
       "cta_secondary": "Let's Talk",
       "stat_years": "Years Exp.",
-      "stat_shipped": "Shipped",
-      "stat_users": "Users"
+      "stat_tech": "Technologies",
+      "stat_shipped": "Features shipped"
     },
     "featured_projects": {
       "eyebrow": "Portfolio",
       "title": "Featured Project",
       "subtitle": "A showcase of my latest projects and work.",
       "view_all": "View all works",
-      "case_study": "Case Study",
-      "source": "Source",
       "spotlight": "Spotlight",
-      "featured_title": "Featured Architecture",
       "empty": "No projects found for this language."
     },
     "experience": {
       "eyebrow": "Career",
       "title": "Experience Path",
-      "subtitle": "A track record of growing with teams and building complex systems across various industries—from high-growth startups to Fortune 500 companies.",
+      "subtitle": "A track record of my growth and experience in the software engineering field.",
       "achievement_title": "Key Achievement",
-      "achievement_desc": "\"Successfully migrated monolithic infrastructure to microservices for a 5M+ user platform with zero downtime.\""
+      "achievement_desc": "\"Engineered a scheduling feature in dashboard to coordinate field operators and company agents for a real state company with heavy load of schedules and users.\""
     },
     "about": {
       "eyebrow": "My Philosophy",
-      "quote": "\"Code is for humans to read, and only incidentally for machines to execute.\"",
-      "p1": "I believe in the power of simple, clean, and maintainable code. In my 12+ years as an engineer, I've seen frameworks come and go, but the principles of solid architecture remain constant.",
-      "p2": "My approach combines rigorous technical standards with a deep understanding of business goals. I don't just build features; I build solutions that scale with the organization.",
+      "quote": "\"If it is not easy to use and maintain, it is not done.\"",
+      "p1": "I believe in the power of simple, clean, and maintainable code. In my 2+ years as an engineer and a lot more as a developer, I've seen frameworks come and go, but the principles remain constant.",
+      "p2": "My approach combines rigorous technical standards with a deep understanding of business goals. I don't just build features; I build solutions.",
       "item1_title": "Strategic Design",
       "item1_desc": "Focusing on long-term sustainability over quick fixes.",
       "item2_title": "Mentorship",
       "item2_desc": "Empowering teams through knowledge sharing.",
-      "stat1_val": "99.9%",
-      "stat1_label": "Uptime Driven",
-      "stat2_val": "Cloud Expert",
-      "stat2_label": "Architecture",
-      "stat3_val": "Security First",
-      "stat3_label": "Standard",
-      "stat4_val": "10k+",
-      "stat4_label": "PRs Merged"
+      "stat1_val": "Frontend Expert",
+      "stat1_label": "Frontend",
+      "stat2_val": "Security First",
+      "stat2_label": "Standards"
     }
   },
   "projects": {
     "page": {
       "title": "Engineering Portfolio",
       "seo_description": "A showcase of my latest projects and work.",
-      "subtitle": "A curated collection of distributed systems, open-source contributions, and cloud-native architecture solutions.",
+      "subtitle": "A collection of projects and work.",
       "all": "All Projects",
-      "featured_label": "Featured Architecture",
+      "featured_label": "Featured Project",
       "view_case_study": "View",
       "source": "Source",
       "documentation": "Documentation",
@@ -105,17 +99,14 @@
     "page": {
       "title": "Technical Feed",
       "seo_description": "Blog posts and articles regarding systems architecture and engineering.",
-      "subtitle": "Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.",
+      "subtitle": "A deep dive into engineering problem-solving.",
       "all_posts": "All Posts",
       "read_more": "Read Full Article",
       "empty": "No blog posts found for this language."
     },
     "detail": {
-      "author": "Author",
-      "topics": "Topics",
-      "newsletter_title": "Stay Updated",
-      "newsletter_subtitle": "Get high-level architecture insights delivered to your inbox weekly.",
-      "newsletter_placeholder": "email@company.com"
+      "author": "Andrés Cazares",
+      "topics": "Topics"
     }
   },
   "contact": {
@@ -146,13 +137,13 @@
     },
     "page": {
       "title": "Let's build something extraordinary.",
-      "seo_description": "Get in touch for architectural consultation or project collaboration.",
-      "subtitle": "Whether you're looking for architectural consultation, a lead for your next big project, or just want to chat about tech, my inbox is always open.",
+      "seo_description": "Get in touch for a project collaboration.",
+      "subtitle": "Whether you're looking for a engineering consultation or a lead for your next big project, my inbox is always open.",
       "card_title": "Ready to talk?",
-      "card_subtitle": "Reach out directly or use the form — I respond within 24 hours.",
+      "card_subtitle": "Reach out directly to my email, any social media or use the form to tell me about your project — I respond within 24 hours.",
       "email_label": "Email",
       "location_label": "Location",
-      "location_value": "Remote Worldwide",
+      "location_value": "Remote Worldwide / México",
       "social_github": "GitHub",
       "social_linkedin": "LinkedIn"
     }

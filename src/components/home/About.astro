@@ -39,7 +39,7 @@ const t = (key: string) => getTranslation(key, lang);
 
         <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
           <FeatureItem
-            icon="psychology"
+            icon="design"
             title={t('home.about.item1_title')}
             description={t('home.about.item1_desc')}
           />
@@ -53,28 +53,13 @@ const t = (key: string) => getTranslation(key, lang);
 
       <!-- Right: Stat grid -->
       <div class="grid grid-cols-2 gap-4 lg:w-1/2">
-        <div class="space-y-4">
-          <StatCard
-            variant="primary"
-            value={t('home.about.stat1_val')}
-            label={t('home.about.stat1_label')}
-          />
-          <StatCard
-            icon="cloud_done"
-            value={t('home.about.stat2_val')}
-            label={t('home.about.stat2_label')}
-          />
-        </div>
-        <div class="space-y-4 pt-12">
-          <StatCard
-            icon="security"
-            value={t('home.about.stat3_val')}
-            label={t('home.about.stat3_label')}
-          />
+        <StatCard variant="primary" icon="design" value={t('home.about.stat1_val')} />
+        <div class="pt-12">
           <StatCard
             variant="secondary"
-            value={t('home.about.stat4_val')}
-            label={t('home.about.stat4_label')}
+            icon="security"
+            value={t('home.about.stat2_val')}
+            label={t('home.about.stat2_label')}
           />
         </div>
       </div>
