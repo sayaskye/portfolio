@@ -3,6 +3,7 @@ import BaseLayout from '@/components/layout/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import BlogCard from '@/components/blog/BlogCard.astro';
+import Icon from '@/components/ui/Icon.astro';
 import { getTranslation, getSupportedLanguages } from '@/i18n';
 import { getCollection } from 'astro:content';
 import type { SEOMetadata } from '@/lib/seo';
@@ -35,7 +36,6 @@ const supportedLanguages = getSupportedLanguages();
 
 // Categories are now standard: frontend, backend, mobile, fullstack, architecture, design
 
-
 const seo: SEOMetadata = {
   title: t('common.nav.blog'),
   description: t('blog.page.seo_description'),
@@ -51,15 +51,24 @@ const seo: SEOMetadata = {
 <BaseLayout seo={seo}>
   <Header lang={lang} />
 
-  <main class="mx-auto w-full max-w-7xl px-6 py-12">
-    <!-- Feed Title -->
-    <div class="mb-10 flex flex-col gap-4">
-      <h1 class="text-5xl font-bold tracking-tight text-(--text-primary) md:text-6xl">
-        {t('blog.page.title')}
-      </h1>
-      <p class="max-w-2xl text-lg leading-relaxed text-(--text-secondary)">
-        {t('blog.page.subtitle')}
-      </p>
+  <main class="mx-auto w-full max-w-7xl flex-1 px-2 py-8 sm:px-6 lg:px-8">
+    <!-- Breadcrumbs & Title -->
+    <div class="mb-10 flex flex-col gap-2">
+      <div class="flex items-center gap-2 text-sm text-(--text-secondary)">
+        <a class="hover:text-primary transition-colors duration-300" href={`/${lang}/`}
+          >{t('common.nav.home')}</a
+        >
+        <Icon name="chevron_right" class="size-3" />
+        <span class="text-primary font-medium">{t('common.nav.blog')}</span>
+      </div>
+      <div class="flex flex-col">
+        <h1 class="text-4xl leading-tight font-black tracking-tight text-(--text-primary)">
+          {t('blog.page.title')}
+        </h1>
+        <p class="mt-2 text-lg text-(--text-secondary)">
+          {t('blog.page.subtitle')}
+        </p>
+      </div>
     </div>
 
     <!-- Categories Filter -->

@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import { getTranslation, getSupportedLanguages } from '@/i18n';
 import { getCollection } from 'astro:content';
+import Icon from '@/components/ui/Icon.astro';
 import type { SEOMetadata } from '@/lib/seo';
 
 export async function getStaticPaths() {
@@ -57,21 +58,17 @@ const seo: SEOMetadata = {
   <Header lang={lang} langUrls={langUrls} />
 
   <main class="mx-auto w-full max-w-7xl flex-1 px-6 py-12">
-    <!-- Article Header -->
-    <nav class="mb-8 flex flex-wrap items-center gap-2 text-sm font-medium">
-      <a
-        class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
-        href={`/${lang}/`}
-      >
-        {t('common.nav.home') || 'Home'}
-      </a>
-      <span class="text-(--text-secondary) transition-colors duration-300">/</span>
-      <a
-        class="hover:text-primary text-(--text-secondary) transition-colors duration-300"
-        href={`/${lang}/blog/`}
-      >
+    <!-- Breadcrumbs -->
+    <nav
+      class="mb-8 flex items-center gap-2 text-sm text-(--text-secondary) transition-colors duration-300"
+    >
+      <a class="hover:text-primary transition-all duration-300" href={`/${lang}/blog/`}>
         {t('common.nav.blog') || 'Blog'}
       </a>
+      <Icon name="chevron_right" class="size-3" />
+      <span class="font-medium text-(--text-primary) transition-colors duration-300"
+        >{blog.data.title}</span
+      >
     </nav>
     <h1
       class="font-display mb-8 text-4xl leading-tight font-bold tracking-tight text-(--text-primary) transition-colors duration-300 md:text-5xl"
