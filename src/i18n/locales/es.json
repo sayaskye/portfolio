@@ -4,13 +4,10 @@
       "home": "Inicio",
       "projects": "Proyectos",
       "blog": "Blog",
-      "contact": "Contacto",
-      "search": "Buscar..."
+      "contact": "Contacto"
     },
     "actions": {
       "submit": "Enviar",
-      "cancel": "Cancelar",
-      "subscribe": "Suscribirse",
       "contact_me": "Contáctame"
     },
     "theme": {
@@ -27,6 +24,14 @@
       "rights": "Todos los derechos reservados.",
       "navigation": "Navegación",
       "contact": "Contacto"
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "fullstack": "Full Stack",
+      "architecture": "Arquitectura",
+      "design": "Diseño"
     }
   },
   "home": {
@@ -83,10 +88,6 @@
       "seo_description": "Una muestra de mis proyectos y trabajos más recientes.",
       "subtitle": "Una colección curada de sistemas distribuidos, contribuciones de código abierto y soluciones de arquitectura nativa de la nube.",
       "all": "Todos los Proyectos",
-      "filter_distributed": "Sistemas Distribuidos",
-      "filter_cloud": "Nativo de la Nube",
-      "filter_frontend": "Frontend",
-      "filter_data": "Ingeniería de Datos",
       "featured_label": "Arquitectura Destacada",
       "view_case_study": "Ver",
       "source": "Fuente",
@@ -106,11 +107,6 @@
       "seo_description": "Artículos y publicaciones sobre arquitectura de sistemas e ingeniería.",
       "subtitle": "Inmersiones técnicas en sistemas distribuidos, internos del kernel, infraestructura de alto rendimiento y paradigmas modernos de software.",
       "all_posts": "Todos los Posts",
-      "cat_architecture": "Arquitectura",
-      "cat_devops": "DevOps",
-      "cat_general": "Perspectivas Generales",
-      "cat_distributed": "Distribuido",
-      "cat_cloud": "Cloud",
       "read_more": "Leer Artículo Completo",
       "empty": "No se encontraron publicaciones para este idioma."
     },

@@ -7,7 +7,7 @@ featured: false
 github: https://github.com/example/portfolio-generator
 language: en
 id: portfolio-generator
-category: Frontend
+category: frontend
 ---
 
 ## Introduction

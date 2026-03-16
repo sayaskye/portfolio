@@ -5,7 +5,7 @@ publishDate: '2026-03-08'
 tags: ['Tecnología', 'Portafolio']
 language: 'es'
 id: 'first-post'
-category: General
+category: fullstack
 image:
   src: 'https://placehold.co/800x400/10B981/ffffff?text=Primer+Post'
   alt: 'Banner del primer post'

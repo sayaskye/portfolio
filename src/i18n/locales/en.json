@@ -4,13 +4,10 @@
       "home": "Home",
       "projects": "Projects",
       "blog": "Blog",
-      "contact": "Contact",
-      "search": "Search insights..."
+      "contact": "Contact"
     },
     "actions": {
       "submit": "Submit",
-      "cancel": "Cancel",
-      "subscribe": "Subscribe",
       "contact_me": "Contact Me"
     },
     "theme": {
@@ -27,6 +24,14 @@
       "rights": "All rights reserved.",
       "navigation": "Navigation",
       "contact": "Contact"
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "fullstack": "Full Stack",
+      "architecture": "Architecture",
+      "design": "Design"
     }
   },
   "home": {
@@ -83,10 +88,6 @@
       "seo_description": "A showcase of my latest projects and work.",
       "subtitle": "A curated collection of distributed systems, open-source contributions, and cloud-native architecture solutions.",
       "all": "All Projects",
-      "filter_distributed": "Distributed Systems",
-      "filter_cloud": "Cloud Native",
-      "filter_frontend": "Frontend",
-      "filter_data": "Data Engineering",
       "featured_label": "Featured Architecture",
       "view_case_study": "View",
       "source": "Source",
@@ -106,11 +107,6 @@
       "seo_description": "Blog posts and articles regarding systems architecture and engineering.",
       "subtitle": "Engineering-focused deep dives into distributed systems, kernel internals, high-performance infrastructure, and modern software paradigms.",
       "all_posts": "All Posts",
-      "cat_architecture": "Architecture",
-      "cat_devops": "DevOps",
-      "cat_general": "General Insights",
-      "cat_distributed": "Distributed",
-      "cat_cloud": "Cloud",
       "read_more": "Read Full Article",
       "empty": "No blog posts found for this language."
     },

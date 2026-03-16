@@ -9,7 +9,7 @@ image:
   alt: 'Abstract network latency visualization'
 language: en
 id: sub-ms-latency
-category: Distributed
+category: architecture
 ---
 
 ## The Latency Problem is Not a Single Problem

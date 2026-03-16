@@ -33,15 +33,8 @@ const categories = [...new Set(sortedBlogs.map((b) => b.data.category).filter(Bo
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
 
-// Normalize keys to lowercase
-// Normalize keys to lowercase for robust lookup
-const categoryLabels: Record<string, string> = {
-  architecture: 'blog.page.cat_architecture',
-  devops: 'blog.page.cat_devops',
-  general: 'blog.page.cat_general',
-  distributed: 'blog.page.cat_distributed',
-  cloud: 'blog.page.cat_cloud',
-};
+// Categories are now standard: frontend, backend, mobile, fullstack, architecture, design
+
 
 const seo: SEOMetadata = {
   title: t('common.nav.blog'),
@@ -86,7 +79,7 @@ const seo: SEOMetadata = {
             data-filter={cat}
             class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all duration-300"
           >
-            {t(categoryLabels[cat.toLowerCase()] || `blog.page.cat_${cat.toLowerCase()}`)}
+            {t(`common.categories.${cat.toLowerCase()}`)}
           </button>
         ))
       }

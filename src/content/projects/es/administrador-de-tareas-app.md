@@ -11,7 +11,7 @@ github: https://github.com/example/task-manager
 demo: https://task-manager-demo.netlify.app
 language: es
 id: task-manager
-category: Frontend
+category: fullstack
 ---
 
 ## Descripción General

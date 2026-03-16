@@ -37,7 +37,7 @@ const slug = project.slug.replace(`${lang}/`, '');
           {t('home.featured_projects.spotlight')}
         </div>
         <span class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
-          {project.data.category}
+          {t(`common.categories.${project.data.category}`)}
         </span>
       </div>
       <h3

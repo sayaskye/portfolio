@@ -38,7 +38,7 @@ const image = project.data.image;
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-3 flex flex-col gap-2">
       <span class="text-primary w-fit text-[10px] font-black tracking-widest uppercase">
-        {project.data.category}
+        {t(`common.categories.${project.data.category}`)}
       </span>
       <h3
         class="group-hover:text-primary text-xl font-bold text-(--text-primary) transition-colors duration-300"

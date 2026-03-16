@@ -11,7 +11,7 @@ github: https://github.com/example/idp-platform
 demo: https://idp-demo.example.dev
 language: en
 id: k8s-idp
-category: Cloud
+category: architecture
 ---
 
 ## Overview

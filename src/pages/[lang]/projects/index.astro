@@ -35,13 +35,8 @@ const categories = [...new Set(sortedProjects.map((p) => p.data.category).filter
 const siteUrl = import.meta.env.SITE || 'https://zares.dev';
 const supportedLanguages = getSupportedLanguages();
 
-// Map normalized category keys to translation keys
-const categoryLabels: Record<string, string> = {
-  distributed: 'projects.page.filter_distributed',
-  cloud: 'projects.page.filter_cloud',
-  frontend: 'projects.page.filter_frontend',
-  data: 'projects.page.filter_data',
-};
+// Categories are now standard: frontend, backend, mobile, fullstack, architecture, design
+
 
 const seo: SEOMetadata = {
   title: t('common.nav.projects'),
@@ -97,7 +92,7 @@ const seo: SEOMetadata = {
             data-filter={cat}
             class="filter-btn hover:border-primary flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full border border-(--border-color) bg-(--bg-secondary) px-5 text-sm font-medium text-(--text-secondary) transition-all duration-300"
           >
-            {t(categoryLabels[cat.toLowerCase()] || `projects.page.filter_${cat.toLowerCase()}`)}
+            {t(`common.categories.${cat.toLowerCase()}`)}
           </button>
         ))
       }

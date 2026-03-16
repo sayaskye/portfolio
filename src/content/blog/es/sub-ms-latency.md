@@ -9,7 +9,7 @@ image:
   alt: 'Visualización abstracta de latencia de red'
 language: es
 id: sub-ms-latency
-category: Distributed
+category: architecture
 ---
 
 ## El Problema de Latencia No Es un Único Problema

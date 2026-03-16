@@ -9,7 +9,7 @@ image:
   alt: 'Observability dashboard with metrics and traces'
 language: en
 id: observability-in-practice
-category: Cloud
+category: architecture
 ---
 
 ## The Three Pillars Are Not Enough

@@ -43,7 +43,7 @@ const slug = blog.slug.replace(`${lang}/`, '');
       {
         blog.data.category && (
           <span class="bg-primary/10 rounded-full px-2 py-0.5 text-[10px]">
-            {blog.data.category}
+            {t(`common.categories.${blog.data.category}`)}
           </span>
         )
       }
