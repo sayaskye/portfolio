@@ -36,13 +36,11 @@ const currentPath = Astro.url.pathname;
       href={`/${lang}/`}
       class="text-primary flex cursor-pointer items-center gap-4 transition-opacity duration-300 hover:opacity-80"
     >
-      <div
-        class="bg-primary/10 flex size-8 items-center justify-center rounded-lg transition-colors duration-300"
-      >
-        <Icon name="terminal" class="text-primary size-5" />
+      <div class="flex size-8 items-center justify-center transition-opacity duration-300">
+        <Icon name="logo" class="text-primary" />
       </div>
       <h2
-        class="font-display text-xl leading-tight font-bold tracking-tight text-(--text-primary) transition-colors duration-300"
+        class="font-display text-xl leading-tight font-bold tracking-tight text-(--text-primary) transition-colors duration-300 md:hidden"
       >
         {t('common.footer.brand')}
       </h2>
