@@ -7,7 +7,7 @@ language: 'en'
 id: 'backend-auth-security'
 category: backend
 image:
-  src: 'https://placehold.co/800x400/0f172a/ffffff?text=Auth+Security+Architecture'
+  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Auth+Security+Architecture'
   alt: 'Security layer diagram showing Token Rotation'
 ---
 

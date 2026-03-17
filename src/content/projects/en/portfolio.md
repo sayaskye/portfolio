@@ -5,7 +5,7 @@ publishDate: 2026-03-02
 tags: [Astro, TypeScript, Tailwind CSS, View Transitions, i18n]
 featured: false
 image:
-  src: 'https://placehold.co/800x450/0f172a/3865a1?text=Portfolio+Architecture'
+  src: 'https://placehold.co/800x450/599DC2/ffffff?text=Portfolio+Architecture'
   alt: 'Portfolio design preview'
 github: https://github.com/sayaskye/portfolio
 demo: https://zares.dev

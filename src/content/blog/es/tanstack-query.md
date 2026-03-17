@@ -7,7 +7,7 @@ language: 'es'
 id: 'tanstack-query-deep-dive'
 category: frontend
 image:
-  src: 'https://placehold.co/800x400/0891b2/ffffff?text=Arquitectura+TanStack+Query'
+  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Arquitectura+TanStack+Query'
   alt: 'Visualización de Caché y Sincronización'
 ---
 

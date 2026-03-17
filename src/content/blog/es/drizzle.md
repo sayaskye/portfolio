@@ -7,7 +7,7 @@ language: 'es'
 id: 'data-layer-drizzle-zod'
 category: backend
 image:
-  src: 'https://placehold.co/800x400/C5F146/000000?text=Drizzle+ORM+y+Zod'
+  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Drizzle+ORM+y+Zod'
   alt: 'Visualización de esquema de base de datos y lógica de validación'
 ---
 

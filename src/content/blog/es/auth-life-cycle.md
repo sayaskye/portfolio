@@ -7,7 +7,7 @@ language: 'es'
 id: 'backend-auth-security'
 category: backend
 image:
-  src: 'https://placehold.co/800x400/0f172a/ffffff?text=Arquitectura+de+Seguridad+Auth'
+  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Arquitectura+de+Seguridad+Auth'
   alt: 'Diagrama de capa de seguridad mostrando rotación de tokens'
 ---
 

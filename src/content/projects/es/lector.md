@@ -5,7 +5,7 @@ publishDate: 2026-02-02
 tags: [Bun, Hono, React, TanStack Query, IndexedDB, Service Workers, TypeScript]
 featured: true
 image:
-  src: 'https://placehold.co/800x450/0f172a/3865a1?text=Arquitectura+EPUB'
+  src: 'https://placehold.co/800x450/599DC2/ffffff?text=Arquitectura+EPUB'
   alt: 'Interfaz de la aplicación de lectura'
 github: https://github.com/sayaskye/Reader-Frontend
 demo: https://saya-reader.netlify.app/
