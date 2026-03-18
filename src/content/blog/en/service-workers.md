@@ -7,7 +7,7 @@ language: 'en'
 id: 'service-worker-interception'
 category: frontend
 image:
-  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Service+Worker+Interception'
+  src: 'https://cozufpnpwuuvgyvjtqlk.supabase.co/storage/v1/object/public/portfolio/sw.webp'
   alt: 'Diagram of a Service Worker intercepting network requests'
 ---
 

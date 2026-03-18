@@ -7,7 +7,7 @@ language: 'en'
 id: 'data-layer-drizzle-zod'
 category: backend
 image:
-  src: 'https://placehold.co/800x400/599DC2/ffffff?text=Drizzle+ORM+and+Zod'
+  src: 'https://cozufpnpwuuvgyvjtqlk.supabase.co/storage/v1/object/public/portfolio/drizzle.webp'
   alt: 'Database schema and validation logic visualization'
 ---
 

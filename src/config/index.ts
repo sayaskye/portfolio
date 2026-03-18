@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   formspreeId: import.meta.env.PUBLIC_FORMSPREE_ID,
   cvUrls: {
-    en: 'https://placeholder.com/en-cv.pdf',
-    es: 'https://placeholder.com/es-cv.pdf',
+    en: 'https://cozufpnpwuuvgyvjtqlk.supabase.co/storage/v1/object/public/portfolio/AndresCazares_CV_EN.pdf',
+    es: 'https://cozufpnpwuuvgyvjtqlk.supabase.co/storage/v1/object/public/portfolio/AndresCazares_CV_ES.pdf',
   },
   socials: {
     github: 'https://github.com/sayaskye',
