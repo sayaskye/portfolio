@@ -56,7 +56,12 @@ const processedExperience = await Promise.all(
         <div class="flex flex-col gap-12" id="experience-timeline">
           {
             processedExperience.map(({ item, Content }, idx) => (
-              <div class:list={['experience-item transition-all duration-500', idx >= 2 && 'hidden opacity-0 translate-y-4']}>
+              <div
+                class:list={[
+                  'experience-item transition-all duration-500',
+                  idx >= 2 && 'hidden translate-y-4 opacity-0',
+                ]}
+              >
                 <Milestone
                   date={item.data.displayDate}
                   role={item.data.role}
@@ -78,10 +83,13 @@ const processedExperience = await Promise.all(
                 id="toggle-experience"
                 data-text-more={t('home.experience.view_all')}
                 data-text-less={t('home.experience.view_less')}
-                class="bg-primary/10 text-primary hover:bg-primary hover:text-on-primary group flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold transition-all duration-300"
+                class="bg-primary/10 text-primary hover:bg-primary hover:text-on-primary group flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-3 font-bold transition-all duration-300"
               >
                 <span id="toggle-text">{t('home.experience.view_all')}</span>
-                <Icon name="arrow_forward" class="toggle-icon size-5 transition-transform duration-300" />
+                <Icon
+                  name="arrow_forward"
+                  class="toggle-icon size-5 transition-transform duration-300"
+                />
               </button>
             </div>
           )
@@ -96,7 +104,7 @@ const processedExperience = await Promise.all(
           const items = document.querySelectorAll('.experience-item');
           const text = document.getElementById('toggle-text');
           const icon = btn.querySelector('.toggle-icon');
-          
+
           const textMore = btn.getAttribute('data-text-more');
           const textLess = btn.getAttribute('data-text-less');
 
