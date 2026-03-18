@@ -5,6 +5,8 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
 import Icon from '../ui/Icon.astro';
 import MobileMenu from './MobileMenu.astro';
 
+import { SITE_CONFIG, type SupportedLanguage } from '@/config';
+
 interface Props {
   lang: string;
   langUrls?: Record<string, string>;
@@ -22,6 +24,8 @@ const navLinks = [
   { href: `/${lang}/blog/`, label: t('common.nav.blog') || 'Blog' },
   { href: `/${lang}/contact/`, label: t('common.nav.contact') },
 ];
+
+const currentCvUrl = SITE_CONFIG.cvUrls[lang as SupportedLanguage] || SITE_CONFIG.cvUrls.en;
 
 // Get current path for active link styling
 const currentPath = Astro.url.pathname;
@@ -68,6 +72,16 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <div class="flex flex-1 items-center justify-end gap-3 md:gap-6">
+    <a
+      href={currentCvUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      download
+      class="bg-primary/10 hover:bg-primary/20 text-primary border-primary/20 hidden cursor-pointer items-center gap-2 rounded-lg border border-solid px-4 py-2 text-sm font-bold transition-all duration-300 md:flex"
+    >
+      <Icon name="download" class="size-4" />
+      {t('common.nav.download_cv')}
+    </a>
     <div class="flex items-center gap-1 md:gap-3">
       <!-- Desktop selectors -->
       <div class="hidden items-center gap-3 md:flex">
@@ -96,4 +110,10 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
-<MobileMenu lang={lang} navLinks={navLinks} currentPath={currentPath} langUrls={langUrls} />
+<MobileMenu
+  lang={lang}
+  navLinks={navLinks}
+  currentPath={currentPath}
+  langUrls={langUrls}
+  cvUrl={currentCvUrl}
+/>

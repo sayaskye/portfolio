@@ -1,6 +1,7 @@
 ---
 import { getTranslation } from '@/i18n';
 import Icon from './Icon.astro';
+import { SITE_CONFIG } from '@/config';
 
 interface Props {
   lang: string;
@@ -13,12 +14,12 @@ const t = (key: string) => getTranslation(key, lang);
 const socialLinks = [
   {
     name: 'github',
-    href: 'https://github.com/sayaskye',
+    href: SITE_CONFIG.socials.github,
     ariaLabel: t('contact.page.social_github'),
   },
   {
     name: 'linkedin',
-    href: 'https://linkedin.com/in/andres-cazares-web',
+    href: SITE_CONFIG.socials.linkedin,
     ariaLabel: t('contact.page.social_linkedin'),
   },
 ];

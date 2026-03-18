@@ -2,6 +2,7 @@
 import { getTranslation } from '@/i18n';
 import SocialLinks from '../ui/SocialLinks.astro';
 import Icon from '../ui/Icon.astro';
+import { SITE_CONFIG } from '@/config';
 
 interface Props {
   lang: string;
@@ -22,7 +23,7 @@ const t = (key: string) => getTranslation(key, lang);
   <div class="space-y-6">
     <a
       class="hover:text-primary flex cursor-pointer items-center gap-4 text-(--text-primary) transition-colors"
-      href="mailto:zaresdev@gmail.com"
+      href={`mailto:${SITE_CONFIG.site.email}`}
     >
       <div
         class="text-primary flex h-12 w-12 items-center justify-center rounded-full border border-(--border-color) bg-(--bg-primary)"
@@ -33,7 +34,7 @@ const t = (key: string) => getTranslation(key, lang);
         <p class="text-xs font-bold tracking-widest text-(--text-secondary) uppercase">
           {t('contact.page.email_label')}
         </p>
-        <p class="font-medium text-(--text-primary)">zaresdev@gmail.com</p>
+        <p class="font-medium text-(--text-primary)">{SITE_CONFIG.site.email}</p>
       </div>
     </a>
 

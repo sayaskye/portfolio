@@ -4,7 +4,8 @@
       "home": "Home",
       "projects": "Projects",
       "blog": "Blog",
-      "contact": "Contact"
+      "contact": "Contact",
+      "download_cv": "Download CV"
     },
     "actions": {
       "submit": "Submit",

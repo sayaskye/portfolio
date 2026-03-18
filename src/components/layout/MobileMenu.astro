@@ -2,15 +2,17 @@
 import { getTranslation } from '@/i18n';
 import LanguageSelector from '../ui/LanguageSelector.astro';
 import ThemeToggle from '../ui/ThemeToggle.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   lang: string;
   navLinks: { href: string; label: string }[];
   currentPath: string;
   langUrls?: Record<string, string>;
+  cvUrl?: string;
 }
 
-const { lang, navLinks, currentPath, langUrls } = Astro.props;
+const { lang, navLinks, currentPath, langUrls, cvUrl } = Astro.props;
 const t = (key: string) => getTranslation(key, lang);
 ---
 
@@ -20,7 +22,7 @@ const t = (key: string) => getTranslation(key, lang);
   class="fixed inset-0 z-40 translate-x-full bg-(--bg-primary)/95 p-6 backdrop-blur-2xl transition-transform duration-300 ease-in-out md:hidden"
 >
   <div class="mt-20 flex flex-col gap-6">
-    <nav class="flex flex-col gap-4 border-b border-(--border-color) pb-8">
+    <nav class="flex flex-col gap-4 border-b border-(--border-color)">
       {
         navLinks.map((link) => {
           const isActive =
@@ -38,6 +40,22 @@ const t = (key: string) => getTranslation(key, lang);
           );
         })
       }
+      <div class="border-t border-(--border-color) py-4">
+        {
+          cvUrl && (
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              class="text-primary mt-2 flex items-center gap-2 text-lg font-bold transition-colors duration-300"
+            >
+              <Icon name="download" class="size-5" />
+              {t('common.nav.download_cv')}
+            </a>
+          )
+        }
+      </div>
     </nav>
 
     <div class="flex flex-col gap-8">

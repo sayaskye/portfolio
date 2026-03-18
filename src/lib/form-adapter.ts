@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from '@/config';
+
 export interface FormSubmission {
   name: string;
   email: string;
@@ -54,9 +56,9 @@ class FormspreeAdapter implements FormAdapter {
 }
 
 export function createFormAdapter(): FormAdapter {
-  const formId = 'meqvqpka';
+  const formId = SITE_CONFIG.formspreeId;
   if (!formId) {
-    throw new Error('PUBLIC_FORMSPREE_ID environment variable is required');
+    throw new Error('Formspree ID is missing in SITE_CONFIG');
   }
   return new FormspreeAdapter(formId);
 }
