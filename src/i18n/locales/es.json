@@ -150,5 +150,12 @@
       "social_github": "GitHub",
       "social_linkedin": "LinkedIn"
     }
+  },
+  "error": {
+    "404": {
+      "title": "Página no encontrada",
+      "subtitle": "La página que buscas ha sido movida o no existe.",
+      "go_home": "Ir al inicio"
+    }
   }
 }

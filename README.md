@@ -1,43 +1,77 @@
-# Astro Starter Kit: Minimal
+# Personal Portfolio & Blog
 
-```sh
-bun create astro@latest -- --template minimal
-```
+A high-performance, SEO-optimized personal portfolio and blog built with Astro 5 and Tailwind CSS 4. This project features a modern, accessible, and ultra-fast web experience with a focus on visual excellence and smooth interactions.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Key Features
 
-## 🚀 Project Structure
+- **Fast Performance:** Leverages Astro's static site generation (SSG) for near-instant load times and perfect Lighthouse scores.
+- **Dark/Light Mode:** Seamless theme switching with persistent user preference and flash prevention.
+- **Internationalization (i18n):** Native multi-language support (English & Spanish) with dynamic routing and custom translation engine.
+- **Smooth Transitions:** Implements Astro View Transitions for a seamless feel between page navigations.
+- **Content Collections:** Type-safe management of projects, blog posts, and work experience using Astro's Content Collections API.
+- **Modern Styling:** Built with Tailwind CSS 4.0, utilizing native CSS variables, container queries, and modern typography.
+- **SEO Optimized:** Automated metadata generation, canonical URLs, alternate language links, and sitemap/robots.txt support.
+- **Integrated Contact Form:** Functional contact form powered by Formspree with full internationalization.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Tech Stack
 
-```text
+- **Framework:** Astro 5
+- **Styling:** Tailwind CSS 4 + @tailwindcss/typography
+- **Runtime & Package Manager:** Bun
+- **Content:** Markdown & MDX with Astro Content Collections
+- **Icons:** Google Material Symbols
+- **Fonts:** Inter & Outfit (via Google Fonts)
+
+## Project Structure
+
+```bash
 /
-├── public/
+├── .vscode/          # VS Code configuration
+├── public/           # Static assets (fonts, icons, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/       # Optimized images & design assets
+│   ├── components/   # Reusable Astro components
+│   │   ├── home/     # Section-specific components
+│   │   ├── layout/   # Core page structure components (Header, Footer, etc.)
+│   │   └── ui/       # Foundational UI elements (Buttons, Cards, etc.)
+│   ├── config/       # Global constants & external links
+│   ├── content/      # Markdown data (blog, projects, experience)
+│   ├── i18n/         # Custom translation logic & locales
+│   ├── lib/          # Utilities, SEO helpers & shared logic
+│   ├── pages/        # File-based routing (index redirects to [lang])
+│   ├── styles/       # Global CSS & Tailwind configuration
+│   └── types/        # Global TypeScript interfaces
+└── astro.config.mjs  # Astro configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. **Install dependencies:**
 
-Any static assets, like images, can be placed in the `public/` directory.
+   ```bash
+   bun install
+   ```
 
-## 🧞 Commands
+2. **Configure Environment Variables:**
+   Create a `.env` file in the root directory:
 
-All commands are run from the root of the project, from a terminal:
+   ```env
+   PUBLIC_FORMSPREE_ID=your_id
+   ```
 
-| Command               | Action                                           |
-| :-------------------- | :----------------------------------------------- |
-| `bun install`         | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+3. **Start the development server:**
+   ```bash
+   bun dev
+   ```
+   Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-## 👀 Want to learn more?
+## Commands
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command           | Action                             |
+| :---------------- | :--------------------------------- |
+| `bun dev`         | Start development server           |
+| `bun build`       | Build for production               |
+| `bun preview`     | Preview production build locally   |
+| `bun astro check` | Run type & component health checks |
+| `bun run lint`    | Run ESLint check                   |
+| `bun run format`  | Format code with Prettier          |

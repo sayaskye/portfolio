@@ -1,0 +1,95 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Button from '@/components/ui/Button.astro';
+import { getTranslation, getSupportedLanguages } from '@/i18n';
+import type { SEOMetadata } from '@/lib/seo';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const languages = getSupportedLanguages();
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+};
+
+const { lang } = Astro.params;
+const t = (key: string) => getTranslation(key, lang as string);
+
+const seo: SEOMetadata = {
+  title: `404 - ${t('error.404.title')}`,
+  description: t('error.404.subtitle'),
+  canonical: `${import.meta.env.SITE || 'https://zares.dev'}/${lang}/404/`,
+  lang: lang as string,
+};
+---
+
+<BaseLayout seo={seo}>
+  <Header lang={lang as string} />
+
+  <main
+    id="main-content"
+    class="relative flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 text-center"
+  >
+    <!-- Background Decor -->
+    <div
+      class="bg-primary/5 absolute top-1/2 left-1/2 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="group relative z-10 transition-transform duration-500 hover:scale-105">
+      <h1 class="font-display text-[12rem] leading-none font-black tracking-tighter text-primary opacity-10 select-none transition-all duration-700 md:text-[16rem]">
+        404
+      </h1>
+      <div class="absolute inset-x-0 bottom-4 flex flex-col items-center justify-center md:bottom-8">
+        <h2 class="font-display text-4xl leading-tight font-bold tracking-tight text-(--text-primary) md:text-5xl">
+          {t('error.404.title')}
+        </h2>
+      </div>
+    </div>
+
+    <p class="text-secondary relative z-10 mx-auto mt-6 max-w-md text-lg leading-relaxed md:text-xl">
+      {t('error.404.subtitle')}
+    </p>
+
+          <div class="relative z-10 mt-12 flex flex-col gap-4 sm:flex-row">
+            <a href={`/${lang}/`} class="inline-block transition-transform active:scale-95">
+              <Button
+                variant="primary"
+                size="lg"
+                class="shadow-primary/20 min-w-40 shadow-xl transition-all hover:shadow-2xl"
+              >
+                {t('error.404.go_home')}
+              </Button>
+            </a>
+
+            <a
+              href={`/${lang}/contact/`}
+              class="inline-block px-6 py-3 font-medium transition-all rounded-lg text-(--text-secondary) hover:text-(--text-primary) active:scale-95"
+            >
+              {t('common.actions.contact_me')}
+            </a>
+          </div>
+
+    <!-- Interactive Element -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+        <div class="absolute top-1/4 left-1/4 size-2 rounded-full bg-primary animate-pulse"></div>
+        <div class="absolute top-3/4 right-1/3 size-3 rounded-full bg-secondary animate-pulse delay-700"></div>
+        <div class="absolute bottom-1/4 left-1/2 size-1 rounded-full bg-(--text-muted) animate-pulse delay-1000"></div>
+    </div>
+  </main>
+
+  <Footer lang={lang as string} />
+</BaseLayout>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  h1 {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>

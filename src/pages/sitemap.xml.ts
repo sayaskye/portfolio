@@ -1,20 +1,22 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { getSupportedLanguages } from '@/i18n';
 
 const SITE_URL = import.meta.env.SITE || 'https://zares.dev';
 
 export const GET: APIRoute = async () => {
   const projects = await getCollection('projects');
   const blogs = await getCollection('blog');
+  const languages = getSupportedLanguages();
 
   // Base URLs for all supported languages
-  const baseUrls = ['en', 'es'].map((lang) => `${SITE_URL}/${lang}/`);
+  const baseUrls = languages.map((lang) => `${SITE_URL}/${lang}/`);
 
   // Project index URLs
-  const projectsIndexUrls = ['en', 'es'].map((lang) => `${SITE_URL}/${lang}/projects/`);
+  const projectsIndexUrls = languages.map((lang) => `${SITE_URL}/${lang}/projects/`);
 
   // Blog index URLs
-  const blogIndexUrls = ['en', 'es'].map((lang) => `${SITE_URL}/${lang}/blog/`);
+  const blogIndexUrls = languages.map((lang) => `${SITE_URL}/${lang}/blog/`);
 
   // Project URLs
   const projectUrls = projects.map((project) => {
@@ -47,7 +49,7 @@ export const GET: APIRoute = async () => {
       <loc>${url}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
       <changefreq>weekly</changefreq>
-      <priority>${url === SITE_URL + '/en/' || url === SITE_URL + '/es/' ? '1.0' : '0.8'}</priority>
+      <priority>${languages.some((lang) => url === `${SITE_URL}/${lang}/`) ? '1.0' : '0.8'}</priority>
     </url>
   `
     )

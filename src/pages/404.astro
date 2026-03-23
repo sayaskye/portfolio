@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Button from '@/components/ui/Button.astro';
+import { getTranslation, getSupportedLanguages, getDefaultLanguage } from '@/i18n';
+import type { SEOMetadata } from '@/lib/seo';
+
+const supportedLangs = getSupportedLanguages();
+const defaultLang = getDefaultLanguage();
+
+const seo: SEOMetadata = {
+  title: '404 - Page Not Found',
+  description: 'The page you are looking for has been moved or does not exist.',
+  canonical: `${import.meta.env.SITE || 'https://zares.dev'}/404/`,
+  lang: defaultLang,
+};
+---
+
+<BaseLayout seo={seo}>
+  {
+    supportedLangs.map((lang) => (
+      <div id={`404-container-${lang}`} class="not-found-container hidden">
+        <Header lang={lang} />
+
+        <main class="relative flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 text-center">
+          <div class="bg-primary/5 absolute top-1/2 left-1/2 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
+
+          <div class="group relative z-10 transition-transform duration-500 hover:scale-105">
+            <h1 class="font-display text-primary text-[12rem] leading-none font-black tracking-tighter opacity-10 transition-all duration-700 select-none md:text-[16rem]">
+              404
+            </h1>
+            <div class="absolute inset-x-0 bottom-4 flex flex-col items-center justify-center md:bottom-8">
+              <h2 class="font-display text-4xl leading-tight font-bold tracking-tight text-(--text-primary) md:text-5xl">
+                {getTranslation('error.404.title', lang)}
+              </h2>
+            </div>
+          </div>
+
+          <p class="text-secondary relative z-10 mx-auto mt-6 max-w-md text-lg leading-relaxed md:text-xl">
+            {getTranslation('error.404.subtitle', lang)}
+          </p>
+
+          <div class="relative z-10 mt-12 flex flex-col gap-4 sm:flex-row">
+            <a href={`/${lang}/`} class="inline-block transition-transform active:scale-95">
+              <Button
+                variant="primary"
+                size="lg"
+                class="shadow-primary/20 min-w-40 shadow-xl transition-all hover:shadow-2xl"
+              >
+                {getTranslation('error.404.go_home', lang)}
+              </Button>
+            </a>
+
+            <a
+              href={`/${lang}/contact/`}
+              class="inline-block rounded-lg px-6 py-3 font-medium text-(--text-secondary) transition-all hover:text-(--text-primary) active:scale-95"
+            >
+              {getTranslation('common.actions.contact_me', lang)}
+            </a>
+          </div>
+
+          <div class="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
+            <div class="bg-primary absolute top-1/4 left-1/4 size-2 animate-pulse rounded-full" />
+            <div class="bg-secondary absolute top-3/4 right-1/3 size-3 animate-pulse rounded-full delay-700" />
+            <div class="absolute bottom-1/4 left-1/2 size-1 animate-pulse rounded-full bg-(--text-muted) delay-1000" />
+          </div>
+        </main>
+
+        <Footer lang={lang} />
+      </div>
+    ))
+  }
+</BaseLayout>
+
+<script define:vars={{ supportedLangs, defaultLang }}>
+  function update404Language() {
+    const path = window.location.pathname;
+    const parts = path.split('/').filter(Boolean);
+
+    let lang = supportedLangs.includes(parts[0]) ? parts[0] : null;
+
+    if (!lang && typeof localStorage !== 'undefined') {
+      lang = localStorage.getItem('preferred-language');
+    }
+
+    lang = lang || defaultLang;
+
+    const activeContainer = document.getElementById(`404-container-${lang}`);
+    if (activeContainer) {
+      activeContainer.classList.remove('hidden');
+    }
+  }
+
+  // Initial update
+  update404Language();
+
+  // Re-run on View Transitions
+  document.addEventListener('astro:after-swap', update404Language);
+</script>
+
+<style>
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  h1 {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>
